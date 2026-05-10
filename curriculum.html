@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
 <!-- KaTeX -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
 
 <link rel="stylesheet" href="assets/style.css">
 </head>
@@ -33,16 +33,6 @@
     <p class="hero__meta">메인 MML · 보조 Strang · 시각 EoLA · 실습 Jupyter / NumPy / PyTorch</p>
   </section>
 
-  <section class="section" id="loadGuide">
-    <h2>학습 부담 가이드</h2>
-    <ul>
-      <li>매 주 강의 100분 + 과제 4-6시간 + reading 2-3시간 = <strong>주당 약 8-10시간</strong></li>
-      <li>시험 직전 주: +5-10시간</li>
-      <li>Part 2 텀 프로젝트(W12-W16): 추가 20-30시간</li>
-      <li>학기 총 부하: Part 1 약 150시간, Part 2 약 180시간 (대학원 3-4학점 표준)</li>
-    </ul>
-  </section>
-
   <!-- Part 1 -->
   <section class="section" id="part1">
     <div class="part-header">
@@ -59,7 +49,7 @@
       <li><strong>W16</strong> 기말</li>
     </ul>
 
-    <p><strong>왜 행렬식이 W15(맨 끝)에 있나</strong>: 학부 선대에서는 보통 행렬식을 일찍 다루지만, 본 커리큘럼은 AI 활용도가 낮다고 판단하여 후순위로 배치했다. AI 모듈에서 행렬식이 직접 등장하는 경우는 거의 없다 — 가역성 판정은 SVD(Part 2 W5)의 0 아닌 특이값 개수로, 부피는 직접 측정으로 처리된다. 다만 면접·시험·다른 강의 대응을 위해 W4 역행렬에서 2×2·3×3 행렬식의 짧은 미리보기를 넣고, W15에서 일반 정의·성질·부피 해석으로 완성한다.</p>
+    <p><strong>왜 행렬식이 W15(맨 끝)에 있나</strong>: 학부 선대에서는 보통 행렬식을 일찍 다루지만, 본 커리큘럼은 AI 활용도가 낮다고 판단하여 후순위로 배치하였습니다. AI 모듈에서 행렬식이 직접 등장하는 경우는 거의 없습니다 — 가역성 판정은 SVD(Part 2 W5)의 0 아닌 특이값 개수로, 부피는 직접 측정으로 처리됩니다. 다만 면접·시험·다른 강의 대응을 위해 W4 역행렬에서 2×2·3×3 행렬식의 짧은 미리보기를 넣고, W15에서 일반 정의·성질·부피 해석으로 완성합니다.</p>
 
     <h3>주차표</h3>
     <div class="table-wrap">
@@ -128,7 +118,7 @@
       <li><strong>W16</strong> 기말·텀 프로젝트 발표</li>
     </ul>
 
-    <p><strong>왜 W9-W11이 SVD 다음에 오나</strong>: W5-W7에서 SVD·PCA를 배우면 "끝났다"는 인상을 주지만, 실제 신경망 분해(W12-W14)에는 세 도구가 더 필요하다 — (1) W9 수치LA: SVD의 조건수가 fp16에서 깨지는 이유, (2) W10 확률통계LA: SVD를 데이터 공분산에 적용하면 PCA·화이트닝, (3) W11 선형변환 일반: 분해를 좌표계 독립적·임의 텐서로 일반화. 이 셋이 W12 행렬미분·W13 Kronecker곱·W14 토플리츠 환원의 동기를 만든다.</p>
+    <p><strong>왜 W9-W11이 SVD 다음에 오나</strong>: W5-W7에서 SVD·PCA를 배우면 "끝났다"는 인상을 주지만, 실제 신경망 분해(W12-W14)에는 세 도구가 더 필요합니다 — (1) W9 수치LA: SVD의 조건수가 fp16에서 깨지는 이유, (2) W10 확률통계LA: SVD를 데이터 공분산에 적용하면 PCA·화이트닝, (3) W11 선형변환 일반: 분해를 좌표계 독립적·임의 텐서로 일반화. 이 셋이 W12 행렬미분·W13 Kronecker곱·W14 토플리츠 환원의 동기를 만듭니다.</p>
 
     <h3>주차표</h3>
     <div class="table-wrap">
@@ -180,7 +170,7 @@
     </div>
 
     <h3>텀 프로젝트 — 모델 분해 보고서</h3>
-    <p>W9 시점에 주제 확정, W16 발표. 학생은 다음 5단계를 수행한다.</p>
+    <p>W9 시점에 주제 확정, W16 발표. 학생은 다음 5단계를 수행합니다.</p>
     <ol>
       <li>임의의 공개된 AI 모델(Vision Transformer, GPT-mini, U-Net 등) 한 모듈을 선택</li>
       <li>그 모듈의 모든 텐서 연산을 표준 선형대수 객체(행렬곱, 정사영, 고유분해, SVD, Kronecker곱 등)로 환원</li>
@@ -193,7 +183,7 @@
   <!-- Self-check -->
   <section class="section" id="selfCheck">
     <h2>학생 자가진단 체크리스트</h2>
-    <p>매 주차 강의 직후 또는 과제 제출 전에 다음 질문에 답할 수 있는지 점검한다. 답할 수 없는 항목이 있으면 시험·프로젝트에서 막힐 신호이므로 해당 주차 자료(MML/Strang/EoLA)를 다시 본다.</p>
+    <p>매 주차 강의 직후 또는 과제 제출 전에 다음 질문에 답할 수 있는지 점검하시기 바랍니다. 답할 수 없는 항목이 있으면 시험·프로젝트에서 막힐 신호이므로 해당 주차 자료(MML/Strang/EoLA)를 다시 보시기 바랍니다.</p>
 
     <h3>Part 1 (W1-W15)</h3>
 
@@ -398,7 +388,7 @@
 </footer>
 
 <!-- KaTeX -->
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFB" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous" onload="renderMathInElement(document.body, {delimiters: [{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}], throwOnError: false});"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}], throwOnError: false});"></script>
 </body>
 </html>
