@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>진단 테스트 — 인공지능 전공자를 위한 선형대수학</title>
+<meta name="description" content="20문제 4지선다 진단 테스트로 6축 선형대수 역량을 측정한다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- KaTeX -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__brand" href="index.html">선형대수학 · AI 전공자용</a>
+    <nav class="site-header__nav" aria-label="주 메뉴">
+      <a href="index.html">소개</a>
+      <a href="curriculum.html">진도표</a>
+      <a href="diagnostic.html" class="is-active">진단</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <h1 class="hero__title">진단 테스트</h1>
+    <p class="hero__subtitle">20문제 4지선다 · 6축(벡터·내적 / 행렬연산 / 부분공간·계수 / 직교성·정사영 / 분해·고윳값 / AI 응용·코딩) 매핑</p>
+    <p class="hero__meta">예상 소요 시간 약 15-25분 · 모든 문항에 답하면 결과(레이더 차트 + case 분석)가 표시됩니다.</p>
+  </section>
+
+  <!-- Quiz section -->
+  <section class="section" id="quizSection">
+    <div class="diag-progress" aria-live="polite">
+      <span id="diagProgressLabel">1 / 20</span>
+    </div>
+    <div class="diag-progress-bar" aria-hidden="true">
+      <div class="diag-progress-bar__fill" id="diagProgressFill"></div>
+    </div>
+
+    <div id="diagQuestion"></div>
+
+    <div class="diag-nav">
+      <button class="btn btn--ghost" id="btnPrev" type="button">← 이전</button>
+      <button class="btn" id="btnNext" type="button">다음 →</button>
+      <button class="btn" id="btnSubmit" type="button" style="display:none;">결과 보기</button>
+    </div>
+
+    <p class="notice">
+      본 진단 테스트 응답은 익명으로 강사에게 전달되어 강의 개선에 활용됩니다.
+      학생 식별 정보는 수집·저장되지 않습니다.
+    </p>
+  </section>
+
+  <!-- Result section -->
+  <section class="section" id="resultSection" hidden>
+    <div id="resultCapture">
+      <div class="result-card">
+        <div class="result-headline" id="resultHeadline"></div>
+        <div>
+          <span class="result-score" id="resultScoreValue">0.0</span>
+          <span class="result-score__label">/ 100점 (총점) · <span id="resultCaseTag"></span></span>
+        </div>
+      </div>
+
+      <h3>6축 점수</h3>
+      <div class="result-chart-wrap">
+        <canvas id="radarChart" aria-label="6축 레이더 차트"></canvas>
+      </div>
+      <ul class="axis-list" id="axisList"></ul>
+
+      <h3>분석 안내</h3>
+      <div id="resultBody"></div>
+    </div>
+
+    <div class="result-actions">
+      <button class="btn" id="btnDownloadPNG" type="button">PNG 다운로드</button>
+      <button class="btn btn--ghost" id="btnDownloadPDF" type="button">PDF 다운로드</button>
+      <button class="btn btn--ghost" id="btnReset" type="button">다시 응시</button>
+    </div>
+
+    <p class="notice">
+      본 진단 테스트 응답은 익명으로 강사에게 전달되어 강의 개선에 활용됩니다.
+      학생 식별 정보는 수집·저장되지 않습니다.
+    </p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>© SW AI 융합정보대학원 61기 최경찬 · MIT License</span>
+    <span><a href="index.html">강좌 소개로 돌아가기</a></span>
+  </div>
+</footer>
+
+<!-- Libraries (load order matters) -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFB" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js"></script>
+<script defer src="assets/diagnostic.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+# Worker dependencies (deploy via wrangler, not git)
+worker/node_modules/
+worker/.wrangler/
+worker/.dev.vars
+
+# Worker package metadata (not needed in repo)
+worker/package-lock.json
+
+# OS / editor
+.DS_Store
+*.swp
+.vscode/
+.idea/
+
+# Empty placeholder
+pages/.keep
+
+# Logs
+*.log
