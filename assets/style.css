@@ -19,9 +19,9 @@ button { font: inherit; cursor: pointer; }
   --bg-alt: #f8f9fb;
   --text: #1f2937;
   --text-muted: #6b7280;
-  --accent: #4338ca;
-  --accent-hover: #3730a3;
-  --accent-soft: #eef2ff;
+  --accent: #dc143c;
+  --accent-hover: #a91229;
+  --accent-soft: #fce8ec;
   --border: #e5e7eb;
   --border-strong: #d1d5db;
   --code-bg: #f3f4f6;
