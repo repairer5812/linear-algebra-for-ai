@@ -36,11 +36,11 @@
   <!-- Part 1 -->
   <section class="section" id="part1">
     <div class="part-header">
-      <h2>Part 1 (16주) — 표준 학부 한 학기 분량</h2>
+      <h2>Part 1 (16주) — 학부 한 Part 분량</h2>
       <p>Vector(벡터), Matrix(행렬), 선형방정식, 벡터공간, Subspace(부분공간), Orthogonal projection(정사영), Determinant(행렬식)의 정의·정리 진술 + 행렬을 선형사상으로 다루는 관점 체화 + $Ax=b$ 의 해 존재·유일성을 네 가지 기본 부분공간으로 판별 + NumPy로 가우스 소거·LU<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(LU Decomposition, LU 분해)</small>·그람-슈미트·Normal equation(정규방정식)·행렬식 구현.</p>
     </div>
 
-    <h3>학기 흐름</h3>
+    <h3>Part 흐름</h3>
     <ul class="flow-list">
       <li><strong>W1-W5</strong> 벡터·행렬·선형방정식 — "AI의 모든 것은 $Ax=b$에서 시작한다"</li>
       <li><strong>W6-W10</strong> 벡터공간·부분공간 — "$Ax=b$의 해 존재·유일성을 4 부분공간으로 판별"</li>
@@ -73,7 +73,7 @@
         <tr><td><strong>5</strong></td><td>§2.3.3</td><td>§2.6, §2.7</td><td>(보충)</td><td>$LU$ 분해, 전치, 순열행렬</td><td>다중 우변 선형시스템, 수치 라이브러리 내부 구조</td><td><code>scipy.linalg.lu</code>로 분해 후 전·후방 대입으로 해, <code>solve</code> 결과와 비교</td></tr>
         <tr><td><strong>6</strong></td><td>§2.4</td><td>§3.1, §3.2</td><td>Ch.6, Ch.7</td><td>벡터공간, 부분공간, 영공간 $N(A)$, $Ax=0$ 의 해집합</td><td>신경망의 죽은 뉴런, 압축 손실 표현, 오토인코더 잠재공간 차원</td><td>임의 행렬에 <code>scipy.linalg.null_space</code> 적용해 영공간 기저 구하고 $Ax=0$ 검증</td></tr>
         <tr><td><strong>7</strong></td><td>§2.5</td><td>§3.3, §3.4</td><td>Ch.7</td><td>행공간, 열공간, 계수, $Ax=b$ 해집합의 구조</td><td>데이터 행렬의 유효 차원, 임베딩 내재 차원 추정</td><td>잡음 섞인 저차원 데이터 행렬에서 <code>matrix_rank</code>와 특잇값 분포 비교</td></tr>
-        <tr><td><strong>8</strong></td><td>중간고사</td><td>—</td><td>—</td><td>1~7주 통합 평가</td><td>(개념 응용 문제 위주)</td><td>Jupyter 기반 실기 시험</td></tr>
+        <tr><td><strong>8</strong></td><td>중간평가</td><td>—</td><td>—</td><td>1~7주 통합 평가</td><td>(개념 응용 문제 위주)</td><td>Jupyter 기반 실기 시험</td></tr>
         <tr><td><strong>9</strong></td><td>§2.6</td><td>§3.5</td><td>Ch.2, Ch.5</td><td>일차독립, 일차종속, 기저, 차원</td><td>임베딩 내재 차원 추정, 특징 선택의 수학적 토대</td><td>무작위 벡터 집합의 일차독립 판정 알고리즘, RREF 직접 구현</td></tr>
         <tr><td><strong>10</strong></td><td>§2.7</td><td>§3.6</td><td>(보충)</td><td>네 가지 기본 부분공간, 차원 정리</td><td>컨볼루션 행렬의 영공간(불변 패턴), 신호 분해</td><td>작은 합성곱 행렬을 명시 구성하여 네 부분공간 기저를 직접 출력</td></tr>
         <tr><td><strong>11</strong></td><td>§3.6</td><td>§4.1</td><td>(보충)</td><td>부분공간 직교성, 직교 여공간</td><td>신호의 직교 분해, 잔차의 직교성</td><td>두 부분공간이 직교임을 검증하는 코드, 직교 여공간 기저 계산</td></tr>
@@ -81,7 +81,7 @@
         <tr><td><strong>13</strong></td><td>§9.2 일부</td><td>§4.3</td><td>(보충)</td><td>최소제곱법, 정규방정식 $A^\top A\hat x=A^\top b$, 정사영 해석</td><td>선형회귀, 다항회귀, 신경망 최종층의 회귀 해석</td><td>NumPy로 정규방정식 직접 구현, <code>np.linalg.lstsq</code>와 비교, 다항회귀 과적합</td></tr>
         <tr><td><strong>14</strong></td><td>§3.8</td><td>§4.4</td><td>(보충)</td><td>그람-슈미트 직교화, $QR$ 분해</td><td>수치 안정한 회귀 풀이, 직교 기저 생성 알고리즘</td><td>그람-슈미트 직접 구현, <code>np.linalg.qr</code>와 정확도 비교, MGS의 안정성</td></tr>
         <tr><td><strong>15</strong></td><td>§4.1</td><td>§5.1~§5.3</td><td>Ch.5, Ch.6</td><td>행렬식 정의, 성질, 부피 해석, 크라메르 공식</td><td>변환의 부피 비율, 그래픽스 가역성·반전 판정</td><td>2·3차원 변환의 격자·부피 변화 시각화, 행렬식 부호와 거울 반전 확인</td></tr>
-        <tr><td><strong>16</strong></td><td>기말</td><td>—</td><td>—</td><td>학기 통합 평가</td><td>—</td><td>종이 시험·실기 통합</td></tr>
+        <tr><td><strong>16</strong></td><td>기말</td><td>—</td><td>—</td><td>Part 통합 평가</td><td>—</td><td>종이 시험·실기 통합</td></tr>
       </tbody>
     </table>
     </div>
@@ -107,11 +107,11 @@
       <p>Eigenvalue(고윳값) 분해, SVD, PCA<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Principal Component Analysis, 주성분 분석)</small>의 정리·증명·응용을 자유롭게 사용 + 행렬 미분으로 Neural Network(신경망) forward·backward를 분해 + CNN<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Convolutional Neural Network, 합성곱 신경망)</small> 컨볼루션·attention·embedding·GPU 행렬곱이 어떤 LA 객체로 환원되는지 식별 + 임의의 AI 모델 한 부분을 골라 그 안의 LA 구조를 보고서로 분해.</p>
     </div>
 
-    <h3>학기 흐름</h3>
+    <h3>Part 흐름</h3>
     <ul class="flow-list">
       <li><strong>W1-W4</strong> 분해의 기본 — 고윳값·Diagonalization(대각화)·Symmetric matrix(대칭행렬)·Positive definite(양정치) ("정사각 행렬이 어떤 모드로 작동하는가")</li>
       <li><strong>W5-W7</strong> 분해의 보편화 — SVD·저계수·PCA ("임의 행렬을 직교 회전 + 신축 + 직교 회전으로")</li>
-      <li><strong>W8</strong> 중간고사 (W1-W7)</li>
+      <li><strong>W8</strong> 중간평가 (W1-W7)</li>
       <li><strong>W9-W11</strong> 분해 사용을 위한 도구 — W9 수치LA / W10 Probability/Statistics(확률통계)LA / W11 Linear transformation(선형변환) 일반</li>
       <li><strong>W12-W14</strong> 분해를 신경망에 적용 — W12 행렬미분 / W13 텐서대수 / W14 AI 모듈 환원</li>
       <li><strong>W15</strong> 학생 reading 발표 — 최근 논문의 LA 분해</li>
@@ -142,7 +142,7 @@
         <tr><td><strong>5</strong></td><td>§4.5</td><td>§7.1, §7.2</td><td>EoLA 추가편</td><td>특잇값분해 $A=U\Sigma V^\top$, 기하학적 의미, 특잇값과 고유값의 관계</td><td>SVD의 보편성, 모든 행렬에 적용 가능한 분해</td><td>임의 행렬의 SVD 분해, $U,\Sigma,V$의 기하학적 작용 시각화</td></tr>
         <tr><td><strong>6</strong></td><td>§4.5</td><td>§7.2</td><td>Eckart-Young</td><td>저계수 근사, Eckart-Young 정리, Frobenius 노름</td><td>이미지 압축, LoRA 저랭크 어댑터, 잠재의미 분석(LSA)</td><td>이미지 SVD 후 상위 $k$ 특잇값만 남긴 저계수 근사, 압축비·복원품질 그래프</td></tr>
         <tr><td><strong>7</strong></td><td>§10</td><td>§7.3</td><td>(보충)</td><td>주성분분석(PCA), SVD와 공분산행렬의 동치성, 분산 최대화 정식화</td><td>차원축소, eigenfaces, 임베딩 시각화 사전 단계</td><td>MNIST·얼굴 데이터 PCA, 2차원 시각화, 분산 비율 그래프</td></tr>
-        <tr><td><strong>8</strong></td><td>중간고사</td><td>—</td><td>—</td><td>1~7주 통합 평가</td><td>—</td><td>종이 + Jupyter 실기</td></tr>
+        <tr><td><strong>8</strong></td><td>중간평가</td><td>—</td><td>—</td><td>1~7주 통합 평가</td><td>—</td><td>종이 + Jupyter 실기</td></tr>
         <tr><td><strong>9</strong></td><td>(없음)</td><td>§11</td><td>Trefethen·Bau 발췌</td><td>조건수, 후방 안정성, 직접법 vs 반복법, 라이브러리 정확도</td><td>FP16·BF16 정밀도, 학습 수치 발산, 그라디언트 폭주</td><td>Hilbert 행렬 조건수 계산, 정규방정식 vs QR 정확도 비교</td></tr>
         <tr><td><strong>10</strong></td><td>§6 일부</td><td>§12</td><td>(보충)</td><td>공분산행렬 성질, 다변량 정규, 마르코프 LA, 베이즈 회귀의 LA 시점</td><td>통계적 ML의 행렬 도구, 화이트닝, 가우시안 프로세스 토대</td><td>MNIST 클래스별 공분산 시각화, 화이트닝 변환 적용 후 분류 비교</td></tr>
         <tr><td><strong>11</strong></td><td>§2.7</td><td>§8</td><td>(보충)</td><td>선형변환의 일반 정의, 기저 변환, 표현행렬, 텐서 변환의 출발</td><td>텐서 변환 추상화, 좌표계 독립적 사고</td><td>임의 선형사상을 두 기저로 표현해 변환 행렬을 비교, 닮음 검증</td></tr>
@@ -150,7 +150,7 @@
         <tr><td><strong>13</strong></td><td>(보충)</td><td>(보충)</td><td>Kolda·Bader 텐서 분해 서베이</td><td>Kronecker곱, Khatri-Rao곱, CP·Tucker 분해 입문</td><td>Multi-head attention 헤드 분리·결합, MoE 전문가 합성, tensor parallelism</td><td>Kronecker곱 직접 구현, attention 가중치를 헤드별 텐서로 재구성</td></tr>
         <tr><td><strong>14</strong></td><td>(보충)</td><td>§10</td><td>(논문 발췌)</td><td>합성곱 행렬의 토플리츠 환원, attention $\mathrm{softmax}(QK^\top)V$, embedding lookup의 행렬곱 표현</td><td>표준 AI 모듈의 선형대수 분해, GPU 텐서코어와 행렬곱</td><td><code>nn.Conv1d</code> 한 층을 토플리츠 행렬 곱으로 재구성하여 결과 일치 확인</td></tr>
         <tr><td><strong>15</strong></td><td>(학생 선택)</td><td>—</td><td>(학생 선택 논문)</td><td>학생별 선택 주제 발표</td><td>최근 논문(LoRA, FlashAttention, MoE, RMT in DNN 등)의 선형대수 분석</td><td>학생 발표 + 코드 재현 데모</td></tr>
-        <tr><td><strong>16</strong></td><td>기말·프로젝트 발표</td><td>—</td><td>—</td><td>학기 통합 평가 + 텀 프로젝트 발표</td><td>—</td><td>모델 분해 보고서·코드 제출</td></tr>
+        <tr><td><strong>16</strong></td><td>기말·프로젝트 발표</td><td>—</td><td>—</td><td>Part 통합 평가 + 텀 프로젝트 발표</td><td>—</td><td>모델 분해 보고서·코드 제출</td></tr>
       </tbody>
     </table>
     </div>

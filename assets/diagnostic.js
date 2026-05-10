@@ -397,10 +397,10 @@ const CASE_TEXT = {
   C: {
     headline: "본 강좌의 표준 대상이십니다. Part 1부터 차근차근 따라가시면 됩니다.",
     body: `
-      <p>진단 결과 6축 중 다수에서 50% 미만을 기록하셨습니다. 본 강좌는 정확히 이 출발점을 가정하고 설계되었습니다. 정의에서 출발해 정리·증명·코딩 실습을 매 주차 반복하므로, 학기를 따라가시면 자연스럽게 6축 전체가 채워집니다.</p>
+      <p>진단 결과 6축 중 다수에서 50% 미만을 기록하셨습니다. 본 강좌는 정확히 이 출발점을 가정하고 설계되었습니다. 정의에서 출발해 정리·증명·코딩 실습을 매 주차 반복하므로, Part를 따라가시면 자연스럽게 6축 전체가 채워집니다.</p>
       <p><strong>이 강좌에서 얻으실 수 있는 것</strong>:</p>
       <ul>
-        <li>학기 종료 시 Vector(벡터)·Matrix(행렬)·선형방정식·Subspace(부분공간)·Orthogonal projection(정사영)·Determinant(행렬식)의 정의·정리를 자신의 언어로 진술 가능</li>
+        <li>Part 종료 시 Vector(벡터)·Matrix(행렬)·선형방정식·Subspace(부분공간)·Orthogonal projection(정사영)·Determinant(행렬식)의 정의·정리를 자신의 언어로 진술 가능</li>
         <li>$Ax = b$의 해 존재·유일성을 네 가지 기본 부분공간으로 즉석 판별</li>
         <li>NumPy로 가우스 소거·LU<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(LU Decomposition, LU 분해)</small>·그람-슈미트·Normal equation(정규방정식)·행렬식을 직접 구현</li>
         <li>Part 2까지 이수 시 SVD<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Singular Value Decomposition, 특이값 분해)</small>·PCA<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Principal Component Analysis, 주성분 분석)</small>·행렬미분으로 Neural Network(신경망) forward·backward를 분해, 임의 AI 모델 한 부분의 LA 구조를 보고서로 작성 가능</li>
@@ -418,7 +418,7 @@ const CASE_TEXT = {
         <li><strong>(코드는 작성하지만 정의가 약함)</strong> — <code>np.linalg.svd</code>는 호출하지만 SVD의 존재 정리·기하학적 의미를 진술하지 못하는 경우. 매 주차 정의·증명 부분이 도움이 됩니다.</li>
         <li><strong>(정의는 알지만 AI<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Artificial Intelligence, 인공지능)</small> 응용 매핑이 안 됨)</strong> — 행렬곱 정의는 정확하지만 attention의 $QK^\\top$이 내적·정사영 구조임을 즉석에서 보지 못하는 경우. Part 2 W12-W14가 이 매핑을 명시화합니다.</li>
       </ul>
-      <p><strong>이 강좌에서 얻으실 수 있는 것</strong>: 6축이 별개 영역이 아니라 하나의 큰 그림 — "$Ax=b$의 해 → 부분공간 분류 → 직교 분해 → 고유 분해 → SVD → AI 모듈 환원"이라는 단일 흐름 — 임을 학기 내내 반복적으로 보시게 됩니다. 강점 축은 더 깊어지고, 약점 축은 강점 축과의 연결 속에서 빠르게 채워집니다.</p>
+      <p><strong>이 강좌에서 얻으실 수 있는 것</strong>: 6축이 별개 영역이 아니라 하나의 큰 그림 — "$Ax=b$의 해 → 부분공간 분류 → 직교 분해 → 고유 분해 → SVD → AI 모듈 환원"이라는 단일 흐름 — 임을 Part 내내 반복적으로 보시게 됩니다. 강점 축은 더 깊어지고, 약점 축은 강점 축과의 연결 속에서 빠르게 채워집니다.</p>
     `
   }
 };
