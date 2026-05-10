@@ -118,8 +118,13 @@ const QUESTIONS = [
   },
   {
     n: 10, axis: 3, level: "학부",
-    text: "$A = \\begin{pmatrix}1 & 2 & 3 \\\\ 2 & 4 & 6\\end{pmatrix}$의 rank는?",
-    options: { a: "0", b: "3", c: "1", d: "2" },
+    text: "벡터 $\\mathbf{v}_1, \\mathbf{v}_2, \\dots, \\mathbf{v}_k \\in \\mathbb{R}^n$이 <strong>일차독립(linearly independent)</strong>일 필요충분조건은?",
+    options: {
+      a: "모든 $\\mathbf{v}_i$가 단위벡터",
+      b: "모든 $\\mathbf{v}_i$가 서로 직교",
+      c: "$c_1\\mathbf{v}_1 + c_2\\mathbf{v}_2 + \\dots + c_k\\mathbf{v}_k = \\mathbf{0}$의 유일한 해가 $c_1 = c_2 = \\dots = c_k = 0$",
+      d: "모든 $\\mathbf{v}_i$의 노름이 같음"
+    },
     answer: "c"
   },
   // 축 3: 벡터공간·부분공간 (Q11 신규 — 4 기본 부분공간 직교성)
@@ -160,12 +165,12 @@ const QUESTIONS = [
   },
   {
     n: 14, axis: 4, level: "응용",
-    text: "정규직교 기저(orthonormal basis) $\\{\\mathbf{q}_1, \\dots, \\mathbf{q}_n\\}$에 대해 임의의 벡터 $\\mathbf{v}$를 그 기저로 표현하면? (Fourier 식)",
+    text: "<strong>Gram-Schmidt 직교화</strong>에서 새 기저 벡터 $\\mathbf{q}_2'$ (정규화 전)를 $\\mathbf{a}_2$로부터 만드는 식은? ($\\mathbf{q}_1$은 이미 단위벡터)",
     options: {
-      a: "$\\mathbf{v} = \\sum_{i=1}^{n} \\mathbf{q}_i$",
-      b: "$\\mathbf{v} = \\sum_{i=1}^{n} \\|\\mathbf{q}_i\\| \\, \\mathbf{q}_i$",
-      c: "$\\mathbf{v} = \\sum_{i=1}^{n} (\\mathbf{q}_i^\\top \\mathbf{v}) \\, \\mathbf{q}_i$",
-      d: "$\\mathbf{v} = Q^{-1} \\mathbf{q}_1$"
+      a: "$\\mathbf{q}_2' = \\mathbf{a}_2$",
+      b: "$\\mathbf{q}_2' = \\mathbf{a}_2 + (\\mathbf{q}_1^\\top \\mathbf{a}_2) \\, \\mathbf{q}_1$",
+      c: "$\\mathbf{q}_2' = \\mathbf{a}_2 - (\\mathbf{q}_1^\\top \\mathbf{a}_2) \\, \\mathbf{q}_1$",
+      d: "$\\mathbf{q}_2' = \\mathbf{a}_2 \\times \\mathbf{q}_1$ (외적)"
     },
     answer: "c"
   },
@@ -179,12 +184,12 @@ const QUESTIONS = [
   },
   {
     n: 16, axis: 5, level: "학부",
-    text: "$A = \\begin{pmatrix}2 & 0 \\\\ 0 & 3\\end{pmatrix}$의 고윳값은?",
+    text: "정방행렬 $A \\in \\mathbb{R}^{n \\times n}$의 <strong>모든 고윳값의 합</strong>은 어떤 양과 같은가?",
     options: {
-      a: "0과 1",
-      b: "2와 3",
-      c: "5와 6",
-      d: "1과 6"
+      a: "$\\det(A)$",
+      b: "$\\mathrm{trace}(A) = \\sum_{i=1}^{n} a_{ii}$ (대각 성분의 합)",
+      c: "$\\mathrm{rank}(A)$",
+      d: "$\\|A\\|_F$ (Frobenius 노름)"
     },
     answer: "b"
   },
