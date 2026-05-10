@@ -19,8 +19,13 @@ const AXIS_NAMES = [
 const QUESTIONS = [
   {
     n: 1, axis: 1, level: "입문",
-    text: "$\\mathbf{v} = (3, -4)^\\top$의 $\\ell_2$ 노름은?",
-    options: { a: "1", b: "5", c: "7", d: "25" },
+    text: "두 벡터 $\\mathbf{u}, \\mathbf{v} \\in \\mathbb{R}^n$의 내적(inner product) $\\mathbf{u} \\cdot \\mathbf{v}$의 정의로 옳은 것은?",
+    options: {
+      a: "$\\sum_{i=1}^{n} (u_i + v_i)$",
+      b: "$\\sum_{i=1}^{n} u_i v_i$",
+      c: "$\\prod_{i=1}^{n} u_i v_i$",
+      d: "$\\sum_{i=1}^{n} (u_i - v_i)^2$"
+    },
     answer: "b"
   },
   {
@@ -36,12 +41,12 @@ const QUESTIONS = [
   },
   {
     n: 3, axis: 1, level: "학부",
-    text: "$\\mathbf{u} = (1, 0, 0), \\mathbf{v} = (1, 1, 0)$의 코사인 유사도는?",
+    text: "코시-슈바르츠(Cauchy-Schwarz) 부등식 $|\\mathbf{u} \\cdot \\mathbf{v}| \\le \\|\\mathbf{u}\\| \\, \\|\\mathbf{v}\\|$의 <strong>등호 성립 조건</strong>은?",
     options: {
-      a: "0",
-      b: "$\\dfrac{1}{2}$",
-      c: "$\\dfrac{1}{\\sqrt{2}}$",
-      d: "1"
+      a: "$\\mathbf{u} = \\mathbf{v}$",
+      b: "$\\mathbf{u}, \\mathbf{v}$ 모두 단위벡터(unit vector)",
+      c: "$\\mathbf{u}, \\mathbf{v}$가 일차종속(한 벡터가 다른 벡터의 스칼라배)",
+      d: "$\\mathbf{u}$와 $\\mathbf{v}$가 직교"
     },
     answer: "c"
   },
