@@ -7,12 +7,12 @@ const WORKER_URL = "https://linalg-diagnostic.repairer5812.workers.dev";
 const STORAGE_KEY = "linalg_diag_state_v1";
 
 const AXIS_NAMES = [
-  "벡터·내적",
-  "행렬연산",
-  "부분공간·계수",
+  "벡터·내적공간",
+  "선형방정식·행렬",
+  "벡터공간·부분공간",
   "직교성·정사영",
-  "분해·고윳값",
-  "AI 응용·코딩"
+  "행렬식·고윳값",
+  "SVD·선형변환"
 ];
 
 // 20 questions. axis: 1-6. answer: 'a'|'b'|'c'|'d'.
@@ -85,12 +85,12 @@ const QUESTIONS = [
   },
   {
     n: 7, axis: 2, level: "학부",
-    text: "$A = LU$ 분해를 한 번 수행한 후 다중 우변 $A\\mathbf{x}_i = \\mathbf{b}_i \\ (i=1,\\dots,k)$을 푸는 비용은? (각 $\\mathbf{b}_i$는 별도)",
+    text: "정방행렬 $A \\in \\mathbb{R}^{n \\times n}$가 가역(invertible)일 필요충분조건이 <strong>아닌</strong> 것은?",
     options: {
-      a: "매번 $O(n^3)$",
-      b: "총 $O(n^3 k)$",
-      c: "총 $O(n^4)$",
-      d: "1회 $O(n^3)$ + 매 우변 $O(n^2)$"
+      a: "$\\det(A) \\ne 0$",
+      b: "$A\\mathbf{x} = \\mathbf{0}$의 유일한 해가 $\\mathbf{x} = \\mathbf{0}$",
+      c: "$A$의 RREF(기약 행 사다리꼴)가 단위행렬 $I$",
+      d: "$A$의 한 행이 다른 행들의 일차결합으로 표현됨"
     },
     answer: "d"
   },
@@ -122,8 +122,22 @@ const QUESTIONS = [
     options: { a: "0", b: "3", c: "1", d: "2" },
     answer: "c"
   },
+  // 축 3: 벡터공간·부분공간 (Q11 신규 — 4 기본 부분공간 직교성)
   {
-    n: 11, axis: 4, level: "입문",
+    n: 11, axis: 3, level: "응용",
+    text: "$A \\in \\mathbb{R}^{m \\times n}$의 4 기본 부분공간 중 <strong>항상 직교</strong>하는 두 공간 쌍은? (Strang의 선형대수 기본정리)",
+    options: {
+      a: "$C(A) \\perp C(A^\\top)$ (열공간 ⊥ 행공간)",
+      b: "$C(A) \\perp N(A)$ (열공간 ⊥ 영공간)",
+      c: "$N(A) \\perp N(A^\\top)$ (영공간 ⊥ 좌영공간)",
+      d: "$C(A^\\top) \\perp N(A)$ (행공간 ⊥ 영공간)"
+    },
+    answer: "d"
+  },
+
+  // 축 4: 직교성·정사영 (Q12-Q14)
+  {
+    n: 12, axis: 4, level: "입문",
     text: "벡터 $\\mathbf{b}$를 부분공간 $C(A)$ 위로 정사영(orthogonal projection)한 결과를 $\\mathbf{p}$라 할 때, 잔차 $\\mathbf{e} = \\mathbf{b} - \\mathbf{p}$의 핵심 성질은?",
     options: {
       a: "$\\mathbf{e}$의 노름이 1",
@@ -134,8 +148,8 @@ const QUESTIONS = [
     answer: "d"
   },
   {
-    n: 12, axis: 4, level: "학부",
-    text: "최소제곱 정규방정식은?",
+    n: 13, axis: 4, level: "학부",
+    text: "최소제곱(least squares)법의 정규방정식(normal equation)은?",
     options: {
       a: "$A^\\top A \\hat{\\mathbf{x}} = A^\\top \\mathbf{b}$",
       b: "$A \\hat{\\mathbf{x}} = \\mathbf{b}$",
@@ -145,24 +159,26 @@ const QUESTIONS = [
     answer: "a"
   },
   {
-    n: 13, axis: 4, level: "응용",
-    text: "Self-attention $\\mathrm{softmax}(QK^\\top/\\sqrt{d}) V$ 에서 $QK^\\top$ 의 각 성분이 의미하는 것은?",
+    n: 14, axis: 4, level: "응용",
+    text: "정규직교 기저(orthonormal basis) $\\{\\mathbf{q}_1, \\dots, \\mathbf{q}_n\\}$에 대해 임의의 벡터 $\\mathbf{v}$를 그 기저로 표현하면? (Fourier 식)",
     options: {
-      a: "query·key 간의 유클리드 거리",
-      b: "query·key 간의 코사인 유사도 (정확히)",
-      c: "query·key 간의 (스케일링되지 않은) 내적",
-      d: "query·key의 외적"
+      a: "$\\mathbf{v} = \\sum_{i=1}^{n} \\mathbf{q}_i$",
+      b: "$\\mathbf{v} = \\sum_{i=1}^{n} \\|\\mathbf{q}_i\\| \\, \\mathbf{q}_i$",
+      c: "$\\mathbf{v} = \\sum_{i=1}^{n} (\\mathbf{q}_i^\\top \\mathbf{v}) \\, \\mathbf{q}_i$",
+      d: "$\\mathbf{v} = Q^{-1} \\mathbf{q}_1$"
     },
     answer: "c"
   },
+
+  // 축 5: 행렬식·고윳값 (Q15-Q17)
   {
-    n: 14, axis: 5, level: "입문",
-    text: "$A\\mathbf{v} = \\lambda\\mathbf{v}, \\mathbf{v} \\neq \\mathbf{0}$ 의 정의에서 $\\lambda$를 무엇이라 부르는가?",
+    n: 15, axis: 5, level: "입문",
+    text: "$A\\mathbf{v} = \\lambda\\mathbf{v}, \\mathbf{v} \\neq \\mathbf{0}$의 정의에서 $\\lambda$를 무엇이라 부르는가?",
     options: { a: "고윳값", b: "특잇값", c: "행렬식", d: "대각합" },
     answer: "a"
   },
   {
-    n: 15, axis: 5, level: "학부",
+    n: 16, axis: 5, level: "학부",
     text: "$A = \\begin{pmatrix}2 & 0 \\\\ 0 & 3\\end{pmatrix}$의 고윳값은?",
     options: {
       a: "0과 1",
@@ -173,8 +189,21 @@ const QUESTIONS = [
     answer: "b"
   },
   {
-    n: 16, axis: 5, level: "응용",
-    text: "SVD $A = U\\Sigma V^\\top$ 에서 $A \\in \\mathbb{R}^{m\\times n}$ 일 때 $U$, $V$의 차원은?",
+    n: 17, axis: 5, level: "응용",
+    text: "실대칭(symmetric) 행렬 $A = A^\\top$에 대한 <strong>스펙트럼 정리(spectral theorem)</strong>의 진술로 옳은 것은?",
+    options: {
+      a: "모든 고윳값이 실수이고, 직교 대각화 가능 ($A = Q\\Lambda Q^\\top$, $Q$ 직교)",
+      b: "모든 고윳값이 양수이고, $A$는 항상 가역",
+      c: "$A$는 항상 단위행렬과 닮음(similar)",
+      d: "$\\det(A) = \\mathrm{trace}(A)$"
+    },
+    answer: "a"
+  },
+
+  // 축 6: SVD·선형변환 (Q18-Q20)
+  {
+    n: 18, axis: 6, level: "입문",
+    text: "SVD $A = U\\Sigma V^\\top$에서 $A \\in \\mathbb{R}^{m\\times n}$일 때 $U$, $V$의 차원(full SVD)은?",
     options: {
       a: "$U \\in \\mathbb{R}^{n\\times n}, V \\in \\mathbb{R}^{m\\times m}$",
       b: "$U \\in \\mathbb{R}^{m\\times n}, V \\in \\mathbb{R}^{n\\times m}$",
@@ -184,46 +213,24 @@ const QUESTIONS = [
     answer: "d"
   },
   {
-    n: 17, axis: 5, level: "응용",
-    text: "PCA를 데이터 행렬 $X \\in \\mathbb{R}^{n\\times d}$ (행이 샘플)에 적용할 때 주성분의 방향은 어디서 나오는가?",
+    n: 19, axis: 6, level: "학부",
+    text: "Eckart-Young 정리: 행렬 $A$의 rank-$k$ 근사 중 Frobenius 노름 의미에서 <strong>최적</strong>인 것은?",
     options: {
-      a: "$X$의 좌측 특이벡터",
-      b: "$X$의 영공간 기저",
-      c: "$X^\\top X$ (또는 공분산 행렬)의 고유벡터",
-      d: "$X$의 행공간의 임의 기저"
+      a: "$A$의 RREF의 상위 $k$ 행으로 만든 행렬",
+      b: "임의의 직교 행렬",
+      c: "SVD 상위 $k$ 항만 남긴 $A_k = \\sum_{i=1}^{k} \\sigma_i \\mathbf{u}_i \\mathbf{v}_i^\\top$",
+      d: "$A$의 처음 $k$개 행과 열만 남긴 부분행렬"
     },
     answer: "c"
   },
   {
-    n: 18, axis: 6, level: "입문",
-    text: "NumPy에서 행렬 곱 $A B$ 를 올바르게 계산하는 코드는?",
-    options: {
-      a: "<code>A * B</code>",
-      b: "<code>A.dot.B</code>",
-      c: "<code>np.cross(A, B)</code>",
-      d: "<code>A @ B</code>"
-    },
-    answer: "d"
-  },
-  {
-    n: 19, axis: 6, level: "학부",
-    text: "신경망 한 층 $\\mathbf{y} = W\\mathbf{x} + \\mathbf{b}$ 에서 $W \\in \\mathbb{R}^{m\\times n}$ 일 때 $\\mathbf{x}$, $\\mathbf{y}$의 차원은?",
-    options: {
-      a: "$\\mathbf{x} \\in \\mathbb{R}^n, \\mathbf{y} \\in \\mathbb{R}^m$",
-      b: "$\\mathbf{x} \\in \\mathbb{R}^m, \\mathbf{y} \\in \\mathbb{R}^n$",
-      c: "$\\mathbf{x}, \\mathbf{y} \\in \\mathbb{R}^n$",
-      d: "$\\mathbf{x}, \\mathbf{y} \\in \\mathbb{R}^m$"
-    },
-    answer: "a"
-  },
-  {
     n: 20, axis: 6, level: "응용",
-    text: "$1\\times 1$ 컨볼루션이 본질적으로 무엇과 동치인가?",
+    text: "두 정방행렬 $A, B$가 <strong>닮음(similar)</strong>이라는 것의 정의는?",
     options: {
-      a: "푸리에 변환",
-      b: "채널 차원의 행렬 곱(linear projection)",
-      c: "평균 풀링",
-      d: "ReLU 활성화"
+      a: "$A = B$",
+      b: "어떤 가역 행렬 $P$가 존재하여 $A = P^{-1} B P$ (같은 고윳값을 가짐)",
+      c: "어떤 직교 행렬 $Q$가 존재하여 $A = Q^\\top B Q$ (대각화)",
+      d: "$\\det(A) = \\det(B)$"
     },
     answer: "b"
   }
