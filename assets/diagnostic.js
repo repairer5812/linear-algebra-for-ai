@@ -41,12 +41,12 @@ const QUESTIONS = [
   },
   {
     n: 3, axis: 1, level: "학부",
-    text: "코시-슈바르츠(Cauchy-Schwarz) 부등식 $|\\mathbf{u} \\cdot \\mathbf{v}| \\le \\|\\mathbf{u}\\| \\, \\|\\mathbf{v}\\|$의 <strong>등호 성립 조건</strong>은?",
+    text: "벡터 $\\mathbf{v}_1, \\mathbf{v}_2, \\dots, \\mathbf{v}_k$의 span (생성공간) $\\mathrm{span}\\{\\mathbf{v}_1, \\dots, \\mathbf{v}_k\\}$의 정의는?",
     options: {
-      a: "$\\mathbf{u} = \\mathbf{v}$",
-      b: "$\\mathbf{u}, \\mathbf{v}$ 모두 단위벡터(unit vector)",
-      c: "$\\mathbf{u}, \\mathbf{v}$가 일차종속(한 벡터가 다른 벡터의 스칼라배)",
-      d: "$\\mathbf{u}$와 $\\mathbf{v}$가 직교"
+      a: "그 벡터들의 집합 $\\{\\mathbf{v}_1, \\dots, \\mathbf{v}_k\\}$ 자체",
+      b: "그 벡터들의 노름의 곱",
+      c: "그 벡터들의 모든 가능한 일차결합(linear combination)의 집합",
+      d: "그 벡터들 사이의 모든 내적 값의 집합"
     },
     answer: "c"
   },
@@ -74,12 +74,12 @@ const QUESTIONS = [
   },
   {
     n: 6, axis: 2, level: "학부",
-    text: "$n \\times n$ 행렬에 대한 가우스 소거(부분 피벗팅 포함)의 시간 복잡도는?",
+    text: "선형방정식 $A\\mathbf{x} = \\mathbf{b}$가 해를 가질 <strong>필요충분조건</strong>은? ($A \\in \\mathbb{R}^{m \\times n}$)",
     options: {
-      a: "$O(n)$",
-      b: "$O(n^2)$",
-      c: "$O(n^3)$",
-      d: "$O(2^n)$"
+      a: "$A$가 정방행렬",
+      b: "$A$가 가역(invertible)",
+      c: "$\\mathbf{b}$가 $A$의 열공간 $C(A)$에 속함",
+      d: "$\\mathbf{b}$가 $A$의 영공간 $N(A)$에 속함"
     },
     answer: "c"
   },
@@ -124,12 +124,12 @@ const QUESTIONS = [
   },
   {
     n: 11, axis: 4, level: "입문",
-    text: "정사영 행렬 $P$가 항상 만족하는 성질은?",
+    text: "벡터 $\\mathbf{b}$를 부분공간 $C(A)$ 위로 정사영(orthogonal projection)한 결과를 $\\mathbf{p}$라 할 때, 잔차 $\\mathbf{e} = \\mathbf{b} - \\mathbf{p}$의 핵심 성질은?",
     options: {
-      a: "$P$는 가역이다",
-      b: "$P^{-1} = P^\\top$",
-      c: "$\\det(P) = 1$",
-      d: "$P^2 = P$ (멱등성)"
+      a: "$\\mathbf{e}$의 노름이 1",
+      b: "$\\mathbf{e}$가 $\\mathbf{b}$와 평행",
+      c: "$\\mathbf{e}$가 $C(A)$ 안의 어떤 벡터",
+      d: "$\\mathbf{e}$가 $C(A)$와 직교 ($A^\\top \\mathbf{e} = \\mathbf{0}$)"
     },
     answer: "d"
   },
