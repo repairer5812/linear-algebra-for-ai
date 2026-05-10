@@ -24,14 +24,14 @@
 
 <main>
   <section class="hero">
-    <h1 class="hero__title">인공지능 전공자를 위한 선형대수학</h1>
-    <p class="hero__subtitle">정의·정리에서 출발해 NumPy·PyTorch로 구현하고, AI 모델을 표준 선형대수 객체로 분해합니다 (32주, Part 1·Part 2)</p>
-    <p class="hero__meta">SW·AI 융합정보대학원 · 정원 20명 · 메인 교재 MML · 실습 Google Colab</p>
+    <h1 class="hero__title">Artificial Intelligence(인공지능) 전공자를 위한 Linear Algebra(선형대수학)</h1>
+    <p class="hero__subtitle">정의·정리에서 출발해 NumPy·PyTorch로 구현하고, AI<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Artificial Intelligence, 인공지능)</small> 모델을 표준 LA<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Linear Algebra, 선형대수)</small> 객체로 분해합니다 (32주, Part 1·Part 2)</p>
+    <p class="hero__meta">SW·AI 융합정보대학원 · 정원 20명 · 메인 교재 MML<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Mathematics for Machine Learning)</small> · 실습 Google Colab</p>
   </section>
 
   <section class="section" id="purpose">
     <h2>수업의 목적</h2>
-    <p>본 강좌는 인공지능을 전공하는 대학원생이 선형대수학의 정의·정리·증명을 자신의 언어로 진술하고, 임의의 AI 모델 한 부분을 표준 선형대수 객체로 분해할 수 있도록 만드는 것을 목적으로 합니다. AI 모델의 거의 모든 연산은 행렬곱, 정사영, 고유분해, 특잇값분해, Kronecker곱과 같은 선형대수 객체로 환원되므로, 이 객체들을 모르면 모델의 forward·backward 흐름과 수치적 거동을 설명할 수 없습니다.</p>
+    <p>본 강좌는 인공지능을 전공하는 대학원생이 선형대수학의 정의·정리·증명을 자신의 언어로 진술하고, 임의의 AI 모델 한 부분을 표준 LA 객체로 분해할 수 있도록 만드는 것을 목적으로 합니다. AI 모델의 거의 모든 연산은 Matrix(행렬) 곱, Orthogonal projection(정사영), Eigendecomposition(고유분해), SVD<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Singular Value Decomposition, 특이값 분해)</small>, Kronecker곱과 같은 LA 객체로 환원되므로, 이 객체들을 모르면 모델의 forward·backward 흐름과 수치적 거동을 설명할 수 없습니다.</p>
     <p>수업은 한 학기에 응용을 직접 보여주는 데 그치지 않습니다. 정의에서 출발해 정리를 증명하고, 그 정리를 NumPy·PyTorch로 구현하는 흐름을 매 주차 반복합니다. 학생이 강좌를 마칠 때 "이 모델의 이 부분이 어떤 LA 객체인가"라는 질문에 망설임 없이 답하는 것이 목표입니다.</p>
     <p>본 강좌는 한 학기 분량(16주) 두 개를 묶어 32주로 운영합니다. Part 1은 표준 학부 한 학기 분량을 차분히 다지고, Part 2는 분해와 AI 응용으로 확장합니다.</p>
   </section>
@@ -56,18 +56,18 @@
         <div class="card__body">NumPy·PyTorch로 정리를 직접 구현하거나 응용을 재현</div>
       </div>
     </div>
-    <p>32주 흐름은 Part 1에서 벡터·행렬·선형방정식·부분공간·정사영·행렬식의 기초를 완성하고, Part 2에서 고윳값·SVD·PCA·수치LA·확률통계LA·텐서대수를 거쳐 신경망 모듈의 분해까지 이어집니다.</p>
+    <p>32주 흐름은 Part 1에서 Vector(벡터)·행렬·선형방정식·Subspace(부분공간)·정사영·Determinant(행렬식)의 기초를 완성하고, Part 2에서 Eigenvalue(고윳값)·SVD·PCA<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Principal Component Analysis, 주성분 분석)</small>·수치LA·Probability/Statistics(확률통계)LA·텐서대수를 거쳐 Neural Network(신경망) 모듈의 분해까지 이어집니다.</p>
   </section>
 
   <section class="section" id="competencies">
     <h2>핵심역량 6가지</h2>
     <p>본 강좌가 학생에게 길러주는 역량은 다음 6축입니다. 진단 테스트와 결과 그래프(육각형 레이더 차트) 모두 이 6축을 기준으로 합니다.</p>
     <div class="hex-grid">
-      <div class="card"><span class="card__num">1</span><div class="card__title">벡터·내적</div><div class="card__body">노름, 코사인 유사도, 임베딩의 기하학적 해석을 다룹니다.</div></div>
-      <div class="card"><span class="card__num">2</span><div class="card__title">행렬연산</div><div class="card__body">가우스 소거, LU 분해, 역행렬, BLAS 호출의 내부 구조를 다룹니다.</div></div>
-      <div class="card"><span class="card__num">3</span><div class="card__title">부분공간·계수</div><div class="card__body">영공간, 열공간, 행공간, 차원 정리, 네 가지 기본 부분공간을 다룹니다.</div></div>
-      <div class="card"><span class="card__num">4</span><div class="card__title">직교성·정사영</div><div class="card__body">QR 분해, 최소제곱, attention의 내적 정렬 해석을 다룹니다.</div></div>
-      <div class="card"><span class="card__num">5</span><div class="card__title">분해·고윳값</div><div class="card__body">고유분해, SVD, PCA, LoRA 저랭크 어댑터의 수학을 다룹니다.</div></div>
+      <div class="card"><span class="card__num">1</span><div class="card__title">Vector(벡터)·Inner product(내적)</div><div class="card__body">Norm(노름), 코사인 유사도, 임베딩의 기하학적 해석을 다룹니다.</div></div>
+      <div class="card"><span class="card__num">2</span><div class="card__title">Matrix(행렬) 연산</div><div class="card__body">가우스 소거, LU<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(LU Decomposition, LU 분해)</small>, Inverse matrix(역행렬), BLAS<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Basic Linear Algebra Subprograms, 기초 선형대수 서브프로그램)</small> 호출의 내부 구조를 다룹니다.</div></div>
+      <div class="card"><span class="card__num">3</span><div class="card__title">Subspace(부분공간)·Rank(계수)</div><div class="card__body">Null space(영공간), Column space(열공간), Row space(행공간), Dimension(차원) 정리, 네 가지 기본 부분공간을 다룹니다.</div></div>
+      <div class="card"><span class="card__num">4</span><div class="card__title">Orthogonality(직교성)·Orthogonal projection(정사영)</div><div class="card__body">QR<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(QR Decomposition, QR 분해)</small>, Least squares(최소제곱), attention의 내적 정렬 해석을 다룹니다.</div></div>
+      <div class="card"><span class="card__num">5</span><div class="card__title">Decomposition(분해)·Eigenvalue(고윳값)</div><div class="card__body">고유분해, SVD, PCA, LoRA<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Low-Rank Adaptation, 저랭크 어댑터)</small>의 수학을 다룹니다.</div></div>
       <div class="card"><span class="card__num">6</span><div class="card__title">AI 응용·코딩</div><div class="card__body">NumPy 재구현, 신경망 한 층의 행렬곱 해석, conv·attention·embedding의 LA 환원을 다룹니다.</div></div>
     </div>
   </section>
@@ -85,9 +85,9 @@
 
     <h3>Part 2 (16주) — 4 단계 흐름</h3>
     <ul class="flow-list">
-      <li><strong>W1-W4</strong> 분해의 기본 — 고윳값·대각화·대칭·양정치</li>
+      <li><strong>W1-W4</strong> 분해의 기본 — 고윳값·Diagonalization(대각화)·Symmetric matrix(대칭행렬)·Positive definite(양정치)</li>
       <li><strong>W5-W7</strong> 분해의 보편화 — SVD·저계수근사·PCA</li>
-      <li><strong>W9-W11</strong> 분해 사용을 위한 도구 — 수치LA·확률통계LA·선형변환 일반</li>
+      <li><strong>W9-W11</strong> 분해 사용을 위한 도구 — 수치LA·확률통계LA·Linear transformation(선형변환) 일반</li>
       <li><strong>W12-W16</strong> 분해를 신경망에 적용 — 행렬미분·텐서대수·AI 모듈 환원·텀 프로젝트 발표</li>
     </ul>
 
@@ -108,7 +108,7 @@
     <ul>
       <li><strong>메인 교재</strong>: Deisenroth·Faisal·Ong, <em>Mathematics for Machine Learning</em> (MML) — 무료 PDF: <a href="https://mml-book.github.io/" rel="noopener">mml-book.github.io</a></li>
       <li><strong>보조 교재</strong>: Gilbert Strang, <em>Introduction to Linear Algebra</em></li>
-      <li><strong>시각 보조</strong>: Grant Sanderson (3Blue1Brown), <em>Essence of Linear Algebra</em> (EoLA, YouTube 무료 공개)</li>
+      <li><strong>시각 보조</strong>: Grant Sanderson (3Blue1Brown), <em>Essence of Linear Algebra</em> (EoLA<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Essence of Linear Algebra, 3Blue1Brown 시각 자료)</small>, YouTube 무료 공개)</li>
       <li><strong>실습 환경</strong>: Google Colab</li>
       <li><strong>LMS</strong>: Google Classroom (코드: 추후 공개)</li>
     </ul>

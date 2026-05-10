@@ -53,7 +53,42 @@ export default {
   },
 };
 
+// Rate limit 설정: 한 IP 당 5분 1회
+const RATE_LIMIT_WINDOW_MS = 5 * 60 * 1000;   // 5분
+const RATE_LIMIT_TTL_SEC = 600;               // KV 자동 만료 10분
+
 async function handleSubmit(request, env) {
+  // === Rate limit 체크 (IP 기반) ===
+  const ip = request.headers.get('CF-Connecting-IP')
+          || request.headers.get('X-Forwarded-For')
+          || 'unknown';
+  const rlKey = `rl:${ip}`;
+  const lastSubmitStr = await env.DIAGNOSTICS.get(rlKey);
+  const now = Date.now();
+
+  if (lastSubmitStr) {
+    const elapsed = now - parseInt(lastSubmitStr, 10);
+    if (elapsed < RATE_LIMIT_WINDOW_MS) {
+      const retryAfter = Math.ceil((RATE_LIMIT_WINDOW_MS - elapsed) / 1000);
+      return new Response(
+        JSON.stringify({
+          error: 'rate_limited',
+          message: '한 IP 당 5분에 1회 제출만 가능합니다. 잠시 후 다시 시도해주세요.',
+          retry_after_sec: retryAfter,
+        }),
+        {
+          status: 429,
+          headers: {
+            'Content-Type': 'application/json',
+            'Retry-After': String(retryAfter),
+            ...CORS_HEADERS,
+          },
+        },
+      );
+    }
+  }
+
+  // === 본문 검증 ===
   let body;
   try {
     body = await request.json();
@@ -61,7 +96,6 @@ async function handleSubmit(request, env) {
     return jsonResponse({ error: 'invalid json' }, 400);
   }
 
-  // 검증: answers는 길이 20 array, axisScores는 길이 6 array
   if (!Array.isArray(body.answers) || body.answers.length !== 20) {
     return jsonResponse({ error: 'answers must be array of 20' }, 400);
   }
@@ -69,18 +103,24 @@ async function handleSubmit(request, env) {
     return jsonResponse({ error: 'axisScores must be array of 6' }, 400);
   }
 
+  // === 응답 저장 + Rate limit 마커 갱신 ===
   const id = crypto.randomUUID();
   const record = {
     id,
-    timestamp: Date.now(),
-    answers: body.answers,        // ['a','b','c','d',...] length 20
-    correct: body.correct,        // [true, false, ...] length 20
-    axisScores: body.axisScores,  // [85.2, 60.0, ...] length 6
-    totalScore: body.totalScore,  // 0-100
+    timestamp: now,
+    ip,                              // 익명 통계용 (외부 노출 X, /admin 토큰으로만 조회)
+    answers: body.answers,
+    correct: body.correct,
+    axisScores: body.axisScores,
+    totalScore: body.totalScore,
     userAgent: request.headers.get('User-Agent') || '',
   };
 
-  await env.DIAGNOSTICS.put(`resp:${id}`, JSON.stringify(record));
+  await Promise.all([
+    env.DIAGNOSTICS.put(`resp:${id}`, JSON.stringify(record)),
+    env.DIAGNOSTICS.put(rlKey, String(now), { expirationTtl: RATE_LIMIT_TTL_SEC }),
+  ]);
+
   return jsonResponse({ ok: true, id });
 }
 

@@ -29,27 +29,27 @@
 <main>
   <section class="hero">
     <h1 class="hero__title">진도표</h1>
-    <p class="hero__subtitle">Part 1 (학부 표준 분량) + Part 2 (분해와 AI 응용) 각 16주, 총 32주 운영</p>
-    <p class="hero__meta">메인 MML · 보조 Strang · 시각 EoLA · 실습 Jupyter / NumPy / PyTorch</p>
+    <p class="hero__subtitle">Part 1 (학부 표준 분량) + Part 2 (Decomposition(분해)와 AI<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Artificial Intelligence, 인공지능)</small> 응용) 각 16주, 총 32주 운영</p>
+    <p class="hero__meta">메인 MML<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Mathematics for Machine Learning)</small> · 보조 Strang · 시각 EoLA<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Essence of Linear Algebra)</small> · 실습 Jupyter / NumPy / PyTorch</p>
   </section>
 
   <!-- Part 1 -->
   <section class="section" id="part1">
     <div class="part-header">
       <h2>Part 1 (16주) — 표준 학부 한 학기 분량</h2>
-      <p>벡터, 행렬, 선형방정식, 벡터공간, 부분공간, 정사영, 행렬식의 정의·정리 진술 + 행렬을 선형사상으로 다루는 관점 체화 + $Ax=b$ 의 해 존재·유일성을 네 가지 기본 부분공간으로 판별 + NumPy로 가우스 소거·LU 분해·그람-슈미트·정규방정식·행렬식 구현.</p>
+      <p>Vector(벡터), Matrix(행렬), 선형방정식, 벡터공간, Subspace(부분공간), Orthogonal projection(정사영), Determinant(행렬식)의 정의·정리 진술 + 행렬을 선형사상으로 다루는 관점 체화 + $Ax=b$ 의 해 존재·유일성을 네 가지 기본 부분공간으로 판별 + NumPy로 가우스 소거·LU<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(LU Decomposition, LU 분해)</small>·그람-슈미트·Normal equation(정규방정식)·행렬식 구현.</p>
     </div>
 
     <h3>학기 흐름</h3>
     <ul class="flow-list">
       <li><strong>W1-W5</strong> 벡터·행렬·선형방정식 — "AI의 모든 것은 $Ax=b$에서 시작한다"</li>
       <li><strong>W6-W10</strong> 벡터공간·부분공간 — "$Ax=b$의 해 존재·유일성을 4 부분공간으로 판별"</li>
-      <li><strong>W11-W14</strong> 직교성·정사영·최소제곱·QR — "잡음 있는 데이터에서 최선의 해 찾기"</li>
+      <li><strong>W11-W14</strong> Orthogonality(직교성)·정사영·Least squares(최소제곱)·QR<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(QR Decomposition, QR 분해)</small> — "잡음 있는 데이터에서 최선의 해 찾기"</li>
       <li><strong>W15</strong> 행렬식 — "변환의 부피 비율, 가역성 판정"</li>
       <li><strong>W16</strong> 기말</li>
     </ul>
 
-    <p><strong>왜 행렬식이 W15(맨 끝)에 있나</strong>: 학부 선대에서는 보통 행렬식을 일찍 다루지만, 본 커리큘럼은 AI 활용도가 낮다고 판단하여 후순위로 배치하였습니다. AI 모듈에서 행렬식이 직접 등장하는 경우는 거의 없습니다 — 가역성 판정은 SVD(Part 2 W5)의 0 아닌 특이값 개수로, 부피는 직접 측정으로 처리됩니다. 다만 면접·시험·다른 강의 대응을 위해 W4 역행렬에서 2×2·3×3 행렬식의 짧은 미리보기를 넣고, W15에서 일반 정의·성질·부피 해석으로 완성합니다.</p>
+    <p><strong>왜 행렬식이 W15(맨 끝)에 있나</strong>: 학부 선대에서는 보통 행렬식을 일찍 다루지만, 본 커리큘럼은 AI 활용도가 낮다고 판단하여 후순위로 배치하였습니다. AI 모듈에서 행렬식이 직접 등장하는 경우는 거의 없습니다 — 가역성 판정은 SVD<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Singular Value Decomposition, 특이값 분해)</small>(Part 2 W5)의 0 아닌 특이값 개수로, 부피는 직접 측정으로 처리됩니다. 다만 면접·시험·다른 강의 대응을 위해 W4 Inverse matrix(역행렬)에서 2×2·3×3 행렬식의 짧은 미리보기를 넣고, W15에서 일반 정의·성질·부피 해석으로 완성합니다.</p>
 
     <h3>주차표</h3>
     <div class="table-wrap">
@@ -104,21 +104,21 @@
   <section class="section" id="part2">
     <div class="part-header">
       <h2>Part 2 (16주) — 분해와 AI 응용</h2>
-      <p>고윳값분해, SVD, PCA의 정리·증명·응용을 자유롭게 사용 + 행렬 미분으로 신경망 forward·backward를 분해 + CNN 컨볼루션·attention·embedding·GPU 행렬곱이 어떤 선형대수 객체로 환원되는지 식별 + 임의의 AI 모델 한 부분을 골라 그 안의 선형대수 구조를 보고서로 분해.</p>
+      <p>Eigenvalue(고윳값) 분해, SVD, PCA<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Principal Component Analysis, 주성분 분석)</small>의 정리·증명·응용을 자유롭게 사용 + 행렬 미분으로 Neural Network(신경망) forward·backward를 분해 + CNN<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Convolutional Neural Network, 합성곱 신경망)</small> 컨볼루션·attention·embedding·GPU 행렬곱이 어떤 LA 객체로 환원되는지 식별 + 임의의 AI 모델 한 부분을 골라 그 안의 LA 구조를 보고서로 분해.</p>
     </div>
 
     <h3>학기 흐름</h3>
     <ul class="flow-list">
-      <li><strong>W1-W4</strong> 분해의 기본 — 고윳값·대각화·대칭·양정치 ("정사각 행렬이 어떤 모드로 작동하는가")</li>
+      <li><strong>W1-W4</strong> 분해의 기본 — 고윳값·Diagonalization(대각화)·Symmetric matrix(대칭행렬)·Positive definite(양정치) ("정사각 행렬이 어떤 모드로 작동하는가")</li>
       <li><strong>W5-W7</strong> 분해의 보편화 — SVD·저계수·PCA ("임의 행렬을 직교 회전 + 신축 + 직교 회전으로")</li>
       <li><strong>W8</strong> 중간고사 (W1-W7)</li>
-      <li><strong>W9-W11</strong> 분해 사용을 위한 도구 — W9 수치LA / W10 확률통계LA / W11 선형변환 일반</li>
+      <li><strong>W9-W11</strong> 분해 사용을 위한 도구 — W9 수치LA / W10 Probability/Statistics(확률통계)LA / W11 Linear transformation(선형변환) 일반</li>
       <li><strong>W12-W14</strong> 분해를 신경망에 적용 — W12 행렬미분 / W13 텐서대수 / W14 AI 모듈 환원</li>
       <li><strong>W15</strong> 학생 reading 발표 — 최근 논문의 LA 분해</li>
       <li><strong>W16</strong> 기말·텀 프로젝트 발표</li>
     </ul>
 
-    <p><strong>왜 W9-W11이 SVD 다음에 오나</strong>: W5-W7에서 SVD·PCA를 배우면 "끝났다"는 인상을 주지만, 실제 신경망 분해(W12-W14)에는 세 도구가 더 필요합니다 — (1) W9 수치LA: SVD의 조건수가 fp16에서 깨지는 이유, (2) W10 확률통계LA: SVD를 데이터 공분산에 적용하면 PCA·화이트닝, (3) W11 선형변환 일반: 분해를 좌표계 독립적·임의 텐서로 일반화. 이 셋이 W12 행렬미분·W13 Kronecker곱·W14 토플리츠 환원의 동기를 만듭니다.</p>
+    <p><strong>왜 W9-W11이 SVD 다음에 오나</strong>: W5-W7에서 SVD·PCA를 배우면 "끝났다"는 인상을 주지만, 실제 신경망 분해(W12-W14)에는 세 도구가 더 필요합니다 — (1) W9 수치LA: SVD의 Condition number(조건수)가 fp16<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(16-bit floating point, 반정밀도 부동소수점)</small>에서 깨지는 이유, (2) W10 확률통계LA: SVD를 데이터 Covariance(공분산)에 적용하면 PCA·화이트닝, (3) W11 선형변환 일반: 분해를 좌표계 독립적·임의 텐서로 일반화. 이 셋이 W12 행렬미분·W13 Kronecker곱·W14 토플리츠 환원의 동기를 만듭니다.</p>
 
     <h3>주차표</h3>
     <div class="table-wrap">
@@ -169,15 +169,26 @@
     </table>
     </div>
 
-    <h3>텀 프로젝트 — 모델 분해 보고서</h3>
-    <p>W9 시점에 주제 확정, W16 발표. 학생은 다음 5단계를 수행합니다.</p>
+    <h3>텀 프로젝트 — 작은 모델의 한 모듈 분해</h3>
+    <p>W9 시점에 주제 확정, W16 발표. <strong>스코프는 한 모듈</strong>로 한정하여 구현 부담을 낮춥니다. 학생은 다음 5단계를 수행합니다.</p>
     <ol>
-      <li>임의의 공개된 AI 모델(Vision Transformer, GPT-mini, U-Net 등) 한 모듈을 선택</li>
-      <li>그 모듈의 모든 텐서 연산을 표준 선형대수 객체(행렬곱, 정사영, 고유분해, SVD, Kronecker곱 등)로 환원</li>
-      <li>환원된 구조를 다이어그램과 수식으로 표현</li>
-      <li>NumPy·PyTorch로 그 모듈을 처음부터 재구현하고 원본과 출력 일치 검증</li>
-      <li>보고서는 정의·정리 인용을 포함한 학술 형식</li>
+      <li>다음 권장 후보 중 하나의 <strong>한 모듈만</strong> 선택:
+        <ul style="margin-top:0.4rem;">
+          <li><strong>GPT-Neo 125M</strong>의 single attention head 또는 MLP 블록 (HuggingFace 공개)</li>
+          <li><strong>nanoGPT</strong>의 한 transformer block (Karpathy 공개, 약 300줄)</li>
+          <li><strong>MiniLSTM</strong>의 cell 구조 또는 GRU cell</li>
+          <li><strong>LeNet-5</strong>의 한 conv 레이어 (1989, 60K 파라미터)</li>
+          <li>또는 본 강좌 미니과제 6 후보(BatchNorm·Embedding·LSTM·LoRA·Conv1d·U-Net 등) 중 하나</li>
+        </ul>
+      </li>
+      <li>선택한 모듈 내 텐서 연산을 표준 LA 객체(행렬곱, 정사영, 고유분해, SVD, Kronecker곱 등)로 환원</li>
+      <li>환원 구조를 다이어그램과 수식으로 표현</li>
+      <li>NumPy로 모듈 재구현 → PyTorch 원본과 출력 일치 검증 (atol=1e-5)</li>
+      <li>보고서는 정의·정리 인용을 포함한 학술 형식 (5-10페이지)</li>
     </ol>
+    <p class="info-msg" style="margin-top:0.8rem;">
+      예전 권장 후보(ViT, U-Net 전체)는 너무 부담스럽다는 피드백을 반영하여 <strong>구현 부담이 낮은 작은 모델</strong>로 권장 후보를 변경했습니다. 어디까지나 권장이며, 본인이 다른 모듈을 다루고 싶다면 W9 사전 협의로 결정합니다.
+    </p>
   </section>
 
   <!-- Self-check -->
@@ -210,7 +221,7 @@
 
     <h4>W4 — 역행렬·가역성</h4>
     <ol>
-      <li>역행렬의 존재 조건 3가지 동치를 쓸 수 있는가? (가역, det≠0, RREF=$I$)</li>
+      <li>역행렬의 존재 조건 3가지 동치를 쓸 수 있는가? (가역, det≠0, RREF<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Reduced Row Echelon Form, 기약 행 사다리꼴)</small>=$I$)</li>
       <li>딥러닝에서 역행렬을 거의 안 쓰는 이유는?</li>
       <li>2×2 행렬식 $ad-bc$의 기하적 의미는?</li>
     </ol>
@@ -229,14 +240,14 @@
       <li>오토인코더에서 인코더 영공간의 의미는?</li>
     </ol>
 
-    <h4>W7 — 행공간·열공간·계수·차원 정리</h4>
+    <h4>W7 — Row space(행공간)·Column space(열공간)·Rank(계수)·차원 정리</h4>
     <ol>
       <li>$\mathrm{rank}(A)$의 동치 정의 3가지를 댈 수 있는가?</li>
       <li>차원 정리 $\dim C(A) + \dim N(A) = n$를 식과 의미로 진술할 수 있는가?</li>
       <li>데이터 행렬의 effective rank를 어떻게 추정하는가?</li>
     </ol>
 
-    <h4>W9 — 일차독립·기저·차원</h4>
+    <h4>W9 — Linear independence(일차독립)·Basis(기저)·차원</h4>
     <ol>
       <li>무작위 벡터 5개의 일차독립을 RREF로 어떻게 판정하는가?</li>
       <li>같은 부분공간의 두 기저가 같은 차원을 갖는 이유?</li>
@@ -253,7 +264,7 @@
     <h4>W11 — 부분공간 직교성</h4>
     <ol>
       <li>두 부분공간이 직교인지 코드로 어떻게 검증하는가?</li>
-      <li>직교 여공간의 정의와 차원 관계 $\dim V + \dim V^\perp = n$?</li>
+      <li>Orthogonal complement(직교 여공간)의 정의와 차원 관계 $\dim V + \dim V^\perp = n$?</li>
       <li>잔차의 직교성이 최소제곱법(W13)과 어떻게 연결되는가?</li>
     </ol>
 
@@ -274,7 +285,7 @@
     <h4>W14 — 그람-슈미트·QR 분해</h4>
     <ol>
       <li>그람-슈미트의 한 단계 $\mathbf{q}_k = \mathbf{a}_k - \sum \langle\mathbf{a}_k, \mathbf{q}_j\rangle \mathbf{q}_j$를 식으로 쓸 수 있는가?</li>
-      <li>CGS와 MGS의 차이 (수치 안정성)?</li>
+      <li>CGS<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Classical Gram-Schmidt, 고전적 그람-슈미트)</small>와 MGS<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Modified Gram-Schmidt, 수정된 그람-슈미트)</small>의 차이 (수치 안정성)?</li>
       <li>$A = QR$ 분해에서 $Q, R$의 차원과 성질?</li>
     </ol>
 
@@ -287,7 +298,7 @@
 
     <h3>Part 2 (W1-W15)</h3>
 
-    <h4>W1 — 고윳값·고유벡터·특성다항식</h4>
+    <h4>W1 — 고윳값·Eigenvector(고유벡터)·특성다항식</h4>
     <ol>
       <li>고윳값·고유벡터의 정의 $A\mathbf{v} = \lambda\mathbf{v}$ + 특성다항식 $\det(A - \lambda I)$로 풀이?</li>
       <li>대수적 중복도와 기하적 중복도의 차이?</li>
@@ -308,7 +319,7 @@
       <li>비대칭 행렬과 대칭 행렬의 대각화 차이를 시각적으로 설명할 수 있는가?</li>
     </ol>
 
-    <h4>W4 — 양정치·이차형식·Cholesky</h4>
+    <h4>W4 — 양정치·Quadratic form(이차형식)·Cholesky</h4>
     <ol>
       <li>양정치 판정 3가지 동치 (모든 고윳값 &gt; 0, 모든 leading principal minor &gt; 0, $\mathbf{x}^\top A\mathbf{x} &gt; 0$)?</li>
       <li>Cholesky 분해 $A = LL^\top$의 조건과 알고리즘?</li>
@@ -338,14 +349,14 @@
 
     <h4>W9 — 조건수·수치 안정성</h4>
     <ol>
-      <li>조건수 $\kappa(A) = \sigma_{\max}/\sigma_{\min}$의 의미와 fp16 대비 fp32에서의 영향?</li>
+      <li>조건수 $\kappa(A) = \sigma_{\max}/\sigma_{\min}$의 의미와 fp16 대비 fp32<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(32-bit floating point, 단정밀도 부동소수점)</small>에서의 영향?</li>
       <li>Hilbert 행렬의 조건수가 왜 그렇게 큰가?</li>
       <li>정규방정식 vs QR 분해 정확도 비교?</li>
     </ol>
 
     <h4>W10 — 확률통계LA</h4>
     <ol>
-      <li>공분산 행렬 $\Sigma$의 PSD성을 증명할 수 있는가?</li>
+      <li>공분산 행렬 $\Sigma$의 PSD<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Positive Semi-Definite, 양반정치)</small>성을 증명할 수 있는가?</li>
       <li>화이트닝 변환 $\Sigma^{-1/2}$의 의미와 계산?</li>
       <li>베이즈 회귀에서 $X^\top X + \lambda I$의 LA 구조?</li>
     </ol>
@@ -357,10 +368,10 @@
       <li>닮음 불변량 (대각합, 행렬식, 고윳값) 3가지?</li>
     </ol>
 
-    <h4>W12 — 행렬 미분·자코비안·헤시안</h4>
+    <h4>W12 — 행렬 미분·Jacobian(자코비안)·Hessian(헤시안)</h4>
     <ol>
-      <li>$f(\mathbf{x}) = \mathbf{x}^\top A\mathbf{x}$의 그래디언트와 헤시안을 즉석에서?</li>
-      <li>체인룰의 자코비안 곱 표현 $J_{\mathbf{z}/\mathbf{x}} = J_{\mathbf{z}/\mathbf{y}} J_{\mathbf{y}/\mathbf{x}}$가 backprop의 본질?</li>
+      <li>$f(\mathbf{x}) = \mathbf{x}^\top A\mathbf{x}$의 Gradient(그래디언트)와 헤시안을 즉석에서?</li>
+      <li>Chain rule(체인룰)의 자코비안 곱 표현 $J_{\mathbf{z}/\mathbf{x}} = J_{\mathbf{z}/\mathbf{y}} J_{\mathbf{y}/\mathbf{x}}$가 backprop의 본질?</li>
       <li>Adam vs SGD의 LA 관점 차이?</li>
     </ol>
 
