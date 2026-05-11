@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>진도표 — 인공지능 전공자를 위한 선형대수학</title>
-<meta name="description" content="Part 1·Part 2 각 16주 상세 주차표, 평가 비중, 텀 프로젝트 안내, 자가진단 체크리스트.">
+<meta name="description" content="Part 1 12회차·Part 2 13회차 상세 회차표, 평가 비중, 텀 프로젝트 안내, 자가진단 체크리스트.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -29,63 +29,63 @@
 <main>
   <section class="hero">
     <h1 class="hero__title">진도표</h1>
-    <p class="hero__subtitle">Part 1 (학부 표준 분량) + Part 2 (Decomposition(분해)와 AI<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Artificial Intelligence, 인공지능)</small> 응용) 각 16주, 총 32주 운영</p>
+    <p class="hero__subtitle">Part 1 (12 Session(회차)) + Part 2 (13회차) = 총 25회차, 1회차 2시간 × 25 = 50시간 운영</p>
     <p class="hero__meta">메인 MML<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Mathematics for Machine Learning)</small> · 보조 Strang · 시각 EoLA<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Essence of Linear Algebra)</small> · 실습 Jupyter / NumPy / PyTorch</p>
   </section>
 
   <!-- Part 1 -->
   <section class="section" id="part1">
     <div class="part-header">
-      <h2>Part 1 (16주) — 학부 한 Part 분량</h2>
+      <h2>Part 1 (12회차) — 학부 한 Part 분량</h2>
       <p>Vector(벡터), Matrix(행렬), 선형방정식, 벡터공간, Subspace(부분공간), Orthogonal projection(정사영), Determinant(행렬식)의 정의·정리 진술 + 행렬을 선형사상으로 다루는 관점 체화 + $Ax=b$ 의 해 존재·유일성을 네 가지 기본 부분공간으로 판별 + NumPy로 가우스 소거·LU<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(LU Decomposition, LU 분해)</small>·그람-슈미트·Normal equation(정규방정식)·행렬식 구현.</p>
     </div>
 
     <h3>Part 흐름</h3>
     <ul class="flow-list">
-      <li><strong>W1-W5</strong> 벡터·행렬·선형방정식 — "AI의 모든 것은 $Ax=b$에서 시작한다" <em>(W5는 반주차, 0.5주 — LU 핵심 정의·전후방 대입만)</em></li>
-      <li><strong>W6-W10</strong> 벡터공간·부분공간 — "$Ax=b$의 해 존재·유일성을 4 부분공간으로 판별" <em>(W10은 1.5주, Strang 시그니처 4 부분공간 직교성 증명 강화)</em></li>
-      <li><strong>W11-W14</strong> Orthogonality(직교성)·정사영·Least squares(최소제곱)·QR<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(QR Decomposition, QR 분해)</small> — "잡음 있는 데이터에서 최선의 해 찾기"</li>
-      <li><strong>W15</strong> 행렬식 — "변환의 부피 비율, 가역성 판정" <em>(반주차, 0.5주 — W4 미리보기 + 부피 + 가역만)</em></li>
-      <li><strong>W16</strong> 기말</li>
+      <li><strong>1-3회차</strong> 벡터·행렬·선형방정식 — "AI의 모든 것은 $Ax=b$에서 시작한다"</li>
+      <li><strong>4회차</strong> 역행렬·가역성·LU 분해 (W4 + W5 통합) — 가역의 동치 + 분해의 첫 도구</li>
+      <li><strong>5-6회차</strong> 부분공간·영공간·행공간·열공간·rank — "$Ax=b$의 해 존재·유일성 4 부분공간으로"</li>
+      <li><strong>7회차</strong> Midterm(중간평가) — 1-6회차 통합</li>
+      <li><strong>8회차</strong> 일차독립·기저·차원</li>
+      <li><strong>9회차</strong> 4 기본 부분공간 (Strang 시그니처)</li>
+      <li><strong>10회차</strong> Orthogonality(직교성)·정사영 (W11 + W12 통합) — $P=A(A^\top A)^{-1}A^\top$ 중심</li>
+      <li><strong>11회차</strong> Least squares(최소제곱)·Normal equation(정규방정식)·Gram-Schmidt·QR<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(QR Decomposition, QR 분해)</small> (W13 + W14 통합)</li>
+      <li><strong>12회차</strong> 행렬식 + Final assessment(종합평가) (W15 + W16 통합)</li>
     </ul>
 
-    <p class="info-msg" style="margin-top:0.4rem;"><strong>옵션 B 시간 재배분</strong>: W5(LU)·W15(행렬식)을 각각 0.5주로 축소(AI 활용도 낮음)하여 절약된 1주를 W10(4 기본 부분공간 직교성 증명)에 0.5주, Part 2 W12(행렬 미분 — LLM backprop 핵심)에 0.5주 재투입. 32주 일정·토픽은 그대로, 분배만 조정.</p>
+    <p class="info-msg" style="margin-top:0.4rem;"><strong>시나리오 B 압축 (32주 → 25회차)</strong>: 1주 1차시 100분 가정의 16주 설계를 1회차 2시간 × 12회차로 압축. 본질적 토픽은 유지하되 W4+W5(역행렬·LU)·W11+W12(직교성·정사영)·W13+W14(최소제곱·QR)·W15+W16(행렬식·종합평가)를 통합.</p>
 
-    <p><strong>왜 행렬식이 W15(맨 끝)에 있나</strong>: 학부 선대에서는 보통 행렬식을 일찍 다루지만, 본 커리큘럼은 AI 활용도가 낮다고 판단하여 후순위로 배치하였습니다. AI 모듈에서 행렬식이 직접 등장하는 경우는 거의 없습니다 — 가역성 판정은 SVD<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Singular Value Decomposition, 특이값 분해)</small>(Part 2 W5)의 0 아닌 특이값 개수로, 부피는 직접 측정으로 처리됩니다. 다만 면접·시험·다른 강의 대응을 위해 W4 Inverse matrix(역행렬)에서 2×2·3×3 행렬식의 짧은 미리보기를 넣고, W15에서 부피 해석 + 가역 판정만 다룹니다 (라이프니츠 합·크라메르 공식은 reading 권고).</p>
+    <p><strong>왜 행렬식이 12회차(맨 끝)에 있나</strong>: 학부 선대에서는 보통 행렬식을 일찍 다루지만, 본 커리큘럼은 AI 활용도가 낮다고 판단하여 후순위로 배치하였습니다. AI 모듈에서 행렬식이 직접 등장하는 경우는 거의 없습니다 — 가역성 판정은 SVD<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Singular Value Decomposition, 특이값 분해)</small>(Part 2 5회차)의 0 아닌 특이값 개수로, 부피는 직접 측정으로 처리됩니다. 다만 면접·시험·다른 강의 대응을 위해 4회차 Inverse matrix(역행렬)에서 2×2·3×3 행렬식의 짧은 미리보기를 넣고, 12회차에서 부피 해석 + 가역 판정만 다룹니다 (라이프니츠 합·크라메르 공식은 reading 권고).</p>
 
-    <p><strong>왜 W5 LU가 반주차인가</strong>: LU 분해는 수치 라이브러리 내부 도구이지 LLM/생성AI 학생이 직접 다룰 객체가 아닙니다. 정의·전·후방 대입 흐름만 강의에서 잡고, 부분 피보팅·다중 우변 시간 비교 같은 알고리즘 디테일은 reading·과제로 위임합니다.</p>
+    <p><strong>왜 LU가 4회차에 통합되었나</strong>: LU 분해는 수치 라이브러리 내부 도구이지 LLM/생성AI 학생이 직접 다룰 객체가 아닙니다. 정의·전·후방 대입 흐름만 4회차 후반에서 잡고, 부분 피보팅·다중 우변 시간 비교 같은 알고리즘 디테일은 reading·과제로 위임합니다.</p>
 
-    <h3>주차표</h3>
+    <h3>회차표</h3>
     <div class="table-wrap">
     <table>
       <thead>
         <tr>
-          <th>W</th>
+          <th>회차</th>
+          <th>기존 매핑</th>
           <th>MML (메인)</th>
           <th>Strang (보조)</th>
-          <th>EoLA</th>
           <th>핵심 수학 개념</th>
           <th>CS·AI 적용</th>
           <th>코딩 실습</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td><strong>1</strong></td><td>§2.1, §3.1, §3.2</td><td>§1.1, §1.2</td><td>Ch.1, Ch.2</td><td>벡터, 선형결합, 노름, 내적, 코사인 유사도</td><td>데이터의 벡터 표현(이미지·텍스트·사용자), 코사인 유사도 검색</td><td>MNIST 이미지를 784차원 벡터로 변환, 두 이미지 코사인 유사도</td></tr>
-        <tr><td><strong>2</strong></td><td>§2.2, §2.3.1</td><td>§1.3, §2.1</td><td>Ch.3</td><td>행렬 표기, 행렬·벡터 곱의 행 방식·열 방식 두 해석</td><td>신경망 한 층의 행렬·벡터 곱, 그래프 인접행렬</td><td>$Ax$ 를 행 내적과 열 결합 두 방식으로 구현해 결과 일치 확인</td></tr>
-        <tr><td><strong>3</strong></td><td>§2.3.1</td><td>§2.2, §2.3</td><td>Ch.4</td><td>가우스 소거, 행렬 곱 정의, 결합법칙·비가환성</td><td>행렬 곱 계산 복잡도, BLAS 호출, 신경망 층 합성</td><td>$O(n^3)$ 가우스 소거 직접 구현, <code>np.linalg.solve</code>와 시간·정확도 비교</td></tr>
-        <tr><td><strong>4</strong></td><td>§2.3.2</td><td>§2.4, §2.5</td><td>(보충)</td><td>행렬 곱 규칙, 역행렬, 가역성 조건, 2×2/3×3 행렬식 미리보기</td><td>그래픽스 변환의 가역성, 딥러닝에서 역행렬을 거의 안 쓰는 이유</td><td>역행렬 직접 구현, <code>np.linalg.inv</code>와 비교, 특이행렬 수치 불안정 체험, 2×2/3×3 <code>det</code> 직접 계산</td></tr>
-        <tr><td><strong>5</strong> <em>(반주차, 0.5주)</em></td><td>§2.3.3</td><td>§2.6, §2.7</td><td>(보충)</td><td>$LU$ 분해 정의, 전·후방 대입, 전치, 순열행렬 (피보팅·다중 우변 비교는 reading)</td><td>수치 라이브러리 내부 구조 (간략)</td><td><code>scipy.linalg.lu</code>로 분해 후 전·후방 대입으로 해, <code>solve</code> 결과와 비교</td></tr>
-        <tr><td><strong>6</strong></td><td>§2.4</td><td>§3.1, §3.2</td><td>Ch.6, Ch.7</td><td>벡터공간, 부분공간, 영공간 $N(A)$, $Ax=0$ 의 해집합</td><td>신경망의 죽은 뉴런, 압축 손실 표현, 오토인코더 잠재공간 차원</td><td>임의 행렬에 <code>scipy.linalg.null_space</code> 적용해 영공간 기저 구하고 $Ax=0$ 검증</td></tr>
-        <tr><td><strong>7</strong></td><td>§2.5</td><td>§3.3, §3.4</td><td>Ch.7</td><td>행공간, 열공간, 계수, $Ax=b$ 해집합의 구조</td><td>데이터 행렬의 유효 차원, 임베딩 내재 차원 추정</td><td>잡음 섞인 저차원 데이터 행렬에서 <code>matrix_rank</code>와 특잇값 분포 비교</td></tr>
-        <tr><td><strong>8</strong></td><td>중간평가</td><td>—</td><td>—</td><td>1~7주 통합 평가</td><td>(개념 응용 문제 위주)</td><td>Jupyter 기반 실기 시험</td></tr>
-        <tr><td><strong>9</strong></td><td>§2.6</td><td>§3.5</td><td>Ch.2, Ch.5</td><td>일차독립, 일차종속, 기저, 차원</td><td>임베딩 내재 차원 추정, 특징 선택의 수학적 토대</td><td>무작위 벡터 집합의 일차독립 판정 알고리즘, RREF 직접 구현</td></tr>
-        <tr><td><strong>10</strong> <em>(1.5주, Strang 시그니처 강화)</em></td><td>§2.7</td><td>§3.6</td><td>(보충)</td><td>네 가지 기본 부분공간, 차원 정리, 직교성 $C(A^\top) \perp N(A)$·$C(A) \perp N(A^\top)$ 증명</td><td>컨볼루션 행렬의 영공간(불변 패턴), 신호 분해</td><td>작은 합성곱 행렬을 명시 구성하여 네 부분공간 기저를 직접 출력 + 직교 검증</td></tr>
-        <tr><td><strong>11</strong></td><td>§3.6</td><td>§4.1</td><td>(보충)</td><td>부분공간 직교성, 직교 여공간</td><td>신호의 직교 분해, 잔차의 직교성</td><td>두 부분공간이 직교임을 검증하는 코드, 직교 여공간 기저 계산</td></tr>
-        <tr><td><strong>12</strong></td><td>§3.7</td><td>§4.2</td><td>Ch.9</td><td>정사영, 정사영 행렬 $P=A(A^\top A)^{-1}A^\top$, 멱등성 $P^2=P$</td><td>Attention의 query·key 내적, 정보검색의 코사인 정렬</td><td>한 벡터를 평면에 정사영, 잔차의 직교성과 $P^2=P$ 검증</td></tr>
-        <tr><td><strong>13</strong></td><td>§9.2 일부</td><td>§4.3</td><td>(보충)</td><td>최소제곱법, 정규방정식 $A^\top A\hat x=A^\top b$, 정사영 해석</td><td>선형회귀, 다항회귀, 신경망 최종층의 회귀 해석</td><td>NumPy로 정규방정식 직접 구현, <code>np.linalg.lstsq</code>와 비교, 다항회귀 과적합</td></tr>
-        <tr><td><strong>14</strong></td><td>§3.8</td><td>§4.4</td><td>(보충)</td><td>그람-슈미트 직교화, $QR$ 분해</td><td>수치 안정한 회귀 풀이, 직교 기저 생성 알고리즘</td><td>그람-슈미트 직접 구현, <code>np.linalg.qr</code>와 정확도 비교, MGS의 안정성</td></tr>
-        <tr><td><strong>15</strong> <em>(반주차, W4 미리보기 + 부피 + 가역만)</em></td><td>§4.1</td><td>§5.1~§5.3</td><td>Ch.5, Ch.6</td><td>행렬식 정의 (W4 일반화), 부피 해석, 가역 판정 ($\det \ne 0 \iff$ 가역). 라이프니츠 합·크라메르는 reading</td><td>변환의 부피 비율, 그래픽스 가역성·반전 판정</td><td>2D 단위 정사각형 변환·부피 변화 시각화 1개 (코딩 분량 축소)</td></tr>
-        <tr><td><strong>16</strong></td><td>기말</td><td>—</td><td>—</td><td>Part 통합 평가</td><td>—</td><td>종이 시험·실기 통합</td></tr>
+        <tr><td><strong>1회차</strong></td><td>W1</td><td>§2.1, §3.1, §3.2</td><td>§1.1, §1.2</td><td>벡터, 선형결합, 노름, 내적, 코사인 유사도</td><td>데이터의 벡터 표현, 코사인 유사도 검색</td><td>MNIST 이미지를 784차원 벡터로 변환, 두 이미지 코사인 유사도</td></tr>
+        <tr><td><strong>2회차</strong></td><td>W2</td><td>§2.2, §2.3.1</td><td>§1.3, §2.1</td><td>행렬·벡터 곱의 행 방식·열 방식 두 해석</td><td>신경망 한 층의 행렬·벡터 곱, 그래프 인접행렬</td><td>$Ax$ 를 행 내적·열 결합 두 방식으로 구현해 결과 일치 확인</td></tr>
+        <tr><td><strong>3회차</strong></td><td>W3</td><td>§2.3.1</td><td>§2.2, §2.3</td><td>가우스 소거, 행렬 곱 정의, 결합법칙·비가환성, 복잡도</td><td>행렬 곱 계산 복잡도, BLAS, 신경망 층 합성</td><td>$O(n^3)$ 가우스 소거 직접 구현, <code>np.linalg.solve</code>와 시간·정확도 비교</td></tr>
+        <tr><td><strong>4회차</strong></td><td><strong>W4 + W5 통합</strong></td><td>§2.3.2, §2.3.3</td><td>§2.4~§2.7</td><td>역행렬, 가역성 동치, 2×2/3×3 행렬식 미리보기, $LU$ 분해 정의·전·후방 대입, 전치·순열행렬</td><td>그래픽스 변환의 가역성, 딥러닝에서 역행렬을 거의 안 쓰는 이유, 수치 라이브러리 내부 구조</td><td>역행렬 직접 구현, <code>np.linalg.inv</code>와 비교, <code>scipy.linalg.lu</code>로 분해 후 전·후방 대입</td></tr>
+        <tr><td><strong>5회차</strong></td><td>W6</td><td>§2.4</td><td>§3.1, §3.2</td><td>벡터공간, 부분공간, 영공간 $N(A)$, $Ax=0$ 의 해집합</td><td>신경망의 죽은 뉴런, 오토인코더 잠재공간 차원</td><td>임의 행렬에 <code>scipy.linalg.null_space</code> 적용해 영공간 기저 + $Ax=0$ 검증</td></tr>
+        <tr><td><strong>6회차</strong></td><td>W7</td><td>§2.5</td><td>§3.3, §3.4</td><td>행공간, 열공간, 계수(rank), $Ax=b$ 해집합의 구조</td><td>데이터 행렬의 유효 차원, 임베딩 내재 차원 추정</td><td>잡음 섞인 저차원 데이터 행렬에서 <code>matrix_rank</code>와 특잇값 분포 비교</td></tr>
+        <tr><td><strong>7회차</strong></td><td>W8</td><td>Midterm(중간평가)</td><td>—</td><td>1-6회차 통합 평가</td><td>(개념 응용 문제 위주)</td><td>Jupyter 기반 실기 시험</td></tr>
+        <tr><td><strong>8회차</strong></td><td>W9</td><td>§2.6</td><td>§3.5</td><td>일차독립, 일차종속, 기저, 차원</td><td>임베딩 내재 차원, 특징 선택의 수학적 토대</td><td>무작위 벡터 집합의 일차독립 판정 알고리즘, RREF<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Reduced Row Echelon Form, 기약 행 사다리꼴)</small> 직접 구현</td></tr>
+        <tr><td><strong>9회차</strong></td><td>W10</td><td>§2.7</td><td>§3.6</td><td>네 가지 기본 부분공간, 차원 정리, 직교성 $C(A^\top) \perp N(A)$·$C(A) \perp N(A^\top)$ 증명</td><td>컨볼루션 행렬의 영공간(불변 패턴), 신호 분해</td><td>작은 합성곱 행렬을 명시 구성해 네 부분공간 기저 출력 + 직교 검증</td></tr>
+        <tr><td><strong>10회차</strong></td><td><strong>W11 + W12 통합</strong></td><td>§3.6, §3.7</td><td>§4.1, §4.2</td><td>부분공간 직교성, 직교 여공간, 정사영, 정사영 행렬 $P=A(A^\top A)^{-1}A^\top$, 멱등성 $P^2=P$</td><td>신호의 직교 분해, Attention의 query·key 내적</td><td>한 벡터를 평면에 정사영, 잔차의 직교성과 $P^2=P$ 검증, 직교 여공간 기저</td></tr>
+        <tr><td><strong>11회차</strong></td><td><strong>W13 + W14 통합</strong></td><td>§3.7, §3.8, §9.2 일부</td><td>§4.3, §4.4</td><td>최소제곱법, 정규방정식 $A^\top A\hat x=A^\top b$, 정사영 해석, 그람-슈미트, $QR$ 분해</td><td>선형회귀, 다항회귀, 신경망 최종층 회귀 해석, 수치 안정 회귀</td><td>NumPy로 정규방정식 직접 구현, 그람-슈미트 직접 구현, <code>np.linalg.qr</code>와 정확도 비교</td></tr>
+        <tr><td><strong>12회차</strong></td><td><strong>W15 + W16 통합</strong></td><td>§4.1 + Final assessment(종합평가)</td><td>§5.1~§5.3</td><td>행렬식 정의, 부피 해석, 가역 판정 ($\det \ne 0 \iff$ 가역). Final assessment(종합평가): 1-11회차 + 행렬식 통합 평가</td><td>변환의 부피 비율, 그래픽스 가역성·반전</td><td>2D 단위 정사각형 변환·부피 변화 시각화 + 종이·실기 통합 시험</td></tr>
       </tbody>
     </table>
     </div>
@@ -96,9 +96,9 @@
       <thead><tr><th>항목</th><th>비중</th><th>비고</th></tr></thead>
       <tbody>
         <tr><td>출석</td><td>10%</td><td>—</td></tr>
-        <tr><td>과제</td><td>20%</td><td>매 주 Strang 연습문제 + Jupyter 노트북</td></tr>
-        <tr><td>중간</td><td>30%</td><td>종이 시험</td></tr>
-        <tr><td>기말</td><td>40%</td><td>종이 60% + Jupyter 실기 40%</td></tr>
+        <tr><td>과제</td><td>20%</td><td>매 회차 Strang 연습문제 + Jupyter 노트북</td></tr>
+        <tr><td>Midterm(중간평가)</td><td>30%</td><td>종이 시험 (7회차)</td></tr>
+        <tr><td>Final assessment(종합평가)</td><td>40%</td><td>종이 60% + Jupyter 실기 40% (12회차)</td></tr>
       </tbody>
     </table>
     </div>
@@ -107,60 +107,59 @@
   <!-- Part 2 -->
   <section class="section" id="part2">
     <div class="part-header">
-      <h2>Part 2 (16주) — 분해와 AI 응용</h2>
+      <h2>Part 2 (13회차) — 분해와 AI 응용</h2>
       <p>Eigenvalue(고윳값) 분해, SVD, PCA<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Principal Component Analysis, 주성분 분석)</small>의 정리·증명·응용을 자유롭게 사용 + 행렬 미분으로 Neural Network(신경망) forward·backward를 분해 + CNN<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Convolutional Neural Network, 합성곱 신경망)</small> 컨볼루션·attention·embedding·GPU 행렬곱이 어떤 LA 객체로 환원되는지 식별 + 임의의 AI 모델 한 부분을 골라 그 안의 LA 구조를 보고서로 분해.</p>
     </div>
 
     <h3>Part 흐름</h3>
     <ul class="flow-list">
-      <li><strong>W1-W4</strong> 분해의 기본 — 고윳값·Diagonalization(대각화)·Symmetric matrix(대칭행렬)·Positive definite(양정치) ("정사각 행렬이 어떤 모드로 작동하는가")</li>
-      <li><strong>W5-W7</strong> 분해의 보편화 — SVD·저계수·PCA ("임의 행렬을 직교 회전 + 신축 + 직교 회전으로")</li>
-      <li><strong>W8</strong> 중간평가 (W1-W7)</li>
-      <li><strong>W9-W11</strong> 분해 사용을 위한 도구 — W9 수치LA / W10 Probability/Statistics(확률통계)LA / W11 Linear transformation(선형변환) 일반</li>
-      <li><strong>W12-W14</strong> 분해를 신경망에 적용 — <strong>W12 행렬미분 (1.5주, LLM backprop 핵심)</strong> / <strong>W13 텐서대수 (반주차, 살짝 소개)</strong> / <strong>W14 AI 모듈 환원 (1.5주, AI 모듈 환원 확장)</strong></li>
-      <li><strong>W15</strong> 학생 reading 발표 — 최근 논문의 LA 분해</li>
-      <li><strong>W16</strong> 기말·텀 프로젝트 발표</li>
+      <li><strong>1-4회차</strong> 분해의 기본 — 고윳값·Diagonalization(대각화)·Symmetric matrix(대칭행렬)·Positive definite(양정치)</li>
+      <li><strong>5-6회차</strong> 분해의 보편화 — SVD·저계수근사·Eckart-Young·PCA (6회차 W6+W7 통합)</li>
+      <li><strong>7회차</strong> Midterm(중간평가) (1-6회차)</li>
+      <li><strong>8회차</strong> 수치LA·확률통계LA (W9+W10 통합) — 분해를 fp32/fp16에서 안전하게, 데이터 분포에 적용</li>
+      <li><strong>9회차</strong> Linear transformation(선형변환)·Change of basis(기저 변환)</li>
+      <li><strong>10회차</strong> 행렬 미분 1 — Jacobian(자코비안)·Chain rule(체인룰) (W12 first half)</li>
+      <li><strong>11회차</strong> 행렬 미분 2 — Hessian(헤시안)·Natural gradient(자연그래디언트) (W12 second half)</li>
+      <li><strong>12회차</strong> AI 모듈 환원·Kronecker 소개 (W14 + W13 살짝 통합) — conv 토플리츠·attention·embedding LA 환원</li>
+      <li><strong>13회차</strong> Final assessment(종합평가) + 텀 프로젝트 발표 (W15 + W16 통합) — 학생 reading 발표는 옵션</li>
     </ul>
 
-    <p class="info-msg" style="margin-top:0.4rem;"><strong>옵션 B 시간 재배분</strong>: W13 Kronecker·텐서 분해를 0.5주로 축소(ML 메인스트림 아님). 절약된 0.5주를 W12(자코비안·체인룰·헤시안·자연그래디언트) 또는 W14(AI 모듈 환원 확장)에 추가 투입. LLM/생성AI 학생에게 backprop의 자코비안 곱 본질이 Kronecker 분해보다 훨씬 중요. CP/Tucker 분해는 reading 권고로 위임. 32주 일정·토픽은 그대로, 분배만 조정.</p>
+    <p class="info-msg" style="margin-top:0.4rem;"><strong>시나리오 B 압축</strong>: 16주를 13회차로 재편. W6+W7(저계수·PCA), W9+W10(수치·확률통계 LA), W12(행렬 미분)을 2회차로 분할, W14+W13(AI 모듈·Kronecker), W15+W16(종합평가·텀 프로젝트) 통합.</p>
 
-    <p><strong>왜 W9-W11이 SVD 다음에 오나</strong>: W5-W7에서 SVD·PCA를 배우면 "끝났다"는 인상을 주지만, 실제 신경망 분해(W12-W14)에는 세 도구가 더 필요합니다 — (1) W9 수치LA: SVD의 Condition number(조건수)가 fp16<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(16-bit floating point, 반정밀도 부동소수점)</small>에서 깨지는 이유, (2) W10 확률통계LA: SVD를 데이터 Covariance(공분산)에 적용하면 PCA·화이트닝, (3) W11 선형변환 일반: 분해를 좌표계 독립적·임의 텐서로 일반화. 이 셋이 W12 행렬미분·W13 Kronecker곱·W14 토플리츠 환원의 동기를 만듭니다.</p>
+    <p><strong>왜 8회차(수치 LA·확률통계 LA)가 SVD 다음에 오나</strong>: 5-6회차에서 SVD·PCA를 배우면 "끝났다"는 인상을 주지만, 실제 신경망 분해(10-12회차)에는 두 도구가 더 필요합니다 — (1) 수치LA: SVD의 Condition number(조건수)가 fp16<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(16-bit floating point, 반정밀도 부동소수점)</small>에서 깨지는 이유, (2) 확률통계LA: SVD를 데이터 Covariance(공분산)에 적용하면 PCA·화이트닝. 이 둘이 행렬미분·AI 모듈 환원의 동기를 만듭니다.</p>
 
-    <p><strong>왜 W12 행렬 미분이 1.5주차로 확장되었나</strong>: LLM/생성AI 석사 학생에게 <strong>backward = 자코비안 곱 분해</strong>의 본질을 깊이 다지는 것이 본 강좌의 Core. 자코비안·체인룰·헤시안·자연그래디언트·Adam의 LA 구조까지 한 번에 묶어 1.5주 분량으로 운영합니다. <em>Matrix Cookbook</em> 발췌의 단순 공식 암기가 아니라, 한 층의 backward를 자코비안 곱 한 줄로 직접 유도·코딩하는 흐름.</p>
+    <p><strong>왜 행렬 미분이 2회차(10-11회차)로 확장되었나</strong>: LLM/생성AI 석사 학생에게 <strong>backward = Jacobian(자코비안) 곱 분해</strong>의 본질을 깊이 다지는 것이 본 강좌의 Core. 자코비안·체인룰·헤시안·자연그래디언트·Adam의 LA 구조까지 한 번에 묶어 2회차 분량(4시간)으로 운영합니다.</p>
 
-    <p><strong>왜 W13 Kronecker가 반주차로 축소되었나</strong>: Kronecker곱·Khatri-Rao곱·CP·Tucker 분해는 ML 메인스트림이 아닙니다. Multi-head attention의 헤드 분리는 실무에서 batched matmul로 처리되며, $I_H \otimes (\cdot)$ 표현은 이론적 비유에 가깝습니다. <strong>Kronecker 정의·multi-head 분리 살짝 소개</strong> 수준으로 다루고, CP/Tucker 분해는 reading 권고로 위임.</p>
+    <p><strong>왜 Kronecker가 12회차에 잠깐만 등장하나</strong>: Kronecker곱·Khatri-Rao곱·CP·Tucker 분해는 ML 메인스트림이 아닙니다. Multi-head attention의 헤드 분리는 실무에서 batched matmul로 처리되며, $I_H \otimes (\cdot)$ 표현은 이론적 비유에 가깝습니다. <strong>Kronecker 정의·multi-head 분리 살짝 소개</strong> 수준으로 12회차 일부에 흡수, CP/Tucker 분해는 reading 권고로 위임.</p>
 
-    <h3>주차표</h3>
+    <h3>회차표</h3>
     <div class="table-wrap">
     <table>
       <thead>
         <tr>
-          <th>W</th>
+          <th>회차</th>
+          <th>기존 매핑</th>
           <th>MML (메인)</th>
           <th>Strang (보조)</th>
-          <th>추가 자료</th>
           <th>핵심 수학 개념</th>
           <th>CS·AI 적용</th>
           <th>코딩 실습</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td><strong>1</strong></td><td>§4.2</td><td>§6.1</td><td>EoLA Ch.13</td><td>고윳값, 고유벡터, 특성다항식, 대수적·기하적 중복도</td><td>고유 분석의 표준 도구, 신호 모드 분해</td><td>거듭제곱법으로 최대 고유벡터 추적, <code>np.linalg.eig</code>와 비교</td></tr>
-        <tr><td><strong>2</strong></td><td>§4.2</td><td>§6.2</td><td>(보충)</td><td>대각화 $A=S\Lambda S^{-1}$, 거듭제곱 $A^k$, 닮음</td><td>마르코프 사슬 정상상태, PageRank, RNN 안정성</td><td>작은 그래프에서 PageRank 거듭제곱법 구현, 정상분포 도출</td></tr>
-        <tr><td><strong>3</strong></td><td>§3.2.3</td><td>§6.4</td><td>(보충)</td><td>대칭행렬의 스펙트럼 정리, 직교 대각화</td><td>공분산행렬, 그래프 라플라시안, 손실 헤시안</td><td>대칭행렬 직교 대각화, 비대칭 행렬과의 차이 가시화</td></tr>
-        <tr><td><strong>4</strong></td><td>§10.4</td><td>§6.5</td><td>(보충)</td><td>양정치성, 이차형식, Cholesky 분해</td><td>손실곡면 헤시안 분석, Newton 법 토대, 다변량 정규 샘플링</td><td>임의 대칭행렬의 양정치 판정, Cholesky로 다변량 정규 샘플 생성</td></tr>
-        <tr><td><strong>5</strong></td><td>§4.5</td><td>§7.1, §7.2</td><td>EoLA 추가편</td><td>특잇값분해 $A=U\Sigma V^\top$, 기하학적 의미, 특잇값과 고유값의 관계</td><td>SVD의 보편성, 모든 행렬에 적용 가능한 분해</td><td>임의 행렬의 SVD 분해, $U,\Sigma,V$의 기하학적 작용 시각화</td></tr>
-        <tr><td><strong>6</strong></td><td>§4.5</td><td>§7.2</td><td>Eckart-Young</td><td>저계수 근사, Eckart-Young 정리, Frobenius 노름</td><td>이미지 압축, LoRA 저랭크 어댑터, 잠재의미 분석(LSA)</td><td>이미지 SVD 후 상위 $k$ 특잇값만 남긴 저계수 근사, 압축비·복원품질 그래프</td></tr>
-        <tr><td><strong>7</strong></td><td>§10</td><td>§7.3</td><td>(보충)</td><td>주성분분석(PCA), SVD와 공분산행렬의 동치성, 분산 최대화 정식화</td><td>차원축소, eigenfaces, 임베딩 시각화 사전 단계</td><td>MNIST·얼굴 데이터 PCA, 2차원 시각화, 분산 비율 그래프</td></tr>
-        <tr><td><strong>8</strong></td><td>중간평가</td><td>—</td><td>—</td><td>1~7주 통합 평가</td><td>—</td><td>종이 + Jupyter 실기</td></tr>
-        <tr><td><strong>9</strong></td><td>(없음)</td><td>§11</td><td>Trefethen·Bau 발췌</td><td>조건수, 후방 안정성, 직접법 vs 반복법, 라이브러리 정확도</td><td>FP16·BF16 정밀도, 학습 수치 발산, 그라디언트 폭주</td><td>Hilbert 행렬 조건수 계산, 정규방정식 vs QR 정확도 비교</td></tr>
-        <tr><td><strong>10</strong></td><td>§6 일부</td><td>§12</td><td>(보충)</td><td>공분산행렬 성질, 다변량 정규, 마르코프 LA, 베이즈 회귀의 LA 시점</td><td>통계적 ML의 행렬 도구, 화이트닝, 가우시안 프로세스 토대</td><td>MNIST 클래스별 공분산 시각화, 화이트닝 변환 적용 후 분류 비교</td></tr>
-        <tr><td><strong>11</strong></td><td>§2.7</td><td>§8</td><td>(보충)</td><td>선형변환의 일반 정의, 기저 변환, 표현행렬, 텐서 변환의 출발</td><td>텐서 변환 추상화, 좌표계 독립적 사고</td><td>임의 선형사상을 두 기저로 표현해 변환 행렬을 비교, 닮음 검증</td></tr>
-        <tr><td><strong>12</strong> <em>(1.5주, LLM backprop 핵심)</em></td><td>§5 (Vector Calculus)</td><td>(없음)</td><td>Petersen·Pedersen <em>Matrix Cookbook</em></td><td>벡터·행렬 미분, 자코비안, 체인룰의 자코비안 곱, 헤시안, 자연그래디언트, Adam의 LA 구조</td><td>역전파의 수학적 본질, 옵티마이저 분석(Adam·SGD), 자연그래디언트, Fisher 정보행렬</td><td>NumPy로 미니 autodiff 구현, <code>torch.autograd</code>와 결과 동치 검증, MLP 한 층 backward 자코비안 곱 직접 검증</td></tr>
-        <tr><td><strong>13</strong> <em>(반주차, 살짝 소개)</em></td><td>(보충)</td><td>(보충)</td><td>Kolda·Bader 텐서 분해 서베이 (reading 권고)</td><td>Kronecker곱·Khatri-Rao곱 정의 (CP·Tucker 분해는 reading)</td><td>Multi-head attention 헤드 분리·결합 ($I_H \otimes (\cdot)$ 또는 batched matmul)</td><td>Kronecker곱 직접 구현 1개, multi-head attention 헤드 reshape (batched matmul로 비교)</td></tr>
-        <tr><td><strong>14</strong> <em>(1.5주, AI 모듈 환원 확장)</em></td><td>(보충)</td><td>§10</td><td>(논문 발췌)</td><td>합성곱 행렬의 토플리츠 환원, attention $\mathrm{softmax}(QK^\top)V$, embedding lookup의 행렬곱 표현, batched matmul + 행렬 미분 backward 흐름</td><td>표준 AI 모듈의 선형대수 분해, GPU 텐서코어와 행렬곱, attention/conv backward의 자코비안 곱 추적</td><td><code>nn.Conv1d</code> 한 층을 토플리츠 행렬 곱으로 재구성 + backward 자코비안 곱 검증</td></tr>
-        <tr><td><strong>15</strong></td><td>(학생 선택)</td><td>—</td><td>(학생 선택 논문)</td><td>학생별 선택 주제 발표</td><td>최근 논문(LoRA, FlashAttention, MoE, RMT in DNN 등)의 선형대수 분석</td><td>학생 발표 + 코드 재현 데모</td></tr>
-        <tr><td><strong>16</strong></td><td>기말·프로젝트 발표</td><td>—</td><td>—</td><td>Part 통합 평가 + 텀 프로젝트 발표</td><td>—</td><td>모델 분해 보고서·코드 제출</td></tr>
+        <tr><td><strong>1회차</strong></td><td>W1</td><td>§4.2</td><td>§6.1</td><td>고윳값, 고유벡터, 특성다항식, 대수적·기하적 중복도</td><td>고유 분석의 표준 도구, 신호 모드 분해</td><td>거듭제곱법으로 최대 고유벡터 추적, <code>np.linalg.eig</code>와 비교</td></tr>
+        <tr><td><strong>2회차</strong></td><td>W2</td><td>§4.2</td><td>§6.2</td><td>대각화 $A=S\Lambda S^{-1}$, 거듭제곱 $A^k$, 닮음</td><td>마르코프 사슬 정상상태, PageRank, RNN 안정성</td><td>작은 그래프에서 PageRank 거듭제곱법 구현</td></tr>
+        <tr><td><strong>3회차</strong></td><td>W3</td><td>§3.2.3</td><td>§6.4</td><td>대칭행렬의 Spectral theorem(스펙트럼 정리), 직교 대각화</td><td>공분산행렬, 그래프 라플라시안, 손실 헤시안</td><td>대칭행렬 직교 대각화, 비대칭 행렬과의 차이 가시화</td></tr>
+        <tr><td><strong>4회차</strong></td><td>W4</td><td>§10.4</td><td>§6.5</td><td>양정치성, 이차형식, Cholesky 분해</td><td>손실곡면 헤시안 분석, Newton 법 토대, 다변량 정규 샘플링</td><td>임의 대칭행렬의 양정치 판정, Cholesky로 다변량 정규 샘플</td></tr>
+        <tr><td><strong>5회차</strong></td><td>W5</td><td>§4.5</td><td>§7.1, §7.2</td><td>특잇값분해 $A=U\Sigma V^\top$, 기하학적 의미, 특잇값과 고유값의 관계</td><td>SVD의 보편성, 모든 행렬에 적용 가능한 분해</td><td>임의 행렬의 SVD 분해, $U,\Sigma,V$의 기하학적 작용 시각화</td></tr>
+        <tr><td><strong>6회차</strong></td><td><strong>W6 + W7 통합</strong></td><td>§4.5, §10</td><td>§7.2, §7.3</td><td>저계수 근사, Eckart-Young 정리, Frobenius 노름, PCA, SVD-공분산 동치성, 분산 최대화</td><td>이미지 압축, LoRA 저랭크 어댑터, 잠재의미 분석, 차원축소, eigenfaces</td><td>이미지 SVD 저계수 근사, MNIST·얼굴 PCA 2D 시각화, 분산 비율 그래프</td></tr>
+        <tr><td><strong>7회차</strong></td><td>W8</td><td>Midterm(중간평가)</td><td>—</td><td>1-6회차 통합 평가</td><td>—</td><td>종이 + Jupyter 실기</td></tr>
+        <tr><td><strong>8회차</strong></td><td><strong>W9 + W10 통합</strong></td><td>§6 일부</td><td>§11, §12</td><td>조건수, 후방 안정성, 직접·반복법, 공분산행렬, 다변량 정규, 화이트닝, 베이즈 회귀 LA</td><td>FP16·BF16 정밀도, 학습 수치 발산, 통계적 ML 도구, 가우시안 프로세스</td><td>Hilbert 행렬 조건수, 정규방정식 vs QR, MNIST 클래스별 공분산 + 화이트닝</td></tr>
+        <tr><td><strong>9회차</strong></td><td>W11</td><td>§2.7</td><td>§8</td><td>Linear transformation(선형변환), Change of basis(기저 변환), 표현행렬</td><td>텐서 변환 추상화, 좌표계 독립적 사고</td><td>임의 선형사상을 두 기저로 표현, 변환 행렬 비교, 닮음 검증</td></tr>
+        <tr><td><strong>10회차</strong></td><td>W12 first half</td><td>§5 (Vector Calculus)</td><td>(없음)</td><td>행렬 미분 1 — Jacobian(자코비안), Chain rule(체인룰)의 자코비안 곱, 한 층 backward 직접 유도</td><td>역전파의 수학적 본질, MLP 한 층 backward 분해</td><td>NumPy로 미니 autodiff 구현 1단계, <code>torch.autograd</code>와 forward·backward 결과 동치 검증</td></tr>
+        <tr><td><strong>11회차</strong></td><td>W12 second half</td><td>§5 (Vector Calculus)</td><td>(없음)</td><td>행렬 미분 2 — Hessian(헤시안), Natural gradient(자연그래디언트), Fisher 정보행렬, Adam의 LA 구조</td><td>옵티마이저 분석(Adam·SGD·Newton), K-FAC, Levenberg-Marquardt</td><td>Newton 법·Gauss-Newton 비교, MLP 손실 헤시안 대각 근사</td></tr>
+        <tr><td><strong>12회차</strong></td><td><strong>W14 + W13 살짝 통합</strong></td><td>(보충)</td><td>§10</td><td>AI 모듈 환원: 토플리츠 환원, attention $\mathrm{softmax}(QK^\top)V$, embedding 행렬곱, Kronecker곱 정의 살짝</td><td>표준 AI 모듈의 LA 분해, GPU 텐서코어, multi-head reshape·permute의 batched matmul</td><td><code>nn.Conv1d</code> 한 층을 토플리츠 행렬 곱으로 재구성 + backward 자코비안 곱 검증, multi-head attention reshape</td></tr>
+        <tr><td><strong>13회차</strong></td><td><strong>W15 + W16 통합</strong></td><td>Final assessment(종합평가) + 프로젝트 발표</td><td>—</td><td>Part 통합 평가 + 텀 프로젝트 발표. 학생 reading 발표는 옵션</td><td>—</td><td>모델 분해 보고서·코드 제출</td></tr>
       </tbody>
     </table>
     </div>
@@ -171,16 +170,16 @@
       <thead><tr><th>항목</th><th>비중</th><th>비고</th></tr></thead>
       <tbody>
         <tr><td>출석</td><td>10%</td><td>—</td></tr>
-        <tr><td>과제</td><td>15%</td><td>매 주 Jupyter 노트북</td></tr>
-        <tr><td>중간</td><td>25%</td><td>종이 + Jupyter 실기</td></tr>
-        <tr><td>텀 프로젝트</td><td>35%</td><td>보고서 25% + 발표 10%</td></tr>
-        <tr><td>기말 (논문 reading)</td><td>15%</td><td>학생 선택 논문 발표</td></tr>
+        <tr><td>과제</td><td>15%</td><td>매 회차 Jupyter 노트북</td></tr>
+        <tr><td>Midterm(중간평가)</td><td>25%</td><td>종이 + Jupyter 실기 (7회차)</td></tr>
+        <tr><td>텀 프로젝트</td><td>35%</td><td>보고서 25% + 발표 10% (13회차 발표)</td></tr>
+        <tr><td>Final assessment(종합평가)</td><td>15%</td><td>13회차 (논문 reading 발표는 옵션 포함)</td></tr>
       </tbody>
     </table>
     </div>
 
     <h3>텀 프로젝트 — 작은 모델의 한 모듈 분해</h3>
-    <p>W9 시점에 주제 확정, W16 발표. <strong>스코프는 한 모듈</strong>로 한정하여 구현 부담을 낮춥니다. 학생은 다음 5단계를 수행합니다.</p>
+    <p>8회차 시점에 주제 확정, 13회차 발표. <strong>스코프는 한 모듈</strong>로 한정하여 구현 부담을 낮춥니다. 학생은 다음 5단계를 수행합니다.</p>
     <ol>
       <li>다음 권장 후보 중 하나의 <strong>한 모듈만</strong> 선택:
         <ul style="margin-top:0.4rem;">
@@ -197,205 +196,182 @@
       <li>보고서는 정의·정리 인용을 포함한 학술 형식 (5-10페이지)</li>
     </ol>
     <p class="info-msg" style="margin-top:0.8rem;">
-      예전 권장 후보(ViT, U-Net 전체)는 너무 부담스럽다는 피드백을 반영하여 <strong>구현 부담이 낮은 작은 모델</strong>로 권장 후보를 변경했습니다. 어디까지나 권장이며, 본인이 다른 모듈을 다루고 싶다면 W9 사전 협의로 결정합니다.
+      예전 권장 후보(ViT, U-Net 전체)는 너무 부담스럽다는 피드백을 반영하여 <strong>구현 부담이 낮은 작은 모델</strong>로 권장 후보를 변경했습니다. 어디까지나 권장이며, 본인이 다른 모듈을 다루고 싶다면 8회차 사전 협의로 결정합니다.
     </p>
   </section>
 
   <!-- Self-check -->
   <section class="section" id="selfCheck">
     <h2>학생 자가진단 체크리스트</h2>
-    <p>매 주차 강의 직후 또는 과제 제출 전에 다음 질문에 답할 수 있는지 점검하시기 바랍니다. 답할 수 없는 항목이 있으면 시험·프로젝트에서 막힐 신호이므로 해당 주차 자료(MML/Strang/EoLA)를 다시 보시기 바랍니다.</p>
+    <p>매 회차 강의 직후 또는 과제 제출 전에 다음 질문에 답할 수 있는지 점검하시기 바랍니다. 답할 수 없는 항목이 있으면 시험·프로젝트에서 막힐 신호이므로 해당 회차 자료(MML/Strang/EoLA)를 다시 보시기 바랍니다.</p>
 
-    <h3>Part 1 (W1-W15)</h3>
+    <h3>Part 1 (1-12회차)</h3>
 
-    <h4>W1 — 벡터·내적·노름·코사인 유사도</h4>
+    <h4>1회차 — 벡터·내적·노름·코사인 유사도</h4>
     <ol>
       <li>$\ell_1, \ell_2, \ell_\infty$ 노름의 정의를 식으로 쓸 수 있는가?</li>
       <li>코사인 유사도가 유클리드 거리와 다른 점을 한 문장으로 설명할 수 있는가?</li>
       <li>코시-슈바르츠 부등식의 진술과 등호 성립 조건을 쓸 수 있는가?</li>
     </ol>
 
-    <h4>W2 — 행렬·벡터 곱의 두 해석</h4>
+    <h4>2회차 — 행렬·벡터 곱의 두 해석</h4>
     <ol>
       <li>$A\mathbf{x}$를 행 내적 방식과 열 결합 방식으로 각각 설명할 수 있는가?</li>
       <li>신경망 한 층 $\mathbf{y} = W\mathbf{x} + \mathbf{b}$가 위 두 해석 중 어느 쪽에 가까운가?</li>
       <li>그래프 인접행렬 $A$가 주어졌을 때 $A\mathbf{x}$의 의미는?</li>
     </ol>
 
-    <h4>W3 — 가우스 소거·행렬 곱</h4>
+    <h4>3회차 — 가우스 소거·행렬 곱·복잡도</h4>
     <ol>
       <li>가우스 소거의 시간 복잡도 $O(n^3)$이 어디에서 오는가?</li>
       <li>행렬 곱이 결합법칙은 성립하지만 비가환인 이유?</li>
       <li>BLAS의 GEMM이 손으로 작성한 가우스 소거보다 왜 빠른가?</li>
     </ol>
 
-    <h4>W4 — 역행렬·가역성</h4>
+    <h4>4회차 — 역행렬·가역성·LU 분해 <em>(W4 + W5 통합)</em></h4>
     <ol>
-      <li>역행렬의 존재 조건 3가지 동치를 쓸 수 있는가? (가역, det≠0, RREF<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Reduced Row Echelon Form, 기약 행 사다리꼴)</small>=$I$)</li>
+      <li>역행렬의 존재 조건 3가지 동치를 쓸 수 있는가? (가역, det≠0, RREF=$I$)</li>
       <li>딥러닝에서 역행렬을 거의 안 쓰는 이유는?</li>
       <li>2×2 행렬식 $ad-bc$의 기하적 의미는?</li>
-    </ol>
-
-    <h4>W5 — $LU$ 분해·전치·순열 <em>(반주차, 0.5주 — 질문 2개로 축소)</em></h4>
-    <ol>
       <li>$A=LU$ 분해에서 $L$의 비대각 성분이 가우스 소거의 어떤 값과 같은가?</li>
       <li>행 교환이 필요한 행렬에서 $PA = LU$의 $P$는 무엇인가?</li>
     </ol>
 
-    <h4>W6 — 부분공간·영공간</h4>
+    <h4>5회차 — 부분공간·영공간</h4>
     <ol>
       <li>부분공간의 세 조건 중 가장 자주 빠뜨리는 것은? ("0 포함")</li>
       <li>$N(A) = \{\mathbf{x} : A\mathbf{x} = \mathbf{0}\}$가 부분공간임을 30초 안에 증명할 수 있는가?</li>
       <li>오토인코더에서 인코더 영공간의 의미는?</li>
     </ol>
 
-    <h4>W7 — Row space(행공간)·Column space(열공간)·Rank(계수)·차원 정리</h4>
+    <h4>6회차 — Row space(행공간)·Column space(열공간)·Rank(계수)·차원 정리</h4>
     <ol>
       <li>$\mathrm{rank}(A)$의 동치 정의 3가지를 댈 수 있는가?</li>
       <li>차원 정리 $\dim C(A) + \dim N(A) = n$를 식과 의미로 진술할 수 있는가?</li>
       <li>데이터 행렬의 effective rank를 어떻게 추정하는가?</li>
     </ol>
 
-    <h4>W9 — Linear independence(일차독립)·Basis(기저)·차원</h4>
+    <h4>8회차 — Linear independence(일차독립)·Basis(기저)·차원</h4>
     <ol>
       <li>무작위 벡터 5개의 일차독립을 RREF로 어떻게 판정하는가?</li>
       <li>같은 부분공간의 두 기저가 같은 차원을 갖는 이유?</li>
       <li>임베딩의 내재 차원(intrinsic dimension)을 어떻게 추정하는가?</li>
     </ol>
 
-    <h4>W10 — 네 가지 기본 부분공간</h4>
+    <h4>9회차 — 네 가지 기본 부분공간</h4>
     <ol>
       <li>$C(A), N(A), C(A^\top), N(A^\top)$의 차원을 $\mathrm{rank}(A)$로 모두 표현할 수 있는가?</li>
       <li>$C(A)$와 $N(A^\top)$이 직교 여공간임을 증명할 수 있는가?</li>
       <li>컨볼루션 행렬의 영공간이 어떤 패턴을 의미하는가?</li>
     </ol>
 
-    <h4>W11 — 부분공간 직교성</h4>
+    <h4>10회차 — 직교성·정사영 <em>(W11 + W12 통합)</em></h4>
     <ol>
       <li>두 부분공간이 직교인지 코드로 어떻게 검증하는가?</li>
       <li>Orthogonal complement(직교 여공간)의 정의와 차원 관계 $\dim V + \dim V^\perp = n$?</li>
-      <li>잔차의 직교성이 최소제곱법(W13)과 어떻게 연결되는가?</li>
-    </ol>
-
-    <h4>W12 — 정사영·정사영 행렬</h4>
-    <ol>
       <li>$P = A(A^\top A)^{-1} A^\top$가 정의되려면 $A$의 어떤 조건이 필요한가? (열 일차독립)</li>
       <li>정사영 행렬의 두 성질 $P^2 = P, P^\top = P$를 증명할 수 있는가?</li>
       <li>정규직교 기저 $U$일 때 $P = UU^\top$로 단순화되는 이유?</li>
     </ol>
 
-    <h4>W13 — 최소제곱·정규방정식</h4>
+    <h4>11회차 — 최소제곱·정규방정식·Gram-Schmidt·QR <em>(W13 + W14 통합)</em></h4>
     <ol>
       <li>정규방정식 $A^\top A \hat{\mathbf{x}} = A^\top \mathbf{b}$가 정사영 해석으로 어떻게 도출되는가?</li>
       <li>$X^\top X$가 가역이 아닐 때 무엇이 문제인가? (다중공선성, 해 비유일성)</li>
-      <li>신경망 최종층(linear regression head)이 사실 최소제곱과 동치인가?</li>
-    </ol>
-
-    <h4>W14 — 그람-슈미트·QR 분해</h4>
-    <ol>
       <li>그람-슈미트의 한 단계 $\mathbf{q}_k = \mathbf{a}_k - \sum \langle\mathbf{a}_k, \mathbf{q}_j\rangle \mathbf{q}_j$를 식으로 쓸 수 있는가?</li>
       <li>CGS<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Classical Gram-Schmidt, 고전적 그람-슈미트)</small>와 MGS<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Modified Gram-Schmidt, 수정된 그람-슈미트)</small>의 차이 (수치 안정성)?</li>
       <li>$A = QR$ 분해에서 $Q, R$의 차원과 성질?</li>
     </ol>
 
-    <h4>W15 — 행렬식 <em>(반주차, 0.5주 — 질문 2개로 축소)</em></h4>
+    <h4>12회차 — 행렬식 + Final assessment(종합평가) <em>(W15 + W16 통합)</em></h4>
     <ol>
       <li>행렬식의 부피 해석을 2D에서 설명할 수 있는가? ($|\det A|$ = 평행사변형 면적)</li>
-      <li>$\det(A) = 0 \iff A$ 비가역임을 증명할 수 있는가? (W4 미리보기에서 시작)</li>
+      <li>$\det(A) = 0 \iff A$ 비가역임을 증명할 수 있는가? (4회차 미리보기에서 시작)</li>
     </ol>
 
-    <h3>Part 2 (W1-W15)</h3>
+    <h3>Part 2 (1-13회차)</h3>
 
-    <h4>W1 — 고윳값·Eigenvector(고유벡터)·특성다항식</h4>
+    <h4>1회차 — 고윳값·Eigenvector(고유벡터)·특성다항식</h4>
     <ol>
       <li>고윳값·고유벡터의 정의 $A\mathbf{v} = \lambda\mathbf{v}$ + 특성다항식 $\det(A - \lambda I)$로 풀이?</li>
       <li>대수적 중복도와 기하적 중복도의 차이?</li>
       <li>거듭제곱법으로 최대 고유벡터를 구하는 알고리즘?</li>
     </ol>
 
-    <h4>W2 — 대각화·거듭제곱</h4>
+    <h4>2회차 — 대각화·거듭제곱</h4>
     <ol>
       <li>$A = S\Lambda S^{-1}$ 분해에서 $S$의 열은 무엇인가?</li>
       <li>$A^k = S\Lambda^k S^{-1}$가 PageRank 계산을 어떻게 가속하는가?</li>
       <li>RNN의 시간 전개 $\mathbf{h}_t = W^t \mathbf{h}_0$에서 폭주·소실의 수학적 조건?</li>
     </ol>
 
-    <h4>W3 — 대칭행렬의 직교 대각화</h4>
+    <h4>3회차 — 대칭행렬의 직교 대각화</h4>
     <ol>
-      <li>스펙트럼 정리: 대칭 행렬은 항상 직교 대각화 가능 ($A = Q\Lambda Q^\top$)?</li>
+      <li>Spectral theorem(스펙트럼 정리): 대칭 행렬은 항상 직교 대각화 가능 ($A = Q\Lambda Q^\top$)?</li>
       <li>그래프 라플라시안과 손실 헤시안이 모두 대칭인 이유?</li>
       <li>비대칭 행렬과 대칭 행렬의 대각화 차이를 시각적으로 설명할 수 있는가?</li>
     </ol>
 
-    <h4>W4 — 양정치·Quadratic form(이차형식)·Cholesky</h4>
+    <h4>4회차 — 양정치·Quadratic form(이차형식)·Cholesky</h4>
     <ol>
       <li>양정치 판정 3가지 동치 (모든 고윳값 &gt; 0, 모든 leading principal minor &gt; 0, $\mathbf{x}^\top A\mathbf{x} &gt; 0$)?</li>
       <li>Cholesky 분해 $A = LL^\top$의 조건과 알고리즘?</li>
       <li>다변량 정규 샘플링에 Cholesky가 어떻게 쓰이는가?</li>
     </ol>
 
-    <h4>W5 — SVD</h4>
+    <h4>5회차 — SVD</h4>
     <ol>
       <li>SVD $A = U\Sigma V^\top$의 존재 정리 + $A^\top A$의 직교 대각화로 유도?</li>
       <li>단위원이 SVD에 의해 어떤 타원으로 변환되는가?</li>
       <li>thin SVD vs full SVD 차이?</li>
     </ol>
 
-    <h4>W6 — 저계수 근사·Eckart-Young</h4>
+    <h4>6회차 — 저계수 근사·Eckart-Young·PCA <em>(W6 + W7 통합)</em></h4>
     <ol>
       <li>Eckart-Young 정리: 최적 rank-$k$ 근사는 상위 $k$개 특이값만 남기기?</li>
       <li>LoRA가 어떻게 SVD 저계수 근사의 응용인가?</li>
       <li>이미지 SVD에서 압축비와 복원 품질의 trade-off?</li>
-    </ol>
-
-    <h4>W7 — PCA</h4>
-    <ol>
       <li>PCA가 공분산 행렬의 직교 대각화 또는 데이터 행렬의 SVD와 동치임을 증명할 수 있는가?</li>
-      <li>eigendigits/eigenfaces의 의미?</li>
       <li>분산 비율이 $\sigma_i^2 / \sum_j \sigma_j^2$인 이유?</li>
     </ol>
 
-    <h4>W9 — 조건수·수치 안정성</h4>
+    <h4>8회차 — 수치LA·확률통계LA <em>(W9 + W10 통합)</em></h4>
     <ol>
       <li>조건수 $\kappa(A) = \sigma_{\max}/\sigma_{\min}$의 의미와 fp16 대비 fp32<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(32-bit floating point, 단정밀도 부동소수점)</small>에서의 영향?</li>
-      <li>Hilbert 행렬의 조건수가 왜 그렇게 큰가?</li>
       <li>정규방정식 vs QR 분해 정확도 비교?</li>
-    </ol>
-
-    <h4>W10 — 확률통계LA</h4>
-    <ol>
       <li>공분산 행렬 $\Sigma$의 PSD<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Positive Semi-Definite, 양반정치)</small>성을 증명할 수 있는가?</li>
       <li>화이트닝 변환 $\Sigma^{-1/2}$의 의미와 계산?</li>
       <li>베이즈 회귀에서 $X^\top X + \lambda I$의 LA 구조?</li>
     </ol>
 
-    <h4>W11 — 선형변환 일반·기저 변환</h4>
+    <h4>9회차 — Linear transformation(선형변환)·Change of basis(기저 변환)</h4>
     <ol>
       <li>선형사상 $T: V \to W$를 두 기저로 표현했을 때의 변환 행렬이 어떻게 다른가?</li>
       <li>닮음 $A = P^{-1} B P$의 의미?</li>
       <li>닮음 불변량 (대각합, 행렬식, 고윳값) 3가지?</li>
     </ol>
 
-    <h4>W12 — 행렬 미분·Jacobian(자코비안)·Hessian(헤시안) <em>(1.5주, LLM backprop 핵심 — 질문 5개로 확장)</em></h4>
+    <h4>10회차 — 행렬 미분 1 — Jacobian(자코비안)·Chain rule(체인룰)</h4>
     <ol>
-      <li><strong>자코비안</strong>: $f(\mathbf{x}) = \mathbf{x}^\top A\mathbf{x}$의 Gradient(그래디언트)와 헤시안을 즉석에서? ($\nabla f = (A+A^\top)\mathbf{x}$, $H = A+A^\top$)</li>
-      <li><strong>체인룰의 자코비안 곱</strong>: $J_{\mathbf{z}/\mathbf{x}} = J_{\mathbf{z}/\mathbf{y}} J_{\mathbf{y}/\mathbf{x}}$가 backprop의 본질이라는 것을 한 층 신경망 ($\mathbf{u} = \tanh(W\mathbf{x})$)에서 직접 보일 수 있는가?</li>
-      <li><strong>헤시안의 PSD 조건</strong>: 손실 $L(\mathbf{w})$의 헤시안 $H_L$이 PSD가 아니면 Newton 법이 어떻게 깨지나? Gauss-Newton $J^\top J$ 또는 $H + \lambda I$로 어떻게 PSD 보장?</li>
-      <li><strong>자연그래디언트 vs SGD</strong>: Fisher 정보행렬 $F = \mathbb{E}[\nabla \log p \cdot (\nabla \log p)^\top]$의 LA 의미와 $-F^{-1}\nabla L$이 Euclidean $-\nabla L$과 어떻게 다른가?</li>
-      <li><strong>Adam vs SGD의 LA 관점 차이</strong>: Adam의 $\hat{v}_t$가 사실상 헤시안의 대각 근사 ($\mathrm{diag}(\sqrt{\hat{v}_t})$)이며, 자연그래디언트의 K-FAC 근사와 어떤 관계인가?</li>
+      <li><strong>Jacobian(자코비안)</strong>: $f(\mathbf{x}) = \mathbf{x}^\top A\mathbf{x}$의 Gradient(그래디언트)와 헤시안을 즉석에서? ($\nabla f = (A+A^\top)\mathbf{x}$)</li>
+      <li><strong>Chain rule(체인룰)의 자코비안 곱</strong>: $J_{\mathbf{z}/\mathbf{x}} = J_{\mathbf{z}/\mathbf{y}} J_{\mathbf{y}/\mathbf{x}}$가 backprop의 본질이라는 것을 한 층 신경망 ($\mathbf{u} = \tanh(W\mathbf{x})$)에서 직접 보일 수 있는가?</li>
+      <li>NumPy로 미니 autodiff의 forward·backward를 한 줄씩 설명할 수 있는가?</li>
     </ol>
 
-    <h4>W13 — Kronecker곱·텐서 분해 <em>(반주차, 살짝 소개 — 질문 2개로 축소)</em></h4>
+    <h4>11회차 — 행렬 미분 2 — Hessian(헤시안)·Natural gradient(자연그래디언트)</h4>
     <ol>
-      <li>Kronecker곱 $A \otimes B$의 정의 (블록 표현 또는 인덱스)?</li>
-      <li>Multi-head attention의 헤드 분리는 실무에서 batched matmul (이론적으로는 $I_H \otimes (\cdot)$)임을 진술할 수 있는가?</li>
+      <li><strong>Hessian(헤시안)의 PSD 조건</strong>: 손실 $L(\mathbf{w})$의 헤시안 $H_L$이 PSD가 아니면 Newton 법이 어떻게 깨지나? Gauss-Newton $J^\top J$ 또는 $H + \lambda I$로 어떻게 PSD 보장?</li>
+      <li><strong>Natural gradient(자연그래디언트) vs SGD</strong>: Fisher 정보행렬 $F$의 LA 의미와 $-F^{-1}\nabla L$이 Euclidean $-\nabla L$과 어떻게 다른가?</li>
+      <li><strong>Adam vs SGD의 LA 관점 차이</strong>: Adam의 $\hat{v}_t$가 사실상 헤시안의 대각 근사이며, 자연그래디언트의 K-FAC 근사와 어떤 관계인가?</li>
     </ol>
 
-    <h4>W14 — AI 모듈의 LA 환원</h4>
+    <h4>12회차 — AI 모듈 환원·Kronecker 소개 <em>(W14 + W13 살짝 통합)</em></h4>
     <ol>
       <li>Conv1d 한 층이 토플리츠 행렬 곱과 동치임을 증명·코딩?</li>
       <li>Self-attention $\mathrm{softmax}(QK^\top/\sqrt d)V$의 row-stochastic·볼록조합 해석?</li>
       <li>Embedding lookup이 사실 one-hot @ 가중치 행렬?</li>
+      <li>Kronecker곱 $A \otimes B$의 정의 (블록 표현 또는 인덱스)?</li>
+      <li>Multi-head attention의 헤드 분리는 실무에서 batched matmul (이론적으로는 $I_H \otimes (\cdot)$)임을 진술할 수 있는가?</li>
     </ol>
   </section>
 </main>
