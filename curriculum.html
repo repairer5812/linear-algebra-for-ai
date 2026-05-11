@@ -119,8 +119,8 @@
       <li><strong>8회차</strong> 수치LA·확률통계LA (W9+W10 통합) — 분해를 fp32/fp16에서 안전하게, 데이터 분포에 적용</li>
       <li><strong>9회차</strong> Linear transformation(선형변환)·Change of basis(기저 변환)</li>
       <li><strong>10회차</strong> 행렬 미분 1 — Jacobian(자코비안)·Chain rule(체인룰) (W12 first half)</li>
-      <li><strong>11회차</strong> 행렬 미분 2 — Hessian(헤시안)·Natural gradient(자연그래디언트) (W12 second half)</li>
-      <li><strong>12회차</strong> AI 모듈 환원·Kronecker 소개 (W14 + W13 살짝 통합) — conv 토플리츠·attention·embedding LA 환원</li>
+      <li><strong>11회차</strong> 헤시안·옵티마이저 LA (W12 second half) — Hessian/PSD/Newton/SGD vs Adam (자연그래디언트·K-FAC는 한 슬라이드 안내)</li>
+      <li><strong>12회차</strong> AI 모듈 환원 (Conv·Attention) (W14 + W13 살짝 통합) — Toeplitz·Attention 분해 main, Multi-head Kronecker는 한 슬라이드</li>
       <li><strong>13회차</strong> Final assessment(종합평가) + 텀 프로젝트 발표 (W15 + W16 통합) — 학생 reading 발표는 옵션</li>
     </ul>
 
@@ -128,9 +128,11 @@
 
     <p><strong>왜 8회차(수치 LA·확률통계 LA)가 SVD 다음에 오나</strong>: 5-6회차에서 SVD·PCA를 배우면 "끝났다"는 인상을 주지만, 실제 신경망 분해(10-12회차)에는 두 도구가 더 필요합니다 — (1) 수치LA: SVD의 Condition number(조건수)가 fp16<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(16-bit floating point, 반정밀도 부동소수점)</small>에서 깨지는 이유, (2) 확률통계LA: SVD를 데이터 Covariance(공분산)에 적용하면 PCA·화이트닝. 이 둘이 행렬미분·AI 모듈 환원의 동기를 만듭니다.</p>
 
-    <p><strong>왜 행렬 미분이 2회차(10-11회차)로 확장되었나</strong>: LLM/생성AI 석사 학생에게 <strong>backward = Jacobian(자코비안) 곱 분해</strong>의 본질을 깊이 다지는 것이 본 강좌의 Core. 자코비안·체인룰·헤시안·자연그래디언트·Adam의 LA 구조까지 한 번에 묶어 2회차 분량(4시간)으로 운영합니다.</p>
+    <p><strong>왜 행렬 미분이 2회차(10-11회차)로 확장되었나</strong>: LLM/생성AI 석사 학생에게 <strong>backward = Jacobian(자코비안) 곱 분해</strong>의 본질을 깊이 다지는 것이 본 강좌의 Core. 10회차는 자코비안·체인룰, 11회차는 헤시안·PSD·Newton·SGD vs Adam(옵티마이저 LA)에 집중하여 2회차 분량(4시간)으로 운영합니다.</p>
 
-    <p><strong>왜 Kronecker가 12회차에 잠깐만 등장하나</strong>: Kronecker곱·Khatri-Rao곱·CP·Tucker 분해는 ML 메인스트림이 아닙니다. Multi-head attention의 헤드 분리는 실무에서 batched matmul로 처리되며, $I_H \otimes (\cdot)$ 표현은 이론적 비유에 가깝습니다. <strong>Kronecker 정의·multi-head 분리 살짝 소개</strong> 수준으로 12회차 일부에 흡수, CP/Tucker 분해는 reading 권고로 위임.</p>
+    <p><strong>왜 11회차에서 자연그래디언트를 깊이 다루지 않나 (난이도 완화)</strong>: 자코비안(10회차) 다음에 자연그래디언트·Fisher 정보행렬·K-FAC를 풀로 다루면 정보기하 별도 분야로 들어가 학생 부담이 급증합니다. 11회차는 헤시안 정의·PSD 판정·Newton·SGD vs Newton vs Adam 비교(옵티마이저 LA 직관)에 집중하고, <strong>자연그래디언트·K-FAC는 한 슬라이드 "있다 안내"</strong> 수준으로 줄인 뒤 reading 권고로 위임합니다.</p>
+
+    <p><strong>왜 Kronecker가 12회차에서 한 슬라이드로 축소되나 (난이도 완화)</strong>: Kronecker곱·Khatri-Rao곱·CP·Tucker 분해는 ML 메인스트림이 아닙니다. Multi-head attention의 헤드 분리는 실무에서 batched matmul로 처리되며, $I_H \otimes (\cdot)$ 표현은 이론적 동치에 가깝습니다. 12회차는 Toeplitz 환원·Attention 분해·NumPy↔PyTorch 라이브코딩이 main이고, <strong>Multi-head batched matmul + Kronecker 이론적 동치는 한 슬라이드</strong>로만 다룹니다. CP/Tucker는 reading 권고.</p>
 
     <h3>회차표</h3>
     <div class="table-wrap">
@@ -157,8 +159,8 @@
         <tr><td><strong>8회차</strong></td><td><strong>W9 + W10 통합</strong></td><td>§6 일부</td><td>§11, §12</td><td>조건수, 후방 안정성, 직접·반복법, 공분산행렬, 다변량 정규, 화이트닝, 베이즈 회귀 LA</td><td>FP16·BF16 정밀도, 학습 수치 발산, 통계적 ML 도구, 가우시안 프로세스</td><td>Hilbert 행렬 조건수, 정규방정식 vs QR, MNIST 클래스별 공분산 + 화이트닝</td></tr>
         <tr><td><strong>9회차</strong></td><td>W11</td><td>§2.7</td><td>§8</td><td>Linear transformation(선형변환), Change of basis(기저 변환), 표현행렬</td><td>텐서 변환 추상화, 좌표계 독립적 사고</td><td>임의 선형사상을 두 기저로 표현, 변환 행렬 비교, 닮음 검증</td></tr>
         <tr><td><strong>10회차</strong></td><td>W12 first half</td><td>§5 (Vector Calculus)</td><td>(없음)</td><td>행렬 미분 1 — Jacobian(자코비안), Chain rule(체인룰)의 자코비안 곱, 한 층 backward 직접 유도</td><td>역전파의 수학적 본질, MLP 한 층 backward 분해</td><td>NumPy로 미니 autodiff 구현 1단계, <code>torch.autograd</code>와 forward·backward 결과 동치 검증</td></tr>
-        <tr><td><strong>11회차</strong></td><td>W12 second half</td><td>§5 (Vector Calculus)</td><td>(없음)</td><td>행렬 미분 2 — Hessian(헤시안), Natural gradient(자연그래디언트), Fisher 정보행렬, Adam의 LA 구조</td><td>옵티마이저 분석(Adam·SGD·Newton), K-FAC, Levenberg-Marquardt</td><td>Newton 법·Gauss-Newton 비교, MLP 손실 헤시안 대각 근사</td></tr>
-        <tr><td><strong>12회차</strong></td><td><strong>W14 + W13 살짝 통합</strong></td><td>(보충)</td><td>§10</td><td>AI 모듈 환원: 토플리츠 환원, attention $\mathrm{softmax}(QK^\top)V$, embedding 행렬곱, Kronecker곱 정의 살짝</td><td>표준 AI 모듈의 LA 분해, GPU 텐서코어, multi-head reshape·permute의 batched matmul</td><td><code>nn.Conv1d</code> 한 층을 토플리츠 행렬 곱으로 재구성 + backward 자코비안 곱 검증, multi-head attention reshape</td></tr>
+        <tr><td><strong>11회차</strong></td><td>W12 second half</td><td>§5 (Vector Calculus)</td><td>(없음)</td><td>헤시안·옵티마이저 LA — Hessian 정의·PSD/PD 판정, 손실 곡면 분석, Newton 법 $-H^{-1}\nabla f$, SGD vs Newton vs Adam 비교 (자연그래디언트·K-FAC는 한 슬라이드 안내)</td><td>옵티마이저 분석(Adam·SGD·Newton), 헤시안 PSD/PD 판정, 손실 곡면 곡률, Newton 법 안정화(LM)</td><td>NumPy로 SGD·Newton·Adam 비교, 헤시안 PSD 분류 (PD/PSD/ND/indef)</td></tr>
+        <tr><td><strong>12회차</strong></td><td><strong>W14 + W13 살짝 통합</strong></td><td>(보충)</td><td>§10</td><td>AI 모듈 환원 (Conv·Attention): 토플리츠 환원, attention $\mathrm{softmax}(QK^\top/\sqrt d)V$ 분해 + 행렬 미분 backward, embedding 행렬곱 (Multi-head batched matmul + Kronecker 이론적 동치는 한 슬라이드)</td><td>표준 AI 모듈의 LA 분해, GPU 텐서코어, attention/conv backward의 자코비안 곱</td><td>NumPy ↔ PyTorch 일치 검증: <code>nn.Conv1d</code> Toeplitz 재구성 + Attention forward·backward 자코비안 곱 검증</td></tr>
         <tr><td><strong>13회차</strong></td><td><strong>W15 + W16 통합</strong></td><td>Final assessment(종합평가) + 프로젝트 발표</td><td>—</td><td>Part 통합 평가 + 텀 프로젝트 발표. 학생 reading 발표는 옵션</td><td>—</td><td>모델 분해 보고서·코드 제출</td></tr>
       </tbody>
     </table>
@@ -358,20 +360,20 @@
       <li>NumPy로 미니 autodiff의 forward·backward를 한 줄씩 설명할 수 있는가?</li>
     </ol>
 
-    <h4>11회차 — 행렬 미분 2 — Hessian(헤시안)·Natural gradient(자연그래디언트)</h4>
+    <h4>11회차 — 헤시안·옵티마이저 LA <em>(W12 second half, 난이도 완화)</em></h4>
     <ol>
-      <li><strong>Hessian(헤시안)의 PSD 조건</strong>: 손실 $L(\mathbf{w})$의 헤시안 $H_L$이 PSD가 아니면 Newton 법이 어떻게 깨지나? Gauss-Newton $J^\top J$ 또는 $H + \lambda I$로 어떻게 PSD 보장?</li>
-      <li><strong>Natural gradient(자연그래디언트) vs SGD</strong>: Fisher 정보행렬 $F$의 LA 의미와 $-F^{-1}\nabla L$이 Euclidean $-\nabla L$과 어떻게 다른가?</li>
-      <li><strong>Adam vs SGD의 LA 관점 차이</strong>: Adam의 $\hat{v}_t$가 사실상 헤시안의 대각 근사이며, 자연그래디언트의 K-FAC 근사와 어떤 관계인가?</li>
+      <li><strong>헤시안 정의 + PSD 판정 3가지 동치</strong>: $H_f$ 정의 + (i) 모든 고윳값 $\geq 0$, (ii) 모든 leading principal minor $\geq 0$, (iii) $\mathbf{x}^\top H\mathbf{x} \geq 0$ 셋이 동치임을 진술?</li>
+      <li><strong>Newton 법의 LA 의미</strong>: $\mathbf{x}_{k+1} = \mathbf{x}_k - H^{-1}\nabla f$가 2차 근사의 정확한 풀이임을 설명. $H$가 PSD가 아닐 때 LM ($H + \lambda I$) 또는 Gauss-Newton ($J^\top J$)으로 PSD 보장?</li>
+      <li><strong>SGD vs Newton vs Adam</strong>: SGD가 단순한데도 LLM 학습 표준인 이유 1-2문장 ($H^{-1}$ $O(n^3)$ 회피, 미니배치 stochasticity, Adam의 $\hat{v}_t$가 헤시안 대각 근사)?</li>
+      <li><strong>(reading 권고)</strong> Natural gradient(자연그래디언트)·Fisher 정보·K-FAC가 무엇인지 1-2문장 인지 정도. 본 회차에서 깊이 X — 정보 기하 별도 분야로 자율 학습 권고.</li>
     </ol>
 
-    <h4>12회차 — AI 모듈 환원·Kronecker 소개 <em>(W14 + W13 살짝 통합)</em></h4>
+    <h4>12회차 — AI 모듈 환원 (Conv·Attention) <em>(W14 + W13 살짝 통합, 난이도 완화)</em></h4>
     <ol>
-      <li>Conv1d 한 층이 토플리츠 행렬 곱과 동치임을 증명·코딩?</li>
-      <li>Self-attention $\mathrm{softmax}(QK^\top/\sqrt d)V$의 row-stochastic·볼록조합 해석?</li>
-      <li>Embedding lookup이 사실 one-hot @ 가중치 행렬?</li>
-      <li>Kronecker곱 $A \otimes B$의 정의 (블록 표현 또는 인덱스)?</li>
-      <li>Multi-head attention의 헤드 분리는 실무에서 batched matmul (이론적으로는 $I_H \otimes (\cdot)$)임을 진술할 수 있는가?</li>
+      <li>Conv1d 한 층이 토플리츠 행렬 곱과 동치임을 코드로 검증 + 인덱스 증명할 수 있는가?</li>
+      <li>Self-attention $\mathrm{softmax}(QK^\top/\sqrt d)V$의 row-stochastic·볼록조합 해석 + Attention output이 V 행들의 convex hull 안에 있음을 설명?</li>
+      <li>Multi-head attention의 batched matmul 처리 (실무) — reshape $(B,n,d)\to(B,H,n,d/H)$ + batched matmul GEMM?</li>
+      <li><strong>(reading 권고)</strong> Kronecker곱 $A \otimes B$ 정의 + $I_H \otimes (\cdot)$이 multi-head의 이론적 동치임을 1-2문장 인지. 본 회차에서 깊이 X — CP/Tucker 자율 학습.</li>
     </ol>
   </section>
 </main>
