@@ -109,7 +109,7 @@
       <li><strong>1-4회차</strong> 분해의 기본 — 고윳값·Diagonalization(대각화)·Symmetric matrix(대칭행렬)·Positive definite(양정치)</li>
       <li><strong>5-6회차</strong> 분해의 보편화 — SVD·저계수근사·Eckart-Young·PCA</li>
       <li><strong>7회차</strong> Midterm(중간평가) (1-6회차)</li>
-      <li><strong>8회차</strong> 수치LA·확률통계LA — 분해를 fp32/fp16에서 안전하게, 데이터 분포에 적용</li>
+      <li><strong>8회차</strong> 수치LA·공분산·화이트닝 — 분해를 fp32/fp16에서 안전하게, 데이터 행렬을 LA 객체로</li>
       <li><strong>9회차</strong> Linear transformation(선형변환)·Change of basis(기저 변환)</li>
       <li><strong>10회차</strong> 행렬 미분 1 — Jacobian(자코비안)·Chain rule(체인룰)</li>
       <li><strong>11회차</strong> 헤시안·옵티마이저 LA — Hessian/PSD/Newton/SGD vs Adam (자연그래디언트·K-FAC는 한 슬라이드 안내)</li>
@@ -138,7 +138,7 @@
         <tr><td><strong>5회차</strong></td><td>§4.5</td><td>§7.1, §7.2</td><td>특잇값분해 $A=U\Sigma V^\top$, 기하학적 의미, 특잇값과 고유값의 관계</td><td>SVD의 보편성, 모든 행렬에 적용 가능한 분해</td><td>임의 행렬의 SVD 분해, $U,\Sigma,V$의 기하학적 작용 시각화</td></tr>
         <tr><td><strong>6회차</strong></td><td>§4.5, §10</td><td>§7.2, §7.3</td><td>저계수 근사, Eckart-Young 정리, Frobenius 노름, PCA, SVD-공분산 동치성, 분산 최대화</td><td>이미지 압축, LoRA 저랭크 어댑터, 잠재의미 분석, 차원축소, eigenfaces</td><td>이미지 SVD 저계수 근사, MNIST·얼굴 PCA 2D 시각화, 분산 비율 그래프</td></tr>
         <tr><td><strong>7회차</strong></td><td>Midterm(중간평가)</td><td>—</td><td>1-6회차 통합 평가</td><td>—</td><td>종이 + Jupyter 실기</td></tr>
-        <tr><td><strong>8회차</strong></td><td>§6 일부</td><td>§11, §12</td><td>조건수, 후방 안정성, 직접·반복법, 공분산행렬, 다변량 정규, 화이트닝, 베이즈 회귀 LA</td><td>FP16·BF16 정밀도, 학습 수치 발산, 통계적 ML 도구, 가우시안 프로세스</td><td>Hilbert 행렬 조건수, 정규방정식 vs QR, MNIST 클래스별 공분산 + 화이트닝</td></tr>
+        <tr><td><strong>8회차</strong></td><td>§6 일부</td><td>§11, §12</td><td>[전반] 조건수 $\kappa(A)=\sigma_{\max}/\sigma_{\min}$, 후방 안정성, 직접·반복법, fp16 vs fp32, 정규방정식 vs QR. [후반] 공분산 $C=(1/n)X^\top X$의 PSD성(이차형식), eigendecomposition 응용 화이트닝 $Z=\Sigma^{-1/2}X$, Ridge $(A^\top A+\lambda I)\hat x = A^\top b$의 LA framing — 다변량 정규는 한 슬라이드 직관만</td><td>FP16·BF16 정밀도, 학습 수치 발산, 데이터 행렬의 isotropic 변환, $\lambda I$ 추가의 조건수 개선 (수치 안정성 LA)</td><td>Hilbert 행렬 조건수 폭주(8×8), 정규방정식 vs QR, MNIST 화이트닝 후 공분산 $\approx I$ 정량 검증</td></tr>
         <tr><td><strong>9회차</strong></td><td>§2.7</td><td>§8</td><td>Linear transformation(선형변환), Change of basis(기저 변환), 표현행렬</td><td>텐서 변환 추상화, 좌표계 독립적 사고</td><td>임의 선형사상을 두 기저로 표현, 변환 행렬 비교, 닮음 검증</td></tr>
         <tr><td><strong>10회차</strong></td><td>§5 (Vector Calculus)</td><td>(없음)</td><td>행렬 미분 1 — Jacobian(자코비안), Chain rule(체인룰)의 자코비안 곱, 한 층 backward 직접 유도</td><td>역전파의 수학적 본질, MLP 한 층 backward 분해</td><td>NumPy로 미니 autodiff 구현 1단계, <code>torch.autograd</code>와 forward·backward 결과 동치 검증</td></tr>
         <tr><td><strong>11회차</strong></td><td>§5 (Vector Calculus)</td><td>(없음)</td><td>헤시안·옵티마이저 LA — Hessian 정의·PSD/PD 판정, 손실 곡면 분석, Newton 법 $-H^{-1}\nabla f$, SGD vs Newton vs Adam 비교 (자연그래디언트·K-FAC는 한 슬라이드 안내)</td><td>옵티마이저 분석(Adam·SGD·Newton), 헤시안 PSD/PD 판정, 손실 곡면 곡률, Newton 법 안정화(LM)</td><td>NumPy로 SGD·Newton·Adam 비교, 헤시안 PSD 분류 (PD/PSD/ND/indef)</td></tr>
@@ -319,14 +319,16 @@
       <li>분산 비율이 $\sigma_i^2 / \sum_j \sigma_j^2$인 이유?</li>
     </ol>
 
-    <h4>8회차 — 수치LA·확률통계LA</h4>
+    <h4>8회차 — 수치LA·공분산·화이트닝</h4>
     <ol>
       <li>조건수 $\kappa(A) = \sigma_{\max}/\sigma_{\min}$의 의미와 fp16 대비 fp32<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(32-bit floating point, 단정밀도 부동소수점)</small>에서의 영향?</li>
-      <li>정규방정식 vs QR 분해 정확도 비교?</li>
-      <li>공분산 행렬 $\Sigma$의 PSD<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Positive Semi-Definite, 양반정치)</small>성을 증명할 수 있는가?</li>
-      <li>화이트닝 변환 $\Sigma^{-1/2}$의 의미와 계산?</li>
-      <li>베이즈 회귀에서 $X^\top X + \lambda I$의 LA 구조?</li>
+      <li>Hilbert 행렬 8×8의 조건수가 어느 자릿수에 도달하는가?</li>
+      <li>정규방정식 vs QR 분해 정확도 비교? 어느 쪽이 더 안정적이며 그 이유는 조건수와 어떻게 연결되는가?</li>
+      <li>공분산 행렬 $C = (1/n)X^\top X$의 PSD<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Positive Semi-Definite, 양반정치)</small>성을 이차형식 $\mathbf{a}^\top C\mathbf{a} = (1/n)\|X\mathbf{a}\|^2 \ge 0$으로 증명할 수 있는가? (확률 인용 없이 순수 LA 논증)</li>
+      <li>화이트닝 변환 $Z = X\Sigma^{-1/2}$의 의미와 eigendecomposition 응용 계산? $Z^\top Z / n = I$ 증명?</li>
+      <li>Ridge regression의 LA framing $(A^\top A + \lambda I)\hat{\mathbf{x}} = A^\top \mathbf{b}$에서 $\lambda I$ 추가가 조건수를 어떻게 줄이는가? (수치 안정성 LA 응용)</li>
     </ol>
+    <p style="font-size:0.9em;color:#6b7280;margin-top:0.4rem;">참고: 다변량 정규 분포·베이즈 사후 유도 등 확률 깊이는 본 강좌 범위 X (별도 강좌로 분업).</p>
 
     <h4>9회차 — Linear transformation(선형변환)·Change of basis(기저 변환)</h4>
     <ol>
@@ -340,7 +342,30 @@
       <li><strong>Jacobian(자코비안)</strong>: $f(\mathbf{x}) = \mathbf{x}^\top A\mathbf{x}$의 Gradient(그래디언트)와 헤시안을 즉석에서? ($\nabla f = (A+A^\top)\mathbf{x}$)</li>
       <li><strong>Chain rule(체인룰)의 자코비안 곱</strong>: $J_{\mathbf{z}/\mathbf{x}} = J_{\mathbf{z}/\mathbf{y}} J_{\mathbf{y}/\mathbf{x}}$가 backprop의 본질이라는 것을 한 층 신경망 ($\mathbf{u} = \tanh(W\mathbf{x})$)에서 직접 보일 수 있는가?</li>
       <li>NumPy로 미니 autodiff의 forward·backward를 한 줄씩 설명할 수 있는가?</li>
+      <li><strong>Matrix gradient identities reference (MML §5.4-5.5, Petersen·Pedersen <em>Matrix Cookbook</em> §2-§9) 인지</strong>: 아래 표의 10개 식을 외우는 것이 아니라 Jacobian 정의 $(J)_{ij}=\partial f_i/\partial x_j$로부터 $(i, j)$ 성분 계산 → 일반 식 도출 패턴으로 직접 유도할 수 있는가?</li>
     </ol>
+
+    <h5 style="margin-top:1rem;">Matrix gradient identities reference 표 (10회차 마지막 20분 또는 자료 끝 부록)</h5>
+    <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>식</th><th>미분</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>$f(\mathbf{x}) = \mathbf{a}^\top \mathbf{x}$</td><td>$\nabla_\mathbf{x} f = \mathbf{a}$</td></tr>
+        <tr><td>$f(\mathbf{x}) = \mathbf{x}^\top \mathbf{x}$</td><td>$\nabla_\mathbf{x} f = 2\mathbf{x}$</td></tr>
+        <tr><td>$f(\mathbf{x}) = \mathbf{x}^\top A \mathbf{x}$</td><td>$\nabla_\mathbf{x} f = (A + A^\top)\mathbf{x}$ (대칭 $A$면 $2A\mathbf{x}$)</td></tr>
+        <tr><td>$\mathbf{f}(\mathbf{x}) = A\mathbf{x}$</td><td>$J = \partial \mathbf{f}/\partial \mathbf{x} = A$</td></tr>
+        <tr><td>$L(\mathbf{w}) = \frac{1}{2}\|X\mathbf{w} - \mathbf{y}\|^2$</td><td>$\nabla_\mathbf{w} L = X^\top(X\mathbf{w} - \mathbf{y})$</td></tr>
+        <tr><td>$f(X) = \mathrm{tr}(AX)$</td><td>$\nabla_X f = A^\top$</td></tr>
+        <tr><td>$f(X) = \mathrm{tr}(X^\top A X)$</td><td>$\nabla_X f = (A + A^\top) X$</td></tr>
+        <tr><td>$f(X) = \det(X)$</td><td>$\nabla_X f = \det(X) (X^{-1})^\top$</td></tr>
+        <tr><td>$f(X) = \log\det(X)$</td><td>$\nabla_X f = (X^{-1})^\top$</td></tr>
+        <tr><td>체인룰: $\mathbf{z} = g(\mathbf{y}), \mathbf{y} = f(\mathbf{x})$</td><td>$J_{\mathbf{z}/\mathbf{x}} = J_{\mathbf{z}/\mathbf{y}} \cdot J_{\mathbf{y}/\mathbf{x}}$</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p style="font-size:0.9em;color:#6b7280;margin-top:0.4rem;">출처: MML Ch.5.4-5.5, Petersen·Pedersen <em>Matrix Cookbook</em> §2-§9. 외우는 것이 목적이 아니라 <strong>유도 패턴</strong>을 익히기 위함. 학생이 표의 식 5개를 직접 증명하면 모든 backprop 손코딩 가능. 핵심: $\nabla_\mathbf{x}(\mathbf{x}^\top A \mathbf{x}) = (A+A^\top)\mathbf{x}$의 대칭 $A$ 가정 여부를 의식적으로 분리할 것.</p>
 
     <h4>11회차 — 헤시안·옵티마이저 LA</h4>
     <ol>
