@@ -226,6 +226,7 @@
       <li>부분공간의 세 조건 중 가장 자주 빠뜨리는 것은? ("0 포함")</li>
       <li>$N(A) = \{\mathbf{x} : A\mathbf{x} = \mathbf{0}\}$가 부분공간임을 30초 안에 증명할 수 있는가?</li>
       <li>오토인코더에서 인코더 영공간의 의미는?</li>
+      <li>Affine space(아핀 공간) $A = \mathbf{p} + V$ 가 부분공간과 어떻게 다른가? ($V$ 는 부분공간, $\mathbf{p}$ 만큼 평행 이동. 영벡터 미포함 가능.) 신경망 한 층 $\mathbf{y} = W\mathbf{x} + \mathbf{b}$ 가 affine map 인 이유를 한 문장으로? ($W$ = 선형, $+\mathbf{b}$ = 평행 이동.)</li>
     </ol>
 
     <h4>6회차 — Row space(행공간)·Column space(열공간)·Rank(계수)·차원 정리</h4>
@@ -265,6 +266,7 @@
       <li>그람-슈미트의 한 단계 $\mathbf{q}_k = \mathbf{a}_k - \sum \langle\mathbf{a}_k, \mathbf{q}_j\rangle \mathbf{q}_j$를 식으로 쓸 수 있는가?</li>
       <li>CGS<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Classical Gram-Schmidt, 고전적 그람-슈미트)</small>와 MGS<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Modified Gram-Schmidt, 수정된 그람-슈미트)</small>의 차이 (수치 안정성)?</li>
       <li>$A = QR$ 분해에서 $Q, R$의 차원과 성질?</li>
+      <li>2D Rotation matrix(회전 행렬) $R(\theta) = \begin{pmatrix}\cos\theta & -\sin\theta\\ \sin\theta & \cos\theta\end{pmatrix}$ 의 핵심 성질 3가지 ($R^\top R = I$, $\det R = 1$, $\|R\mathbf{v}\| = \|\mathbf{v}\|$ 노름 보존) 와 합성 $R(\alpha)R(\beta) = R(\alpha+\beta)$ 를 진술할 수 있는가? RoPE<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Rotary Position Embedding, LLaMA·Mistral)</small>·이미지 augmentation·SO(3)<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(3D 회전 그룹, NeRF·SLAM·Gaussian Splatting)</small> 응용 중 하나라도 인지 정도?</li>
     </ol>
 
     <h4>12회차 — 행렬식 + Final assessment(종합평가)</h4>
@@ -382,6 +384,37 @@
       <li>Multi-head attention의 batched matmul 처리 (실무) — reshape $(B,n,d)\to(B,H,n,d/H)$ + batched matmul GEMM?</li>
       <li><strong>(reading 권고)</strong> Kronecker곱 $A \otimes B$ 정의 + $I_H \otimes (\cdot)$이 multi-head의 이론적 동치임을 1-2문장 인지. 본 회차에서 깊이 X — CP/Tucker 자율 학습.</li>
     </ol>
+
+    <h3 style="margin-top:2rem;">부록: Matrix phylogeny (행렬 분해 정리표)</h3>
+    <p>종합평가 직전 복습용. 어떤 분해가 언제 가능한지 한눈에 정리한 표입니다. 본 강좌에서 다룬 모든 분해를 한자리에 모았습니다.</p>
+    <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>행렬 종류</th><th>조건</th><th>가능한 분해</th><th>응용</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>임의 행렬 $A \in \mathbb{R}^{m\times n}$</td><td>(모든 경우)</td><td><strong>SVD</strong>: $A = U\Sigma V^\top$</td><td>데이터 분석·압축 (Eckart-Young)</td></tr>
+        <tr><td>정방·full rank</td><td>$A \in \mathbb{R}^{n\times n}$, $\det \ne 0$</td><td><strong>LU</strong>: $A = LU$ (행 교환 없이)</td><td>선형방정식 풀이</td></tr>
+        <tr><td>정방·full rank</td><td>+ 행 교환 필요</td><td><strong>PLU</strong>: $PA = LU$</td><td>부분 피보팅</td></tr>
+        <tr><td>대각화 가능 (n개 일차독립 고유벡터)</td><td>정방 + 일차독립 고유벡터 n개</td><td><strong>고유분해</strong>: $A = S\Lambda S^{-1}$</td><td>거듭제곱·미분방정식</td></tr>
+        <tr><td>정규(normal)</td><td>$A A^\top = A^\top A$</td><td><strong>유니타리 대각화</strong>: $A = U\Lambda U^*$</td><td>양자역학</td></tr>
+        <tr><td>실대칭 (real symmetric)</td><td>$A = A^\top$</td><td><strong>스펙트럼 정리</strong>: $A = Q\Lambda Q^\top$ ($Q$ 직교, $\Lambda$ 실대각)</td><td>공분산·헤시안</td></tr>
+        <tr><td>양반정치 (PSD)</td><td>실대칭 + 모든 $\lambda \ge 0$</td><td>$A = LL^\top$ (Cholesky)</td><td>다변량 정규 샘플링</td></tr>
+        <tr><td>양정치 (PD)</td><td>실대칭 + 모든 $\lambda > 0$</td><td>Cholesky (유일·강한 보장)</td><td>손실 헤시안 분석</td></tr>
+        <tr><td>직교 (orthogonal)</td><td>$Q^\top Q = I$</td><td>그 자체로 분해 (회전·반사)</td><td>Gram-Schmidt·QR</td></tr>
+        <tr><td>Full column rank</td><td>$A \in \mathbb{R}^{m\times n}$, $m \ge n$, rank=n</td><td><strong>QR</strong>: $A = QR$</td><td>최소제곱 안정 풀이</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p style="font-size:0.95em;margin-top:0.8rem;">핵심:</p>
+    <ul style="font-size:0.95em;">
+      <li><strong>모든 행렬은 SVD 가능</strong> (가장 보편적)</li>
+      <li><strong>정방·정규</strong> → 직교 대각화 가능</li>
+      <li><strong>대칭</strong> → 모든 고윳값 실수 + 직교 고유벡터</li>
+      <li><strong>PSD/PD</strong> → Cholesky 가능</li>
+      <li>포함 관계: <strong>대각화 가능 ⊃ 정규 ⊃ 대칭 ⊃ PSD ⊃ PD</strong></li>
+    </ul>
+    <p style="font-size:0.9em;color:#6b7280;margin-top:0.4rem;">본 강좌에서 다룬 모든 분해를 한 표로 정리. 종합평가 직전 한 번 훑어보세요.</p>
   </section>
 </main>
 
