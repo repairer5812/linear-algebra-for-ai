@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>강의자료 — 인공지능 전공자를 위한 선형대수학</title>
+<meta name="description" content="회차별 강의 노트(Markdown), PDF, Jupyter Notebook, Google Colab 링크.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- KaTeX -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+
+<link rel="stylesheet" href="assets/style.css">
+
+<style>
+  .lecture-list { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-top: 1rem; }
+  @media (min-width: 720px) {
+    .lecture-list { grid-template-columns: 1fr 1fr; }
+  }
+  .lecture-card { padding: 1.2rem 1.4rem; }
+  .lecture-card__head { display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 0.5rem; }
+  .lecture-card__num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.95rem; font-weight: 600;
+    color: var(--accent);
+    background: rgba(220, 20, 60, 0.08);
+    padding: 0.15rem 0.55rem; border-radius: 6px;
+    flex-shrink: 0;
+  }
+  .lecture-card__title { font-size: 1.05rem; font-weight: 700; margin: 0; }
+  .lecture-card__desc { color: #4b5563; font-size: 0.92rem; line-height: 1.55; margin: 0.3rem 0 0.9rem; }
+  .lecture-card__links {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-wrap: wrap; gap: 0.45rem;
+  }
+  .lecture-card__links a {
+    display: inline-flex; align-items: center; gap: 0.3rem;
+    padding: 0.35rem 0.7rem;
+    font-size: 0.85rem; font-weight: 500;
+    color: #1f2937; text-decoration: none;
+    background: #f3f4f6; border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    transition: background 0.12s, border-color 0.12s;
+  }
+  .lecture-card__links a:hover {
+    background: #e5e7eb; border-color: var(--accent);
+    color: var(--accent);
+  }
+  .lecture-card__links a.is-primary {
+    background: rgba(220, 20, 60, 0.06);
+    border-color: rgba(220, 20, 60, 0.25);
+  }
+  .lecture-card__links a.is-primary:hover {
+    background: rgba(220, 20, 60, 0.12);
+  }
+  .upcoming-note {
+    margin-top: 1rem; padding: 1rem 1.2rem;
+    background: #f9fafb; border: 1px dashed #d1d5db; border-radius: 10px;
+    color: #6b7280; font-size: 0.93rem;
+  }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__brand" href="index.html">선형대수학 · AI 전공자용</a>
+    <nav class="site-header__nav" aria-label="주 메뉴">
+      <a href="index.html">소개</a>
+      <a href="curriculum.html">진도표</a>
+      <a href="lectures.html" class="is-active">강의자료</a>
+      <a href="diagnostic.html">진단</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <h1 class="hero__title">강의자료</h1>
+    <p class="hero__subtitle">회차별 강의 노트(Markdown), 인쇄용 PDF, Jupyter Notebook, Google Colab 링크를 모았습니다.</p>
+    <p class="hero__meta">MIT License · Markdown과 Notebook은 GitHub 안에서 자동 렌더링되어 별도 뷰어가 필요 없습니다 · Colab 링크는 클릭 즉시 실습 환경이 열립니다</p>
+  </section>
+
+  <section class="section" id="part1">
+    <h2>Part 1 (12회차) — 학부 한 Part 분량</h2>
+    <p>Vector(벡터), Matrix(행렬), 선형방정식, 벡터공간, Subspace(부분공간), Orthogonal projection(정사영), Determinant(행렬식)의 정의·정리·증명 골자와 NumPy·PyTorch 구현. 진행 중인 회차부터 순차 공개합니다.</p>
+
+    <div class="lecture-list">
+
+      <article class="card lecture-card">
+        <div class="lecture-card__head">
+          <span class="lecture-card__num">0회차</span>
+          <h3 class="lecture-card__title">Introduction</h3>
+        </div>
+        <p class="lecture-card__desc">강좌 개요, 학습 목표, 자료 사용법. 평균이미지·SVD 압축 시연으로 "선형대수가 AI에서 실제로 어떻게 쓰이는가"를 미리 체험합니다.</p>
+        <ul class="lecture-card__links">
+          <li><a class="is-primary" href="https://github.com/repairer5812/linear-algebra-for-ai/blob/main/lectures/Part1/00%ED%9A%8C%EC%B0%A8_Introduction.md" target="_blank" rel="noopener">📄 강의 노트</a></li>
+          <li><a href="lectures/Part1/00%ED%9A%8C%EC%B0%A8_Introduction.pdf" target="_blank" rel="noopener">📕 PDF</a></li>
+          <li><a href="https://github.com/repairer5812/linear-algebra-for-ai/blob/main/notebooks/Part1/00_Introduction_%ED%8F%89%EA%B7%A0%EC%9D%B4%EB%AF%B8%EC%A7%80.ipynb" target="_blank" rel="noopener">📓 평균이미지 노트북</a></li>
+          <li><a href="https://colab.research.google.com/github/repairer5812/linear-algebra-for-ai/blob/main/notebooks/Part1/00_Introduction_%ED%8F%89%EA%B7%A0%EC%9D%B4%EB%AF%B8%EC%A7%80.ipynb" target="_blank" rel="noopener">🚀 평균이미지 Colab</a></li>
+          <li><a href="https://github.com/repairer5812/linear-algebra-for-ai/blob/main/notebooks/Part1/00_Introduction_SVD_%EC%9D%B4%EB%AF%B8%EC%A7%80%EC%95%95%EC%B6%95.ipynb" target="_blank" rel="noopener">📓 SVD 압축 노트북</a></li>
+          <li><a href="https://colab.research.google.com/github/repairer5812/linear-algebra-for-ai/blob/main/notebooks/Part1/00_Introduction_SVD_%EC%9D%B4%EB%AF%B8%EC%A7%80%EC%95%95%EC%B6%95.ipynb" target="_blank" rel="noopener">🚀 SVD Colab</a></li>
+        </ul>
+      </article>
+
+      <article class="card lecture-card">
+        <div class="lecture-card__head">
+          <span class="lecture-card__num">1회차</span>
+          <h3 class="lecture-card__title">벡터·선형결합·노름·내적</h3>
+        </div>
+        <p class="lecture-card__desc">벡터의 정의, 선형결합으로서의 공간, $\ell_1 \cdot \ell_2 \cdot \ell_\infty$ 노름, 내적과 코사인 유사도. MNIST 이미지를 784차원 벡터로 다루는 첫 실습.</p>
+        <ul class="lecture-card__links">
+          <li><a class="is-primary" href="https://github.com/repairer5812/linear-algebra-for-ai/blob/main/lectures/Part1/01%ED%9A%8C%EC%B0%A8_%EB%B2%A1%ED%84%B0_%EC%84%A0%ED%98%95%EA%B2%B0%ED%95%A9_%EB%85%B8%EB%A6%84_%EB%82%B4%EC%A0%81.md" target="_blank" rel="noopener">📄 강의 노트</a></li>
+          <li><a href="lectures/Part1/01%ED%9A%8C%EC%B0%A8_%EB%B2%A1%ED%84%B0_%EC%84%A0%ED%98%95%EA%B2%B0%ED%95%A9_%EB%85%B8%EB%A6%84_%EB%82%B4%EC%A0%81.pdf" target="_blank" rel="noopener">📕 PDF</a></li>
+          <li><a href="https://github.com/repairer5812/linear-algebra-for-ai/blob/main/notebooks/Part1/01_%EB%B2%A1%ED%84%B0_%EB%85%B8%EB%A6%84_%EB%82%B4%EC%A0%81_MNIST.ipynb" target="_blank" rel="noopener">📓 MNIST 노트북</a></li>
+          <li><a href="https://colab.research.google.com/github/repairer5812/linear-algebra-for-ai/blob/main/notebooks/Part1/01_%EB%B2%A1%ED%84%B0_%EB%85%B8%EB%A6%84_%EB%82%B4%EC%A0%81_MNIST.ipynb" target="_blank" rel="noopener">🚀 Colab</a></li>
+        </ul>
+      </article>
+
+      <article class="card lecture-card">
+        <div class="lecture-card__head">
+          <span class="lecture-card__num">2회차</span>
+          <h3 class="lecture-card__title">행렬·행렬·벡터 곱</h3>
+        </div>
+        <p class="lecture-card__desc">행렬의 정의, 행렬·벡터 곱의 두 해석(행 내적·열 결합), 신경망 한 층의 행렬 곱 해석, 그래프 인접행렬 응용.</p>
+        <ul class="lecture-card__links">
+          <li><a class="is-primary" href="https://github.com/repairer5812/linear-algebra-for-ai/blob/main/lectures/Part1/02%ED%9A%8C%EC%B0%A8_%ED%96%89%EB%A0%AC_%ED%96%89%EB%A0%AC%EB%B2%A1%ED%84%B0%EA%B3%B1.md" target="_blank" rel="noopener">📄 강의 노트</a></li>
+          <li><a href="lectures/Part1/02%ED%9A%8C%EC%B0%A8_%ED%96%89%EB%A0%AC_%ED%96%89%EB%A0%AC%EB%B2%A1%ED%84%B0%EA%B3%B1.pdf" target="_blank" rel="noopener">📕 PDF</a></li>
+          <li><span class="lecture-card__links" style="color:#9ca3af; font-size:0.82rem; padding:0.35rem 0; display:inline-block;">노트북 준비 중</span></li>
+        </ul>
+      </article>
+
+      <article class="card lecture-card">
+        <div class="lecture-card__head">
+          <span class="lecture-card__num">3회차</span>
+          <h3 class="lecture-card__title">가우스 소거·RREF</h3>
+        </div>
+        <p class="lecture-card__desc">가우스 소거 알고리즘, 행렬 곱 정의, 결합법칙·비가환성, $O(n^3)$ 복잡도, BLAS 호출의 내부 구조.</p>
+        <ul class="lecture-card__links">
+          <li><a class="is-primary" href="https://github.com/repairer5812/linear-algebra-for-ai/blob/main/lectures/Part1/03%ED%9A%8C%EC%B0%A8_%EA%B0%80%EC%9A%B0%EC%8A%A4%EC%86%8C%EA%B1%B0_RREF.md" target="_blank" rel="noopener">📄 강의 노트</a></li>
+          <li><a href="lectures/Part1/03%ED%9A%8C%EC%B0%A8_%EA%B0%80%EC%9A%B0%EC%8A%A4%EC%86%8C%EA%B1%B0_RREF.pdf" target="_blank" rel="noopener">📕 PDF</a></li>
+          <li><span style="color:#9ca3af; font-size:0.82rem; padding:0.35rem 0; display:inline-block;">노트북 준비 중</span></li>
+        </ul>
+      </article>
+
+    </div>
+
+    <div class="upcoming-note">
+      4회차부터 12회차까지(역행렬·LU, 부분공간·계수, 직교성·정사영, 최소제곱·QR, 행렬식)의 자료는 강의 진행에 맞춰 순차 공개합니다. 새 회차가 추가되면 자동 업데이트되는 곳은 본 페이지와 진도표 페이지입니다.
+    </div>
+  </section>
+
+  <section class="section" id="part2">
+    <h2>Part 2 (13회차) — 분해와 AI 응용</h2>
+    <p>고윳값·SVD·PCA·수치LA·공분산·화이트닝·텐서대수와 신경망 모듈의 LA 분해. Part 1 강의 종료 후 순차 공개합니다.</p>
+    <div class="upcoming-note">
+      Part 2 자료는 아직 공개 전입니다. 강의 일정에 맞춰 본 페이지에 회차별 자료가 추가됩니다.
+    </div>
+  </section>
+
+  <section class="section" id="usage">
+    <h2>사용 안내</h2>
+    <ul>
+      <li><strong>📄 강의 노트 (Markdown)</strong> — GitHub에서 자동 렌더링됩니다. 수식과 코드 블록을 깔끔하게 볼 수 있고, 모바일에서도 무리 없이 읽힙니다.</li>
+      <li><strong>📕 PDF</strong> — 인쇄·태블릿 학습용. 강의 시간에 함께 따라오기 좋습니다.</li>
+      <li><strong>📓 노트북 (Jupyter)</strong> — GitHub에서 자동 렌더링되어 코드·출력·그래프를 모두 볼 수 있습니다. 직접 수정하려면 다운로드 후 로컬에서 여시거나 아래 Colab 링크를 이용하시면 됩니다.</li>
+      <li><strong>🚀 Colab</strong> — 클릭 즉시 Google Colab에서 노트북이 열립니다. 별도 설치 없이 브라우저에서 코드를 실행하실 수 있습니다.</li>
+    </ul>
+  </section>
+
+  <section class="section" id="license">
+    <h2>저작권</h2>
+    <p>본 페이지에서 배포되는 강의 노트·노트북·PDF 자료는 모두 <strong>MIT License</strong> 하에 공개합니다. 학생·강사·연구자 누구나 출처를 표기하시면 자유롭게 인용·재사용하실 수 있습니다. 외부 인용 자료(MML, Strang, EoLA 등)는 각 원저작자의 라이선스를 따릅니다.</p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>© SW AI 융합정보대학원 61기 최경찬 · MIT License</span>
+    <span class="info-msg" style="margin:0;">자료는 강의 진행에 맞춰 순차 공개됩니다.</span>
+  </div>
+</footer>
+
+<!-- KaTeX -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}], throwOnError: false});"></script>
+</body>
+</html>
