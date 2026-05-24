@@ -1,16 +1,25 @@
-<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow"><meta name="color-scheme" content="dark"><title>Phase 1·2 검토 · 선형대수학</title><link rel="preconnect" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"><style>
-/* AI디자인.md §3 Modern Dark / Linear — Vercel·Linear 스타일 */
+<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow"><meta name="color-scheme" content="light"><title>Phase 1·2 검토 · 선형대수학</title><link rel="preconnect" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous"><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '\\(', right: '\\)', display: false}, {left: '\\[', right: '\\]', display: true}], throwOnError: false});"></script><style>
+/* AI디자인.md §1 Bento Grid (Apple) — 라이트 톤 */
 :root {
-    --primary: #06B6D4;      /* 시안 */
-    --secondary: #8B5CF6;    /* 바이올렛 — glow */
-    --bg: #0A0A0A;           /* 딥 블랙 */
-    --surface: #111111;      /* 카드 */
-    --surface-2: rgba(255,255,255,0.03);
-    --border: rgba(255,255,255,0.10);
-    --border-strong: rgba(255,255,255,0.18);
-    --text: #FFFFFF;
-    --text-mut: #A1A1AA;     /* 비둘기색 회색 */
-    --text-dim: #71717A;
+    --primary: #3B82F6;       /* 교육 블루 */
+    --primary-soft: #DBEAFE;  /* 블루 배경 */
+    --p1-accent: #10B981;     /* Phase 1 에메랄드 */
+    --p1-soft: #D1FAE5;
+    --p2-accent: #F59E0B;     /* Phase 2 앰버 */
+    --p2-soft: #FEF3C7;
+
+    --bg: #F5F5F7;            /* Apple off-white */
+    --surface: #FFFFFF;       /* 카드 */
+    --surface-2: #FAFAFA;     /* code block */
+    --border: #E5E7EB;        /* 1px 얇은 테두리 */
+    --border-strong: #D1D5DB;
+
+    --text: #111827;          /* dark slate */
+    --text-mut: #4B5563;
+    --text-dim: #9CA3AF;
+
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-md: 0 4px 14px rgba(0,0,0,0.06);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -20,22 +29,12 @@ body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Inter', 'S
        'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
        background: var(--bg); color: var(--text); font-size: 15px;
        line-height: 1.7; letter-spacing: -0.011em;
-       min-height: 100vh; position: relative; overflow-x: hidden; }
+       min-height: 100vh; overflow-x: hidden; }
 
-/* 글로우 효과 — 심연에서 빛이 새어 나오는 듯한 심도 */
-body::before { content: ''; position: fixed; top: -200px; right: -200px;
-               width: 600px; height: 600px; background: var(--secondary);
-               border-radius: 50%; filter: blur(100px); opacity: 0.10;
-               pointer-events: none; z-index: 0; }
-body::after { content: ''; position: fixed; bottom: -200px; left: -100px;
-              width: 500px; height: 500px; background: var(--primary);
-              border-radius: 50%; filter: blur(100px); opacity: 0.06;
-              pointer-events: none; z-index: 0; }
+.layout { display: flex; min-height: 100vh; }
 
-.layout { display: flex; min-height: 100vh; position: relative; z-index: 1; }
-
-/* 사이드바 — 미니멀 */
-.sidebar { width: 260px; background: rgba(10,10,10,0.7); backdrop-filter: blur(12px);
+/* 사이드바 — 화이트 미니멀 */
+.sidebar { width: 260px; background: var(--surface);
            border-right: 1px solid var(--border);
            padding: 28px 18px; position: sticky; top: 0; height: 100vh;
            overflow-y: auto; flex-shrink: 0; }
@@ -44,136 +43,147 @@ body::after { content: ''; position: fixed; bottom: -200px; left: -100px;
 
 .brand { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
 .brand-dot { width: 8px; height: 8px; border-radius: 50%;
-             background: var(--primary); box-shadow: 0 0 12px var(--primary); }
-.brand-title { font-size: 0.95em; font-weight: 600; color: var(--text);
+             background: var(--primary); box-shadow: 0 0 0 4px rgba(59,130,246,0.15); }
+.brand-title { font-size: 0.95em; font-weight: 700; color: var(--text);
                letter-spacing: -0.02em; }
 .brand-sub { font-size: 0.78em; color: var(--text-dim); margin: 2px 0 28px 18px;
              letter-spacing: 0.02em; }
 
 .nav-section { margin-bottom: 24px; }
 .nav-label { font-size: 0.7em; color: var(--text-dim); text-transform: uppercase;
-             letter-spacing: 0.12em; margin: 0 0 8px 8px; font-weight: 500; }
+             letter-spacing: 0.12em; margin: 0 0 8px 8px; font-weight: 600; }
 
 .nav-list { list-style: none; }
 .nav-item { margin: 1px 0; }
 .nav-link { display: block; padding: 8px 12px; color: var(--text-mut);
-            font-size: 0.9em; text-decoration: none; border-radius: 6px;
-            transition: all 0.15s ease; position: relative;
-            border-left: 2px solid transparent; }
-.nav-link:hover { color: var(--text); background: rgba(255,255,255,0.04); }
-.nav-link.active { color: var(--text); background: rgba(6,182,212,0.08);
+            font-size: 0.9em; text-decoration: none; border-radius: 8px;
+            transition: all 0.15s ease; border-left: 2px solid transparent; }
+.nav-link:hover { color: var(--text); background: rgba(59,130,246,0.05); }
+.nav-link.active { color: var(--primary); background: var(--primary-soft);
                    border-left-color: var(--primary); }
 .nav-link .nav-meta { font-size: 0.78em; color: var(--text-dim);
                       margin-top: 2px; }
 
-.nav-tag-p1 { color: #10B981; font-size: 0.7em; margin-right: 6px; }
-.nav-tag-p2 { color: #F59E0B; font-size: 0.7em; margin-right: 6px; }
+.nav-tag-p1 { color: var(--p1-accent); font-size: 0.7em; margin-right: 6px; }
+.nav-tag-p2 { color: var(--p2-accent); font-size: 0.7em; margin-right: 6px; }
 
 /* 본문 */
-.main { flex: 1; padding: 48px 64px; max-width: 880px; min-width: 0; }
+.main { flex: 1; padding: 48px 64px; max-width: 920px; min-width: 0; }
 
-.hero { margin-bottom: 56px; padding-bottom: 32px;
-        border-bottom: 1px solid var(--border); }
+.hero { margin-bottom: 48px; padding: 32px 36px;
+        background: var(--surface); border: 1px solid var(--border);
+        border-radius: 20px; box-shadow: var(--shadow-md); }
 .hero-tag { display: inline-block; font-size: 0.72em; color: var(--primary);
-            background: rgba(6,182,212,0.10); border: 1px solid rgba(6,182,212,0.25);
-            padding: 4px 10px; border-radius: 12px; letter-spacing: 0.04em;
-            margin-bottom: 16px; font-weight: 500; }
-.hero-title { font-size: 2em; font-weight: 600; letter-spacing: -0.03em;
+            background: var(--primary-soft);
+            padding: 5px 12px; border-radius: 12px; letter-spacing: 0.04em;
+            margin-bottom: 16px; font-weight: 600; }
+.hero-title { font-size: 2em; font-weight: 700; letter-spacing: -0.03em;
               margin-bottom: 12px; color: var(--text); }
 .hero-desc { color: var(--text-mut); font-size: 1.05em; max-width: 640px; }
 .hero-meta { margin-top: 20px; display: flex; gap: 16px; flex-wrap: wrap;
-             font-size: 0.85em; color: var(--text-dim); }
-.hero-meta-item { display: flex; align-items: center; gap: 6px; }
+             font-size: 0.85em; color: var(--text-mut); }
+.hero-meta-item { display: inline-flex; align-items: center; gap: 6px;
+                  padding: 4px 12px; background: var(--p1-soft);
+                  color: #047857; border-radius: 10px; font-weight: 500; }
+.hero-meta-item.p2 { background: var(--p2-soft); color: #B45309; }
 .hero-meta-item .dot { width: 6px; height: 6px; border-radius: 50%;
-                       background: var(--primary); }
-.hero-meta-item.p2 .dot { background: #F59E0B; }
+                       background: currentColor; }
 
-/* 문서 카드 */
-.doc { margin-bottom: 72px; scroll-margin-top: 24px; }
-.doc-header { background: var(--surface); border: 1px solid var(--border);
-              border-radius: 12px; padding: 24px 28px; margin-bottom: 24px;
-              position: relative; overflow: hidden; }
-.doc-header::before { content: ''; position: absolute; top: 0; left: 0; right: 0;
-                      height: 1px; background: linear-gradient(90deg,
-                      transparent, var(--primary), transparent); opacity: 0.4; }
-.doc-tag { display: inline-block; font-size: 0.7em; padding: 3px 10px;
-           border-radius: 12px; letter-spacing: 0.04em; font-weight: 500;
+/* 문서 카드 — Bento Grid 스타일 */
+.doc { margin-bottom: 48px; scroll-margin-top: 24px;
+       background: var(--surface); border: 1px solid var(--border);
+       border-radius: 20px; box-shadow: var(--shadow-sm);
+       overflow: hidden; }
+.doc-header { padding: 24px 32px;
+              border-bottom: 1px solid var(--border);
+              background: linear-gradient(180deg, #FAFAFA 0%, #FFFFFF 100%); }
+.doc-tag { display: inline-block; font-size: 0.7em; padding: 4px 12px;
+           border-radius: 10px; letter-spacing: 0.04em; font-weight: 600;
            margin-right: 8px; }
-.doc-tag.p1 { background: rgba(16,185,129,0.10); color: #10B981;
-              border: 1px solid rgba(16,185,129,0.25); }
-.doc-tag.p2 { background: rgba(245,158,11,0.10); color: #F59E0B;
-              border: 1px solid rgba(245,158,11,0.25); }
-.doc-title { font-size: 1.5em; font-weight: 600; letter-spacing: -0.02em;
+.doc-tag.p1 { background: var(--p1-soft); color: #047857; }
+.doc-tag.p2 { background: var(--p2-soft); color: #B45309; }
+.doc-tag-sub { background: #F3F4F6; color: var(--text-mut); }
+.doc-title { font-size: 1.5em; font-weight: 700; letter-spacing: -0.02em;
              color: var(--text); margin: 10px 0 4px 0; }
 .doc-meta { font-size: 0.82em; color: var(--text-dim); display: flex;
-            gap: 12px; flex-wrap: wrap; }
-.doc-meta code { background: rgba(255,255,255,0.06); color: var(--text-mut);
-                 padding: 2px 8px; border-radius: 4px; font-size: 0.92em; }
+            gap: 12px; flex-wrap: wrap; align-items: center; }
+.doc-meta code { background: #F3F4F6; color: var(--text-mut);
+                 padding: 2px 8px; border-radius: 6px; font-size: 0.92em; }
 
 /* 본문 markdown */
-.doc-content { color: var(--text-mut); font-size: 0.95em; }
-.doc-content h1 { color: var(--text); font-size: 1.35em; font-weight: 600;
+.doc-content { color: var(--text); font-size: 0.95em;
+               padding: 28px 32px; }
+.doc-content h1 { color: var(--text); font-size: 1.35em; font-weight: 700;
                   letter-spacing: -0.02em; margin: 36px 0 12px 0;
                   padding-bottom: 8px; border-bottom: 1px solid var(--border); }
 .doc-content h1:first-child { margin-top: 8px; }
-.doc-content h2 { color: var(--text); font-size: 1.15em; font-weight: 600;
+.doc-content h2 { color: var(--text); font-size: 1.15em; font-weight: 700;
                   letter-spacing: -0.015em; margin: 28px 0 10px 0; }
-.doc-content h3 { color: var(--text); font-size: 1.02em; font-weight: 500;
+.doc-content h3 { color: var(--text); font-size: 1.02em; font-weight: 600;
                   margin: 22px 0 8px 0; }
-.doc-content h4 { color: var(--text); font-size: 0.95em; font-weight: 500;
+.doc-content h4 { color: var(--text); font-size: 0.95em; font-weight: 600;
                   margin: 18px 0 6px 0; }
-.doc-content p { margin: 10px 0; }
-.doc-content ul, .doc-content ol { padding-left: 22px; margin: 10px 0; }
+.doc-content p { margin: 10px 0; color: var(--text-mut); }
+.doc-content ul, .doc-content ol { padding-left: 22px; margin: 10px 0;
+                                    color: var(--text-mut); }
 .doc-content li { margin: 4px 0; }
-.doc-content strong { color: var(--text); font-weight: 600; }
-.doc-content em { color: var(--text-mut); font-style: italic; }
+.doc-content strong { color: var(--text); font-weight: 700; }
+.doc-content em { color: var(--text); font-style: italic; }
 
 .doc-content a { color: var(--primary); text-decoration: none;
-                 border-bottom: 1px dashed rgba(6,182,212,0.4); }
+                 border-bottom: 1px dashed rgba(59,130,246,0.4); }
 .doc-content a:hover { border-bottom-style: solid; }
 
-.doc-content code { background: rgba(255,255,255,0.06); color: #E4E4E7;
-                    padding: 2px 6px; border-radius: 4px;
+.doc-content code { background: #F3F4F6; color: #BE185D;
+                    padding: 2px 6px; border-radius: 6px;
                     font-size: 0.88em;
                     font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
                     word-break: break-word; }
 .doc-content pre { background: var(--surface-2); border: 1px solid var(--border);
-                   padding: 14px 18px; overflow-x: auto; border-radius: 8px;
+                   padding: 14px 18px; overflow-x: auto; border-radius: 10px;
                    font-size: 0.85em; margin: 14px 0; }
 .doc-content pre code { background: transparent; padding: 0; color: var(--text); }
 
 .doc-content blockquote { border-left: 3px solid var(--primary);
-                          background: rgba(6,182,212,0.05);
+                          background: var(--primary-soft);
                           padding: 12px 18px; margin: 14px 0;
-                          color: var(--text-mut); border-radius: 0 6px 6px 0; }
+                          color: #1E40AF; border-radius: 0 10px 10px 0; }
 
 .doc-content hr { border: 0; border-top: 1px solid var(--border); margin: 28px 0; }
 
 /* 표 */
 .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch;
               margin: 14px 0; border: 1px solid var(--border);
-              border-radius: 8px; background: var(--surface); }
+              border-radius: 10px; background: var(--surface); }
 .table-wrap::-webkit-scrollbar { height: 6px; }
-.table-wrap::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+.table-wrap::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 3px; }
 
 .doc-content table { border-collapse: collapse; width: 100%; min-width: 520px;
                      font-size: 0.88em; }
-.doc-content th { background: rgba(255,255,255,0.04); color: var(--text);
+.doc-content th { background: #F9FAFB; color: var(--text);
                   font-weight: 600; text-align: left;
                   padding: 10px 14px; border-bottom: 1px solid var(--border); }
 .doc-content td { padding: 10px 14px; color: var(--text-mut);
-                  border-bottom: 1px solid rgba(255,255,255,0.06); }
+                  border-bottom: 1px solid var(--border); }
 .doc-content tr:last-child td { border-bottom: none; }
-.doc-content tr:hover td { background: rgba(255,255,255,0.02); }
+.doc-content tr:hover td { background: #FAFAFA; }
+
+/* KaTeX 보조 */
+.katex { font-size: 1.02em !important; }
+.katex-display { margin: 14px 0 !important; overflow-x: auto;
+                 overflow-y: hidden; padding: 4px 0; }
 
 /* 모바일 */
 @media (max-width: 900px) {
     .layout { flex-direction: column; }
-    .sidebar { width: 100%; height: auto; max-height: 360px;
+    .sidebar { width: 100%; height: auto; max-height: 280px;
                position: static; border-right: none;
                border-bottom: 1px solid var(--border); }
-    .main { padding: 32px 22px; }
+    .main { padding: 24px 16px; }
+    .hero { padding: 24px 20px; border-radius: 16px; }
     .hero-title { font-size: 1.5em; }
+    .doc-header { padding: 18px 22px; }
+    .doc-content { padding: 20px 22px; }
     .doc-title { font-size: 1.2em; }
     .doc-content h1 { font-size: 1.15em; }
     .doc-content h2 { font-size: 1.05em; }
@@ -181,21 +191,21 @@ body::after { content: ''; position: fixed; bottom: -200px; left: -100px;
 
 /* 상단 가기 */
 .top-link { position: fixed; bottom: 28px; right: 28px;
-            background: var(--surface); color: var(--text-mut);
+            background: var(--surface); color: var(--primary);
             border: 1px solid var(--border);
-            width: 44px; height: 44px; border-radius: 8px;
-            text-decoration: none;
+            width: 44px; height: 44px; border-radius: 12px;
+            text-decoration: none; box-shadow: var(--shadow-md);
             display: flex; align-items: center; justify-content: center;
-            font-size: 16px; backdrop-filter: blur(12px);
-            transition: all 0.15s ease; z-index: 100; }
-.top-link:hover { color: var(--primary); border-color: var(--primary);
-                  background: rgba(6,182,212,0.05); }
+            font-size: 16px; transition: all 0.15s ease; z-index: 100; }
+.top-link:hover { color: var(--surface); background: var(--primary);
+                  border-color: var(--primary);
+                  box-shadow: 0 6px 18px rgba(59,130,246,0.35); }
 
 /* Overflow 방어 (AI디자인.md §라) */
 .doc-content { min-width: 0; }
 .table-wrap { min-width: 0; }
 .doc-content p, .doc-content li { word-break: keep-all; overflow-wrap: anywhere; }
-</style></head><body><div class="layout"><nav class="sidebar"><div class="brand"><span class="brand-dot"></span><span class="brand-title">검토 · DEV</span></div><div class="brand-sub">선형대수학 Phase 1·2</div><div class="nav-section"><div class="nav-label">Phase 1 · 골격</div><ul class="nav-list"><li class="nav-item"><a href="#p1-curriculum" class="nav-link"><span class="nav-tag-p1">●</span>01 커리큘럼 총괄표<div class="nav-meta">30회차 골격</div></a></li><li class="nav-item"><a href="#p1-part1" class="nav-link"><span class="nav-tag-p1">●</span>02 Part 1 회차표<div class="nav-meta">12회차 Strang</div></a></li><li class="nav-item"><a href="#p1-part2" class="nav-link"><span class="nav-tag-p1">●</span>03 Part 2 회차표<div class="nav-meta">18회차 Strang+MML</div></a></li></ul></div><div class="nav-section"><div class="nav-label">Phase 2 · 메타·도입</div><ul class="nav-list"><li class="nav-item"><a href="#p2-prompt" class="nav-link"><span class="nav-tag-p2">●</span>00 프롬프트<div class="nav-meta">수업 설계</div></a></li><li class="nav-item"><a href="#p2-intro" class="nav-link"><span class="nav-tag-p2">●</span>00회차 Introduction<div class="nav-meta">강의 첫 슬라이드</div></a></li><li class="nav-item"><a href="#p2-repo-readme" class="nav-link"><span class="nav-tag-p2">●</span>_repo README<div class="nav-meta">GitHub 사본</div></a></li><li class="nav-item"><a href="#p2-web-index" class="nav-link"><span class="nav-tag-p2">●</span>08 웹페이지 index<div class="nav-meta">메인 본문</div></a></li><li class="nav-item"><a href="#p2-web-faq" class="nav-link"><span class="nav-tag-p2">●</span>08 웹페이지 FAQ<div class="nav-meta">자주 묻는 질문</div></a></li><li class="nav-item"><a href="#p2-web-readme" class="nav-link"><span class="nav-tag-p2">●</span>08 웹페이지 README<div class="nav-meta">README</div></a></li></ul></div><div class="nav-section"><div class="nav-label">외부 링크</div><ul class="nav-list"><li class="nav-item"><a href="../index.html" class="nav-link">↩ 메인 페이지</a></li><li class="nav-item"><a href="../curriculum.html" class="nav-link">curriculum.html</a></li></ul></div></nav><main class="main"><div class="hero"><span class="hero-tag">DEV · 본인 검토용 · 외부 비공개</span><h1 class="hero-title">선형대수학 강의 자료 검토</h1><p class="hero-desc">Phase 1·2 결과 9 파일을 한 페이지에 통합했습니다. 좌측 navigation에서 파일을 선택해 검토하세요.</p><div class="hero-meta"><div class="hero-meta-item"><span class="dot"></span>Phase 1 · 골격 재설계 3 파일</div><div class="hero-meta-item p2"><span class="dot"></span>Phase 2 · 메타·도입 6 파일</div></div></div><section class="doc" id="p1-curriculum"><div class="doc-header"><span class="doc-tag p1">Phase 1</span><span class="doc-tag" style="background:rgba(255,255,255,0.04);color:var(--text-mut);border:1px solid var(--border);">30회차 골격</span><h2 class="doc-title">01 커리큘럼 총괄표</h2><div class="doc-meta"><code>01_커리큘럼_총괄표.md</code><span>7.1 KB</span></div></div><div class="doc-content"><h1>인공지능 전공자를 위한 선형대수학 — Part 시리즈 총괄</h1>
+</style></head><body><div class="layout"><nav class="sidebar"><div class="brand"><span class="brand-dot"></span><span class="brand-title">검토 · DEV</span></div><div class="brand-sub">선형대수학 Phase 1·2</div><div class="nav-section"><div class="nav-label">Phase 1 · 골격</div><ul class="nav-list"><li class="nav-item"><a href="#p1-curriculum" class="nav-link"><span class="nav-tag-p1">●</span>01 커리큘럼 총괄표<div class="nav-meta">30회차 골격</div></a></li><li class="nav-item"><a href="#p1-part1" class="nav-link"><span class="nav-tag-p1">●</span>02 Part 1 회차표<div class="nav-meta">12회차 Strang</div></a></li><li class="nav-item"><a href="#p1-part2" class="nav-link"><span class="nav-tag-p1">●</span>03 Part 2 회차표<div class="nav-meta">18회차 Strang+MML</div></a></li></ul></div><div class="nav-section"><div class="nav-label">Phase 2 · 메타·도입</div><ul class="nav-list"><li class="nav-item"><a href="#p2-prompt" class="nav-link"><span class="nav-tag-p2">●</span>00 프롬프트<div class="nav-meta">수업 설계</div></a></li><li class="nav-item"><a href="#p2-intro" class="nav-link"><span class="nav-tag-p2">●</span>00회차 Introduction<div class="nav-meta">강의 첫 슬라이드</div></a></li><li class="nav-item"><a href="#p2-repo-readme" class="nav-link"><span class="nav-tag-p2">●</span>_repo README<div class="nav-meta">GitHub 사본</div></a></li><li class="nav-item"><a href="#p2-web-index" class="nav-link"><span class="nav-tag-p2">●</span>08 웹페이지 index<div class="nav-meta">메인 본문</div></a></li><li class="nav-item"><a href="#p2-web-faq" class="nav-link"><span class="nav-tag-p2">●</span>08 웹페이지 FAQ<div class="nav-meta">자주 묻는 질문</div></a></li><li class="nav-item"><a href="#p2-web-readme" class="nav-link"><span class="nav-tag-p2">●</span>08 웹페이지 README<div class="nav-meta">README</div></a></li></ul></div><div class="nav-section"><div class="nav-label">외부 링크</div><ul class="nav-list"><li class="nav-item"><a href="../index.html" class="nav-link">↩ 메인 페이지</a></li><li class="nav-item"><a href="../curriculum.html" class="nav-link">curriculum.html</a></li></ul></div></nav><main class="main"><div class="hero"><span class="hero-tag">DEV · 본인 검토용 · 외부 비공개</span><h1 class="hero-title">선형대수학 강의 자료 검토</h1><p class="hero-desc">Phase 1·2 결과 9 파일을 한 페이지에 통합했습니다. 좌측 navigation에서 파일을 선택해 검토하세요. 수식은 KaTeX로 자동 렌더링됩니다.</p><div class="hero-meta"><div class="hero-meta-item"><span class="dot"></span>Phase 1 · 골격 재설계 3 파일</div><div class="hero-meta-item p2"><span class="dot"></span>Phase 2 · 메타·도입 6 파일</div></div></div><section class="doc" id="p1-curriculum"><div class="doc-header"><span class="doc-tag p1">Phase 1</span><span class="doc-tag doc-tag-sub">30회차 골격</span><h2 class="doc-title">01 커리큘럼 총괄표</h2><div class="doc-meta"><code>01_커리큘럼_총괄표.md</code><span>7.1 KB</span></div></div><div class="doc-content"><h1>인공지능 전공자를 위한 선형대수학 — Part 시리즈 총괄</h1>
 <blockquote>
 <p><strong>Linear Algebra Part 1</strong> (Part 1, 12회차) — <a href="02_Part1_회차표.md">02_Part1_회차표.md</a>
 <strong>Linear Algebra Part 2</strong> (Part 2, 18회차) — <a href="03_Part2_회차표.md">03_Part2_회차표.md</a></p>
@@ -298,8 +308,8 @@ Linear Algebra Part 2 (18회차) — Strang LA Ch 6-8 + MML 전체 확장
 <ul>
 <li>벡터, 행렬, 선형방정식, 벡터공간, 부분공간, 정사영, 행렬식의 정의와 정리를 정확히 진술</li>
 <li>행렬을 선형사상으로 다루는 관점 체화</li>
-<li>$Ax=b$ 의 해 존재·유일성을 4 fundamental subspaces로 판별</li>
-<li>NumPy로 가우스 소거, $LU$ 분해, 그람-슈미트, 정규방정식, 행렬식을 구현</li>
+<li><span class="arithmatex">\(Ax=b\)</span> 의 해 존재·유일성을 4 fundamental subspaces로 판별</li>
+<li>NumPy로 가우스 소거, <span class="arithmatex">\(LU\)</span> 분해, 그람-슈미트, 정규방정식, 행렬식을 구현</li>
 </ul>
 <h3>Linear Algebra Part 2 종료 시점</h3>
 <ul>
@@ -368,7 +378,7 @@ Linear Algebra Part 2 (18회차) — Strang LA Ch 6-8 + MML 전체 확장
 </tr>
 </tbody>
 </table></div>
-<p>전환 원칙: 같은 회차 안에서는 메인 교재 한 권만 인용하고, 다른 책 보충 인용은 명시적 "참조"로 표기한다.</p></div></section><section class="doc" id="p1-part1"><div class="doc-header"><span class="doc-tag p1">Phase 1</span><span class="doc-tag" style="background:rgba(255,255,255,0.04);color:var(--text-mut);border:1px solid var(--border);">12회차 Strang</span><h2 class="doc-title">02 Part 1 회차표</h2><div class="doc-meta"><code>02_Part1_회차표.md</code><span>6.7 KB</span></div></div><div class="doc-content"><h1>Linear Algebra Part 1 — 12회차 회차표</h1>
+<p>전환 원칙: 같은 회차 안에서는 메인 교재 한 권만 인용하고, 다른 책 보충 인용은 명시적 "참조"로 표기한다.</p></div></section><section class="doc" id="p1-part1"><div class="doc-header"><span class="doc-tag p1">Phase 1</span><span class="doc-tag doc-tag-sub">12회차 Strang</span><h2 class="doc-title">02 Part 1 회차표</h2><div class="doc-meta"><code>02_Part1_회차표.md</code><span>6.7 KB</span></div></div><div class="doc-content"><h1>Linear Algebra Part 1 — 12회차 회차표</h1>
 <blockquote>
 <p>SW·AI 융합대학원 1학년 / 학부 선대 미이수 및 보습·보완이 필요하신 분들 / Python·NumPy 가능 / Jupyter 운영
 1 Session(회차) 2시간 × 12회차 = 24시간
@@ -379,8 +389,8 @@ Linear Algebra Part 2 (18회차) — Strang LA Ch 6-8 + MML 전체 확장
 <ul>
 <li>벡터, 행렬, 선형방정식, 벡터공간, 부분공간, 정사영, 행렬식의 정의와 정리를 정확히 진술</li>
 <li>행렬을 선형사상으로 다루는 관점 체화</li>
-<li>$Ax=b$ 의 해 존재·유일성을 <strong>4 fundamental subspaces</strong> framework로 판별 (Strang 시그니처)</li>
-<li>NumPy로 가우스 소거, $LU$ 분해, 그람-슈미트, 정규방정식, 행렬식을 구현</li>
+<li><span class="arithmatex">\(Ax=b\)</span> 의 해 존재·유일성을 <strong>4 fundamental subspaces</strong> framework로 판별 (Strang 시그니처)</li>
+<li>NumPy로 가우스 소거, <span class="arithmatex">\(LU\)</span> 분해, 그람-슈미트, 정규방정식, 행렬식을 구현</li>
 </ul>
 <hr />
 <h2>Part 흐름 narrative (학생용)</h2>
@@ -433,7 +443,7 @@ Linear Algebra Part 2 (18회차) — Strang LA Ch 6-8 + MML 전체 확장
 <td>§2.1, §2.2, §2.3</td>
 <td>(§2.3.1 참조)</td>
 <td>Ch.7</td>
-<td>선형방정식, Gauss 소거, RREF, $Ax=b$ 해의 존재·유일성</td>
+<td>선형방정식, Gauss 소거, RREF, <span class="arithmatex">\(Ax=b\)</span> 해의 존재·유일성</td>
 <td>회로·물리·최적화에서 선형 시스템 등장</td>
 <td>NumPy로 Gauss 소거 직접 구현, <code>np.linalg.solve</code> 정확도·시간 비교</td>
 </tr>
@@ -442,7 +452,7 @@ Linear Algebra Part 2 (18회차) — Strang LA Ch 6-8 + MML 전체 확장
 <td>§2.4, §2.5, §2.6, §2.7</td>
 <td>(§2.3.2, §2.3.3 참조)</td>
 <td>(보충)</td>
-<td>행렬 곱 정의·결합법칙·비가환성, <strong>Inverse matrix</strong>, $LU$ 분해, 전치, 순열</td>
+<td>행렬 곱 정의·결합법칙·비가환성, <strong>Inverse matrix</strong>, <span class="arithmatex">\(LU\)</span> 분해, 전치, 순열</td>
 <td>그래픽스 변환 가역성, BLAS·LAPACK 내부, 신경망에서 역행렬을 안 쓰는 이유</td>
 <td>역행렬 직접 구현·<code>np.linalg.inv</code> 비교, <code>scipy.linalg.lu</code> 분해·전·후방 대입</td>
 </tr>
@@ -460,16 +470,16 @@ Linear Algebra Part 2 (18회차) — Strang LA Ch 6-8 + MML 전체 확장
 <td>§3.1, §3.2</td>
 <td>§2.4</td>
 <td>Ch.6, Ch.7</td>
-<td><strong>Vector space (8 axioms)</strong>, Subspace 정식 정의, Nullspace $N(A)$, $Ax=0$ 해집합, <strong>Affine space</strong> $A = p + V$ (단원 끝, 신경망 bias 동기)</td>
-<td>죽은 뉴런, 압축 손실, 오토인코더 잠재공간 차원, $y=Wx+b$ affine 해석</td>
-<td><code>scipy.linalg.null_space</code>로 nullspace 기저, $Ax=0$ 검증</td>
+<td><strong>Vector space (8 axioms)</strong>, Subspace 정식 정의, Nullspace <span class="arithmatex">\(N(A)\)</span>, <span class="arithmatex">\(Ax=0\)</span> 해집합, <strong>Affine space</strong> <span class="arithmatex">\(A = p + V\)</span> (단원 끝, 신경망 bias 동기)</td>
+<td>죽은 뉴런, 압축 손실, 오토인코더 잠재공간 차원, <span class="arithmatex">\(y=Wx+b\)</span> affine 해석</td>
+<td><code>scipy.linalg.null_space</code>로 nullspace 기저, <span class="arithmatex">\(Ax=0\)</span> 검증</td>
 </tr>
 <tr>
 <td><strong>8회차</strong></td>
 <td>§3.3</td>
 <td>§2.5</td>
 <td>Ch.7</td>
-<td>$Ax=b$ 완전해 ($x_p + x_n$), Column space $C(A)$, Rank</td>
+<td><span class="arithmatex">\(Ax=b\)</span> 완전해 (<span class="arithmatex">\(x_p + x_n\)</span>), Column space <span class="arithmatex">\(C(A)\)</span>, Rank</td>
 <td>데이터 행렬의 유효 차원, 임베딩 내재 차원 추정</td>
 <td>잡음 섞인 저차원 데이터 <code>matrix_rank</code>와 특잇값 분포 비교</td>
 </tr>
@@ -478,7 +488,7 @@ Linear Algebra Part 2 (18회차) — Strang LA Ch 6-8 + MML 전체 확장
 <td>§3.4, §3.5</td>
 <td>§2.6, §2.7</td>
 <td>Ch.2, Ch.5</td>
-<td>Linear independence, Basis, Dimension, <strong>4 Fundamental subspaces</strong> ($C(A^\top), N(A), C(A), N(A^\top)$), 차원 정리</td>
+<td>Linear independence, Basis, Dimension, <strong>4 Fundamental subspaces</strong> (<span class="arithmatex">\(C(A^\top), N(A), C(A), N(A^\top)\)</span>), 차원 정리</td>
 <td>컨볼루션 행렬의 nullspace(불변 패턴), 신호 분해</td>
 <td>RREF로 일차독립 판정, 4 부분공간 기저 직접 출력</td>
 </tr>
@@ -487,16 +497,16 @@ Linear Algebra Part 2 (18회차) — Strang LA Ch 6-8 + MML 전체 확장
 <td>§4.1, §4.2</td>
 <td>§3.6, §3.7</td>
 <td>Ch.9</td>
-<td>Orthogonality of 4 subspaces, Projection, 정사영 행렬 $P=A(A^\top A)^{-1}A^\top$, 멱등성 $P^2=P$</td>
+<td>Orthogonality of 4 subspaces, Projection, 정사영 행렬 <span class="arithmatex">\(P=A(A^\top A)^{-1}A^\top\)</span>, 멱등성 <span class="arithmatex">\(P^2=P\)</span></td>
 <td>Attention의 query·key 내적, 정보검색의 코사인 정렬, 잔차의 직교성</td>
-<td>vector → 평면 정사영, $P^2=P$ 검증, 직교 여공간 기저</td>
+<td>vector → 평면 정사영, <span class="arithmatex">\(P^2=P\)</span> 검증, 직교 여공간 기저</td>
 </tr>
 <tr>
 <td><strong>11회차</strong></td>
 <td>§4.3, §4.4</td>
 <td>§3.7, §3.8</td>
 <td>(보충)</td>
-<td>Least squares, 정규방정식 $A^\top A\hat x = A^\top b$, Gram-Schmidt, <strong>QR 분해</strong>, <strong>Rotation matrix</strong> ($R(\theta), R^\top R=I, \det R=1$, 단원 끝 5-7분)</td>
+<td>Least squares, 정규방정식 <span class="arithmatex">\(A^\top A\hat x = A^\top b\)</span>, Gram-Schmidt, <strong>QR 분해</strong>, <strong>Rotation matrix</strong> (<span class="arithmatex">\(R(\theta), R^\top R=I, \det R=1\)</span>, 단원 끝 5-7분)</td>
 <td>선형회귀, 신경망 최종층 회귀, 수치 안정한 회귀 풀이, RoPE (LLaMA·Mistral)·SO(3) (NeRF·SLAM)</td>
 <td>NumPy 정규방정식 직접 구현·<code>np.linalg.lstsq</code> 비교, Gram-Schmidt·<code>np.linalg.qr</code> 정확도 비교</td>
 </tr>
@@ -505,7 +515,7 @@ Linear Algebra Part 2 (18회차) — Strang LA Ch 6-8 + MML 전체 확장
 <td>§5.1, §5.2, §5.3</td>
 <td>§4.1</td>
 <td>Ch.5, Ch.6</td>
-<td><strong>Determinant</strong> 정의 (라이프니츠 합·코팩터·LU 곱), 부피 해석, 가역 판정 ($\det \ne 0 \iff$ 가역), Cramer 공식 (reading) + <strong>Part 1 종합학습확인평가</strong></td>
+<td><strong>Determinant</strong> 정의 (라이프니츠 합·코팩터·LU 곱), 부피 해석, 가역 판정 (<span class="arithmatex">\(\det \ne 0 \iff\)</span> 가역), Cramer 공식 (reading) + <strong>Part 1 종합학습확인평가</strong></td>
 <td>변환의 부피 비율, 그래픽스 가역성·반전 판정</td>
 <td>2D 단위 정사각형 변환·부피 시각화 + 지필·실기 통합 학습확인평가</td>
 </tr>
@@ -546,7 +556,7 @@ Linear Algebra Part 2 (18회차) — Strang LA Ch 6-8 + MML 전체 확장
 - Linear independence (→ 9회차)
 - Basis·Dimension (→ 9회차)
 - 4 Fundamental subspaces (→ 9회차)</p>
-<p>1-3회차에서는 R^n에 한정하여 dot product·norm·matrix-vector 곱을 직관·예제 위주로 다룬다. 모든 추상 정의는 R^n에서 이미 구체적으로 만져본 후 7회차에서 일반화한다.</p></div></section><section class="doc" id="p1-part2"><div class="doc-header"><span class="doc-tag p1">Phase 1</span><span class="doc-tag" style="background:rgba(255,255,255,0.04);color:var(--text-mut);border:1px solid var(--border);">18회차 Strang+MML</span><h2 class="doc-title">03 Part 2 회차표</h2><div class="doc-meta"><code>03_Part2_회차표.md</code><span>9.5 KB</span></div></div><div class="doc-content"><h1>Linear Algebra Part 2 — 18회차 회차표</h1>
+<p>1-3회차에서는 R^n에 한정하여 dot product·norm·matrix-vector 곱을 직관·예제 위주로 다룬다. 모든 추상 정의는 R^n에서 이미 구체적으로 만져본 후 7회차에서 일반화한다.</p></div></section><section class="doc" id="p1-part2"><div class="doc-header"><span class="doc-tag p1">Phase 1</span><span class="doc-tag doc-tag-sub">18회차 Strang+MML</span><h2 class="doc-title">03 Part 2 회차표</h2><div class="doc-meta"><code>03_Part2_회차표.md</code><span>9.5 KB</span></div></div><div class="doc-content"><h1>Linear Algebra Part 2 — 18회차 회차표</h1>
 <blockquote>
 <p>SW·AI 융합대학원 1학년 / Linear Algebra Part 1 이수 가정 / Jupyter·PyTorch 운영
 1 Session(회차) 2시간 × 18회차 = 36시간
@@ -597,7 +607,7 @@ Linear Algebra Part 2 (18회차) — Strang LA Ch 6-8 + MML 전체 확장
 <td><strong>2회차</strong></td>
 <td>§6.2, §6.4</td>
 <td>§4.4</td>
-<td>Diagonalization $A=S\Lambda S^{-1}$, $A^k$, 닮음, <strong>대칭행렬 Spectral theorem</strong></td>
+<td>Diagonalization <span class="arithmatex">\(A=S\Lambda S^{-1}\)</span>, <span class="arithmatex">\(A^k\)</span>, 닮음, <strong>대칭행렬 Spectral theorem</strong></td>
 <td>마르코프 사슬 정상상태, PageRank, RNN 안정성, 공분산행렬·그래프 라플라시안</td>
 <td>PageRank 거듭제곱법 구현, 대칭행렬 직교 대각화</td>
 </tr>
@@ -613,9 +623,9 @@ Linear Algebra Part 2 (18회차) — Strang LA Ch 6-8 + MML 전체 확장
 <td><strong>4회차</strong></td>
 <td>§7.1, §7.2</td>
 <td>§4.5</td>
-<td><strong>SVD</strong> $A=U\Sigma V^\top$, 기하학적 의미, 특잇값-고유값 관계</td>
+<td><strong>SVD</strong> <span class="arithmatex">\(A=U\Sigma V^\top\)</span>, 기하학적 의미, 특잇값-고유값 관계</td>
 <td>SVD의 보편성, 모든 행렬에 적용 가능한 분해</td>
-<td>SVD 분해, $U,\Sigma,V$ 기하학적 작용 시각화</td>
+<td>SVD 분해, <span class="arithmatex">\(U,\Sigma,V\)</span> 기하학적 작용 시각화</td>
 </tr>
 <tr>
 <td><strong>5회차</strong></td>
@@ -759,7 +769,7 @@ Linear Algebra Part 2 (18회차) — Strang LA Ch 6-8 + MML 전체 확장
 <tr>
 <td><strong>17회차</strong></td>
 <td>본 강좌 자체 교안 + MML 부록</td>
-<td><strong>Attention</strong> $\mathrm{softmax}(QK^\top/\sqrt d)V$ 분해, Multi-head Kronecker, Embedding lookup = 행렬곱, <strong>Attention backward 자코비안 곱</strong></td>
+<td><strong>Attention</strong> <span class="arithmatex">\(\mathrm{softmax}(QK^\top/\sqrt d)V\)</span> 분해, Multi-head Kronecker, Embedding lookup = 행렬곱, <strong>Attention backward 자코비안 곱</strong></td>
 <td>Transformer의 LA 분해, FlashAttention의 블록 사고, KV cache</td>
 <td>NumPy ↔ PyTorch Attention forward·backward 자코비안 곱 검증</td>
 </tr>
@@ -814,49 +824,49 @@ Linear Algebra Part 2 (18회차) — Strang LA Ch 6-8 + MML 전체 확장
 <thead>
 <tr>
 <th>함수</th>
-<th>$\nabla_x$</th>
+<th><span class="arithmatex">\(\nabla_x\)</span></th>
 <th>출처</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>$a^\top x$</td>
-<td>$a$</td>
+<td><span class="arithmatex">\(a^\top x\)</span></td>
+<td><span class="arithmatex">\(a\)</span></td>
 <td>MML §5.5</td>
 </tr>
 <tr>
-<td>$x^\top A x$</td>
-<td>$(A + A^\top) x$</td>
+<td><span class="arithmatex">\(x^\top A x\)</span></td>
+<td><span class="arithmatex">\((A + A^\top) x\)</span></td>
 <td>MML §5.5</td>
 </tr>
 <tr>
-<td>$x^\top A x$ ($A$ 대칭)</td>
-<td>$2 A x$</td>
+<td><span class="arithmatex">\(x^\top A x\)</span> (<span class="arithmatex">\(A\)</span> 대칭)</td>
+<td><span class="arithmatex">\(2 A x\)</span></td>
 <td>MML §5.5</td>
 </tr>
 <tr>
-<td>$|Ax - b|^2$</td>
-<td>$2 A^\top (Ax - b)$</td>
+<td><span class="arithmatex">\(\|Ax - b\|^2\)</span></td>
+<td><span class="arithmatex">\(2 A^\top (Ax - b)\)</span></td>
 <td>MML §5.5</td>
 </tr>
 <tr>
-<td>$\log \det X$</td>
-<td>$X^{-\top}$</td>
+<td><span class="arithmatex">\(\log \det X\)</span></td>
+<td><span class="arithmatex">\(X^{-\top}\)</span></td>
 <td>Petersen-Pedersen §2.1</td>
 </tr>
 <tr>
-<td>$\operatorname{tr}(AX)$</td>
-<td>$A^\top$</td>
+<td><span class="arithmatex">\(\operatorname{tr}(AX)\)</span></td>
+<td><span class="arithmatex">\(A^\top\)</span></td>
 <td>Petersen-Pedersen §2.1</td>
 </tr>
 <tr>
-<td>$\operatorname{tr}(X^\top A X)$</td>
-<td>$(A + A^\top) X$</td>
+<td><span class="arithmatex">\(\operatorname{tr}(X^\top A X)\)</span></td>
+<td><span class="arithmatex">\((A + A^\top) X\)</span></td>
 <td>Petersen-Pedersen §2.1</td>
 </tr>
 </tbody>
 </table></div>
-<p>자세한 정리는 Petersen·Pedersen, <em>Matrix Cookbook</em> §2-§9 참조.</p></div></section><section class="doc" id="p2-prompt"><div class="doc-header"><span class="doc-tag p2">Phase 2</span><span class="doc-tag" style="background:rgba(255,255,255,0.04);color:var(--text-mut);border:1px solid var(--border);">수업 설계</span><h2 class="doc-title">00 프롬프트</h2><div class="doc-meta"><code>00_프롬프트.md</code><span>4.6 KB</span></div></div><div class="doc-content"><h1>인공지능 전공자를 위한 선형대수학 — 수업 설계 프롬프트</h1>
+<p>자세한 정리는 Petersen·Pedersen, <em>Matrix Cookbook</em> §2-§9 참조.</p></div></section><section class="doc" id="p2-prompt"><div class="doc-header"><span class="doc-tag p2">Phase 2</span><span class="doc-tag doc-tag-sub">수업 설계</span><h2 class="doc-title">00 프롬프트</h2><div class="doc-meta"><code>00_프롬프트.md</code><span>4.6 KB</span></div></div><div class="doc-content"><h1>인공지능 전공자를 위한 선형대수학 — 수업 설계 프롬프트</h1>
 <p>너는 MIT 스타일의 공학·컴퓨터과학 중심 선형대수 교육 전문가이자, AI·딥러닝·컴퓨터비전·데이터과학까지 연결 가능한 현대적 선형대수 커리큘럼 설계자다.</p>
 <p>다음 3가지 자료의 장점을 통합하여, "컴퓨터공학과 학생들을 위한 직관적이고 실용적인 선형대수 수업 가이드 및 수업지도안"을 설계하라.</p>
 <h2>참고 철학 및 스타일</h2>
@@ -966,7 +976,7 @@ Linear Algebra Part 2 (18회차) — Strang LA Ch 6-8 + MML 전체 확장
 <li>표와 계층 구조 적극 활용</li>
 <li>설명은 깊고 명확하게</li>
 <li>학생 반응을 고려한 교육적 흐름 포함</li>
-</ul></div></section><section class="doc" id="p2-intro"><div class="doc-header"><span class="doc-tag p2">Phase 2</span><span class="doc-tag" style="background:rgba(255,255,255,0.04);color:var(--text-mut);border:1px solid var(--border);">강의 첫 슬라이드</span><h2 class="doc-title">00회차 Introduction</h2><div class="doc-meta"><code>07_강의교안/Part1/00회차_Introduction.md</code><span>21.8 KB</span></div></div><div class="doc-content"><hr />
+</ul></div></section><section class="doc" id="p2-intro"><div class="doc-header"><span class="doc-tag p2">Phase 2</span><span class="doc-tag doc-tag-sub">강의 첫 슬라이드</span><h2 class="doc-title">00회차 Introduction</h2><div class="doc-meta"><code>07_강의교안/Part1/00회차_Introduction.md</code><span>21.8 KB</span></div></div><div class="doc-content"><hr />
 <p>marp: true
 theme: default
 paginate: true
@@ -1013,7 +1023,7 @@ style: |
 <p>이 한 질문에 30회차에 걸쳐 답합니다.</p>
 <ul>
 <li><strong>오늘의 부분 답</strong>: 가장 단순한 정의(Vector(벡터)의 평균) 한 줄이 <strong>MNIST 숫자 분류</strong>까지 곧장 이어집니다 (G 시그니처).</li>
-<li><strong>학기 전체의 답</strong>: $\mathrm{softmax}(QK^\top/\sqrt{d_k})V$ — Transformer Attention(어텐션) 한 줄을 LA 객체로 완전 분해합니다 (Part 2 12회차).</li>
+<li><strong>학기 전체의 답</strong>: <span class="arithmatex">\(\mathrm{softmax}(QK^\top/\sqrt{d_k})V\)</span> — Transformer Attention(어텐션) 한 줄을 LA 객체로 완전 분해합니다 (Part 2 12회차).</li>
 </ul>
 <p>매 회차 첫 슬라이드에 그날의 핵심 질문이 있습니다. 강의 중 길을 잃으면 이 한 질문으로 돌아옵니다.</p>
 <hr />
@@ -1137,14 +1147,14 @@ style: |
 <h2>B-1. 동기 1 — AI 논문 한 줄을 읽으려면</h2>
 <p>다음은 LLM 표준 논문의 한 문장입니다.</p>
 <blockquote>
-<p>"Self-attention computes $\mathrm{softmax}(QK^\top / \sqrt{d_k})V$, where $Q, K, V \in \mathbb{R}^{n \times d}$."</p>
+<p>"Self-attention computes <span class="arithmatex">\(\mathrm{softmax}(QK^\top / \sqrt{d_k})V\)</span>, where <span class="arithmatex">\(Q, K, V \in \mathbb{R}^{n \times d}\)</span>."</p>
 </blockquote>
 <p>이 한 줄을 이해하려면 알아야 하는 것:</p>
 <ul>
-<li>$\mathbb{R}^{n \times d}$ → <strong>Vector space(벡터공간)·Dimension(차원)</strong> (5·8회차)</li>
-<li>$QK^\top$ → <strong>모든 쌍의 Inner product(내적)</strong> (1·2회차)</li>
-<li>$\sqrt{d_k}$로 나누는 이유 → <strong>Vector Norm(노름)의 통계</strong> (1·11회차)</li>
-<li>softmax 후 $V$ → <strong>Matrix(행렬)·Vector 곱의 두 해석</strong> (2회차)</li>
+<li><span class="arithmatex">\(\mathbb{R}^{n \times d}\)</span> → <strong>Vector space(벡터공간)·Dimension(차원)</strong> (5·8회차)</li>
+<li><span class="arithmatex">\(QK^\top\)</span> → <strong>모든 쌍의 Inner product(내적)</strong> (1·2회차)</li>
+<li><span class="arithmatex">\(\sqrt{d_k}\)</span>로 나누는 이유 → <strong>Vector Norm(노름)의 통계</strong> (1·11회차)</li>
+<li>softmax 후 <span class="arithmatex">\(V\)</span> → <strong>Matrix(행렬)·Vector 곱의 두 해석</strong> (2회차)</li>
 </ul>
 <div class="analogy">
 
@@ -1165,26 +1175,26 @@ style: |
 <tbody>
 <tr>
 <td>이미지 (28×28)</td>
-<td>$\mathbb{R}^{784}$ Vector</td>
+<td><span class="arithmatex">\(\mathbb{R}^{784}\)</span> Vector</td>
 </tr>
 <tr>
 <td>문서 (BERT)</td>
-<td>$\mathbb{R}^{768}$ Vector</td>
+<td><span class="arithmatex">\(\mathbb{R}^{768}\)</span> Vector</td>
 </tr>
 <tr>
 <td>사용자×영화 평점</td>
-<td>$\mathbb{R}^{n \times m}$ Matrix</td>
+<td><span class="arithmatex">\(\mathbb{R}^{n \times m}\)</span> Matrix</td>
 </tr>
 <tr>
 <td>신경망 한 층</td>
-<td>가중치 Matrix $W$ + bias $\mathbf{b}$</td>
+<td>가중치 Matrix <span class="arithmatex">\(W\)</span> + bias <span class="arithmatex">\(\mathbf{b}\)</span></td>
 </tr>
 </tbody>
 </table></div>
 <p><strong>동기 3: 선형 근사가 비선형 세계를 다룹니다</strong></p>
-<p>$f$가 미분가능하면 $\mathbf{x}_0$ 근방에서
-$$f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0) + J(\mathbf{x}_0)\,\mathbf{h}$$
-여기서 $J$는 Jacobian(자코비안) — <strong>한 Matrix</strong>. Backpropagation(역전파)은 이 식의 반복입니다.</p>
+<p><span class="arithmatex">\(f\)</span>가 미분가능하면 <span class="arithmatex">\(\mathbf{x}_0\)</span> 근방에서
+$<span class="arithmatex">\(f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0) + J(\mathbf{x}_0)\,\mathbf{h}\)</span>$
+여기서 <span class="arithmatex">\(J\)</span>는 Jacobian(자코비안) — <strong>한 Matrix</strong>. Backpropagation(역전파)은 이 식의 반복입니다.</p>
 <div class="analogy">
 
 💡 **파인만식 비유**: **지구는 둥글지만 동네 마당은 평평하게 본다.** 비선형 함수도 한 점 근방에서는 직선처럼 봐도 됩니다. 그 "한 점에서의 평평한 근사"가 곧 **Jacobian**입니다.
@@ -1209,22 +1219,22 @@ $$f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0) + J(\mathbf{x}_0)\,\mathb
 </thead>
 <tbody>
 <tr>
-<td>$A = LU$</td>
+<td><span class="arithmatex">\(A = LU\)</span></td>
 <td>하·상삼각</td>
 <td>4</td>
 </tr>
 <tr>
-<td>$A = QR$</td>
+<td><span class="arithmatex">\(A = QR\)</span></td>
 <td>직교 · 상삼각</td>
 <td>11</td>
 </tr>
 <tr>
-<td>$A = Q\Lambda Q^\top$</td>
+<td><span class="arithmatex">\(A = Q\Lambda Q^\top\)</span></td>
 <td>대칭 → 회전 + 신축</td>
 <td>Part 2 1-4</td>
 </tr>
 <tr>
-<td>$A = U\Sigma V^\top$ (SVD)</td>
+<td><span class="arithmatex">\(A = U\Sigma V^\top\)</span> (SVD)</td>
 <td><strong>임의 Matrix → 회전+신축+회전</strong></td>
 <td>Part 2 5-6</td>
 </tr>
@@ -1300,7 +1310,7 @@ $$f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0) + J(\mathbf{x}_0)\,\mathb
 </tr>
 <tr>
 <td style="text-align: center;">2</td>
-<td><strong>Linear equation(선형방정식)</strong> $A\mathbf{x}=\mathbf{b}$</td>
+<td><strong>Linear equation(선형방정식)</strong> <span class="arithmatex">\(A\mathbf{x}=\mathbf{b}\)</span></td>
 <td>연산의 의미</td>
 <td>3·4</td>
 </tr>
@@ -1374,7 +1384,7 @@ $$f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0) + J(\mathbf{x}_0)\,\mathb
 </tr>
 </tbody>
 </table></div>
-<p><strong>핵심 명제</strong>: $A\mathbf{x} = \mathbf{b}$의 해는 <strong>$A$의 4 fundamental subspaces</strong>로 완전히 결정됩니다.</p>
+<p><strong>핵심 명제</strong>: <span class="arithmatex">\(A\mathbf{x} = \mathbf{b}\)</span>의 해는 <strong><span class="arithmatex">\(A\)</span>의 4 fundamental subspaces</strong>로 완전히 결정됩니다.</p>
 <hr />
 <h2>C-4. Part 2 흐름 — 분해와 응용</h2>
 <div class="table-wrap"><table>
@@ -1472,17 +1482,17 @@ $$f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0) + J(\mathbf{x}_0)\,\mathb
 <tbody>
 <tr>
 <td>이미지·텍스트·사용자</td>
-<td>$\mathbb{R}^d$ <strong>Vector</strong></td>
+<td><span class="arithmatex">\(\mathbb{R}^d\)</span> <strong>Vector</strong></td>
 <td>1·2</td>
 </tr>
 <tr>
-<td>데이터셋 ($n$개 샘플)</td>
-<td>$\mathbb{R}^{n \times d}$ <strong>Matrix</strong></td>
+<td>데이터셋 (<span class="arithmatex">\(n\)</span>개 샘플)</td>
+<td><span class="arithmatex">\(\mathbb{R}^{n \times d}\)</span> <strong>Matrix</strong></td>
 <td>5·6</td>
 </tr>
 <tr>
 <td>신경망 한 층</td>
-<td>$\mathbf{x} \mapsto W\mathbf{x} + \mathbf{b}$</td>
+<td><span class="arithmatex">\(\mathbf{x} \mapsto W\mathbf{x} + \mathbf{b}\)</span></td>
 <td>2·5</td>
 </tr>
 <tr>
@@ -1522,31 +1532,31 @@ $$f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0) + J(\mathbf{x}_0)\,\mathb
 <tbody>
 <tr>
 <td><strong>입력</strong></td>
-<td>$\mathbf{x} \in \mathbb{R}^d$</td>
+<td><span class="arithmatex">\(\mathbf{x} \in \mathbb{R}^d\)</span></td>
 <td>Vector</td>
 <td style="text-align: center;">1</td>
 </tr>
 <tr>
 <td><strong>Embedding(임베딩)</strong></td>
-<td>$E\mathbf{x}$</td>
+<td><span class="arithmatex">\(E\mathbf{x}\)</span></td>
 <td>Matrix·Vector 곱</td>
 <td style="text-align: center;">2</td>
 </tr>
 <tr>
 <td><strong>Attention</strong></td>
-<td>$\mathrm{softmax}!\left(\frac{QK^\top}{\sqrt{d}}\right)V$</td>
+<td><span class="arithmatex">\(\mathrm{softmax}\!\left(\frac{QK^\top}{\sqrt{d}}\right)V\)</span></td>
 <td>모든 쌍의 Inner product</td>
 <td style="text-align: center;">1·12</td>
 </tr>
 <tr>
 <td><strong>FFN</strong></td>
-<td>$W_2\,\mathrm{ReLU}(W_1\mathbf{x}+\mathbf{b}_1)+\mathbf{b}_2$</td>
+<td><span class="arithmatex">\(W_2\,\mathrm{ReLU}(W_1\mathbf{x}+\mathbf{b}_1)+\mathbf{b}_2\)</span></td>
 <td>affine 변환</td>
 <td style="text-align: center;">5</td>
 </tr>
 <tr>
 <td><strong>출력</strong></td>
-<td>$\mathrm{softmax}(\cdots)$</td>
+<td><span class="arithmatex">\(\mathrm{softmax}(\cdots)\)</span></td>
 <td>확률 Vector</td>
 <td style="text-align: center;">—</td>
 </tr>
@@ -1571,13 +1581,13 @@ $$f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0) + J(\mathbf{x}_0)\,\mathb
 </tr>
 <tr>
 <td><strong>회귀</strong> (선형 모델)</td>
-<td>$A^\top A$ 풀이 (QR)</td>
+<td><span class="arithmatex">\(A^\top A\)</span> 풀이 (QR)</td>
 <td>"데이터를 가장 잘 설명하는 선"</td>
 </tr>
 <tr>
 <td><strong>LoRA</strong> (LLM 효율 미세조정)</td>
 <td>rank-r Low-rank 근사</td>
-<td>"$W$의 변화량을 r-차원으로"</td>
+<td>"<span class="arithmatex">\(W\)</span>의 변화량을 r-차원으로"</td>
 </tr>
 <tr>
 <td><strong>추천 시스템</strong></td>
@@ -1661,9 +1671,9 @@ $$f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0) + J(\mathbf{x}_0)\,\mathb
 <p>학생은 다음을 할 수 있습니다.</p>
 <ul>
 <li>[ ] Vector·Matrix·Linear equation Definition을 정확히 진술하고 손계산할 수 있습니다.</li>
-<li>[ ] $A\mathbf{x} = \mathbf{b}$의 해 존재·유일성을 <strong>4 기본 Subspace</strong>로 판별할 수 있습니다.</li>
+<li>[ ] <span class="arithmatex">\(A\mathbf{x} = \mathbf{b}\)</span>의 해 존재·유일성을 <strong>4 기본 Subspace</strong>로 판별할 수 있습니다.</li>
 <li>[ ] LU·QR Decomposition을 정의대로 직접 구현할 수 있습니다.</li>
-<li>[ ] 정규방정식 $A^\top A \hat\beta = A^\top \mathbf{b}$로 회귀를 풀 수 있습니다.</li>
+<li>[ ] 정규방정식 <span class="arithmatex">\(A^\top A \hat\beta = A^\top \mathbf{b}\)</span>로 회귀를 풀 수 있습니다.</li>
 <li>[ ] Gram-Schmidt를 직접 구현할 수 있습니다.</li>
 <li>[ ] Subspace · Projection · 직교 여공간의 Definition·Theorem을 진술할 수 있습니다.</li>
 </ul>
@@ -1674,7 +1684,7 @@ $$f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0) + J(\mathbf{x}_0)\,\mathb
 <li>[ ] PCA·Low-rank 근사를 SVD로 <strong>한 줄에 구현</strong>할 수 있습니다.</li>
 <li>[ ] Jacobian·Hessian으로 신경망 한 층의 미분을 분해할 수 있습니다.</li>
 <li>[ ] CNN convolution을 Toeplitz matrix로 환원할 수 있습니다.</li>
-<li>[ ] <strong>Attention $\mathrm{softmax}(QK^\top/\sqrt{d_k})V$를 LA 객체로 분해</strong>할 수 있습니다.</li>
+<li>[ ] <strong>Attention <span class="arithmatex">\(\mathrm{softmax}(QK^\top/\sqrt{d_k})V\)</span>를 LA 객체로 분해</strong>할 수 있습니다.</li>
 <li>[ ] 임의의 AI 모델 한 부분을 골라 LA 분해 보고서를 작성할 수 있습니다 (Case Study).</li>
 </ul>
 <hr />
@@ -1749,14 +1759,14 @@ $$f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0) + J(\mathbf{x}_0)\,\mathb
 <p>→ 이 단순한 질문의 답이 <strong>PCA·Embedding·표현 학습</strong>의 출발점입니다.</p>
 <hr />
 <h2>G-2. 한 줄의 수학</h2>
-<p>이미지 한 장을 <strong>Vector</strong> $\mathbf{x}_i \in \mathbb{R}^{784}$ (28×28 픽셀)로 봅니다 (1회차).</p>
-<p>숫자 "7"인 모든 이미지를 모은 집합 ${\mathbf{x}_1, \mathbf{x}_2, \ldots, \mathbf{x}_n}$의 <strong>Vector 평균</strong>:</p>
-<p>$$\mathbf{m} = \frac{1}{n}\sum_{i=1}^{n}\mathbf{x}_i \;\in\; \mathbb{R}^{784}$$</p>
+<p>이미지 한 장을 <strong>Vector</strong> <span class="arithmatex">\(\mathbf{x}_i \in \mathbb{R}^{784}\)</span> (28×28 픽셀)로 봅니다 (1회차).</p>
+<p>숫자 "7"인 모든 이미지를 모은 집합 <span class="arithmatex">\(\{\mathbf{x}_1, \mathbf{x}_2, \ldots, \mathbf{x}_n\}\)</span>의 <strong>Vector 평균</strong>:</p>
+<div class="arithmatex">\[\mathbf{m} = \frac{1}{n}\sum_{i=1}^{n}\mathbf{x}_i \;\in\; \mathbb{R}^{784}\]</div>
 <p>이 한 식 안에 들어 있는 1회차의 모든 것:</p>
 <ul>
 <li>"이미지를 Vector로 본다" — Vector의 Definition</li>
 <li>"Vector들을 더한다" — Vector 덧셈</li>
-<li>"$\frac{1}{n}$을 곱한다" — Scalar(스칼라)곱</li>
+<li>"<span class="arithmatex">\(\frac{1}{n}\)</span>을 곱한다" — Scalar(스칼라)곱</li>
 </ul>
 <hr />
 <h2>G-3. 코드 — 단 한 줄</h2>
@@ -1779,7 +1789,7 @@ plt.imshow(mean_seven, cmap='gray')
 </thead>
 <tbody>
 <tr>
-<td>이미지를 Vector로 보기 ($\mathbb{R}^{784}$)</td>
+<td>이미지를 Vector로 보기 (<span class="arithmatex">\(\mathbb{R}^{784}\)</span>)</td>
 <td style="text-align: center;"><strong>1</strong></td>
 </tr>
 <tr>
@@ -1787,7 +1797,7 @@ plt.imshow(mean_seven, cmap='gray')
 <td style="text-align: center;"><strong>1</strong></td>
 </tr>
 <tr>
-<td>데이터셋을 Matrix로 ($\mathbb{R}^{n\times 784}$)</td>
+<td>데이터셋을 Matrix로 (<span class="arithmatex">\(\mathbb{R}^{n\times 784}\)</span>)</td>
 <td style="text-align: center;"><strong>2</strong></td>
 </tr>
 <tr>
@@ -1808,7 +1818,7 @@ plt.imshow(mean_seven, cmap='gray')
 <hr />
 <h2>G-5. 노트북에서 봅니다 — 실행 흐름</h2>
 <ol>
-<li>MNIST 손글씨 로드 — Matrix $X \in \mathbb{R}^{1797 \times 64}$, 레이블 $\mathbf{y}$</li>
+<li>MNIST 손글씨 로드 — Matrix <span class="arithmatex">\(X \in \mathbb{R}^{1797 \times 64}\)</span>, 레이블 <span class="arithmatex">\(\mathbf{y}\)</span></li>
 <li>한 장을 Vector로 — <code>X[0].shape == (64,)</code> 확인 (1회차)</li>
 <li><strong>0~9 각 숫자의 평균 이미지 계산</strong> — <code>X[y==k].mean(axis=0)</code> (1회차)</li>
 <li>시각화 — 10개 평균이 흐릿한 0, 1, ..., 9 모양으로 보입니다.</li>
@@ -1845,8 +1855,8 @@ plt.imshow(mean_seven, cmap='gray')
 <p><strong>오늘의 핵심 질문</strong>: "수학 정의 한 줄이 어떻게 AI 모델 한 줄이 됩니까?"
 오늘은 <strong>Vector의 평균</strong>이라는 가장 단순한 예로 일부 답을 보았습니다.</p>
 <h3>1회차 시작 전 풀어볼 1문제</h3>
-<p>MNIST에서 숫자 "7"인 이미지 1,000장의 평균 Vector를 $\mathbf{m}$이라 합니다.</p>
-<p><strong>(a)</strong> 한 새로운 이미지 $\mathbf{x}$가 들어왔을 때, "이게 7과 얼마나 가까운가"를 <strong>거리로</strong> 어떻게 잴 수 있습니까? 두 가지 방법을 제시하세요.</p>
+<p>MNIST에서 숫자 "7"인 이미지 1,000장의 평균 Vector를 <span class="arithmatex">\(\mathbf{m}\)</span>이라 합니다.</p>
+<p><strong>(a)</strong> 한 새로운 이미지 <span class="arithmatex">\(\mathbf{x}\)</span>가 들어왔을 때, "이게 7과 얼마나 가까운가"를 <strong>거리로</strong> 어떻게 잴 수 있습니까? 두 가지 방법을 제시하세요.</p>
 <p><strong>(b)</strong> 두 방법은 어떤 면에서 다릅니까? — <strong>하나는 길이만 보고, 하나는 방향까지 본다</strong>는 직관까지 답해보세요.</p>
 <p>→ 1회차에서 답할 두 도구: <strong>Norm</strong>과 <strong>Inner product</strong>.</p>
 <hr />
@@ -1890,7 +1900,7 @@ plt.imshow(mean_seven, cmap='gray')
 <h1>Q &amp; A</h1>
 <p>오늘은 Definition·증명 없이 큰 그림만 보았습니다.
 <strong>다음 회차부터 본격 수학을 시작합니다.</strong></p>
-<p><code>HANDOUT</code>: 본 PDF + <code>00_Introduction_평균이미지.ipynb</code></p></div></section><section class="doc" id="p2-repo-readme"><div class="doc-header"><span class="doc-tag p2">Phase 2</span><span class="doc-tag" style="background:rgba(255,255,255,0.04);color:var(--text-mut);border:1px solid var(--border);">GitHub 사본</span><h2 class="doc-title">_repo README</h2><div class="doc-meta"><code>_repo/README.md</code><span>2.0 KB</span></div></div><div class="doc-content"><h1>인공지능 전공자를 위한 선형대수학</h1>
+<p><code>HANDOUT</code>: 본 PDF + <code>00_Introduction_평균이미지.ipynb</code></p></div></section><section class="doc" id="p2-repo-readme"><div class="doc-header"><span class="doc-tag p2">Phase 2</span><span class="doc-tag doc-tag-sub">GitHub 사본</span><h2 class="doc-title">_repo README</h2><div class="doc-meta"><code>_repo/README.md</code><span>2.0 KB</span></div></div><div class="doc-content"><h1>인공지능 전공자를 위한 선형대수학</h1>
 <blockquote>
 <p>인공지능 전공 대학원생을 위한 30회차 (1회차 2시간 × 30 = 60시간) 선형대수학 강좌 공식 웹사이트.</p>
 </blockquote>
@@ -1932,7 +1942,7 @@ plt.imshow(mean_seven, cmap='gray')
 <li>Cloudflare Worker (<code>worker/</code> 디렉터리) — 익명 응답 수집·집계</li>
 </ul>
 <h2>라이선스</h2>
-<p>본 저장소의 페이지·문서·이미지 자료는 MIT License 하에 공개한다. 외부 인용 자료(MML, Strang, EoLA 등)는 각 원저작자의 라이선스를 따른다.</p></div></section><section class="doc" id="p2-web-index"><div class="doc-header"><span class="doc-tag p2">Phase 2</span><span class="doc-tag" style="background:rgba(255,255,255,0.04);color:var(--text-mut);border:1px solid var(--border);">메인 본문</span><h2 class="doc-title">08 웹페이지 index</h2><div class="doc-meta"><code>08_웹페이지_콘텐츠/01_index_text.md</code><span>6.1 KB</span></div></div><div class="doc-content"><h1>인공지능 전공자를 위한 선형대수학</h1>
+<p>본 저장소의 페이지·문서·이미지 자료는 MIT License 하에 공개한다. 외부 인용 자료(MML, Strang, EoLA 등)는 각 원저작자의 라이선스를 따른다.</p></div></section><section class="doc" id="p2-web-index"><div class="doc-header"><span class="doc-tag p2">Phase 2</span><span class="doc-tag doc-tag-sub">메인 본문</span><h2 class="doc-title">08 웹페이지 index</h2><div class="doc-meta"><code>08_웹페이지_콘텐츠/01_index_text.md</code><span>6.1 KB</span></div></div><div class="doc-content"><h1>인공지능 전공자를 위한 선형대수학</h1>
 <blockquote>
 <p>메인 페이지에 사용할 텍스트. HTML 변환은 다음 단계에서 진행한다.</p>
 </blockquote>
@@ -2013,7 +2023,7 @@ plt.imshow(mean_seven, cmap='gray')
 <h2>신청</h2>
 <p>정원 20명. 신청 전 진단 테스트 응시 후 본인의 6축 역량을 확인할 것을 권장한다. 진단 결과는 강의 적합도 판단과 사전 학습 우선순위 결정에 사용된다.</p>
 <p>→ <strong>[진단 테스트 시작]</strong></p>
-<p>(LMS 코드는 본 페이지에서 추후 공개)</p></div></section><section class="doc" id="p2-web-faq"><div class="doc-header"><span class="doc-tag p2">Phase 2</span><span class="doc-tag" style="background:rgba(255,255,255,0.04);color:var(--text-mut);border:1px solid var(--border);">자주 묻는 질문</span><h2 class="doc-title">08 웹페이지 FAQ</h2><div class="doc-meta"><code>08_웹페이지_콘텐츠/04_faq.md</code><span>3.9 KB</span></div></div><div class="doc-content"><h1>FAQ</h1>
+<p>(LMS 코드는 본 페이지에서 추후 공개)</p></div></section><section class="doc" id="p2-web-faq"><div class="doc-header"><span class="doc-tag p2">Phase 2</span><span class="doc-tag doc-tag-sub">자주 묻는 질문</span><h2 class="doc-title">08 웹페이지 FAQ</h2><div class="doc-meta"><code>08_웹페이지_콘텐츠/04_faq.md</code><span>3.9 KB</span></div></div><div class="doc-content"><h1>FAQ</h1>
 <blockquote>
 <p>강좌 신청 전·중에 자주 받는 질문 정리. 각 답은 200자 이내.</p>
 </blockquote>
@@ -2040,7 +2050,7 @@ plt.imshow(mean_seven, cmap='gray')
 <p>기존 32주 (Part 1 16주 + Part 2 16주, 1주 1차시 100분) 설계를 1회차 2시간으로 묶어 운영합니다. Part 1은 Strang Ch 1-5를 12회차에 차분히 다루고, Part 2는 18회차로 확장하여 Strang 후반(Eigenvalue·SVD·Linear Transformation)에 더해 MML 추가 수학(Vector Calculus·Probability·Optimization)과 MML Part II ML 4대 응용(Linear Regression·PCA·GMM·SVM)을 거쳐 CNN·Attention의 선형대수 환원까지 진행합니다.</p>
 <blockquote>
 <p>비고: 대학원생 자체 강의이므로 정식 시험이 아닌 학습 확인 목적의 평가다.</p>
-</blockquote></div></section><section class="doc" id="p2-web-readme"><div class="doc-header"><span class="doc-tag p2">Phase 2</span><span class="doc-tag" style="background:rgba(255,255,255,0.04);color:var(--text-mut);border:1px solid var(--border);">README</span><h2 class="doc-title">08 웹페이지 README</h2><div class="doc-meta"><code>08_웹페이지_콘텐츠/05_readme.md</code><span>1.6 KB</span></div></div><div class="doc-content"><h1>인공지능 전공자를 위한 선형대수학</h1>
+</blockquote></div></section><section class="doc" id="p2-web-readme"><div class="doc-header"><span class="doc-tag p2">Phase 2</span><span class="doc-tag doc-tag-sub">README</span><h2 class="doc-title">08 웹페이지 README</h2><div class="doc-meta"><code>08_웹페이지_콘텐츠/05_readme.md</code><span>1.6 KB</span></div></div><div class="doc-content"><h1>인공지능 전공자를 위한 선형대수학</h1>
 <blockquote>
 <p>인공지능 전공 대학원생을 위한 30회차 (1회차 2시간 × 30 = 60시간) 선형대수학 강좌 공식 웹사이트.</p>
 </blockquote>
