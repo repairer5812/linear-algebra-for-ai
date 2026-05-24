@@ -180,10 +180,11 @@ body { font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSy
                border-radius: 14px; box-shadow: var(--shadow-md);
                overflow: hidden; }
 .slide { position: absolute; inset: 0; padding: 36px 44px;
-         overflow-y: auto; display: none;
+         overflow-y: auto; display: none !important;
          color: var(--text); font-size: 14px; line-height: 1.55;
          scrollbar-width: thin; }
-.slide.active { display: block; }
+.slide.active { display: block !important; }
+.slide.slide-lead.active { display: flex !important; }
 .slide::-webkit-scrollbar { width: 6px; }
 .slide::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 3px; }
 
@@ -222,14 +223,16 @@ body { font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSy
                   border-radius: 0 8px 8px 0; font-size: 1.0em; }
 .slide .analogy strong { color: #047857; }
 
-/* lead 슬라이드 (회차 타이틀) */
-.slide-lead { display: flex; flex-direction: column;
+/* lead 슬라이드 (회차 타이틀) - display는 .active 룰에서만 부여 */
+.slide-lead { flex-direction: column;
               justify-content: center; align-items: center;
-              text-align: center; padding: 60px 44px; }
-.slide-lead h1 { font-size: 2.2em; }
-.slide-lead h2 { border-bottom: 0; font-size: 1.4em;
-                 color: var(--text-mut); font-weight: 500; }
-.slide-lead p { font-size: 1.05em; color: var(--text-mut); }
+              text-align: center; padding: 60px 44px; gap: 14px; }
+.slide-lead h1 { font-size: 2.4em; margin: 0 0 8px 0; }
+.slide-lead h2 { border-bottom: 0; font-size: 1.45em;
+                 color: var(--text-mut); font-weight: 500;
+                 margin: 0 0 16px 0; }
+.slide-lead p { font-size: 1.05em; color: var(--text-mut); margin: 4px 0; }
+.slide-lead blockquote { margin: 12px 0; }
 
 /* exercise 슬라이드 (퀴즈·연습) */
 .slide-exercise { background: #FFFBEB; }
@@ -2056,9 +2059,9 @@ plt.imshow(mean_seven, cmap='gray')
 <p>최경찬 / SW AI 융합정보대학원 61기</p>
 <h2>라이선스</h2>
 <p>본 저장소의 페이지·문서·이미지 자료는 MIT License 하에 공개한다. 외부 인용 자료(MML, Strang, EoLA 등)는 각 원저작자의 라이선스를 따른다.</p></div></section><section class="doc" id="p3-1회차"><div class="doc-header"><span class="doc-tag p3">Phase 3</span><span class="doc-tag doc-tag-sub">Strang §1.1 신규</span><span class="doc-mode-badge">슬라이드 43장</span><h2 class="doc-title">1회차 Vector·Linear combination</h2><div class="doc-meta"><code>07_강의교안/Part1/01회차_벡터_선형결합.md</code><span>35.0 KB</span></div></div><div class="slide-viewer"><div class="slide-stage"><div class="slide slide-lead"><h1>1회차</h1>
-<h2>Vector(벡터)·R^n·Linear combination(선형결합)</h2>
+<h2>Vector(벡터)·<span class="arithmatex">\(\mathbb{R}^n\)</span>·Linear combination(선형결합)</h2>
 <p>Strang §1.1 · EoLA Ch.1 · (MML 참조 X)
-<strong>Part 1 첫 회차</strong> — R^n 위에서 가장 단순한 두 연산(덧셈·Scalar곱)부터 시작합니다.</p></div><div class="slide slide-exercise"><h1>🔁 Review — 0회차 마무리 문제</h1>
+<strong>Part 1 첫 회차</strong> — <span class="arithmatex">\(\mathbb{R}^n\)</span> 위에서 가장 단순한 두 연산(덧셈·Scalar곱)부터 시작합니다.</p></div><div class="slide slide-exercise"><h1>🔁 Review — 0회차 마무리 문제</h1>
 <p>지난 회차 마지막에 가져갔던 문제:</p>
 <blockquote>
 <p>MNIST에서 숫자 "7"인 이미지 1,000장의 평균 Vector(벡터)를 <span class="arithmatex">\(\mathbf{m}\)</span>이라 합니다.
@@ -2088,7 +2091,7 @@ plt.imshow(mean_seven, cmap='gray')
 </tbody>
 </table></div>
 <p><strong>(b) 차이</strong>: (i)은 크기 차이도 거리로 잡고, (ii)는 방향만 봅니다.</p>
-<p>→ <strong>이 두 도구(Norm·Inner product)는 다음 2회차의 본 주제</strong>입니다. 오늘은 그 두 도구의 토대인 <strong>Vector·R^n·Linear combination</strong>을 먼저 단단히 만듭니다. 평균 Vector <span class="arithmatex">\(\mathbf{m}\)</span>의 정의에 이미 오늘 배울 모든 것이 들어 있습니다.</p></div><div class="slide"><h2>오늘의 핵심 질문</h2>
+<p>→ <strong>이 두 도구(Norm·Inner product)는 다음 2회차의 본 주제</strong>입니다. 오늘은 그 두 도구의 토대인 <strong>Vector·<span class="arithmatex">\(\mathbb{R}^n\)</span>·Linear combination</strong>을 먼저 단단히 만듭니다. 평균 Vector <span class="arithmatex">\(\mathbf{m}\)</span>의 정의에 이미 오늘 배울 모든 것이 들어 있습니다.</p></div><div class="slide"><h2>오늘의 핵심 질문</h2>
 <blockquote>
 <h3>"수의 묶음"을 한 객체로 본다는 것은 무엇이고, 그 객체로 무엇을 할 수 있습니까?</h3>
 </blockquote>
@@ -2802,12 +2805,12 @@ mean_seven = X[y == 7].mean(axis=0)  # (64,) — 7의 평균 Vector
 <tr>
 <td>15~45</td>
 <td><strong>B</strong></td>
-<td><strong>Norm</strong> — 동기 · 정의 · 세 가지 성질 (R^n에서 검증) · <span class="arithmatex">\(\ell_1, \ell_2, \ell_\infty\)</span></td>
+<td><strong>Norm</strong> — 동기 · 정의 · 세 가지 성질 (<span class="arithmatex">\(\mathbb{R}^n\)</span>에서 검증) · <span class="arithmatex">\(\ell_1, \ell_2, \ell_\infty\)</span></td>
 </tr>
 <tr>
 <td>45~75</td>
 <td><strong>C</strong></td>
-<td><strong>Dot product · 각도 · Cauchy-Schwarz</strong> (R^n에서 증명)</td>
+<td><strong>Dot product · 각도 · Cauchy-Schwarz</strong> (<span class="arithmatex">\(\mathbb{R}^n\)</span>에서 증명)</td>
 </tr>
 <tr>
 <td>75~105</td>
@@ -2854,7 +2857,7 @@ mean_seven = X[y == 7].mean(axis=0)  # (64,) — 7의 평균 Vector
 <li><span class="arithmatex">\(\mathbf{x} = (3, 4)^\top\)</span>: <span class="arithmatex">\(\|\mathbf{x}\| = \sqrt{9 + 16} = 5\)</span></li>
 <li><span class="arithmatex">\(\mathbf{x} = (1, 2, 2)^\top\)</span>: <span class="arithmatex">\(\|\mathbf{x}\| = \sqrt{1 + 4 + 4} = 3\)</span></li>
 <li><span class="arithmatex">\(\mathbf{x} = (2, -3, 1, -4)^\top\)</span>: <span class="arithmatex">\(\|\mathbf{x}\| = \sqrt{4 + 9 + 1 + 16} = \sqrt{30} \approx 5.48\)</span></li>
-</ul></div><div class="slide"><h2>B-3. Norm의 세 가지 본질 성질 (R^n에서 검증)</h2>
+</ul></div><div class="slide"><h2>B-3. Norm의 세 가지 본질 성질 (<span class="arithmatex">\(\mathbb{R}^n\)</span>에서 검증)</h2>
 <p><strong>Strang의 관찰</strong>: Euclidean norm은 세 가지 성질을 만족합니다.</p>
 <div class="table-wrap"><table>
 <thead>
