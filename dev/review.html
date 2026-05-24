@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow"><meta name="color-scheme" content="light"><title>Phase 1·2 검토 · 선형대수학</title><link rel="preconnect" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous"><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '\\(', right: '\\)', display: false}, {left: '\\[', right: '\\]', display: true}], throwOnError: false});"></script><style>
+<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow"><meta name="color-scheme" content="light"><title>Phase 1·2 검토 · 선형대수학</title><link rel="preconnect" href="https://cdn.jsdelivr.net"><link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous"><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '\\(', right: '\\)', display: false}, {left: '\\[', right: '\\]', display: true}], throwOnError: false});"></script><style>
 /* AI디자인.md §1 Bento Grid (Apple) — 라이트 톤 */
 :root {
     --primary: #3B82F6;       /* 교육 블루 */
@@ -25,8 +25,8 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { background: var(--bg); }
-body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI',
-       'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+body { font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont,
+       system-ui, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
        background: var(--bg); color: var(--text); font-size: 15px;
        line-height: 1.7; letter-spacing: -0.011em;
        min-height: 100vh; overflow-x: hidden; }
@@ -68,7 +68,7 @@ body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Inter', 'S
 .nav-tag-p2 { color: var(--p2-accent); font-size: 0.7em; margin-right: 6px; }
 
 /* 본문 */
-.main { flex: 1; padding: 48px 64px; max-width: 920px; min-width: 0; }
+.main { flex: 1; padding: 48px 64px; max-width: 1400px; min-width: 0; }
 
 .hero { margin-bottom: 48px; padding: 32px 36px;
         background: var(--surface); border: 1px solid var(--border);
@@ -167,6 +167,13 @@ body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Inter', 'S
                   border-bottom: 1px solid var(--border); }
 .doc-content tr:last-child td { border-bottom: none; }
 .doc-content tr:hover td { background: #FAFAFA; }
+
+/* 강의교안 .analogy 박스 (Marp 슬라이드와 통일) */
+.doc-content .analogy { background: var(--p1-soft);
+                        border-left: 4px solid var(--p1-accent);
+                        padding: 12px 16px; margin: 14px 0;
+                        color: #065F46; border-radius: 0 10px 10px 0; }
+.doc-content .analogy strong { color: #047857; }
 
 /* KaTeX 보조 */
 .katex { font-size: 1.02em !important; }
@@ -1157,11 +1164,8 @@ style: |
 <li>softmax 후 <span class="arithmatex">\(V\)</span> → <strong>Matrix(행렬)·Vector 곱의 두 해석</strong> (2회차)</li>
 </ul>
 <div class="analogy">
-
-💡 **파인만식 비유**: 이 한 줄은 **5층 건물의 청사진 한 장**과 같습니다. 오늘 전부 이해할 필요는 없고, 각 층이 뭔지(QK·softmax·V)만 알면 됩니다. **30회차에 걸쳐 한 층씩 들어가 봅니다.**
-
+<p>💡 <strong>파인만식 비유</strong>: 이 한 줄은 <strong>5층 건물의 청사진 한 장</strong>과 같습니다. 오늘 전부 이해할 필요는 없고, 각 층이 뭔지(QK·softmax·V)만 알면 됩니다. <strong>30회차에 걸쳐 한 층씩 들어가 봅니다.</strong></p>
 </div>
-
 <hr />
 <h2>B-2. 동기 2·3 — 데이터는 Matrix · 선형 근사가 비선형을 다룹니다</h2>
 <p><strong>동기 2: 데이터는 Matrix입니다</strong></p>
@@ -1196,19 +1200,13 @@ style: |
 $<span class="arithmatex">\(f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0) + J(\mathbf{x}_0)\,\mathbf{h}\)</span>$
 여기서 <span class="arithmatex">\(J\)</span>는 Jacobian(자코비안) — <strong>한 Matrix</strong>. Backpropagation(역전파)은 이 식의 반복입니다.</p>
 <div class="analogy">
-
-💡 **파인만식 비유**: **지구는 둥글지만 동네 마당은 평평하게 본다.** 비선형 함수도 한 점 근방에서는 직선처럼 봐도 됩니다. 그 "한 점에서의 평평한 근사"가 곧 **Jacobian**입니다.
-
+<p>💡 <strong>파인만식 비유</strong>: <strong>지구는 둥글지만 동네 마당은 평평하게 본다.</strong> 비선형 함수도 한 점 근방에서는 직선처럼 봐도 됩니다. 그 "한 점에서의 평평한 근사"가 곧 <strong>Jacobian</strong>입니다.</p>
 </div>
-
 <hr />
 <h2>B-3. 동기 4 — Decomposition(분해)이 본질을 드러냅니다</h2>
 <div class="analogy">
-
-💡 **파인만식 비유**: Decomposition은 **카레의 재료 분리**와 같습니다. 완성된 카레만 보면 복잡하지만, 양파·당근·고기·향신료로 분리하면 각 재료의 역할이 보입니다. Matrix도 마찬가지입니다 — 복잡해 보이는 Matrix를 단순한 Matrix의 곱으로 분리하면 본질이 드러납니다.
-
+<p>💡 <strong>파인만식 비유</strong>: Decomposition은 <strong>카레의 재료 분리</strong>와 같습니다. 완성된 카레만 보면 복잡하지만, 양파·당근·고기·향신료로 분리하면 각 재료의 역할이 보입니다. Matrix도 마찬가지입니다 — 복잡해 보이는 Matrix를 단순한 Matrix의 곱으로 분리하면 본질이 드러납니다.</p>
 </div>
-
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -1285,11 +1283,8 @@ $<span class="arithmatex">\(f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0)
 </tbody>
 </table></div>
 <div class="analogy">
-
-💡 **파인만식 비유**: ① 재료 이름 익히기 → ② 재료의 성질 알기 → ③ 요리(분해) 기법 배우기 → ④ 실제 식당 메뉴 만들기. **이름을 모르면 요리를 못 합니다.**
-
+<p>💡 <strong>파인만식 비유</strong>: ① 재료 이름 익히기 → ② 재료의 성질 알기 → ③ 요리(분해) 기법 배우기 → ④ 실제 식당 메뉴 만들기. <strong>이름을 모르면 요리를 못 합니다.</strong></p>
 </div>
-
 <hr />
 <h2>C-2. 수학적 흐름의 5대 줄기</h2>
 <div class="table-wrap"><table>
@@ -1751,11 +1746,8 @@ $<span class="arithmatex">\(f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0)
 </tbody>
 </table></div>
 <div class="analogy">
-
-💡 **파인만식 비유**: 100명의 얼굴을 평균하면 한 사람 얼굴이 아니라 "**모든 사람의 공통점**"이 보입니다. 손글씨 7도 같습니다 — 한 사람의 7이 아니라 "7의 본질"이 평균에 나타납니다.
-
+<p>💡 <strong>파인만식 비유</strong>: 100명의 얼굴을 평균하면 한 사람 얼굴이 아니라 "<strong>모든 사람의 공통점</strong>"이 보입니다. 손글씨 7도 같습니다 — 한 사람의 7이 아니라 "7의 본질"이 평균에 나타납니다.</p>
 </div>
-
 <p>→ 이 단순한 질문의 답이 <strong>PCA·Embedding·표현 학습</strong>의 출발점입니다.</p>
 <hr />
 <h2>G-2. 한 줄의 수학</h2>
