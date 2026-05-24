@@ -7,6 +7,8 @@
     --p1-soft: #D1FAE5;
     --p2-accent: #F59E0B;     /* Phase 2 앰버 */
     --p2-soft: #FEF3C7;
+    --p3-accent: #6366F1;     /* Phase 3 인디고 */
+    --p3-soft: #E0E7FF;
 
     --bg: #F5F5F7;            /* Apple off-white */
     --surface: #FFFFFF;       /* 카드 */
@@ -66,6 +68,7 @@ body { font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSy
 
 .nav-tag-p1 { color: var(--p1-accent); font-size: 0.7em; margin-right: 6px; }
 .nav-tag-p2 { color: var(--p2-accent); font-size: 0.7em; margin-right: 6px; }
+.nav-tag-p3 { color: var(--p3-accent); font-size: 0.7em; margin-right: 6px; }
 
 /* 본문 */
 .main { flex: 1; padding: 48px 64px; max-width: 1400px; min-width: 0; }
@@ -86,6 +89,7 @@ body { font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSy
                   padding: 4px 12px; background: var(--p1-soft);
                   color: #047857; border-radius: 10px; font-weight: 500; }
 .hero-meta-item.p2 { background: var(--p2-soft); color: #B45309; }
+.hero-meta-item.p3 { background: var(--p3-soft); color: #3730A3; }
 .hero-meta-item .dot { width: 6px; height: 6px; border-radius: 50%;
                        background: currentColor; }
 
@@ -102,6 +106,7 @@ body { font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSy
            margin-right: 8px; }
 .doc-tag.p1 { background: var(--p1-soft); color: #047857; }
 .doc-tag.p2 { background: var(--p2-soft); color: #B45309; }
+.doc-tag.p3 { background: var(--p3-soft); color: #3730A3; }
 .doc-tag-sub { background: #F3F4F6; color: var(--text-mut); }
 .doc-title { font-size: 1.5em; font-weight: 700; letter-spacing: -0.02em;
              color: var(--text); margin: 10px 0 4px 0; }
@@ -212,7 +217,7 @@ body { font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSy
 .doc-content { min-width: 0; }
 .table-wrap { min-width: 0; }
 .doc-content p, .doc-content li { word-break: keep-all; overflow-wrap: anywhere; }
-</style></head><body><div class="layout"><nav class="sidebar"><div class="brand"><span class="brand-dot"></span><span class="brand-title">검토 · DEV</span></div><div class="brand-sub">선형대수학 Phase 1·2</div><div class="nav-section"><div class="nav-label">Phase 1 · 골격</div><ul class="nav-list"><li class="nav-item"><a href="#p1-curriculum" class="nav-link"><span class="nav-tag-p1">●</span>01 커리큘럼 총괄표<div class="nav-meta">30회차 골격</div></a></li><li class="nav-item"><a href="#p1-part1" class="nav-link"><span class="nav-tag-p1">●</span>02 Part 1 회차표<div class="nav-meta">12회차 Strang</div></a></li><li class="nav-item"><a href="#p1-part2" class="nav-link"><span class="nav-tag-p1">●</span>03 Part 2 회차표<div class="nav-meta">18회차 Strang+MML</div></a></li></ul></div><div class="nav-section"><div class="nav-label">Phase 2 · 메타·도입</div><ul class="nav-list"><li class="nav-item"><a href="#p2-prompt" class="nav-link"><span class="nav-tag-p2">●</span>00 프롬프트<div class="nav-meta">수업 설계</div></a></li><li class="nav-item"><a href="#p2-intro" class="nav-link"><span class="nav-tag-p2">●</span>00회차 Introduction<div class="nav-meta">강의 첫 슬라이드</div></a></li><li class="nav-item"><a href="#p2-repo-readme" class="nav-link"><span class="nav-tag-p2">●</span>_repo README<div class="nav-meta">GitHub 사본</div></a></li><li class="nav-item"><a href="#p2-web-index" class="nav-link"><span class="nav-tag-p2">●</span>08 웹페이지 index<div class="nav-meta">메인 본문</div></a></li><li class="nav-item"><a href="#p2-web-faq" class="nav-link"><span class="nav-tag-p2">●</span>08 웹페이지 FAQ<div class="nav-meta">자주 묻는 질문</div></a></li><li class="nav-item"><a href="#p2-web-readme" class="nav-link"><span class="nav-tag-p2">●</span>08 웹페이지 README<div class="nav-meta">README</div></a></li></ul></div><div class="nav-section"><div class="nav-label">외부 링크</div><ul class="nav-list"><li class="nav-item"><a href="../index.html" class="nav-link">↩ 메인 페이지</a></li><li class="nav-item"><a href="../curriculum.html" class="nav-link">curriculum.html</a></li></ul></div></nav><main class="main"><div class="hero"><span class="hero-tag">DEV · 본인 검토용 · 외부 비공개</span><h1 class="hero-title">선형대수학 강의 자료 검토</h1><p class="hero-desc">Phase 1·2 결과 9 파일을 한 페이지에 통합했습니다. 좌측 navigation에서 파일을 선택해 검토하세요. 수식은 KaTeX로 자동 렌더링됩니다.</p><div class="hero-meta"><div class="hero-meta-item"><span class="dot"></span>Phase 1 · 골격 재설계 3 파일</div><div class="hero-meta-item p2"><span class="dot"></span>Phase 2 · 메타·도입 6 파일</div></div></div><section class="doc" id="p1-curriculum"><div class="doc-header"><span class="doc-tag p1">Phase 1</span><span class="doc-tag doc-tag-sub">30회차 골격</span><h2 class="doc-title">01 커리큘럼 총괄표</h2><div class="doc-meta"><code>01_커리큘럼_총괄표.md</code><span>7.1 KB</span></div></div><div class="doc-content"><h1>인공지능 전공자를 위한 선형대수학 — Part 시리즈 총괄</h1>
+</style></head><body><div class="layout"><nav class="sidebar"><div class="brand"><span class="brand-dot"></span><span class="brand-title">검토 · DEV</span></div><div class="brand-sub">선형대수학 Phase 1·2</div><div class="nav-section"><div class="nav-label">Phase 1 · 골격</div><ul class="nav-list"><li class="nav-item"><a href="#p1-curriculum" class="nav-link"><span class="nav-tag-p1">●</span>01 커리큘럼 총괄표<div class="nav-meta">30회차 골격</div></a></li><li class="nav-item"><a href="#p1-part1" class="nav-link"><span class="nav-tag-p1">●</span>02 Part 1 회차표<div class="nav-meta">12회차 Strang</div></a></li><li class="nav-item"><a href="#p1-part2" class="nav-link"><span class="nav-tag-p1">●</span>03 Part 2 회차표<div class="nav-meta">18회차 Strang+MML</div></a></li></ul></div><div class="nav-section"><div class="nav-label">Phase 2 · 메타·도입</div><ul class="nav-list"><li class="nav-item"><a href="#p2-prompt" class="nav-link"><span class="nav-tag-p2">●</span>00 프롬프트<div class="nav-meta">수업 설계</div></a></li><li class="nav-item"><a href="#p2-intro" class="nav-link"><span class="nav-tag-p2">●</span>00회차 Introduction<div class="nav-meta">강의 첫 슬라이드</div></a></li><li class="nav-item"><a href="#p2-repo-readme" class="nav-link"><span class="nav-tag-p2">●</span>_repo README<div class="nav-meta">GitHub 사본</div></a></li><li class="nav-item"><a href="#p2-web-index" class="nav-link"><span class="nav-tag-p2">●</span>08 웹페이지 index<div class="nav-meta">메인 본문</div></a></li><li class="nav-item"><a href="#p2-web-faq" class="nav-link"><span class="nav-tag-p2">●</span>08 웹페이지 FAQ<div class="nav-meta">자주 묻는 질문</div></a></li><li class="nav-item"><a href="#p2-web-readme" class="nav-link"><span class="nav-tag-p2">●</span>08 웹페이지 README<div class="nav-meta">README</div></a></li></ul></div><div class="nav-section"><div class="nav-label">Phase 3 · 강의교안</div><ul class="nav-list"><li class="nav-item"><a href="#p3-1회차" class="nav-link"><span class="nav-tag-p3">●</span>1회차 Vector·Linear combination<div class="nav-meta">Strang §1.1 신규</div></a></li><li class="nav-item"><a href="#p3-2회차" class="nav-link"><span class="nav-tag-p3">●</span>2회차 Norm·Dot·Cosine<div class="nav-meta">Strang §1.2 신규</div></a></li><li class="nav-item"><a href="#p3-3회차" class="nav-link"><span class="nav-tag-p3">●</span>3회차 Matrix·Matrix·Vector 곱<div class="nav-meta">Strang §1.3 회차번호 조정</div></a></li><li class="nav-item"><a href="#p3-4회차" class="nav-link"><span class="nav-tag-p3">●</span>4회차 Gauss·RREF<div class="nav-meta">Strang §2.1-2.3 회차번호 조정</div></a></li></ul></div><div class="nav-section"><div class="nav-label">외부 링크</div><ul class="nav-list"><li class="nav-item"><a href="../index.html" class="nav-link">↩ 메인 페이지</a></li><li class="nav-item"><a href="../curriculum.html" class="nav-link">curriculum.html</a></li></ul></div></nav><main class="main"><div class="hero"><span class="hero-tag">DEV · 본인 검토용 · 외부 비공개</span><h1 class="hero-title">선형대수학 강의 자료 검토</h1><p class="hero-desc">Phase 1·2·3 결과 13 파일을 한 페이지에 통합했습니다. 좌측 navigation에서 파일을 선택해 검토하세요. 수식은 KaTeX로 자동 렌더링됩니다.</p><div class="hero-meta"><div class="hero-meta-item"><span class="dot"></span>Phase 1 · 골격 재설계 3 파일</div><div class="hero-meta-item p2"><span class="dot"></span>Phase 2 · 메타·도입 6 파일</div><div class="hero-meta-item p3"><span class="dot"></span>Phase 3 · 강의교안 4 파일</div></div></div><section class="doc" id="p1-curriculum"><div class="doc-header"><span class="doc-tag p1">Phase 1</span><span class="doc-tag doc-tag-sub">30회차 골격</span><h2 class="doc-title">01 커리큘럼 총괄표</h2><div class="doc-meta"><code>01_커리큘럼_총괄표.md</code><span>7.1 KB</span></div></div><div class="doc-content"><h1>인공지능 전공자를 위한 선형대수학 — Part 시리즈 총괄</h1>
 <blockquote>
 <p><strong>Linear Algebra Part 1</strong> (Part 1, 12회차) — <a href="02_Part1_회차표.md">02_Part1_회차표.md</a>
 <strong>Linear Algebra Part 2</strong> (Part 2, 18회차) — <a href="03_Part2_회차표.md">03_Part2_회차표.md</a></p>
@@ -2083,4 +2088,2864 @@ plt.imshow(mean_seven, cmap='gray')
 <h2>강사</h2>
 <p>최경찬 / SW AI 융합정보대학원 61기</p>
 <h2>라이선스</h2>
-<p>본 저장소의 페이지·문서·이미지 자료는 MIT License 하에 공개한다. 외부 인용 자료(MML, Strang, EoLA 등)는 각 원저작자의 라이선스를 따른다.</p></div></section></main></div><a href="#" class="top-link" title="맨 위로">↑</a></body></html>
+<p>본 저장소의 페이지·문서·이미지 자료는 MIT License 하에 공개한다. 외부 인용 자료(MML, Strang, EoLA 등)는 각 원저작자의 라이선스를 따른다.</p></div></section><section class="doc" id="p3-1회차"><div class="doc-header"><span class="doc-tag p3">Phase 3</span><span class="doc-tag doc-tag-sub">Strang §1.1 신규</span><h2 class="doc-title">1회차 Vector·Linear combination</h2><div class="doc-meta"><code>07_강의교안/Part1/01회차_벡터_선형결합.md</code><span>35.0 KB</span></div></div><div class="doc-content"><hr />
+<p>marp: true
+theme: default
+paginate: true
+header: '인공지능 전공자를 위한 선형대수학'
+footer: '1회차 — Vector·Linear combination·R^n'
+math: mathjax
+size: 16:9
+style: |
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css');
+  section { font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            font-size: 22px; padding: 50px 60px 70px 60px; color: #111827; letter-spacing: -0.011em; }
+  section.lead { padding: 100px 60px; }
+  h1 { color: #1E40AF; margin-top: 0; font-weight: 700; letter-spacing: -0.02em; }
+  h2 { color: #111827; border-bottom: 2px solid #E5E7EB; padding-bottom: 4px; margin-top: 0; font-weight: 700; }
+  table { font-size: 17px; border-collapse: collapse; }
+  th { background: #F9FAFB; border: 1px solid #E5E7EB; }
+  td { border: 1px solid #E5E7EB; }
+  code { font-size: 17px; background: #F3F4F6; color: #BE185D; padding: 2px 6px; border-radius: 6px;
+         font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace; }
+  blockquote { font-size: 19px; border-left: 4px solid #3B82F6; color: #1E40AF;
+               background: #DBEAFE; padding: 8px 14px; border-radius: 0 8px 8px 0; }
+  section.exercise { background: #FFFBEB; }
+  section.exercise h1 { color: #B45309; }
+  section.exercise h2 { color: #92400E; border-bottom-color: #FDE68A; }
+  .analogy { background: #D1FAE5; border-left: 4px solid #10B981; padding: 10px 16px; margin: 12px 0;
+             font-size: 19px; color: #065F46; border-radius: 0 8px 8px 0; }
+  .analogy strong { color: #047857; }</p>
+<hr />
+<!-- _class: lead -->
+<!-- _paginate: false -->
+
+<h1>1회차</h1>
+<h2>Vector(벡터)·R^n·Linear combination(선형결합)</h2>
+<p>Strang §1.1 · EoLA Ch.1 · (MML 참조 X)
+<strong>Part 1 첫 회차</strong> — R^n 위에서 가장 단순한 두 연산(덧셈·Scalar곱)부터 시작합니다.</p>
+<hr />
+<!-- _class: exercise -->
+
+<h1>🔁 Review — 0회차 마무리 문제</h1>
+<p>지난 회차 마지막에 가져갔던 문제:</p>
+<blockquote>
+<p>MNIST에서 숫자 "7"인 이미지 1,000장의 평균 Vector(벡터)를 <span class="arithmatex">\(\mathbf{m}\)</span>이라 합니다.
+<strong>(a)</strong> 새 이미지 <span class="arithmatex">\(\mathbf{x}\)</span>가 7과 얼마나 가까운가를 <strong>거리로</strong> 어떻게 잴 수 있는지 두 가지 방법.
+<strong>(b)</strong> 두 방법은 어떤 면에서 다른가?</p>
+</blockquote>
+<h3>답의 윤곽 (예고만)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>방법</th>
+<th>식</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(i) <strong>Norm(노름) 기반</strong></td>
+<td><span class="arithmatex">\(\|\mathbf{x} - \mathbf{m}\|_2\)</span></td>
+<td>두 점 사이 <strong>직선 거리</strong> — 길이까지 봅니다</td>
+</tr>
+<tr>
+<td>(ii) <strong>Inner product(내적) 기반</strong></td>
+<td><span class="arithmatex">\(\dfrac{\mathbf{x}^\top \mathbf{m}}{\|\mathbf{x}\|\|\mathbf{m}\|}\)</span></td>
+<td>두 화살표의 <strong>방향 일치도</strong> — 길이는 무시합니다</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>(b) 차이</strong>: (i)은 크기 차이도 거리로 잡고, (ii)는 방향만 봅니다.</p>
+<p>→ <strong>이 두 도구(Norm·Inner product)는 다음 2회차의 본 주제</strong>입니다. 오늘은 그 두 도구의 토대인 <strong>Vector·R^n·Linear combination</strong>을 먼저 단단히 만듭니다. 평균 Vector <span class="arithmatex">\(\mathbf{m}\)</span>의 정의에 이미 오늘 배울 모든 것이 들어 있습니다.</p>
+<hr />
+<h2>오늘의 핵심 질문</h2>
+<blockquote>
+<h3>"수의 묶음"을 한 객체로 본다는 것은 무엇이고, 그 객체로 무엇을 할 수 있습니까?</h3>
+</blockquote>
+<p>이 한 질문에 답하려면 세 단계가 필요합니다.</p>
+<ol>
+<li><strong>Vector</strong>가 무엇이고 어떤 공간 <span class="arithmatex">\(\mathbb{R}^n\)</span>에 살고 있는지</li>
+<li><strong>두 연산</strong> — 덧셈·Scalar(스칼라)곱 — 이 자연스럽다는 사실</li>
+<li><strong>Linear combination(선형결합) · Span(생성공간)</strong> — 두 연산이 만들어내는 모든 결과의 집합</li>
+</ol>
+<p>오늘 회차의 모든 것이 이 사슬 위에 있습니다. 강의 중간에 길을 잃으면 이 질문으로 돌아옵니다.</p>
+<hr />
+<h2>학습 목표</h2>
+<p>이번 회차가 끝나면 학생은 다음을 답할 수 있어야 합니다.</p>
+<ol>
+<li><strong>Vector</strong>의 수학적 정의 + "왜 그렇게 생겼는지"를 물리·대수·데이터 세 관점에서 설명할 수 있습니다.</li>
+<li><span class="arithmatex">\(\mathbb{R}^n\)</span>에서의 <strong>덧셈·Scalar곱</strong> 두 연산을 손계산으로 자유롭게 수행할 수 있습니다.</li>
+<li><strong>Linear combination(선형결합)</strong>의 정의 + "왜 '선형(linear)'이라 부르는가"를 설명할 수 있습니다.</li>
+<li><strong>Span(생성공간)의 직관</strong> — 주어진 Vector들로 만들 수 있는 모든 결과의 집합 — 을 설명할 수 있습니다.</li>
+<li><strong>MNIST 이미지를 <span class="arithmatex">\(\mathbb{R}^{784}\)</span> Vector로</strong> 보는 환원·평균 이미지 계산을 NumPy로 수행할 수 있습니다.</li>
+</ol>
+<hr />
+<h2>오늘의 논리 사슬</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>질문</th>
+<th>답 (이 강의의 답)</th>
+<th>도구</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"수의 묶음"을 한 객체로?</td>
+<td><strong>Vector</strong>의 정의</td>
+<td><span class="arithmatex">\(\mathbf{x} \in \mathbb{R}^n\)</span></td>
+</tr>
+<tr>
+<td>그 객체에 가능한 두 연산?</td>
+<td><strong>덧셈·Scalar곱</strong></td>
+<td><span class="arithmatex">\(\mathbf{x}+\mathbf{y}\)</span>, <span class="arithmatex">\(\alpha\mathbf{x}\)</span></td>
+</tr>
+<tr>
+<td>두 연산을 섞으면?</td>
+<td><strong>Linear combination</strong></td>
+<td><span class="arithmatex">\(\alpha_1\mathbf{v}_1 + \cdots + \alpha_k\mathbf{v}_k\)</span></td>
+</tr>
+<tr>
+<td>모든 결과의 집합?</td>
+<td><strong>Span</strong> (직관)</td>
+<td><span class="arithmatex">\(\mathrm{span}(\cdots)\)</span></td>
+</tr>
+<tr>
+<td>가장 친숙한 예?</td>
+<td><strong>MNIST 이미지</strong> <span class="arithmatex">\(\in \mathbb{R}^{784}\)</span></td>
+<td>평균 이미지</td>
+</tr>
+<tr>
+<td>다음 회차로?</td>
+<td><strong>길이·각도</strong></td>
+<td>Norm · Inner product (2회차)</td>
+</tr>
+</tbody>
+</table></div>
+<p>이 사슬을 한 회차에 완주합니다. <strong>추상 정의(Vector space 8 axioms · Subspace 정식 정의 · 일차독립)는 의도적으로 미룹니다</strong> — 7~9회차에서 정식 도입합니다.</p>
+<hr />
+<h2>수업 흐름 (120분)</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>시간</th>
+<th>블록</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0~15</td>
+<td>A</td>
+<td><strong>오프닝</strong> — 핵심 질문 + 0회차 Review + 오늘의 사슬</td>
+</tr>
+<tr>
+<td>15~45</td>
+<td><strong>B</strong></td>
+<td><strong>Vector</strong> — 동기 3가지 + <span class="arithmatex">\(\mathbb{R}^n\)</span> 정의 + 두 연산 + 직관 예제</td>
+</tr>
+<tr>
+<td>45~75</td>
+<td><strong>C</strong></td>
+<td><strong>Linear combination · Span(직관)</strong> + 3회차 미리보기</td>
+</tr>
+<tr>
+<td>75~105</td>
+<td><strong>D</strong></td>
+<td><strong>CS·AI 적용</strong> — MNIST·텍스트·임베딩</td>
+</tr>
+<tr>
+<td>105~120</td>
+<td>E</td>
+<td><strong>코딩 실습 + 클로징</strong> — NumPy · MNIST 1장 · 마무리 문제</td>
+</tr>
+</tbody>
+</table></div>
+<p>표준 사이클: <strong>핵심 질문 → Review → 본 강의 → 마무리 문제 → 숙제(=다음 회차 Review)</strong></p>
+<blockquote>
+<p><strong>B와 C가 오늘의 심장입니다.</strong> 30분 + 30분 = 60분으로 집중 배분합니다.</p>
+</blockquote>
+<hr />
+<h1>B. Vector — 동기와 정의</h1>
+<blockquote>
+<p>"왜 Vector가 필요한가?" 세 가지 동기로 시작합니다.</p>
+</blockquote>
+<hr />
+<h2>B-1. Vector가 왜 생겼는가 — 세 가지 동기</h2>
+<p><strong>(i) 물리적 동기</strong>: 크기 + 방향이 필요한 양 (변위·속도·힘)
+- "북쪽 3 m"와 "동쪽 3 m"는 다릅니다 — 같은 크기지만 방향이 다르면 다른 양.
+- 두 변위의 합 = <strong>평행사변형 법칙</strong>.</p>
+<p><strong>(ii) 대수적 동기</strong>: 동시에 여러 양을 다루기
+- <span class="arithmatex">\(\begin{cases} 2x + 3y = 5 \\ x - y = 1 \end{cases}\)</span> — <span class="arithmatex">\((x, y)\)</span>를 한 묶음으로 봅니다.
+- 미지수가 100개라면 묶음 없이는 식조차 쓸 수 없습니다.</p>
+<p><strong>(iii) 데이터적 동기 (AI)</strong>: 측정값의 묶음
+- 이미지 한 장 = 픽셀 784개의 묶음
+- 문서 한 개 = Embedding 좌표 768개의 묶음
+- 사용자 한 명 = 영화 평점 100개의 묶음</p>
+<p>세 동기 모두 <strong>덧셈 + Scalar곱</strong>이 자연스러운 두 연산입니다.</p>
+<hr />
+<h2>B-2. <span class="arithmatex">\(\mathbb{R}^n\)</span>의 Vector — 형식적 정의</h2>
+<h3>정의 1.1 (<span class="arithmatex">\(\mathbb{R}^n\)</span>의 Vector)</h3>
+<p><span class="arithmatex">\(n\)</span>개 실수 순서쌍입니다 — 이 강의의 기본 표기는 <strong>Column vector(열벡터)</strong>입니다.</p>
+<div class="arithmatex">\[\mathbf{x} = \begin{pmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{pmatrix} \in \mathbb{R}^n, \qquad \mathbf{x}^\top = (x_1, x_2, \ldots, x_n)\]</div>
+<ul>
+<li><span class="arithmatex">\(x_i \in \mathbb{R}\)</span>를 <strong>성분(component)</strong> 또는 <strong>좌표(coordinate)</strong>라 부릅니다.</li>
+<li><span class="arithmatex">\(n\)</span>을 <strong>차원(dimension)</strong>이라 부릅니다 — <span class="arithmatex">\(\mathbb{R}^3\)</span>의 Vector는 좌표 3개를 가진 한 점.</li>
+<li>표기 관례: Vector는 <strong>굵게</strong>(<span class="arithmatex">\(\mathbf{x}\)</span>), Scalar는 보통체(<span class="arithmatex">\(\alpha, x_i\)</span>).</li>
+</ul>
+<h3>Row vector vs Column vector</h3>
+<ul>
+<li><span class="arithmatex">\(\mathbf{x}\)</span> = 세로 묶음 (Column), <span class="arithmatex">\(\mathbf{x}^\top\)</span> = 가로 묶음 (Row).</li>
+<li>LA의 표준은 Column. Matrix·Vector 곱 <span class="arithmatex">\(A\mathbf{x}\)</span>가 Column 기준으로 정의됩니다 (3회차).</li>
+</ul>
+<hr />
+<h2>B-3. 두 연산 — 덧셈 · Scalar곱</h2>
+<h3>정의 1.2 (덧셈)</h3>
+<p>같은 차원의 두 Vector의 합은 <strong>성분별 합</strong>입니다.
+$<span class="arithmatex">\(\mathbf{x} + \mathbf{y} = \begin{pmatrix} x_1 + y_1 \\ x_2 + y_2 \\ \vdots \\ x_n + y_n \end{pmatrix}\)</span>$</p>
+<p><strong>차원이 다르면 합이 정의되지 않습니다</strong> (<span class="arithmatex">\(\mathbb{R}^3\)</span> Vector + <span class="arithmatex">\(\mathbb{R}^4\)</span> Vector는 X).</p>
+<h3>정의 1.3 (Scalar곱)</h3>
+<p>실수 <span class="arithmatex">\(\alpha \in \mathbb{R}\)</span>와 Vector <span class="arithmatex">\(\mathbf{x} \in \mathbb{R}^n\)</span>의 곱은 <strong>성분별 Scalar 곱</strong>입니다.
+$<span class="arithmatex">\(\alpha\mathbf{x} = \begin{pmatrix} \alpha x_1 \\ \alpha x_2 \\ \vdots \\ \alpha x_n \end{pmatrix}\)</span>$</p>
+<ul>
+<li><span class="arithmatex">\(\alpha &gt; 0\)</span>: 같은 방향, 크기 <span class="arithmatex">\(\alpha\)</span>배</li>
+<li><span class="arithmatex">\(\alpha &lt; 0\)</span>: <strong>반대 방향</strong>, 크기 <span class="arithmatex">\(|\alpha|\)</span>배</li>
+<li><span class="arithmatex">\(\alpha = 0\)</span>: <strong>영Vector</strong> <span class="arithmatex">\(\mathbf{0} = (0, 0, \ldots, 0)^\top\)</span></li>
+</ul>
+<hr />
+<h2>B-4. 두 연산의 직관 — 그림으로</h2>
+<div class="analogy">
+<p>💡 <strong>파인만식 비유</strong>: Vector는 <strong>한 음식의 재료 묶음</strong>입니다. 햄버거 한 개를 (빵 2, 패티 1, 피클 5)로 적습니다 — 한 음식이 한 묶음 = 한 Vector. <strong>두 개를 만들면</strong> <span class="arithmatex">\(2 \cdot (2, 1, 5)^\top = (4, 2, 10)^\top\)</span> (Scalar곱). <strong>다른 메뉴(샌드위치)와 함께 주문하면</strong> 두 묶음의 합으로 총 재료 수가 나옵니다 (덧셈). 즉 한 음식 = 한 Vector, 음식 개수·합치기가 곧 두 연산입니다.</p>
+</div>
+<h3>그림 직관 (<span class="arithmatex">\(\mathbb{R}^2\)</span>)</h3>
+<ul>
+<li><span class="arithmatex">\(\mathbf{x} + \mathbf{y}\)</span>: <span class="arithmatex">\(\mathbf{x}\)</span>의 끝에서 <span class="arithmatex">\(\mathbf{y}\)</span>를 이어 붙이기 = <strong>평행사변형 법칙</strong></li>
+<li><span class="arithmatex">\(\alpha\mathbf{x}\)</span> (<span class="arithmatex">\(\alpha &gt; 1\)</span>): <span class="arithmatex">\(\mathbf{x}\)</span>를 같은 방향으로 <strong>늘리기</strong></li>
+<li><span class="arithmatex">\(-\mathbf{x}\)</span>: <span class="arithmatex">\(\mathbf{x}\)</span>를 <strong>뒤집기</strong> (반대 방향)</li>
+<li><span class="arithmatex">\(\mathbf{0}\)</span>: <strong>원점</strong> (모든 성분 0)</li>
+</ul>
+<h3>예제</h3>
+<p><span class="arithmatex">\(\mathbf{u} = (1, 2)^\top\)</span>, <span class="arithmatex">\(\mathbf{v} = (3, 1)^\top\)</span>일 때
+<span class="arithmatex">\(\mathbf{u} + \mathbf{v} = (4, 3)^\top\)</span>, <span class="arithmatex">\(2\mathbf{u} = (2, 4)^\top\)</span>, <span class="arithmatex">\(\mathbf{u} - \mathbf{v} = (-2, 1)^\top\)</span></p>
+<hr />
+<h2>B-5. 두 연산이 잘 동작합니다 — 7회차에서 정식화</h2>
+<p><span class="arithmatex">\(\mathbb{R}^n\)</span>에서 덧셈·Scalar곱이 가진 자연스러운 성질들:</p>
+<ul>
+<li><span class="arithmatex">\(\mathbf{u} + \mathbf{v} = \mathbf{v} + \mathbf{u}\)</span> (교환법칙)</li>
+<li><span class="arithmatex">\((\mathbf{u} + \mathbf{v}) + \mathbf{w} = \mathbf{u} + (\mathbf{v} + \mathbf{w})\)</span> (결합법칙)</li>
+<li><span class="arithmatex">\(\mathbf{u} + \mathbf{0} = \mathbf{u}\)</span> (영원소)</li>
+<li><span class="arithmatex">\(\mathbf{u} + (-\mathbf{u}) = \mathbf{0}\)</span> (역원)</li>
+<li><span class="arithmatex">\(\alpha(\beta\mathbf{u}) = (\alpha\beta)\mathbf{u}\)</span></li>
+<li><span class="arithmatex">\(\alpha(\mathbf{u} + \mathbf{v}) = \alpha\mathbf{u} + \alpha\mathbf{v}\)</span> 등 분배법칙</li>
+</ul>
+<p>이 성질들을 한 데 묶어 <strong>Vector space의 8 axioms(공리)</strong>이라 부릅니다. <strong>정식 정의는 7회차에서 도입</strong>합니다 — 그때까지는 <span class="arithmatex">\(\mathbb{R}^n\)</span>이 위 성질을 모두 만족한다는 사실만 받아들입니다.</p>
+<blockquote>
+<p><strong>왜 미루는가?</strong> 1~5회차는 <span class="arithmatex">\(\mathbb{R}^n\)</span>이라는 <strong>친숙한 공간</strong>에서 충분히 손계산·시각화를 한 뒤, 7회차에서 "이 모든 성질을 가진 객체를 일반적으로 Vector space라 부르자"는 추상화로 자연스럽게 넘어가는 것이 학부 미이수자에게 가장 큰 부담이 적습니다.</p>
+</blockquote>
+<hr />
+<h2>B-6. 영Vector와 표준 단위Vector</h2>
+<h3>영Vector</h3>
+<p>$<span class="arithmatex">\(\mathbf{0} = (0, 0, \ldots, 0)^\top \in \mathbb{R}^n\)</span>$
+모든 Vector <span class="arithmatex">\(\mathbf{x}\)</span>에 대해 <span class="arithmatex">\(\mathbf{x} + \mathbf{0} = \mathbf{x}\)</span>, <span class="arithmatex">\(0 \cdot \mathbf{x} = \mathbf{0}\)</span>. <strong>원점에 해당</strong>합니다.</p>
+<h3>표준 단위Vector (Standard basis vector)</h3>
+<p><span class="arithmatex">\(\mathbb{R}^n\)</span>에서 <span class="arithmatex">\(i\)</span>번째 성분만 1이고 나머지는 0인 Vector:
+$<span class="arithmatex">\(\mathbf{e}_1 = \begin{pmatrix} 1 \\ 0 \\ \vdots \\ 0 \end{pmatrix},\;\mathbf{e}_2 = \begin{pmatrix} 0 \\ 1 \\ \vdots \\ 0 \end{pmatrix},\;\ldots,\;\mathbf{e}_n = \begin{pmatrix} 0 \\ 0 \\ \vdots \\ 1 \end{pmatrix}\)</span>$</p>
+<p><strong>관찰</strong>: 임의의 <span class="arithmatex">\(\mathbf{x} = (x_1, \ldots, x_n)^\top\)</span>를
+$<span class="arithmatex">\(\mathbf{x} = x_1\mathbf{e}_1 + x_2\mathbf{e}_2 + \cdots + x_n\mathbf{e}_n\)</span>$
+으로 쓸 수 있습니다 — <strong>모든 Vector가 <span class="arithmatex">\(\mathbf{e}_1, \ldots, \mathbf{e}_n\)</span>의 Linear combination</strong>입니다. C 섹션의 핵심 출발점.</p>
+<hr />
+<!-- _class: exercise -->
+
+<h1>🖍 잠깐 풀어보기 — Vector·두 연산</h1>
+<p>옆 사람과 5분 토의 후 답을 종이에 적어보세요.</p>
+<h3>문제 1 (계산)</h3>
+<p><span class="arithmatex">\(\mathbf{u} = (1, -2, 3)^\top\)</span>, <span class="arithmatex">\(\mathbf{v} = (2, 0, -1)^\top\)</span>일 때 다음을 계산하세요.
+- (a) <span class="arithmatex">\(\mathbf{u} + \mathbf{v}\)</span>
+- (b) <span class="arithmatex">\(2\mathbf{u} - 3\mathbf{v}\)</span>
+- (c) <span class="arithmatex">\(\mathbf{u}\)</span>와 같은 방향이지만 크기가 절반인 Vector</p>
+<h3>문제 2 (개념)</h3>
+<p><span class="arithmatex">\(\mathbb{R}^3\)</span>에서 <span class="arithmatex">\(\mathbf{x} = 2\mathbf{e}_1 - 3\mathbf{e}_2 + 5\mathbf{e}_3\)</span>를 성분 표기 <span class="arithmatex">\((x_1, x_2, x_3)^\top\)</span>로 적으세요.</p>
+<blockquote>
+<p><strong>힌트</strong>: <span class="arithmatex">\(\mathbf{e}_i\)</span>는 <span class="arithmatex">\(i\)</span>번째 성분만 1인 Vector. 각 항이 어느 성분에 기여하는지만 보면 됩니다.</p>
+</blockquote>
+<hr />
+<!-- _class: exercise -->
+
+<h2>잠깐 풀어보기 — 답</h2>
+<h3>문제 1</h3>
+<ul>
+<li>(a) <span class="arithmatex">\(\mathbf{u} + \mathbf{v} = (1+2,\,-2+0,\,3+(-1))^\top = (3, -2, 2)^\top\)</span></li>
+<li>(b) <span class="arithmatex">\(2\mathbf{u} = (2, -4, 6)^\top\)</span>, <span class="arithmatex">\(3\mathbf{v} = (6, 0, -3)^\top\)</span>. <span class="arithmatex">\(2\mathbf{u} - 3\mathbf{v} = (-4, -4, 9)^\top\)</span></li>
+<li>(c) <span class="arithmatex">\(\frac{1}{2}\mathbf{u} = (0.5, -1, 1.5)^\top\)</span> — Scalar <span class="arithmatex">\(\alpha = 1/2\)</span>로 곱하면 됩니다.</li>
+</ul>
+<h3>문제 2</h3>
+<p><span class="arithmatex">\(\mathbf{x} = 2\mathbf{e}_1 - 3\mathbf{e}_2 + 5\mathbf{e}_3 = (2, -3, 5)^\top\)</span></p>
+<blockquote>
+<p><strong>메시지</strong>: 표준 단위Vector를 사용한 표현이 곧 <strong>성분 표기</strong>입니다. 거꾸로 모든 성분 표기는 <span class="arithmatex">\(\mathbf{e}_i\)</span>의 Linear combination으로 풀어쓸 수 있습니다 — C 섹션에서 본격 사용합니다.</p>
+</blockquote>
+<hr />
+<h1>C. Linear combination · Span (직관)</h1>
+<blockquote>
+<p>오늘 회차의 두 번째 심장. 두 연산을 <strong>섞어 쓰면</strong> 무엇이 만들어지는가.</p>
+</blockquote>
+<hr />
+<h2>C-1. Linear combination — 정의</h2>
+<h3>정의 1.4 (Linear combination)</h3>
+<p>Vector <span class="arithmatex">\(\mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_k \in \mathbb{R}^n\)</span>, Scalar <span class="arithmatex">\(\alpha_1, \alpha_2, \ldots, \alpha_k \in \mathbb{R}\)</span>에 대해
+$<span class="arithmatex">\(\alpha_1 \mathbf{v}_1 + \alpha_2 \mathbf{v}_2 + \cdots + \alpha_k \mathbf{v}_k \;\in\; \mathbb{R}^n\)</span>$
+를 <strong>Linear combination(선형결합)</strong>이라 부릅니다. <span class="arithmatex">\(\alpha_i\)</span>를 <strong>계수(coefficient)</strong>라 합니다.</p>
+<h3>예제</h3>
+<ul>
+<li><span class="arithmatex">\(\mathbf{v}_1 = (1, 0)^\top\)</span>, <span class="arithmatex">\(\mathbf{v}_2 = (0, 1)^\top\)</span>이면</li>
+<li><span class="arithmatex">\(3\mathbf{v}_1 + 2\mathbf{v}_2 = (3, 2)^\top\)</span></li>
+<li><span class="arithmatex">\(-1\mathbf{v}_1 + 5\mathbf{v}_2 = (-1, 5)^\top\)</span></li>
+<li>계수 <span class="arithmatex">\((\alpha_1, \alpha_2)\)</span>를 바꿀 때마다 다른 Vector가 나옵니다.</li>
+</ul>
+<div class="analogy">
+<p>💡 <strong>파인만식 비유</strong>: Linear combination은 <strong>여러 메뉴를 비율로 섞어 한 도시락 만들기</strong>입니다. 햄버거(<span class="arithmatex">\(\mathbf{v}_1\)</span>) 비중 <span class="arithmatex">\(\alpha_1 = 2\)</span>, 샌드위치(<span class="arithmatex">\(\mathbf{v}_2\)</span>) 비중 <span class="arithmatex">\(\alpha_2 = 1\)</span>, 샐러드(<span class="arithmatex">\(\mathbf{v}_3\)</span>) 비중 <span class="arithmatex">\(\alpha_3 = 0.5\)</span>로 한 도시락이 나옵니다. <strong>비율(계수)만 바꾸면 다른 도시락이 됩니다.</strong></p>
+</div>
+<hr />
+<h2>C-2. "선형(linear)"이 무엇입니까</h2>
+<p>"Linear"는 <strong>덧셈과 Scalar곱이라는 두 연산만 사용</strong>한다는 뜻입니다.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>허용 (linear)</th>
+<th>금지 (비선형)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\alpha\mathbf{v} + \beta\mathbf{w}\)</span></td>
+<td><span class="arithmatex">\(v_1 \cdot w_1\)</span> (성분끼리 곱)</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(-\mathbf{v}\)</span></td>
+<td><span class="arithmatex">\(v_1^2\)</span> (성분 제곱)</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\mathbf{v} + \mathbf{w} + \mathbf{u}\)</span></td>
+<td><span class="arithmatex">\(\exp(v_1)\)</span>, <span class="arithmatex">\(\sin(v_1)\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\frac{1}{3}(\mathbf{v}_1 + \mathbf{v}_2 + \mathbf{v}_3)\)</span> (평균)</td>
+<td><span class="arithmatex">\(\|\mathbf{v}\|^2 \mathbf{w}\)</span> (Norm 사용)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>왜 이렇게 제한합니까?</strong> 두 연산만 쓰면 <strong>수학적 분석이 가능</strong>합니다. 비선형이 들어가면 대수 구조가 깨져 일반 이론이 어렵습니다. 그래서 LA는 "Linear"라는 한 단어에 모든 것이 응축됩니다.</p>
+<blockquote>
+<p><strong>AI 모델의 비선형성은?</strong> 신경망의 <strong>활성화 함수</strong>(ReLU·sigmoid 등)가 비선형 부분을 담당합니다. 가중치 곱·합은 linear, 활성화는 비선형, <strong>두 부분이 분리</strong>되어 있어 각각을 따로 분석할 수 있습니다 (5·11회차).</p>
+</blockquote>
+<hr />
+<h2>C-3. Span (직관) — 만들 수 있는 모든 Vector의 집합</h2>
+<h3>정의 1.5 (Span, 직관적 정의)</h3>
+<p>Vector <span class="arithmatex">\(\mathbf{v}_1, \ldots, \mathbf{v}_k \in \mathbb{R}^n\)</span>이 주어졌을 때, 가능한 <strong>모든</strong> 계수 <span class="arithmatex">\(\alpha_1, \ldots, \alpha_k\)</span>에 대한 Linear combination의 집합:</p>
+<div class="arithmatex">\[\mathrm{span}(\mathbf{v}_1, \ldots, \mathbf{v}_k) = \left\{ \alpha_1\mathbf{v}_1 + \cdots + \alpha_k\mathbf{v}_k \;:\; \alpha_i \in \mathbb{R} \right\}\]</div>
+<p>이를 <strong><span class="arithmatex">\(\mathbf{v}_1, \ldots, \mathbf{v}_k\)</span>의 Span(생성공간)</strong>이라 부릅니다, "주어진 Vector로 <strong>만들 수 있는 모든 결과</strong>의 묶음".</p>
+<div class="analogy">
+<p>💡 <strong>파인만식 비유</strong>: Span은 <strong>주어진 메뉴로 만들 수 있는 모든 도시락 묶음의 집합</strong>입니다. 햄버거·샌드위치·샐러드 세 메뉴가 있으면 그 세 메뉴의 비율을 바꾸며 무한히 많은 도시락을 만들 수 있지만, <strong>본래 메뉴에 없는 재료(예: 카레)는 절대 만들 수 없습니다</strong>. <strong>가진 메뉴가 도시락 영역을 결정합니다.</strong></p>
+</div>
+<blockquote>
+<p><strong>정식 정의는 9회차로 미룹니다</strong> , Subspace·Basis·Dimension과 함께 한꺼번에 다루는 것이 가장 자연스럽습니다. 오늘은 <strong>"만들 수 있는 모든 결과의 집합"</strong>이라는 직관까지만 챙기면 충분합니다.</p>
+</blockquote>
+<hr />
+<h2>C-4. Span의 직관 — 그림으로</h2>
+<h3><span class="arithmatex">\(\mathbb{R}^2\)</span>의 예</h3>
+<ul>
+<li>$\mathrm{span}((1, 0)^\top) = $ <strong>x축 직선</strong> (모든 <span class="arithmatex">\(\alpha(1,0)^\top = (\alpha, 0)\)</span>)</li>
+<li>$\mathrm{span}((1, 0)^\top, (0, 1)^\top) = $ <strong><span class="arithmatex">\(\mathbb{R}^2\)</span> 전체</strong> (모든 점이 <span class="arithmatex">\(\alpha\mathbf{e}_1 + \beta\mathbf{e}_2\)</span>로 표현됨)</li>
+<li>$\mathrm{span}((1, 1)^\top, (2, 2)^\top) = $ <strong><span class="arithmatex">\((1,1)^\top\)</span> 방향 직선</strong> (두 Vector가 평행, 같은 메뉴를 두 번 든 셈)</li>
+</ul>
+<h3><span class="arithmatex">\(\mathbb{R}^3\)</span>의 예</h3>
+<ul>
+<li>$\mathrm{span}((1, 0, 0)^\top) = $ x축 직선</li>
+<li>$\mathrm{span}((1, 0, 0)^\top, (0, 1, 0)^\top) = $ xy 평면</li>
+<li>$\mathrm{span}((1, 0, 0)^\top, (0, 1, 0)^\top, (0, 0, 1)^\top) = $ <span class="arithmatex">\(\mathbb{R}^3\)</span> 전체</li>
+</ul>
+<h3>핵심 관찰</h3>
+<p><strong>Vector 개수 ≠ Span의 차원</strong>입니다. <span class="arithmatex">\((1,1)^\top\)</span>과 <span class="arithmatex">\((2,2)^\top\)</span>는 두 개지만 Span은 1차원 직선. <strong>"진짜 다른 방향"이 몇 개인가</strong>가 차원입니다, 9회차에서 <strong>Linear independence</strong>로 정식화합니다.</p>
+<hr />
+<h2>C-5. 표준 단위Vector의 Span은 <span class="arithmatex">\(\mathbb{R}^n\)</span> 전체</h2>
+<p>B-6에서 봤듯 임의의 <span class="arithmatex">\(\mathbf{x} \in \mathbb{R}^n\)</span>가
+$<span class="arithmatex">\(\mathbf{x} = x_1\mathbf{e}_1 + x_2\mathbf{e}_2 + \cdots + x_n\mathbf{e}_n\)</span>$
+으로 표현됩니다. 따라서
+$<span class="arithmatex">\(\mathrm{span}(\mathbf{e}_1, \mathbf{e}_2, \ldots, \mathbf{e}_n) = \mathbb{R}^n\)</span>$</p>
+<p>→ <strong><span class="arithmatex">\(\mathbb{R}^n\)</span> 전체가 <span class="arithmatex">\(n\)</span>개 표준 단위Vector의 Span</strong>입니다. 이것이 <span class="arithmatex">\(\mathbb{R}^n\)</span>이라는 공간을 가장 자연스럽게 "<span class="arithmatex">\(n\)</span>차원"이라 부르는 이유입니다.</p>
+<h3>일반화 — Basis의 직관</h3>
+<p><span class="arithmatex">\(\mathbb{R}^n\)</span>을 Span하는 "최소한의 Vector 집합"이 곧 <strong>Basis(기저)</strong>입니다. 표준 단위Vector <span class="arithmatex">\(\{\mathbf{e}_1, \ldots, \mathbf{e}_n\}\)</span>이 <strong>표준 Basis</strong>.</p>
+<blockquote>
+<p><strong>Basis·Dimension의 정식 정의는 9회차</strong>입니다. 오늘은 "<span class="arithmatex">\(\mathbf{e}_1, \ldots, \mathbf{e}_n\)</span>로 <span class="arithmatex">\(\mathbb{R}^n\)</span> 전체를 만들 수 있다"는 직관만 챙깁니다.</p>
+</blockquote>
+<hr />
+<h2>C-6. Linear combination = Matrix·Vector 곱 (3회차 미리보기)</h2>
+<p>오늘 본 Linear combination은 곧 <strong>Matrix·Vector 곱</strong>과 같은 것입니다.</p>
+<p><span class="arithmatex">\(A \in \mathbb{R}^{m \times n}\)</span>, <span class="arithmatex">\(\mathbf{x} \in \mathbb{R}^n\)</span>. <span class="arithmatex">\(A\)</span>의 열을 <span class="arithmatex">\(\mathbf{a}_1, \ldots, \mathbf{a}_n\)</span>이라 쓰면</p>
+<div class="arithmatex">\[A\mathbf{x} = x_1\mathbf{a}_1 + x_2\mathbf{a}_2 + \cdots + x_n\mathbf{a}_n\]</div>
+<p><strong>Matrix·Vector 곱 = <span class="arithmatex">\(A\)</span>의 열들의 Linear combination</strong>입니다 (Column picture 해석).</p>
+<h3>예시</h3>
+<p><span class="arithmatex">\(A = \begin{pmatrix} 1 &amp; 3 \\ 2 &amp; 4 \end{pmatrix}\)</span>, <span class="arithmatex">\(\mathbf{x} = \begin{pmatrix} 5 \\ 6 \end{pmatrix}\)</span>
+$<span class="arithmatex">\(A\mathbf{x} = 5\begin{pmatrix} 1 \\ 2 \end{pmatrix} + 6\begin{pmatrix} 3 \\ 4 \end{pmatrix} = \begin{pmatrix} 5 \\ 10 \end{pmatrix} + \begin{pmatrix} 18 \\ 24 \end{pmatrix} = \begin{pmatrix} 23 \\ 34 \end{pmatrix}\)</span>$</p>
+<p>→ <strong>3회차에서 Row picture와 Column picture 두 해석을 정식 도입</strong>합니다. 오늘은 "Matrix·Vector 곱이 사실 Linear combination이더라"라는 사실만 미리 봅니다.</p>
+<hr />
+<!-- _class: exercise -->
+
+<h1>🖍 잠깐 풀어보기 — Linear combination · Span</h1>
+<h3>문제 1 (계산)</h3>
+<p><span class="arithmatex">\(\mathbf{v}_1 = (1, 1)^\top\)</span>과 <span class="arithmatex">\(\mathbf{v}_2 = (1, -1)^\top\)</span>이 주어졌습니다. <span class="arithmatex">\((3, 5)^\top\)</span>을 두 Vector의 Linear combination <span class="arithmatex">\(\alpha_1\mathbf{v}_1 + \alpha_2\mathbf{v}_2\)</span>로 표현하세요.</p>
+<h3>문제 2 (개념)</h3>
+<p>다음 Span을 그림 또는 말로 묘사하세요 (직선·평면·공간 전체·한 점 중 어느 것?).</p>
+<ul>
+<li>(i) <span class="arithmatex">\(\mathrm{span}((1, 0)^\top, (0, 1)^\top, (1, 1)^\top)\)</span> ⊂ <span class="arithmatex">\(\mathbb{R}^2\)</span></li>
+<li>(ii) <span class="arithmatex">\(\mathrm{span}((1, 2, 0)^\top, (2, 4, 0)^\top)\)</span> ⊂ <span class="arithmatex">\(\mathbb{R}^3\)</span></li>
+<li>(iii) <span class="arithmatex">\(\mathrm{span}(\mathbf{0})\)</span> ⊂ <span class="arithmatex">\(\mathbb{R}^n\)</span></li>
+</ul>
+<blockquote>
+<p><strong>힌트</strong>: 두 Vector가 평행하면 Span은 한 직선에 머뭅니다. <span class="arithmatex">\(\mathbf{0}\)</span>만으로는 자기 자신밖에 못 만듭니다.</p>
+</blockquote>
+<hr />
+<!-- _class: exercise -->
+
+<h2>잠깐 풀어보기 — 답</h2>
+<h3>문제 1</h3>
+<p><span class="arithmatex">\(\alpha_1 + \alpha_2 = 3\)</span>, <span class="arithmatex">\(\alpha_1 - \alpha_2 = 5\)</span> → <span class="arithmatex">\(\alpha_1 = 4, \alpha_2 = -1\)</span>.</p>
+<div class="arithmatex">\[\therefore (3, 5)^\top = 4\,(1, 1)^\top - 1\,(1, -1)^\top\]</div>
+<p>검증: <span class="arithmatex">\(4(1,1)^\top - (1,-1)^\top = (4,4)^\top - (1,-1)^\top = (3, 5)^\top\)</span> ✓</p>
+<h3>문제 2</h3>
+<ul>
+<li><strong>(i)</strong> <span class="arithmatex">\((1,1)^\top = (1,0)^\top + (0,1)^\top\)</span>이라 셋째 Vector는 처음 둘의 Linear combination. 처음 두 Vector만으로 이미 <span class="arithmatex">\(\mathbb{R}^2\)</span> 전체를 Span. → <strong><span class="arithmatex">\(\mathbb{R}^2\)</span> 전체</strong> (평면 전체).</li>
+<li><strong>(ii)</strong> <span class="arithmatex">\((2, 4, 0)^\top = 2 \cdot (1, 2, 0)^\top\)</span>이라 두 Vector가 평행. → <strong>xy평면 위의 한 직선</strong> (<span class="arithmatex">\((1, 2, 0)^\top\)</span> 방향).</li>
+<li><strong>(iii)</strong> <span class="arithmatex">\(\alpha \cdot \mathbf{0} = \mathbf{0}\)</span>이라 어떤 <span class="arithmatex">\(\alpha\)</span>를 잡아도 <span class="arithmatex">\(\mathbf{0}\)</span>. → <strong>원점 한 점만</strong>.</li>
+</ul>
+<blockquote>
+<p><strong>메시지</strong>: Vector 개수 = Span 차원이 아닙니다. <strong>"진짜 다른 방향" 개수</strong>가 차원입니다. 9회차에서 <strong>Linear independence</strong>로 정식화합니다.</p>
+</blockquote>
+<hr />
+<h1>D. CS·AI 적용 — 데이터를 Vector로</h1>
+<blockquote>
+<p>오늘 본 수학이 AI에서 어디에 등장하는가.</p>
+</blockquote>
+<hr />
+<h2>D-1. 이미지를 Vector로 — MNIST</h2>
+<p>손글씨 숫자 데이터셋 <strong>MNIST</strong>: 28×28 픽셀 흑백 이미지 70,000장.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>표현</th>
+<th>객체</th>
+<th>차원</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>이미지 한 장</td>
+<td>28×28 픽셀 격자</td>
+<td>2D 배열</td>
+</tr>
+<tr>
+<td><strong>펼친 형태 (flatten)</strong></td>
+<td>길이 784 Vector</td>
+<td><span class="arithmatex">\(\mathbb{R}^{784}\)</span></td>
+</tr>
+<tr>
+<td>데이터셋 전체</td>
+<td><span class="arithmatex">\(n \times 784\)</span> 표</td>
+<td><span class="arithmatex">\(\mathbb{R}^{n \times 784}\)</span> Matrix</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>왜 펼칩니까?</strong> 픽셀의 공간 구조는 <strong>CNN(16회차)</strong>에서 다시 살립니다. 우선은 <strong>"한 장 = 한 Vector"</strong>로 보는 것이 LA의 표준 환원입니다.</p>
+<div class="analogy">
+<p>💡 <strong>파인만식 비유</strong>: 28×28 이미지를 펼치는 것은 <strong>책장을 한 줄로 늘어놓는 것</strong>과 같습니다. 책장에서는 어떤 책이 위·아래 칸인지 보였지만, 한 줄로 늘어놓으면 그 정보가 사라집니다. <strong>공간 정보는 일부 잃지만 대신 "한 묶음의 수"라는 단순한 객체</strong>가 됩니다. AI 학습 초기엔 이 단순함이 더 큰 무기입니다, 모든 모델·연산을 통일된 객체로 처리할 수 있기 때문입니다.</p>
+</div>
+<hr />
+<h2>D-2. MNIST 평균 이미지 — 두 연산만으로</h2>
+<p>0회차 시그니처 시연 재해석:</p>
+<p>숫자 "7"인 이미지 1,000장 <span class="arithmatex">\(\mathbf{x}_1, \mathbf{x}_2, \ldots, \mathbf{x}_{1000} \in \mathbb{R}^{784}\)</span>의 <strong>평균 Vector</strong>:</p>
+<div class="arithmatex">\[\mathbf{m} = \frac{1}{1000}\sum_{i=1}^{1000}\mathbf{x}_i = \frac{1}{1000}(\mathbf{x}_1 + \mathbf{x}_2 + \cdots + \mathbf{x}_{1000})\]</div>
+<p>이 한 식 안에 오늘 배운 모든 것:</p>
+<ul>
+<li>"이미지를 Vector로 본다" — <strong>B 섹션 (Vector 정의)</strong></li>
+<li>"Vector들을 더한다" — <strong>B 섹션 (덧셈)</strong></li>
+<li>"<span class="arithmatex">\(\frac{1}{1000}\)</span>을 곱한다" — <strong>B 섹션 (Scalar곱)</strong></li>
+<li>"<span class="arithmatex">\(\frac{1}{n}\sum\)</span> 자체" — <strong>C 섹션 (계수가 모두 <span class="arithmatex">\(\frac{1}{1000}\)</span>인 Linear combination)</strong></li>
+</ul>
+<p>→ 평균 이미지 = <strong>모든 이미지의 Linear combination</strong> (계수가 균등). 결과는 "7의 본질" 같은 흐릿한 7 모양으로 나타납니다 (0회차에서 본 그림).</p>
+<hr />
+<h2>D-3. 텍스트·문서·사용자도 Vector로</h2>
+<p>이미지뿐 아니라 모든 데이터가 Vector로 환원됩니다.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>데이터</th>
+<th>Vector 표현</th>
+<th>차원</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>이미지</strong> (MNIST)</td>
+<td>픽셀 펼치기</td>
+<td><span class="arithmatex">\(\mathbb{R}^{784}\)</span></td>
+</tr>
+<tr>
+<td><strong>이미지</strong> (ImageNet 224×224 RGB)</td>
+<td>픽셀 펼치기</td>
+<td><span class="arithmatex">\(\mathbb{R}^{150{,}528}\)</span></td>
+</tr>
+<tr>
+<td><strong>단어</strong> (Word2Vec)</td>
+<td>Embedding(임베딩) 좌표</td>
+<td><span class="arithmatex">\(\mathbb{R}^{300}\)</span></td>
+</tr>
+<tr>
+<td><strong>문장</strong> (BERT)</td>
+<td>Embedding 좌표</td>
+<td><span class="arithmatex">\(\mathbb{R}^{768}\)</span></td>
+</tr>
+<tr>
+<td><strong>문장</strong> (GPT-4)</td>
+<td>Embedding 좌표</td>
+<td><span class="arithmatex">\(\mathbb{R}^{3072}\)</span> (추정)</td>
+</tr>
+<tr>
+<td><strong>사용자</strong> (Netflix)</td>
+<td>영화별 평점</td>
+<td><span class="arithmatex">\(\mathbb{R}^{17{,}000}\)</span> (영화 수)</td>
+</tr>
+<tr>
+<td><strong>유전자 발현</strong></td>
+<td>유전자별 발현량</td>
+<td><span class="arithmatex">\(\mathbb{R}^{20{,}000}\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>모든 AI 모델의 입력 = <span class="arithmatex">\(\mathbb{R}^d\)</span> Vector</strong>입니다. 이미지는 작은 <span class="arithmatex">\(d\)</span>, 텍스트는 중간, 유전자는 큰 <span class="arithmatex">\(d\)</span>.</p>
+<hr />
+<h2>D-4. Embedding(임베딩) — 의미를 Vector로</h2>
+<div class="analogy">
+<p>💡 <strong>파인만식 비유</strong>: Embedding은 <strong>단어를 지도 위의 한 점으로 옮기는 일</strong>입니다. "강아지"와 "개"는 지도에서 가까이, "강아지"와 "비행기"는 멀리 놓습니다. <strong>의미적 거리 = 공간적 거리</strong>가 되도록 좌표를 학습합니다. 그러면 의미를 비교하는 일이 곧 Vector 거리를 재는 일이 됩니다.</p>
+</div>
+<h3>Embedding의 한 줄 정의</h3>
+<p><strong>문장·이미지·사용자 등 임의 객체를 <span class="arithmatex">\(\mathbb{R}^d\)</span> Vector로 보내는 함수</strong>, 학습으로 얻습니다.</p>
+<h3>왜 Vector여야 합니까?</h3>
+<ul>
+<li>Vector면 <strong>덧셈·Scalar곱</strong>이 정의됨 → 평균·차이 등 계산 가능</li>
+<li>다음 회차의 <strong>Norm·Inner product</strong>가 정의됨 → 거리·각도 계산 가능</li>
+<li>Matrix 곱 (3회차) → <strong>신경망 한 층 통과</strong> 가능</li>
+</ul>
+<p>→ <strong>AI 모델은 모든 입력을 Vector로 바꾸는 것에서 시작</strong>합니다. 이것이 오늘 회차의 결론.</p>
+<hr />
+<h2>D-5. 신경망 한 뉴런 미리보기</h2>
+<p>가장 간단한 인공 뉴런:</p>
+<div class="arithmatex">\[y = w_1 x_1 + w_2 x_2 + \cdots + w_n x_n + b\]</div>
+<p>여기서 <span class="arithmatex">\(\mathbf{x} = (x_1, \ldots, x_n)^\top\)</span> = 입력 Vector, <span class="arithmatex">\(\mathbf{w} = (w_1, \ldots, w_n)^\top\)</span> = 가중치 Vector.</p>
+<p>이 식의 본질:
+- <span class="arithmatex">\(w_i x_i\)</span>의 합 = <strong>가중치 Vector와 입력 Vector의 곱셈 합</strong> → <strong>Inner product</strong> (2회차)
+- 더 일반화: <span class="arithmatex">\(\mathbf{y} = W\mathbf{x} + \mathbf{b}\)</span> → <strong>Matrix·Vector 곱</strong> (3회차)</p>
+<p>→ 오늘 본 Vector 정의 + 두 연산이 곧 <strong>신경망의 한 줄</strong>입니다. 뉴런 한 개의 출력 = 입력 Vector의 한 가지 Linear combination + Bias.</p>
+<hr />
+<h1>E. 코딩 실습 + 클로징</h1>
+<hr />
+<h2>E-1. 코딩 실습 골자</h2>
+<p>→ <code>11_주피터노트북/Part1/01_벡터_R^n_MNIST.ipynb</code></p>
+<ol>
+<li><strong>NumPy로 Vector 만들기</strong>: <code>np.array([1, 2, 3])</code>, 차원 확인 (<code>.shape</code>, <code>.ndim</code>)</li>
+<li><strong>덧셈·Scalar곱</strong>: <code>u + v</code>, <code>2 * u - 3 * v</code></li>
+<li><strong>표준 단위Vector</strong>: <code>np.eye(n)</code>로 한 번에, 또는 <code>np.zeros(n)</code> + 인덱싱</li>
+<li><strong>Linear combination</strong>: 여러 Vector + 계수로 한 결과 만들기</li>
+<li><strong>MNIST 1장 로드</strong>: <code>sklearn.datasets.load_digits()</code> (8×8) 또는 <code>keras.datasets.mnist.load_data()</code> (28×28)</li>
+<li><strong>이미지 → 784차원 Vector</strong>: <code>image.reshape(-1)</code> 또는 <code>image.flatten()</code></li>
+<li><strong>숫자별 평균 이미지</strong>: <code>X[y == k].mean(axis=0)</code> (0회차 시연 재현)</li>
+</ol>
+<hr />
+<h2>E-2. NumPy 핵심 패턴</h2>
+<pre><code class="language-python">import numpy as np
+
+# Vector 만들기
+u = np.array([1.0, -2.0, 3.0])
+v = np.array([2.0, 0.0, -1.0])
+
+# 두 연산
+print(u + v)          # 덧셈
+print(2 * u - 3 * v)  # Linear combination
+
+# 표준 단위Vector
+e = np.eye(3)         # 3x3 단위Matrix의 각 열이 e1, e2, e3
+e1 = e[:, 0]          # (1, 0, 0)
+
+# Linear combination을 한 줄로
+vs = np.array([[1, 0], [0, 1], [1, 1]])  # 3개 Vector를 행으로
+coefs = np.array([2, 3, -1])
+result = coefs @ vs   # = 2*v1 + 3*v2 - v3
+
+# MNIST → 784차원 Vector
+from sklearn.datasets import load_digits
+data = load_digits()
+X = data.data         # (1797, 64) — 한 행이 한 이미지의 64차원 Vector
+y = data.target       # (1797,) — 레이블
+mean_seven = X[y == 7].mean(axis=0)  # (64,) — 7의 평균 Vector
+</code></pre>
+<hr />
+<h2>E-3. 차원·자료형 주의</h2>
+<p>NumPy에서 흔히 만나는 함정:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>함정</th>
+<th>증상</th>
+<th>해결</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>np.array([1, 2])</code> + <code>np.array([1, 2, 3])</code></td>
+<td>shape 불일치 에러</td>
+<td>차원 맞춘 뒤 덧셈</td>
+</tr>
+<tr>
+<td>정수 Vector에 <code>0.5</code> 곱</td>
+<td>dtype에 따라 잘림</td>
+<td><code>.astype(float)</code> 명시</td>
+</tr>
+<tr>
+<td>Row vector vs Column vector</td>
+<td><code>(n,)</code> vs <code>(n, 1)</code> 혼동</td>
+<td>LA에선 Column 표준, <code>.reshape(-1, 1)</code></td>
+</tr>
+<tr>
+<td>MNIST 픽셀 0~255 정수</td>
+<td>평균에서 오버플로 가능성</td>
+<td><code>.astype(np.float32) / 255.0</code></td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p><strong>0회차 노트북에서 <code>astype(float)</code>을 한 이유</strong>: 픽셀 평균을 계산할 때 정수형은 Scalar 곱이 깔끔하게 안 떨어집니다. Vector space의 두 연산이 잘 동작하려면 <strong>실수 자료형</strong>이 자연스럽습니다.</p>
+</blockquote>
+<hr />
+<h2>E-4. 오늘 회차 핵심 5개</h2>
+<ol>
+<li><strong>Vector</strong> = 같은 차원 실수들의 순서 묶음 (<span class="arithmatex">\(\mathbb{R}^n\)</span>) + <strong>두 연산</strong>(덧셈·Scalar곱).</li>
+<li><strong>두 연산</strong>은 그림으로는 평행사변형 법칙과 늘이기·뒤집기. <strong>성분별</strong>로 자연스럽게 동작합니다.</li>
+<li><strong>Linear combination</strong> = 두 연산을 섞은 일반 식 <span class="arithmatex">\(\sum \alpha_i \mathbf{v}_i\)</span>. "선형"은 두 연산만 쓴다는 뜻.</li>
+<li><strong>Span (직관)</strong> = 주어진 Vector로 만들 수 있는 <strong>모든 결과의 집합</strong>. Vector 개수 ≠ 차원 (평행하면 차원이 줄어듦).</li>
+<li><strong>MNIST 이미지 1장 = <span class="arithmatex">\(\mathbb{R}^{784}\)</span> Vector</strong>. 모든 AI 모델의 입력은 결국 Vector로 환원됩니다. 평균 이미지 = 계수 균등한 Linear combination.</li>
+</ol>
+<hr />
+<h2>E-5. 자기 점검 질문</h2>
+<ul>
+<li><span class="arithmatex">\(\mathbf{u} = (1, 2, 3)^\top\)</span>, <span class="arithmatex">\(\mathbf{v} = (-1, 0, 1)^\top\)</span>일 때 <span class="arithmatex">\(3\mathbf{u} - 2\mathbf{v}\)</span>는?</li>
+<li><span class="arithmatex">\(\mathrm{span}((2, 4)^\top, (1, 2)^\top)\)</span>의 모양은 (직선·평면·한 점 중)?</li>
+<li><span class="arithmatex">\(\mathbb{R}^n\)</span>의 임의 Vector가 표준 단위Vector <span class="arithmatex">\(\mathbf{e}_1, \ldots, \mathbf{e}_n\)</span>의 Linear combination으로 쓰이는 이유는?</li>
+<li>MNIST 28×28 이미지를 Vector로 만들면 차원은? 1,000장 데이터셋은 어떤 Matrix?</li>
+<li>"선형(linear)"이란 단어의 정확한 의미는 무엇입니까? 무엇이 허용되고 무엇이 금지됩니까?</li>
+</ul>
+<hr />
+<!-- _class: exercise -->
+
+<h1>🎯 오늘의 마무리 문제 — 즉석 풀이</h1>
+<p>오늘의 사슬(Vector → 두 연산 → Linear combination → Span → MNIST)을 <strong>한 문제</strong>로 종합합니다.</p>
+<p><span class="arithmatex">\(\mathbf{v}_1 = (1, 0, 1)^\top\)</span>, <span class="arithmatex">\(\mathbf{v}_2 = (0, 1, 1)^\top\)</span>, <span class="arithmatex">\(\mathbf{v}_3 = (1, 1, 2)^\top\)</span>가 <span class="arithmatex">\(\mathbb{R}^3\)</span>에 주어졌습니다.</p>
+<ul>
+<li><strong>(a)</strong> <span class="arithmatex">\(\mathbf{w} = 2\mathbf{v}_1 + 3\mathbf{v}_2 - \mathbf{v}_3\)</span>를 계산하세요.</li>
+<li><strong>(b)</strong> <span class="arithmatex">\(\mathbf{v}_3\)</span>를 <span class="arithmatex">\(\mathbf{v}_1, \mathbf{v}_2\)</span>의 Linear combination으로 표현할 수 있습니까? 가능하면 계수를 구하세요.</li>
+<li><strong>(c)</strong> <span class="arithmatex">\(\mathrm{span}(\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3)\)</span>는 <span class="arithmatex">\(\mathrm{span}(\mathbf{v}_1, \mathbf{v}_2)\)</span>와 같은 집합입니까? 그 이유는?</li>
+<li><strong>(d)</strong> <span class="arithmatex">\(\mathrm{span}(\mathbf{v}_1, \mathbf{v}_2)\)</span>는 <span class="arithmatex">\(\mathbb{R}^3\)</span>의 어떤 모양입니까 (직선·평면·전체 중)?</li>
+</ul>
+<hr />
+<!-- _class: exercise -->
+
+<h2>오늘의 마무리 문제 — 답</h2>
+<ul>
+<li>
+<p><strong>(a)</strong> <span class="arithmatex">\(2\mathbf{v}_1 = (2, 0, 2)^\top\)</span>, <span class="arithmatex">\(3\mathbf{v}_2 = (0, 3, 3)^\top\)</span>, <span class="arithmatex">\(-\mathbf{v}_3 = (-1, -1, -2)^\top\)</span>
+  합: <span class="arithmatex">\((2-1,\,0+3-1,\,2+3-2)^\top = (1, 2, 3)^\top\)</span></p>
+</li>
+<li>
+<p><strong>(b)</strong> <span class="arithmatex">\(\mathbf{v}_3 = (1, 1, 2)^\top = (1, 0, 1)^\top + (0, 1, 1)^\top = \mathbf{v}_1 + \mathbf{v}_2\)</span>. 가능합니다, <strong>계수 (1, 1)</strong>.</p>
+</li>
+<li>
+<p><strong>(c)</strong> <strong>같은 집합입니다.</strong> <span class="arithmatex">\(\mathbf{v}_3\)</span>가 <span class="arithmatex">\(\mathbf{v}_1, \mathbf{v}_2\)</span>의 Linear combination이므로 <span class="arithmatex">\(\mathbf{v}_3\)</span>를 추가해도 새로 만들 수 있는 Vector가 없습니다. (<span class="arithmatex">\(\alpha_1\mathbf{v}_1 + \alpha_2\mathbf{v}_2 + \alpha_3\mathbf{v}_3 = (\alpha_1+\alpha_3)\mathbf{v}_1 + (\alpha_2+\alpha_3)\mathbf{v}_2\)</span>로 정리 가능)</p>
+</li>
+<li>
+<p><strong>(d)</strong> <span class="arithmatex">\(\mathbf{v}_1, \mathbf{v}_2\)</span>는 평행이 아닙니다 (한쪽이 다른 쪽의 Scalar 배가 아님). 따라서 <span class="arithmatex">\(\mathbb{R}^3\)</span>의 <strong>한 평면</strong> (원점을 지나는).</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>핵심</strong>: 세 Vector 중 하나가 나머지의 Linear combination이면 Span에 기여하지 않습니다, <strong>"진짜 다른 방향" 개수가 차원</strong>입니다. 9회차 Linear independence의 핵심 직관.</p>
+</blockquote>
+<hr />
+<!-- _class: exercise -->
+
+<h2>📝 다음 회차 Review용 숙제</h2>
+<p>위 마무리 문제의 <strong>유사 문제</strong>입니다. 강의 후 풀어 와서 <strong>2회차 Review 시간</strong>에 비교합니다.</p>
+<p><span class="arithmatex">\(\mathbf{u}_1 = (1, 2)^\top\)</span>, <span class="arithmatex">\(\mathbf{u}_2 = (3, 4)^\top\)</span>, <span class="arithmatex">\(\mathbf{u}_3 = (5, 6)^\top\)</span>이 <span class="arithmatex">\(\mathbb{R}^2\)</span>에 주어졌습니다.</p>
+<ul>
+<li>(a) <span class="arithmatex">\(\mathbf{w} = \mathbf{u}_1 - 2\mathbf{u}_2 + \mathbf{u}_3\)</span>를 계산하세요.</li>
+<li>(b) <span class="arithmatex">\(\mathbf{u}_3\)</span>를 <span class="arithmatex">\(\mathbf{u}_1, \mathbf{u}_2\)</span>의 Linear combination으로 표현할 수 있습니까? 가능하면 계수를 구하세요. (힌트: 연립방정식)</li>
+<li>(c) <span class="arithmatex">\(\mathrm{span}(\mathbf{u}_1, \mathbf{u}_2, \mathbf{u}_3)\)</span>는 <span class="arithmatex">\(\mathbb{R}^2\)</span>의 어떤 모양입니까?</li>
+<li>(d) MNIST 한 장의 이미지를 펼쳐 <span class="arithmatex">\(\mathbb{R}^{784}\)</span> Vector로 만든 뒤, 그것이 픽셀 위치별 표준 단위Vector <span class="arithmatex">\(\mathbf{e}_1, \ldots, \mathbf{e}_{784}\)</span>의 Linear combination으로 표현됨을 한 줄로 적으세요.</li>
+</ul>
+<h3>자기 점검</h3>
+<ul>
+<li>(b)의 계수를 구하는 과정이 어떤 <strong>연립 1차방정식</strong>으로 환원되는지 의식하세요. → 4회차 가우스 소거의 출발점.</li>
+<li>(d)에서 픽셀값이 곧 계수입니다, 모든 이미지는 결국 픽셀별 단위Vector의 Linear combination.</li>
+</ul>
+<hr />
+<h2>E-6. 과제 안내</h2>
+<p><code>04_과제/Part1/01회차_homework.md</code> — 마감: 2회차 시작 전</p>
+<p><strong>수학 30점</strong>
+- 두 연산 계산 (덧셈·Scalar곱·Linear combination), 5문제
+- Span의 모양 식별 (직선·평면·전체), 3문제
+- 한 Vector가 다른 Vector들의 Linear combination인지 판정, 3문제 (연립방정식 풀기)
+- 표준 단위Vector <span class="arithmatex">\(\mathbf{e}_i\)</span>를 사용한 분해, 2문제</p>
+<p><strong>코딩 20점</strong>
+- NumPy로 Vector 생성·두 연산·Linear combination 구현
+- MNIST 한 장 → 784차원 Vector로 reshape, 시각화로 원본 복원 확인
+- 0~9 각 숫자의 평균 이미지 10장 계산·시각화
+- <strong>보너스</strong>: 새 이미지를 가장 가까운 평균과 비교하여 분류 (다음 회차 Norm으로 자연스럽게 이어짐)</p>
+<hr />
+<h2>E-7. 다음 회차 (2회차) 예고</h2>
+<p><strong>주제</strong>: Length(길이, Norm) · Dot product(내적) · 각도 · Cauchy-Schwarz · Cosine similarity</p>
+<p><strong>연결</strong>: 오늘 본 Vector·두 연산만으로는 "두 Vector가 얼마나 비슷한가"를 잴 수 없습니다. 2회차에서 <strong>Norm(길이)</strong>과 <strong>Inner product(내적)</strong>라는 두 도구를 도입하여 거리·각도·코사인 유사도를 정의합니다. 0회차 Review에서 가져온 "MNIST 숫자 7과 새 이미지의 가까움"이 마침내 수학적으로 정의됩니다.</p>
+<p><strong>3회차 예고</strong>: 오늘 본 Linear combination = Matrix·Vector 곱의 Column picture (3회차에서 본격).</p>
+<p><strong>사전 reading</strong>:
+- Strang §1.2 (Lengths and Dot Products)
+- MML §3.1 (Norms), §3.2 (Inner Products), 참조
+- 3Blue1Brown EoLA Ch.9 (Dot products and duality)</p>
+<hr />
+<h1>부록 — Strang §1.1 추천 연습문제</h1>
+<p>오늘 다룬 내용을 손으로 더 굴려보고 싶은 학생을 위한 안내입니다 (모두 자율).</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Strang §1.1</th>
+<th>주제</th>
+<th style="text-align: center;">난도</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Problem 1-3</td>
+<td>평행사변형 법칙·두 Vector 합</td>
+<td style="text-align: center;">하</td>
+</tr>
+<tr>
+<td>Problem 5-8</td>
+<td>Linear combination 계수 구하기</td>
+<td style="text-align: center;">중</td>
+</tr>
+<tr>
+<td>Problem 11-13</td>
+<td><span class="arithmatex">\(\mathbb{R}^3\)</span>에서 Span의 모양 식별</td>
+<td style="text-align: center;">중</td>
+</tr>
+<tr>
+<td>Problem 17-20</td>
+<td>표준 단위Vector·임의 Vector 분해</td>
+<td style="text-align: center;">중</td>
+</tr>
+<tr>
+<td>Problem 23, 25</td>
+<td>"두 Vector의 모든 Linear combination이 평면을 이룬다", 직관적 증명</td>
+<td style="text-align: center;">상</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>Strang은 매 절 끝 연습문제가 <strong>개념 검증용 + 손계산용</strong>이 섞여 있습니다. 본문을 읽고 3~5문제를 풀면 다음 회차 진입이 한결 부드러워집니다.</p>
+</blockquote>
+<hr />
+<!-- _class: lead -->
+
+<h1>Q &amp; A</h1>
+<p>오늘의 사슬:
+<strong>Vector (<span class="arithmatex">\(\mathbb{R}^n\)</span>) → 두 연산 (덧셈·Scalar곱) → Linear combination → Span(직관) → MNIST 이미지 Vector</strong></p>
+<p>핵심 한 줄: <strong>모든 데이터는 <span class="arithmatex">\(\mathbb{R}^d\)</span> Vector로 환원되고, 두 연산이 그 데이터를 다루는 모든 일의 출발점</strong>입니다.</p>
+<p>다음 회차로 가져갈 한 질문:</p>
+<blockquote>
+<p>두 Vector의 <strong>길이</strong>와 <strong>각도</strong>를 어떻게 정의하면 자연스러운가?</p>
+</blockquote>
+<p><code>HANDOUT</code>: 본 PDF + <code>01_벡터_R^n_MNIST.ipynb</code></p></div></section><section class="doc" id="p3-2회차"><div class="doc-header"><span class="doc-tag p3">Phase 3</span><span class="doc-tag doc-tag-sub">Strang §1.2 신규</span><h2 class="doc-title">2회차 Norm·Dot·Cosine</h2><div class="doc-meta"><code>07_강의교안/Part1/02회차_노름_내적_코사인유사도.md</code><span>35.2 KB</span></div></div><div class="doc-content"><hr />
+<p>marp: true
+theme: default
+paginate: true
+header: '인공지능 전공자를 위한 선형대수학'
+footer: '2회차 — Norm·Dot product·Cosine similarity'
+math: mathjax
+size: 16:9
+style: |
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css');
+  section { font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            font-size: 22px; padding: 50px 60px 70px 60px; color: #111827; letter-spacing: -0.011em; }
+  section.lead { padding: 100px 60px; }
+  h1 { color: #1E40AF; margin-top: 0; font-weight: 700; letter-spacing: -0.02em; }
+  h2 { color: #111827; border-bottom: 2px solid #E5E7EB; padding-bottom: 4px; margin-top: 0; font-weight: 700; }
+  table { font-size: 17px; border-collapse: collapse; }
+  th { background: #F9FAFB; border: 1px solid #E5E7EB; }
+  td { border: 1px solid #E5E7EB; }
+  code { font-size: 17px; background: #F3F4F6; color: #BE185D; padding: 2px 6px; border-radius: 6px;
+         font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace; }
+  blockquote { font-size: 19px; border-left: 4px solid #3B82F6; color: #1E40AF;
+               background: #DBEAFE; padding: 8px 14px; border-radius: 0 8px 8px 0; }
+  section.exercise { background: #FFFBEB; }
+  section.exercise h1 { color: #B45309; }
+  section.exercise h2 { color: #92400E; border-bottom-color: #FDE68A; }
+  .analogy { background: #D1FAE5; border-left: 4px solid #10B981; padding: 10px 16px; margin: 12px 0;
+             font-size: 19px; color: #065F46; border-radius: 0 8px 8px 0; }
+  .analogy strong { color: #047857; }</p>
+<hr />
+<!-- _class: lead -->
+<!-- _paginate: false -->
+
+<h1>2회차</h1>
+<h2>Norm·Dot product·Cosine similarity</h2>
+<p>Strang §1.2 · MML §3.1, §3.2 (참조) · EoLA Ch.9</p>
+<p>이제 Vector(벡터) 사이의 <strong>거리와 각도</strong>를 정의합니다.</p>
+<hr />
+<!-- _class: exercise -->
+
+<h1>🔁 Review — 1회차 마무리 숙제</h1>
+<p>지난 회차 마지막에 가져갔던 문제:</p>
+<blockquote>
+<p><span class="arithmatex">\(\mathbb{R}^3\)</span>의 Vector <span class="arithmatex">\(\mathbf{u} = (1, 2, 2)^\top\)</span>, <span class="arithmatex">\(\mathbf{v} = (2, 0, 1)^\top\)</span>가 있습니다.
+<strong>(a)</strong> <span class="arithmatex">\(2\mathbf{u} - 3\mathbf{v}\)</span>를 계산하세요.
+<strong>(b)</strong> <span class="arithmatex">\(\mathbf{u}\)</span>를 <span class="arithmatex">\(\mathbf{e}_1, \mathbf{e}_2, \mathbf{e}_3\)</span>의 <strong>Linear combination(선형결합)</strong>으로 쓰세요.</p>
+</blockquote>
+<h3>답</h3>
+<ul>
+<li><strong>(a)</strong> <span class="arithmatex">\(2\mathbf{u} - 3\mathbf{v} = (2,4,4)^\top - (6,0,3)^\top = (-4, 4, 1)^\top\)</span></li>
+<li><strong>(b)</strong> <span class="arithmatex">\(\mathbf{u} = 1\cdot\mathbf{e}_1 + 2\cdot\mathbf{e}_2 + 2\cdot\mathbf{e}_3\)</span> — 좌표 자체가 표준 basis 계수입니다.</li>
+</ul>
+<h3>핵심 관찰</h3>
+<p>(b)에서 "Vector = 좌표의 묶음"이라는 1회차 정의가 보여주는 사실: <strong>모든 <span class="arithmatex">\(\mathbb{R}^n\)</span> Vector는 표준 basis의 Linear combination</strong>입니다. 이 사실이 오늘 Norm·Dot product를 <strong>성분별 계산</strong>으로 정의할 수 있게 합니다.</p>
+<p>→ 1회차에서 본 두 연산(덧셈·Scalar곱)으로 충분히 풍부한 객체가 만들어졌습니다. 이제 <strong>두 Vector를 서로 비교</strong>합니다.</p>
+<hr />
+<h2>오늘의 핵심 질문</h2>
+<blockquote>
+<h3>두 Vector의 <strong>길이</strong>와 <strong>각도</strong>를 어떻게 정의해야 <span class="arithmatex">\(\cos\theta\)</span>가 자연스럽게 등장합니까?</h3>
+</blockquote>
+<p>이 한 질문에 답하려면 네 단계가 필요합니다.</p>
+<ol>
+<li><strong>Norm(노름)</strong> — 한 Vector의 <strong>길이</strong>가 무엇인가</li>
+<li><strong>Dot product(내적)</strong> — 두 Vector의 <strong>관계</strong>를 한 Scalar(스칼라)로 잡는 도구</li>
+<li><strong>Cauchy-Schwarz inequality(코시-슈바르츠 부등식)</strong> — <span class="arithmatex">\(|\mathbf{u}\cdot\mathbf{v}| \le \|\mathbf{u}\|\|\mathbf{v}\|\)</span></li>
+<li><strong>Cosine similarity(코사인 유사도)</strong> — 위 3에서 자동으로 <span class="arithmatex">\(\cos\theta \in [-1, 1]\)</span>이 보장됩니다.</li>
+</ol>
+<p>오늘 회차의 모든 것이 이 사슬 위에 있습니다. 강의 중간에 길을 잃으면 이 질문으로 돌아옵니다.</p>
+<hr />
+<h2>학습 목표</h2>
+<p>이번 회차가 끝나면 학생은 다음을 답할 수 있어야 합니다.</p>
+<ol>
+<li><strong>Euclidean norm(유클리드 노름) <span class="arithmatex">\(\|\mathbf{x}\|_2\)</span></strong>를 정의하고, <span class="arithmatex">\(\mathbb{R}^n\)</span>에서 세 가지 성질(양정성·동차성·삼각부등식)을 확인할 수 있습니다.</li>
+<li><strong>Dot product</strong> <span class="arithmatex">\(\mathbf{u}\cdot\mathbf{v} = \sum u_i v_i\)</span>를 정의하고, <span class="arithmatex">\(\mathbf{u}\cdot\mathbf{u} = \|\mathbf{u}\|_2^2\)</span>임을 손계산으로 확인할 수 있습니다.</li>
+<li><strong>각도의 정의</strong> <span class="arithmatex">\(\cos\theta = \dfrac{\mathbf{u}\cdot\mathbf{v}}{\|\mathbf{u}\|\|\mathbf{v}\|}\)</span>가 2차원·3차원의 기하 직관과 일치함을 보일 수 있습니다.</li>
+<li><strong>Cauchy-Schwarz inequality</strong>를 <span class="arithmatex">\(\mathbb{R}^n\)</span>에서 <strong>이차식 판별식</strong>으로 직접 증명할 수 있습니다.</li>
+<li><strong>Cosine similarity</strong>가 임베딩 비교에 표준인 이유(스케일 불변성)를 설명하고, NumPy로 두 이미지·두 단어 임베딩의 cosine similarity를 계산할 수 있습니다.</li>
+</ol>
+<hr />
+<h2>오늘의 논리 사슬</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>질문</th>
+<th>답 (이 강의의 답)</th>
+<th>도구</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>한 Vector의 <strong>길이</strong>?</td>
+<td><strong>Euclidean norm</strong> <span class="arithmatex">\(\|\mathbf{x}\|_2 = \sqrt{\sum x_i^2}\)</span></td>
+<td>피타고라스</td>
+</tr>
+<tr>
+<td>길이의 본질적 성질은?</td>
+<td>(N1) 양정성 · (N2) 동차성 · (N3) 삼각부등식</td>
+<td>세 검사 도구</td>
+</tr>
+<tr>
+<td>두 Vector의 <strong>관계</strong>?</td>
+<td><strong>Dot product</strong> <span class="arithmatex">\(\mathbf{u}\cdot\mathbf{v} = \sum u_i v_i\)</span></td>
+<td>성분별 곱의 합</td>
+</tr>
+<tr>
+<td>Norm과 Dot product의 다리?</td>
+<td><span class="arithmatex">\(\|\mathbf{u}\|_2^2 = \mathbf{u}\cdot\mathbf{u}\)</span></td>
+<td>정의에서 직접</td>
+</tr>
+<tr>
+<td><strong>각도</strong>를 어떻게 정의?</td>
+<td><span class="arithmatex">\(\cos\theta := \dfrac{\mathbf{u}\cdot\mathbf{v}}{\|\mathbf{u}\|\|\mathbf{v}\|}\)</span></td>
+<td>2D·3D 기하 일치</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\cos\theta \in [-1, 1]\)</span> 보장?</td>
+<td><strong>Cauchy-Schwarz</strong></td>
+<td>이차식 판별식</td>
+</tr>
+<tr>
+<td>AI 임베딩 비교?</td>
+<td><strong>Cosine similarity</strong></td>
+<td>스케일 불변</td>
+</tr>
+</tbody>
+</table></div>
+<p>이 사슬을 한 회차에 완주합니다.</p>
+<hr />
+<h2>수업 흐름 (120분)</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>시간</th>
+<th>블록</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0~15</td>
+<td>A</td>
+<td><strong>오프닝</strong> — 핵심 질문 + 1회차 Review</td>
+</tr>
+<tr>
+<td>15~45</td>
+<td><strong>B</strong></td>
+<td><strong>Norm</strong> — 동기 · 정의 · 세 가지 성질 (R^n에서 검증) · <span class="arithmatex">\(\ell_1, \ell_2, \ell_\infty\)</span></td>
+</tr>
+<tr>
+<td>45~75</td>
+<td><strong>C</strong></td>
+<td><strong>Dot product · 각도 · Cauchy-Schwarz</strong> (R^n에서 증명)</td>
+</tr>
+<tr>
+<td>75~105</td>
+<td><strong>D</strong></td>
+<td><strong>Cosine similarity</strong> · 임베딩 정렬 · CS·AI 적용</td>
+</tr>
+<tr>
+<td>105~120</td>
+<td>E</td>
+<td><strong>코딩 실습</strong> + 마무리 문제 + 숙제</td>
+</tr>
+</tbody>
+</table></div>
+<p>표준 사이클: <strong>핵심 질문 → Review → 본 강의 → 마무리 문제 → 숙제(=다음 회차 Review)</strong></p>
+<blockquote>
+<p>오늘은 <strong>C가 심장</strong>입니다. Cauchy-Schwarz 증명 패턴(이차식 → 판별식)이 학기 전반에 반복됩니다.</p>
+</blockquote>
+<hr />
+<h1>B. 수학 1 — Norm: "길이"의 정확한 명세</h1>
+<blockquote>
+<p>1회차에서 본 한 Vector를 이제 <strong>하나의 숫자(크기)로 요약</strong>합니다.</p>
+</blockquote>
+<hr />
+<h2>B-1. 왜 길이를 정의해야 하는가</h2>
+<p><strong>문제 상황</strong>: MNIST 평균 7 이미지 <span class="arithmatex">\(\mathbf{m} \in \mathbb{R}^{784}\)</span>와 새 이미지 <span class="arithmatex">\(\mathbf{x} \in \mathbb{R}^{784}\)</span>. 둘이 얼마나 비슷한가?</p>
+<p>가장 자연스러운 답: <strong>두 점 사이 거리</strong> <span class="arithmatex">\(\|\mathbf{x} - \mathbf{m}\|\)</span>.</p>
+<p>→ 그러면 "거리"가 무엇인지부터 정의해야 합니다.</p>
+<div class="analogy">
+<p>💡 <strong>파인만식 비유</strong>: Norm은 <strong>한 점에서 원점까지의 거리</strong>, 즉 화살표 한 개의 <strong>길이</strong>입니다. 2차원에서 <span class="arithmatex">\((3, 4)\)</span>까지 가려면 직각삼각형의 빗변 길이만큼 가야 하고, 그 길이는 <span class="arithmatex">\(\sqrt{3^2 + 4^2} = 5\)</span>입니다. <strong>피타고라스가 <span class="arithmatex">\(\mathbb{R}^n\)</span>에서 그대로 확장된 것</strong>이 Euclidean norm입니다.</p>
+</div>
+<p>거리의 직관 3가지:
+1. <strong>양수</strong>: 길이는 음수일 수 없습니다.
+2. <strong>2배로 늘리면 길이도 2배</strong>: Scalar곱 비례.
+3. <strong>직진이 우회보다 짧다</strong>: 삼각부등식.</p>
+<p>→ 이 직관 3개를 그대로 <strong>명세</strong>(spec)로 적습니다.</p>
+<hr />
+<h2>B-2. Euclidean norm의 정의</h2>
+<h3>정의 2.1 (Euclidean norm, <span class="arithmatex">\(\ell_2\)</span> Norm)</h3>
+<p><span class="arithmatex">\(\mathbf{x} = (x_1, \ldots, x_n)^\top \in \mathbb{R}^n\)</span>의 <strong>Euclidean norm</strong>:</p>
+<div class="arithmatex">\[\|\mathbf{x}\|_2 := \sqrt{x_1^2 + x_2^2 + \cdots + x_n^2} = \sqrt{\sum_{i=1}^n x_i^2}\]</div>
+<p>이 강의에서 별도 표기가 없으면 <span class="arithmatex">\(\|\mathbf{x}\| = \|\mathbf{x}\|_2\)</span>입니다.</p>
+<h3>동기 — 피타고라스의 <span class="arithmatex">\(n\)</span>차원 확장</h3>
+<ul>
+<li><span class="arithmatex">\(\mathbb{R}^2\)</span>: <span class="arithmatex">\(\sqrt{x_1^2 + x_2^2}\)</span> — 직각삼각형 빗변.</li>
+<li><span class="arithmatex">\(\mathbb{R}^3\)</span>: <span class="arithmatex">\(\sqrt{x_1^2 + x_2^2 + x_3^2}\)</span> — 직육면체 대각선.</li>
+<li><span class="arithmatex">\(\mathbb{R}^n\)</span>: 같은 공식이 그대로 자연스럽습니다.</li>
+</ul>
+<h3>예제</h3>
+<ul>
+<li><span class="arithmatex">\(\mathbf{x} = (3, 4)^\top\)</span>: <span class="arithmatex">\(\|\mathbf{x}\| = \sqrt{9 + 16} = 5\)</span></li>
+<li><span class="arithmatex">\(\mathbf{x} = (1, 2, 2)^\top\)</span>: <span class="arithmatex">\(\|\mathbf{x}\| = \sqrt{1 + 4 + 4} = 3\)</span></li>
+<li><span class="arithmatex">\(\mathbf{x} = (2, -3, 1, -4)^\top\)</span>: <span class="arithmatex">\(\|\mathbf{x}\| = \sqrt{4 + 9 + 1 + 16} = \sqrt{30} \approx 5.48\)</span></li>
+</ul>
+<hr />
+<h2>B-3. Norm의 세 가지 본질 성질 (R^n에서 검증)</h2>
+<p><strong>Strang의 관찰</strong>: Euclidean norm은 세 가지 성질을 만족합니다.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>성질</th>
+<th>식</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(N1) <strong>양정성</strong></td>
+<td><span class="arithmatex">\(\|\mathbf{x}\| \ge 0\)</span>, <span class="arithmatex">\(\|\mathbf{x}\| = 0 \iff \mathbf{x} = \mathbf{0}\)</span></td>
+<td>거리는 음수 X, 거리 0은 같은 점</td>
+</tr>
+<tr>
+<td>(N2) <strong>동차성</strong></td>
+<td><span class="arithmatex">\(\|\alpha\mathbf{x}\| = \lvert\alpha\rvert\,\|\mathbf{x}\|\)</span></td>
+<td><span class="arithmatex">\(\alpha\)</span>배로 늘리면 길이도 <span class="arithmatex">\(\lvert\alpha\rvert\)</span>배</td>
+</tr>
+<tr>
+<td>(N3) <strong>삼각부등식</strong></td>
+<td><span class="arithmatex">\(\|\mathbf{x} + \mathbf{y}\| \le \|\mathbf{x}\| + \|\mathbf{y}\|\)</span></td>
+<td>직진 ≤ 우회</td>
+</tr>
+</tbody>
+</table></div>
+<h3><span class="arithmatex">\(\mathbb{R}^n\)</span>에서 (N1)·(N2) 검증</h3>
+<ul>
+<li><strong>(N1)</strong>: <span class="arithmatex">\(x_i^2 \ge 0\)</span>이라 <span class="arithmatex">\(\sum x_i^2 \ge 0\)</span>. 등호는 모든 <span class="arithmatex">\(x_i = 0\)</span>일 때만 성립.</li>
+<li><strong>(N2)</strong>: <span class="arithmatex">\(\|\alpha\mathbf{x}\|^2 = \sum (\alpha x_i)^2 = \alpha^2 \sum x_i^2\)</span>. 제곱근을 씌우면 <span class="arithmatex">\(|\alpha|\,\|\mathbf{x}\|\)</span>.</li>
+</ul>
+<p>→ (N3) 삼각부등식은 <strong>Cauchy-Schwarz의 결과</strong>로 C 섹션에서 증명합니다.</p>
+<blockquote>
+<p><strong>메시지</strong>: 7회차에서 일반 vector space의 norm을 정식 정의할 때 이 세 가지가 그대로 <strong>axioms(공리)</strong>로 격상됩니다. 오늘은 <span class="arithmatex">\(\mathbb{R}^n\)</span>에서 "성질"로 부르고 직접 확인합니다.</p>
+</blockquote>
+<hr />
+<h2>B-4. 보조 Norm — <span class="arithmatex">\(\ell_1, \ell_\infty\)</span> (Strang 보조)</h2>
+<p>같은 Vector의 "크기"를 재는 다른 잣대들:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Norm</th>
+<th>정의</th>
+<th>직관·응용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\ell_1\)</span> (Manhattan)</td>
+<td><span class="arithmatex">\(\sum_i \lvert x_i \rvert\)</span></td>
+<td>격자 도시(택시) · <strong>Lasso (sparse)</strong></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\ell_2\)</span> (Euclidean)</td>
+<td><span class="arithmatex">\(\sqrt{\sum_i x_i^2}\)</span></td>
+<td><strong>피타고라스</strong> · 거의 모든 LA · Ridge</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\ell_\infty\)</span> (Chebyshev)</td>
+<td><span class="arithmatex">\(\max_i \lvert x_i \rvert\)</span></td>
+<td>최악 경우 · 안정성 분석</td>
+</tr>
+</tbody>
+</table></div>
+<h3>예제 — 같은 Vector, 세 가지 크기</h3>
+<p><span class="arithmatex">\(\mathbf{a} = (3, 1, -2, 4)^\top\)</span>:
+- <span class="arithmatex">\(\|\mathbf{a}\|_1 = 3 + 1 + 2 + 4 = 10\)</span>
+- <span class="arithmatex">\(\|\mathbf{a}\|_2 = \sqrt{9 + 1 + 4 + 16} = \sqrt{30} \approx 5.48\)</span>
+- <span class="arithmatex">\(\|\mathbf{a}\|_\infty = \max\{3,1,2,4\} = 4\)</span></p>
+<div class="analogy">
+<p>💡 <strong>파인만식 비유</strong>: 같은 햄버거 (빵 3, 패티 1, 피클 2, 양상추 4)도 잣대마다 다른 크기 숫자입니다. <span class="arithmatex">\(\ell_1\)</span> = <strong>재료 총 개수</strong> (10), <span class="arithmatex">\(\ell_2\)</span> = <strong>무게감을 반영한 종합 크기</strong> (<span class="arithmatex">\(\sqrt{30}\)</span>), <span class="arithmatex">\(\ell_\infty\)</span> = <strong>가장 많이 든 한 재료</strong> (4). 어떤 잣대를 쓸지가 곧 "무엇을 비교할 것인가"를 결정합니다.</p>
+</div>
+<p>오늘 회차는 <strong><span class="arithmatex">\(\ell_2\)</span> 중심</strong>입니다. <span class="arithmatex">\(\ell_1, \ell_\infty\)</span>는 11회차(정사영·정규화)에서 다시 본격적으로 만납니다.</p>
+<hr />
+<h2>B-5. Unit ball(단위구)의 모양</h2>
+<p><span class="arithmatex">\(\mathbb{R}^2\)</span>의 Unit ball <span class="arithmatex">\(\{\mathbf{x} : \|\mathbf{x}\| = 1\}\)</span>:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Norm</th>
+<th>모양</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\ell_1\)</span></td>
+<td><strong>마름모</strong> (꼭짓점이 좌표축 위)</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\ell_2\)</span></td>
+<td><strong>원</strong></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\ell_\infty\)</span></td>
+<td><strong>정사각형</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>→ <strong>같은 "크기 1"이지만 모양이 다릅니다</strong>. 어떤 Norm을 쓰느냐가 "어디까지가 가까운가"의 범위를 다르게 정의합니다.</p>
+<h3>정규화(normalization)</h3>
+<p><span class="arithmatex">\(\mathbf{x} \ne \mathbf{0}\)</span>에 대해
+$<span class="arithmatex">\(\hat{\mathbf{x}} := \frac{\mathbf{x}}{\|\mathbf{x}\|_2}\)</span>$
+는 <strong><span class="arithmatex">\(\|\hat{\mathbf{x}}\|_2 = 1\)</span></strong>인 <strong>단위 Vector</strong>(unit vector)입니다. (N2) 동차성의 직접 응용입니다.</p>
+<p>→ Embedding(임베딩) 검색에서 표준 전처리입니다. D 섹션에서 본격적으로 봅니다.</p>
+<hr />
+<!-- _class: exercise -->
+
+<h1>🖍 잠깐 풀어보기 — Norm</h1>
+<p>옆 사람과 5분 토의 후 답을 종이에 적어보세요.</p>
+<h3>문제 1 (계산)</h3>
+<p><span class="arithmatex">\(\mathbf{x} = (1, -2, 2, 0)^\top\)</span>의 <span class="arithmatex">\(\ell_1, \ell_2, \ell_\infty\)</span>를 각각 구하세요. 또한 <span class="arithmatex">\(\mathbf{x}\)</span>를 단위 Vector로 정규화하세요.</p>
+<h3>문제 2 (개념)</h3>
+<p>다음 함수 <span class="arithmatex">\(g: \mathbb{R}^2 \to \mathbb{R}\)</span>가 <strong>Norm</strong>의 세 가지 성질 (N1·N2·N3)을 만족합니까? 각각 검사하세요.</p>
+<ul>
+<li>(i) <span class="arithmatex">\(g(\mathbf{x}) = x_1^2 + x_2^2\)</span></li>
+<li>(ii) <span class="arithmatex">\(h(\mathbf{x}) = |x_1| + 2|x_2|\)</span></li>
+</ul>
+<blockquote>
+<p><strong>힌트</strong>: (N2) 동차성 <span class="arithmatex">\(\|\alpha\mathbf{x}\| = |\alpha|\,\|\mathbf{x}\|\)</span> 검사가 가장 빠른 판별입니다.</p>
+</blockquote>
+<hr />
+<!-- _class: exercise -->
+
+<h2>잠깐 풀어보기 — 답</h2>
+<h3>문제 1</h3>
+<ul>
+<li><span class="arithmatex">\(\|\mathbf{x}\|_1 = 1 + 2 + 2 + 0 = 5\)</span></li>
+<li><span class="arithmatex">\(\|\mathbf{x}\|_2 = \sqrt{1 + 4 + 4 + 0} = 3\)</span></li>
+<li><span class="arithmatex">\(\|\mathbf{x}\|_\infty = \max\{1, 2, 2, 0\} = 2\)</span></li>
+<li>단위 Vector: <span class="arithmatex">\(\hat{\mathbf{x}} = \mathbf{x}/3 = (1/3, -2/3, 2/3, 0)^\top\)</span>. 검증: <span class="arithmatex">\(\sqrt{1/9 + 4/9 + 4/9 + 0} = \sqrt{9/9} = 1\)</span> ✓</li>
+</ul>
+<h3>문제 2</h3>
+<ul>
+<li><strong>(i) <span class="arithmatex">\(g\)</span> — Norm이 아닙니다</strong>. (N2) 위배: <span class="arithmatex">\(g(2\mathbf{x}) = (2x_1)^2 + (2x_2)^2 = 4(x_1^2 + x_2^2) = 4g(\mathbf{x})\)</span>이지만 <span class="arithmatex">\(|2|\,g(\mathbf{x}) = 2g(\mathbf{x})\)</span>. <strong><span class="arithmatex">\(\ell_2\)</span>의 제곱</strong>은 Norm이 아닙니다 (제곱근을 빼먹으면 안 됨).</li>
+<li><strong>(ii) <span class="arithmatex">\(h\)</span> — Norm입니다</strong>. 가중치 다른 <span class="arithmatex">\(\ell_1\)</span> 변형. (N1) <span class="arithmatex">\(\sum a_i|x_i| \ge 0\)</span> ✓, (N2) <span class="arithmatex">\(h(\alpha\mathbf{x}) = |\alpha|\,h(\mathbf{x})\)</span> ✓, (N3) 삼각부등식 ✓.</li>
+</ul>
+<blockquote>
+<p><strong>메시지</strong>: Norm의 세 성질은 외우는 것이 아니라 <strong>검사 도구</strong>입니다. 새 함수를 마주치면 세 성질로 즉시 검증합니다.</p>
+</blockquote>
+<hr />
+<h1>C. 수학 2 — Dot product · 각도 · Cauchy-Schwarz</h1>
+<blockquote>
+<p>오늘 회차의 심장입니다. 두 Vector를 한 Scalar로 묶어 <strong>각도</strong>를 정의합니다.</p>
+</blockquote>
+<hr />
+<h2>C-1. Dot product의 정의</h2>
+<h3>정의 2.2 (<span class="arithmatex">\(\mathbb{R}^n\)</span>의 Dot product)</h3>
+<p><span class="arithmatex">\(\mathbf{u}, \mathbf{v} \in \mathbb{R}^n\)</span>의 <strong>Dot product</strong>(내적, inner product):</p>
+<div class="arithmatex">\[\mathbf{u} \cdot \mathbf{v} := u_1 v_1 + u_2 v_2 + \cdots + u_n v_n = \sum_{i=1}^n u_i v_i \in \mathbb{R}\]</div>
+<p>다른 표기: <span class="arithmatex">\(\mathbf{u}^\top \mathbf{v}\)</span>, <span class="arithmatex">\(\langle \mathbf{u}, \mathbf{v} \rangle\)</span>. 이 강의에서는 세 표기를 혼용합니다.</p>
+<h3>예제</h3>
+<ul>
+<li><span class="arithmatex">\(\mathbf{u} = (1, 2, 3)^\top\)</span>, <span class="arithmatex">\(\mathbf{v} = (4, -1, 2)^\top\)</span>: <span class="arithmatex">\(\mathbf{u}\cdot\mathbf{v} = 4 - 2 + 6 = 8\)</span></li>
+<li><span class="arithmatex">\(\mathbf{e}_1 \cdot \mathbf{e}_2 = 0\)</span> — 표준 basis는 서로 <strong>직교</strong>.</li>
+</ul>
+<h3>즉시 따라오는 사실 — Norm과의 다리</h3>
+<div class="arithmatex">\[\mathbf{u} \cdot \mathbf{u} = \sum u_i^2 = \|\mathbf{u}\|_2^2\]</div>
+<p>→ <strong><span class="arithmatex">\(\ell_2\)</span> Norm은 Dot product에서 자동으로 유도</strong>됩니다. 이 사실이 <span class="arithmatex">\(\ell_2\)</span>가 LA의 표준이 되는 이유입니다.</p>
+<hr />
+<h2>C-2. Dot product의 대수적 성질</h2>
+<p>다음 셋은 <span class="arithmatex">\(\mathbb{R}^n\)</span>에서 정의로부터 직접 따라옵니다.</p>
+<ul>
+<li><strong>(D1) 대칭</strong>: <span class="arithmatex">\(\mathbf{u}\cdot\mathbf{v} = \mathbf{v}\cdot\mathbf{u}\)</span></li>
+<li><strong>(D2) 선형</strong>: <span class="arithmatex">\((\alpha\mathbf{u} + \beta\mathbf{w}) \cdot \mathbf{v} = \alpha(\mathbf{u}\cdot\mathbf{v}) + \beta(\mathbf{w}\cdot\mathbf{v})\)</span></li>
+<li><strong>(D3) 양정성</strong>: <span class="arithmatex">\(\mathbf{u}\cdot\mathbf{u} \ge 0\)</span>, <span class="arithmatex">\(\mathbf{u}\cdot\mathbf{u} = 0 \iff \mathbf{u} = \mathbf{0}\)</span></li>
+</ul>
+<p><strong>증명 골자</strong>. 모두 실수의 덧셈·곱셈 성질을 성분별로 적용. 예: (D2) <span class="arithmatex">\(\sum_i (\alpha u_i + \beta w_i)v_i = \alpha\sum u_i v_i + \beta\sum w_i v_i\)</span>. <span class="arithmatex">\(\blacksquare\)</span></p>
+<blockquote>
+<p><strong>노트</strong>: 이 세 성질이 7회차에서 일반 inner product의 <strong>axioms(공리)</strong>로 격상됩니다. 오늘은 <span class="arithmatex">\(\mathbb{R}^n\)</span>의 구체 사실로만 다룹니다.</p>
+</blockquote>
+<div class="analogy">
+<p>💡 <strong>파인만식 비유</strong>: Dot product는 <strong>단가 × 수량 → 총액</strong>입니다. 단가 <span class="arithmatex">\(\mathbf{p} = (800, 2000, 100)\)</span>원 (빵·패티·피클), 수량 <span class="arithmatex">\(\mathbf{q} = (2, 1, 5)\)</span>이면 <span class="arithmatex">\(\mathbf{p}\cdot\mathbf{q} = 1600 + 2000 + 500 = 4{,}100\)</span>원 = 햄버거 한 개 원가. <strong>두 Vector를 곱해 한 Scalar가 나오는 이유</strong> — 가격 × 수량을 모두 합산한 <strong>종합 점수</strong>가 한 숫자라서.</p>
+</div>
+<hr />
+<h2>C-3. 2D·3D에서 기하 해석 — <span class="arithmatex">\(\cos\theta\)</span>가 등장하는 이유</h2>
+<p><strong>평면(2D)에서의 사실</strong> (Strang §1.2):</p>
+<p><span class="arithmatex">\(\mathbf{u} = (\|\mathbf{u}\|\cos\alpha, \|\mathbf{u}\|\sin\alpha)^\top\)</span>, <span class="arithmatex">\(\mathbf{v} = (\|\mathbf{v}\|\cos\beta, \|\mathbf{v}\|\sin\beta)^\top\)</span>로 쓰면</p>
+<div class="arithmatex">\[\mathbf{u}\cdot\mathbf{v} = \|\mathbf{u}\|\|\mathbf{v}\|(\cos\alpha\cos\beta + \sin\alpha\sin\beta) = \|\mathbf{u}\|\|\mathbf{v}\|\cos(\beta - \alpha)\]</div>
+<p>즉 <strong>두 Vector 사이의 각 <span class="arithmatex">\(\theta = \beta - \alpha\)</span></strong>가 자연스럽게 나타나며</p>
+<div class="arithmatex">\[\boxed{\;\mathbf{u}\cdot\mathbf{v} = \|\mathbf{u}\|\|\mathbf{v}\|\cos\theta\;}\]</div>
+<p>→ <strong>2차원·3차원의 기하적 사실</strong>입니다. 코사인 법칙으로도 유도됩니다.</p>
+<h3>핵심 발상</h3>
+<p>이 식을 <span class="arithmatex">\(n\)</span>차원으로 <strong>확장</strong>할 때는 <strong><span class="arithmatex">\(\cos\theta\)</span>를 정의</strong>해야 합니다 — <span class="arithmatex">\(n\)</span>차원에서는 "각"이라는 기하 개념이 미리 있는 게 아니기 때문입니다.</p>
+<div class="arithmatex">\[\cos\theta := \frac{\mathbf{u}\cdot\mathbf{v}}{\|\mathbf{u}\|\,\|\mathbf{v}\|} \quad (\mathbf{u}, \mathbf{v} \ne \mathbf{0})\]</div>
+<p>→ 이 정의가 정당하려면 <strong><span class="arithmatex">\(\cos\theta \in [-1, 1]\)</span>이 보장</strong>되어야 합니다. 그 보장이 곧 <strong>Cauchy-Schwarz</strong>입니다.</p>
+<hr />
+<h2>C-4. Cauchy-Schwarz inequality — 증명</h2>
+<h3>정리 2.1 (Cauchy-Schwarz, <span class="arithmatex">\(\mathbb{R}^n\)</span>)</h3>
+<p>모든 <span class="arithmatex">\(\mathbf{u}, \mathbf{v} \in \mathbb{R}^n\)</span>에 대해
+$<span class="arithmatex">\(|\mathbf{u} \cdot \mathbf{v}| \le \|\mathbf{u}\|_2\,\|\mathbf{v}\|_2\)</span>$
+등호 <span class="arithmatex">\(\iff\)</span> <span class="arithmatex">\(\mathbf{u}, \mathbf{v}\)</span>가 <strong>평행</strong> (즉 한쪽이 다른 쪽의 Scalar배).</p>
+<h3>증명 (이차식 비음성 → 판별식 패턴)</h3>
+<p><span class="arithmatex">\(\mathbf{v} = \mathbf{0}\)</span>이면 양변이 0이므로 자명. <span class="arithmatex">\(\mathbf{v} \ne \mathbf{0}\)</span> 가정.</p>
+<p>임의의 <span class="arithmatex">\(t \in \mathbb{R}\)</span>에 대해 <span class="arithmatex">\(\|\mathbf{u} - t\mathbf{v}\|^2 \ge 0\)</span> (Norm의 (N1))이라</p>
+<div class="arithmatex">\[\|\mathbf{u} - t\mathbf{v}\|^2 = (\mathbf{u} - t\mathbf{v})\cdot(\mathbf{u} - t\mathbf{v}) = \|\mathbf{u}\|^2 - 2t(\mathbf{u}\cdot\mathbf{v}) + t^2\|\mathbf{v}\|^2 \ge 0\]</div>
+<p>이 식은 <span class="arithmatex">\(t\)</span>에 대한 이차식 (<span class="arithmatex">\(t^2\)</span>의 계수 <span class="arithmatex">\(\|\mathbf{v}\|^2 &gt; 0\)</span>). 모든 <span class="arithmatex">\(t\)</span>에서 비음수이려면 <strong>판별식 <span class="arithmatex">\(\le 0\)</span></strong>:</p>
+<div class="arithmatex">\[4(\mathbf{u}\cdot\mathbf{v})^2 - 4\|\mathbf{u}\|^2\|\mathbf{v}\|^2 \le 0 \;\;\Longrightarrow\;\; (\mathbf{u}\cdot\mathbf{v})^2 \le \|\mathbf{u}\|^2\|\mathbf{v}\|^2\]</div>
+<p>양변에 제곱근. <span class="arithmatex">\(\;|\mathbf{u}\cdot\mathbf{v}| \le \|\mathbf{u}\|\|\mathbf{v}\|\)</span>. <span class="arithmatex">\(\blacksquare\)</span></p>
+<p><strong>등호 조건</strong>: 판별식 = 0 ⟺ <span class="arithmatex">\(\|\mathbf{u} - t^*\mathbf{v}\|^2 = 0\)</span>인 <span class="arithmatex">\(t^*\)</span> 존재 ⟺ <span class="arithmatex">\(\mathbf{u} = t^*\mathbf{v}\)</span> (평행).</p>
+<blockquote>
+<p><strong>이 증명 패턴 (이차식 비음성 → 판별식)이 LA·최적화에서 반복됩니다.</strong> 기억해 둡니다.</p>
+</blockquote>
+<hr />
+<h2>C-5. Cauchy-Schwarz의 두 결과 — 삼각부등식 + 각도</h2>
+<h3>결과 1 — <span class="arithmatex">\(\ell_2\)</span>의 삼각부등식 (Norm 성질 N3)</h3>
+<div class="arithmatex">\[\|\mathbf{u} + \mathbf{v}\|^2 = \|\mathbf{u}\|^2 + 2(\mathbf{u}\cdot\mathbf{v}) + \|\mathbf{v}\|^2 \le \|\mathbf{u}\|^2 + 2\|\mathbf{u}\|\|\mathbf{v}\| + \|\mathbf{v}\|^2 = (\|\mathbf{u}\| + \|\mathbf{v}\|)^2\]</div>
+<p>(중간 부등은 Cauchy-Schwarz: <span class="arithmatex">\(\mathbf{u}\cdot\mathbf{v} \le |\mathbf{u}\cdot\mathbf{v}| \le \|\mathbf{u}\|\|\mathbf{v}\|\)</span>.)</p>
+<p>따라서 <span class="arithmatex">\(\|\mathbf{u}+\mathbf{v}\|_2 \le \|\mathbf{u}\|_2 + \|\mathbf{v}\|_2\)</span>. <span class="arithmatex">\(\blacksquare\)</span></p>
+<p>→ <strong><span class="arithmatex">\(\ell_2\)</span>가 Norm이라는 사실의 (N3) 증명은 Cauchy-Schwarz가 핵심</strong>입니다.</p>
+<h3>결과 2 — 각도가 잘 정의됨</h3>
+<p><span class="arithmatex">\(\mathbf{u}, \mathbf{v} \ne \mathbf{0}\)</span>이면 Cauchy-Schwarz로</p>
+<div class="arithmatex">\[-1 \le \frac{\mathbf{u}\cdot\mathbf{v}}{\|\mathbf{u}\|\|\mathbf{v}\|} \le 1\]</div>
+<p>→ 유일한 <span class="arithmatex">\(\theta \in [0, \pi]\)</span>가 존재해 <span class="arithmatex">\(\cos\theta = \dfrac{\mathbf{u}\cdot\mathbf{v}}{\|\mathbf{u}\|\|\mathbf{v}\|}\)</span>가 성립합니다. 이 <span class="arithmatex">\(\theta\)</span>를 두 Vector 사이의 <strong>각</strong>이라 정의합니다.</p>
+<div class="analogy">
+<p>💡 <strong>파인만식 비유</strong>: Cauchy-Schwarz는 <strong>"두 화살표의 그림자는 본래 화살표보다 길 수 없다"</strong>입니다. 한 막대(<span class="arithmatex">\(\mathbf{u}\)</span>)를 다른 막대(<span class="arithmatex">\(\mathbf{v}\)</span>)의 방향으로 비추면 그림자의 길이가 <span class="arithmatex">\(|\mathbf{u}\cdot\mathbf{v}|/\|\mathbf{v}\|\)</span>입니다. 이 그림자는 절대로 본래 막대 길이 <span class="arithmatex">\(\|\mathbf{u}\|\)</span>보다 길 수 없습니다 (양변에 <span class="arithmatex">\(\|\mathbf{v}\|\)</span>를 곱한 식이 Cauchy-Schwarz). <strong>평행하면 그림자가 본래 막대와 일치</strong>합니다 (등호). 11회차 정사영의 출발점입니다.</p>
+</div>
+<hr />
+<h2>C-6. 각도와 직교성 — 정리</h2>
+<h3>정의 2.3 (각도)</h3>
+<p><span class="arithmatex">\(\mathbf{u}, \mathbf{v} \in \mathbb{R}^n\)</span> (<span class="arithmatex">\(\ne \mathbf{0}\)</span>)에 대해 각 <span class="arithmatex">\(\theta \in [0, \pi]\)</span>를</p>
+<div class="arithmatex">\[\cos\theta = \frac{\mathbf{u}\cdot\mathbf{v}}{\|\mathbf{u}\|_2\|\mathbf{v}\|_2}\]</div>
+<p>으로 <strong>정의</strong>합니다.</p>
+<h3>정의 2.4 (Orthogonal(직교))</h3>
+<p><span class="arithmatex">\(\mathbf{u}\cdot\mathbf{v} = 0\)</span>일 때 두 Vector를 <strong>Orthogonal</strong>이라 부릅니다 (<span class="arithmatex">\(\theta = \pi/2\)</span>).</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: center;"><span class="arithmatex">\(\mathbf{u}\cdot\mathbf{v}\)</span> 부호</th>
+<th style="text-align: center;"><span class="arithmatex">\(\cos\theta\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(\theta\)</span></th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(&gt; 0\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(&gt; 0\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(0 \le \theta &lt; \pi/2\)</span></td>
+<td><strong>예각</strong> — 같은 방향</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(= 0\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(= 0\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\theta = \pi/2\)</span></td>
+<td><strong>직각</strong> — Orthogonal</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(&lt; 0\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(&lt; 0\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\pi/2 &lt; \theta \le \pi\)</span></td>
+<td><strong>둔각</strong> — 반대 방향</td>
+</tr>
+</tbody>
+</table></div>
+<h3>주의 — 흔한 오해</h3>
+<p>"Dot product가 0이면 둘 중 하나가 영Vector" → <strong>거짓</strong>. 반례: <span class="arithmatex">\(\mathbf{e}_1 \cdot \mathbf{e}_2 = 0\)</span>인데 둘 다 영Vector가 아닙니다. <strong>Orthogonal</strong>이라는 새 관계입니다 (10회차 본격 정의).</p>
+<hr />
+<!-- _class: exercise -->
+
+<h1>🖍 잠깐 풀어보기 — Dot product · Cauchy-Schwarz</h1>
+<h3>문제 1 (계산)</h3>
+<p><span class="arithmatex">\(\mathbf{u} = (1, 1, 1)^\top\)</span>, <span class="arithmatex">\(\mathbf{v} = (1, -1, 0)^\top\)</span>에 대해:
+- (a) <span class="arithmatex">\(\mathbf{u}\cdot\mathbf{v}\)</span>
+- (b) <span class="arithmatex">\(\|\mathbf{u}\|_2, \|\mathbf{v}\|_2\)</span>
+- (c) <span class="arithmatex">\(\cos\theta\)</span> 와 <span class="arithmatex">\(\theta\)</span>
+- (d) Cauchy-Schwarz <span class="arithmatex">\(|\mathbf{u}\cdot\mathbf{v}| \le \|\mathbf{u}\|\|\mathbf{v}\|\)</span> 수치 검증</p>
+<h3>문제 2 (증명)</h3>
+<p><span class="arithmatex">\(\mathbf{u}, \mathbf{v} \in \mathbb{R}^n\)</span>에 대해 다음 <strong>항등식</strong>을 증명하세요:
+$<span class="arithmatex">\(\|\mathbf{u} - \mathbf{v}\|_2^2 = \|\mathbf{u}\|_2^2 + \|\mathbf{v}\|_2^2 - 2(\mathbf{u}\cdot\mathbf{v})\)</span>$</p>
+<p>→ 이것이 <strong>코사인 법칙의 Vector 버전</strong>입니다. <span class="arithmatex">\(\mathbf{u}\cdot\mathbf{v} = 0\)</span>일 때 어떻게 단순해지는지 봅니다.</p>
+<hr />
+<!-- _class: exercise -->
+
+<h2>잠깐 풀어보기 — 답</h2>
+<h3>문제 1</h3>
+<ul>
+<li>(a) <span class="arithmatex">\(\mathbf{u}\cdot\mathbf{v} = 1 - 1 + 0 = 0\)</span></li>
+<li>(b) <span class="arithmatex">\(\|\mathbf{u}\|_2 = \sqrt{3}\)</span>, <span class="arithmatex">\(\|\mathbf{v}\|_2 = \sqrt{2}\)</span></li>
+<li>(c) <span class="arithmatex">\(\cos\theta = 0/(\sqrt{3}\sqrt{2}) = 0\)</span> → <span class="arithmatex">\(\theta = \pi/2\)</span> (정확히 <strong>90°</strong>, <strong>Orthogonal</strong>)</li>
+<li>(d) <span class="arithmatex">\(|0| = 0 \le \sqrt{6} \approx 2.45\)</span> ✓</li>
+</ul>
+<h3>문제 2 (증명)</h3>
+<p>Dot product의 분배 (D2)로
+$<span class="arithmatex">\(\|\mathbf{u} - \mathbf{v}\|^2 = (\mathbf{u} - \mathbf{v})\cdot(\mathbf{u} - \mathbf{v}) = \mathbf{u}\cdot\mathbf{u} - 2\mathbf{u}\cdot\mathbf{v} + \mathbf{v}\cdot\mathbf{v}\)</span>$
+$<span class="arithmatex">\(= \|\mathbf{u}\|^2 + \|\mathbf{v}\|^2 - 2(\mathbf{u}\cdot\mathbf{v}). \;\blacksquare\)</span>$</p>
+<p><strong><span class="arithmatex">\(\mathbf{u}\cdot\mathbf{v} = 0\)</span>일 때</strong>: <span class="arithmatex">\(\|\mathbf{u}-\mathbf{v}\|^2 = \|\mathbf{u}\|^2 + \|\mathbf{v}\|^2\)</span> — <strong>피타고라스 정리</strong>입니다.</p>
+<blockquote>
+<p><strong>메시지</strong>: Dot product가 0이면 코사인 법칙이 피타고라스로 단순화됩니다. 이것이 "Orthogonal이 LA에서 특별한 위상"인 이유의 출발점입니다 (10회차 본격).</p>
+</blockquote>
+<hr />
+<h1>D. 수학 3 — Cosine similarity와 CS·AI 적용</h1>
+<blockquote>
+<p>정의된 각도를 그대로 <strong>AI 임베딩 비교의 표준 도구</strong>로 사용합니다.</p>
+</blockquote>
+<hr />
+<h2>D-1. Cosine similarity의 정의</h2>
+<h3>정의 2.5 (Cosine similarity)</h3>
+<p><span class="arithmatex">\(\mathbf{u}, \mathbf{v} \in \mathbb{R}^n\)</span> (<span class="arithmatex">\(\ne \mathbf{0}\)</span>)에 대해</p>
+<div class="arithmatex">\[\mathrm{cos\_sim}(\mathbf{u}, \mathbf{v}) := \cos\theta = \frac{\mathbf{u}\cdot\mathbf{v}}{\|\mathbf{u}\|_2\,\|\mathbf{v}\|_2} \in [-1, 1]\]</div>
+<p>Cauchy-Schwarz가 <strong>값의 범위 <span class="arithmatex">\([-1, 1]\)</span>를 보장</strong>합니다.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: center;">값</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(+1\)</span></td>
+<td>완전 같은 방향 (평행, 같은 부호)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(0\)</span></td>
+<td>직교 (관련 없음)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(-1\)</span></td>
+<td>완전 반대 방향</td>
+</tr>
+</tbody>
+</table></div>
+<div class="analogy">
+<p>💡 <strong>파인만식 비유</strong>: Cosine similarity는 <strong>"길이를 무시하고 방향만 맞춰 평가"</strong>입니다. 두 화살표를 모두 원점에 모은 다음 길이를 1로 자르고, 끝점이 얼마나 가까운가만 봅니다. <strong>글씨를 굵게 쓴 7과 가늘게 쓴 7은 픽셀 평균값이 달라도 방향(=어디에 획이 있는가)이 같아 cosine은 거의 1입니다.</strong> 길이(굵기)는 무시하고 패턴만 비교하고 싶을 때 cosine을 씁니다.</p>
+</div>
+<hr />
+<h2>D-2. 왜 Cosine인가 — Norm의 영향과 스케일 불변성</h2>
+<h3>예시 — 같은 단어, 다른 길이</h3>
+<p><span class="arithmatex">\(\mathbf{d}_1 = (1, 1, 0, 0, \ldots)\)</span>, <span class="arithmatex">\(\mathbf{d}_2 = (10, 10, 0, 0, \ldots)\)</span> — 같은 두 단어만 등장, 등장 횟수가 10배.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>거리</th>
+<th>값</th>
+<th>해석</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Euclidean <span class="arithmatex">\(\|\mathbf{d}_1 - \mathbf{d}_2\|_2\)</span></td>
+<td><span class="arithmatex">\(\sqrt{81 + 81} = \sqrt{162} \approx 12.7\)</span></td>
+<td>"멀다"</td>
+</tr>
+<tr>
+<td><strong>Cosine similarity</strong></td>
+<td><span class="arithmatex">\(\dfrac{20}{\sqrt{2}\sqrt{200}} = 1\)</span></td>
+<td>"같다"</td>
+</tr>
+</tbody>
+</table></div>
+<p>긴 문서와 짧은 문서를 Euclidean으로 비교하면 <strong>길이 차이만으로 큰 거리</strong>가 됩니다.</p>
+<h3>스케일 불변성 (Scale invariance)</h3>
+<p>모든 <span class="arithmatex">\(\alpha, \beta &gt; 0\)</span>에 대해
+$<span class="arithmatex">\(\mathrm{cos\_sim}(\alpha\mathbf{u}, \beta\mathbf{v}) = \frac{\alpha\beta(\mathbf{u}\cdot\mathbf{v})}{\alpha\beta\|\mathbf{u}\|\|\mathbf{v}\|} = \mathrm{cos\_sim}(\mathbf{u}, \mathbf{v})\)</span>$</p>
+<p>→ <strong>방향만 보고 크기는 무시</strong>. BERT·CLIP 같은 Embedding 모델 출력 비교의 자연스러운 도구.</p>
+<h3>단위 Vector로 정규화하면</h3>
+<p><span class="arithmatex">\(\hat{\mathbf{u}} = \mathbf{u}/\|\mathbf{u}\|\)</span>, <span class="arithmatex">\(\hat{\mathbf{v}} = \mathbf{v}/\|\mathbf{v}\|\)</span>일 때
+$<span class="arithmatex">\(\mathrm{cos\_sim}(\mathbf{u}, \mathbf{v}) = \hat{\mathbf{u}}\cdot\hat{\mathbf{v}}\)</span>$
+→ 검색 시점에 단순 Dot product 한 번으로 계산. BERT·CLIP이 출력 직후 흔히 L2 정규화를 하는 이유입니다.</p>
+<hr />
+<h2>D-3. Cosine similarity가 AI 어디에 쓰이는가</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>분야</th>
+<th>어떻게 쓰는가</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>문서 검색 (RAG)</strong></td>
+<td>query 임베딩과 문서 임베딩들의 cosine similarity → top-<span class="arithmatex">\(k\)</span> 문서</td>
+</tr>
+<tr>
+<td><strong>Word2Vec · GloVe</strong></td>
+<td>"king − man + woman ≈ queen" — 단어 임베딩 cosine으로 유사어 검색</td>
+</tr>
+<tr>
+<td><strong>CLIP (이미지·텍스트)</strong></td>
+<td>텍스트 임베딩과 이미지 임베딩 cosine → zero-shot 분류</td>
+</tr>
+<tr>
+<td><strong>Recommendation</strong></td>
+<td>사용자 임베딩과 아이템 임베딩 cosine</td>
+</tr>
+<tr>
+<td><strong>Face recognition</strong></td>
+<td>두 얼굴 임베딩 cosine 임계값으로 동일인 판정</td>
+</tr>
+</tbody>
+</table></div>
+<h3>한 줄 결론</h3>
+<p><strong>현대 AI에서 "두 객체가 얼마나 비슷한가"를 정량화하는 표준 도구가 cosine similarity입니다.</strong> 그리고 그 정의의 정당성(<span class="arithmatex">\([-1, 1]\)</span> 범위)이 Cauchy-Schwarz입니다.</p>
+<p>→ <strong>오늘 본 한 부등식이 AI 검색 시스템 전체를 떠받치고 있습니다.</strong></p>
+<hr />
+<h2>D-4. 미리보기 — Attention과의 연결 (12회차)</h2>
+<p>Transformer Attention(어텐션) 한 줄:</p>
+<div class="arithmatex">\[\mathrm{Attn}(Q, K, V) = \mathrm{softmax}\!\left(\frac{QK^\top}{\sqrt{d_k}}\right) V\]</div>
+<ul>
+<li><span class="arithmatex">\(QK^\top\)</span>의 <span class="arithmatex">\((i, j)\)</span> 원소 = <strong><span class="arithmatex">\(i\)</span>번째 query와 <span class="arithmatex">\(j\)</span>번째 key의 Dot product</strong> — 오늘 본 정의 그대로.</li>
+<li><span class="arithmatex">\(\sqrt{d_k}\)</span>로 나누는 이유: 고차원에서 Dot product 값이 커지는 것을 보정 (스케일 조절).</li>
+<li>softmax 가중치는 본질적으로 <strong>각 query가 어느 key와 얼마나 가까운 방향인가</strong>의 가중치 — cosine similarity의 사촌.</li>
+</ul>
+<p>→ <strong>오늘 본 Dot product와 Norm이 곧 LLM의 핵심 연산</strong>입니다. 12회차에서 본격 다룹니다.</p>
+<hr />
+<!-- _class: exercise -->
+
+<h1>🖍 잠깐 풀어보기 — Cosine similarity</h1>
+<h3>문제 1 (계산)</h3>
+<p>다음 세 쌍의 cosine similarity를 구하고, 가장 비슷한 쌍과 가장 먼 쌍을 찾으세요.</p>
+<ul>
+<li><span class="arithmatex">\(\mathbf{a} = (1, 2, 2)^\top\)</span>, <span class="arithmatex">\(\mathbf{b} = (2, 4, 4)^\top\)</span></li>
+<li><span class="arithmatex">\(\mathbf{a} = (1, 2, 2)^\top\)</span>, <span class="arithmatex">\(\mathbf{c} = (2, -1, 0)^\top\)</span></li>
+<li><span class="arithmatex">\(\mathbf{a} = (1, 2, 2)^\top\)</span>, <span class="arithmatex">\(\mathbf{d} = (-1, -2, -2)^\top\)</span></li>
+</ul>
+<p>→ 각각의 의미(같은 방향·직교·반대 방향)를 한 단어로 적어보세요.</p>
+<hr />
+<!-- _class: exercise -->
+
+<h2>잠깐 풀어보기 — 답</h2>
+<p><span class="arithmatex">\(\|\mathbf{a}\| = 3\)</span>.</p>
+<h3><span class="arithmatex">\((\mathbf{a}, \mathbf{b})\)</span></h3>
+<p><span class="arithmatex">\(\|\mathbf{b}\| = \sqrt{4+16+16} = 6\)</span>, <span class="arithmatex">\(\mathbf{a}\cdot\mathbf{b} = 2+8+8 = 18\)</span>.
+<span class="arithmatex">\(\cos\theta = 18/(3\cdot 6) = 1\)</span> → <strong>완전 같은 방향</strong> (<span class="arithmatex">\(\mathbf{b} = 2\mathbf{a}\)</span>).</p>
+<h3><span class="arithmatex">\((\mathbf{a}, \mathbf{c})\)</span></h3>
+<p><span class="arithmatex">\(\|\mathbf{c}\| = \sqrt{4+1+0} = \sqrt{5}\)</span>, <span class="arithmatex">\(\mathbf{a}\cdot\mathbf{c} = 2 - 2 + 0 = 0\)</span>.
+<span class="arithmatex">\(\cos\theta = 0\)</span> → <strong>직교</strong> (Orthogonal).</p>
+<h3><span class="arithmatex">\((\mathbf{a}, \mathbf{d})\)</span></h3>
+<p><span class="arithmatex">\(\|\mathbf{d}\| = 3\)</span>, <span class="arithmatex">\(\mathbf{a}\cdot\mathbf{d} = -1 - 4 - 4 = -9\)</span>.
+<span class="arithmatex">\(\cos\theta = -9/(3\cdot 3) = -1\)</span> → <strong>완전 반대 방향</strong> (<span class="arithmatex">\(\mathbf{d} = -\mathbf{a}\)</span>).</p>
+<p>→ 가장 비슷한 쌍: <span class="arithmatex">\((\mathbf{a}, \mathbf{b})\)</span>. 가장 먼 쌍: <span class="arithmatex">\((\mathbf{a}, \mathbf{d})\)</span>.</p>
+<blockquote>
+<p><strong>메시지</strong>: cosine similarity의 <strong>세 극단값</strong> <span class="arithmatex">\(+1, 0, -1\)</span>이 각각 평행·직교·반평행에 정확히 대응합니다. Euclidean 거리에는 이런 깔끔한 해석이 없습니다.</p>
+</blockquote>
+<hr />
+<h1>E. 코딩 실습 + 정리 + 과제</h1>
+<hr />
+<h2>E-1. 코딩 실습 골자</h2>
+<p>→ <code>11_주피터노트북/Part1/02_노름_내적_코사인유사도.ipynb</code></p>
+<ol>
+<li><strong>Norm 직접 구현</strong> — <span class="arithmatex">\(\ell_1, \ell_2, \ell_\infty\)</span>를 라이브러리 호출 없이 NumPy로 + <code>np.linalg.norm</code>과 <code>np.allclose</code>로 검증</li>
+<li><strong>Unit ball 시각화</strong> — 마름모·원·정사각형 (<span class="arithmatex">\(\mathbb{R}^2\)</span>)</li>
+<li><strong>Dot product · cosine similarity 직접 구현</strong> + 스케일 불변성 수치 확인</li>
+<li><strong>두 MNIST 이미지의 cosine similarity</strong> — 같은 숫자 쌍 vs 다른 숫자 쌍 비교</li>
+<li><strong>사전 훈련 단어 임베딩</strong> (gensim Word2Vec 또는 sentence-transformers) — "king" · "queen" · "apple"의 pairwise cosine similarity</li>
+<li><strong>임베딩 정렬</strong> — query 단어 1개와 어휘 전체의 cosine similarity → top-5 nearest neighbors</li>
+</ol>
+<h3>핵심 NumPy 패턴</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>연산</th>
+<th>NumPy 한 줄</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Euclidean norm</td>
+<td><code>np.linalg.norm(x, ord=2)</code> 또는 <code>np.sqrt(x @ x)</code></td>
+</tr>
+<tr>
+<td>Dot product</td>
+<td><code>u @ v</code> 또는 <code>np.dot(u, v)</code></td>
+</tr>
+<tr>
+<td>행렬 형태로 일괄 cosine</td>
+<td><code>X @ Y.T / (norms_X[:, None] * norms_Y[None, :])</code></td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>E-2. 오늘 회차 핵심 5개</h2>
+<ol>
+<li><strong>Norm</strong>은 한 Vector의 <strong>길이</strong>입니다. <span class="arithmatex">\(\ell_2 = \sqrt{\sum x_i^2}\)</span> — 피타고라스의 <span class="arithmatex">\(n\)</span>차원 확장.</li>
+<li><strong>Dot product</strong>는 두 Vector의 관계를 한 Scalar로. <strong><span class="arithmatex">\(\mathbf{u}\cdot\mathbf{u} = \|\mathbf{u}\|_2^2\)</span></strong>이라 <span class="arithmatex">\(\ell_2\)</span>가 Dot product에서 자동 유도.</li>
+<li><strong>각도는 정의</strong>입니다. <span class="arithmatex">\(\cos\theta := \dfrac{\mathbf{u}\cdot\mathbf{v}}{\|\mathbf{u}\|\|\mathbf{v}\|}\)</span> — 2D·3D 기하 사실의 <span class="arithmatex">\(n\)</span>차원 확장.</li>
+<li><strong>Cauchy-Schwarz</strong> (<span class="arithmatex">\(|\mathbf{u}\cdot\mathbf{v}| \le \|\mathbf{u}\|\|\mathbf{v}\|\)</span>)가 <span class="arithmatex">\(\cos\theta \in [-1, 1]\)</span>과 <span class="arithmatex">\(\ell_2\)</span> 삼각부등식을 동시에 보장. 증명 = <strong>이차식 비음성 → 판별식</strong> 패턴.</li>
+<li><strong>Cosine similarity</strong>는 스케일 불변. AI 임베딩 비교의 표준 도구. Word2Vec·CLIP·RAG·Attention의 핵심.</li>
+</ol>
+<hr />
+<h2>E-3. 자기 점검 질문</h2>
+<ul>
+<li><span class="arithmatex">\(\ell_2\)</span>가 <span class="arithmatex">\(\ell_1, \ell_\infty\)</span>와 <strong>본질적으로 다른</strong> 한 가지 성질은 무엇입니까? (힌트: Dot product와의 관계)</li>
+<li>Cauchy-Schwarz 증명에서 핵심 아이디어 한 줄: "<strong><em>_</em> 이 <span class="arithmatex">\(t\)</span>에 대해 비음수 → </strong>___ ≤ 0".</li>
+<li>두 Vector가 <strong>Orthogonal</strong>이라는 것은 cosine similarity와 어떤 관계입니까?</li>
+<li>BERT 임베딩 비교에서 <strong>L2 정규화를 먼저 한 다음 Dot product</strong>를 쓰는 이유는?</li>
+<li>같은 두 단어만 들어 있고 등장 횟수만 10배 다른 두 문서를 비교할 때 Euclidean과 cosine 중 어느 쪽이 자연스럽습니까? 왜?</li>
+</ul>
+<hr />
+<!-- _class: exercise -->
+
+<h1>🎯 오늘의 마무리 문제 — 즉석 풀이</h1>
+<p>오늘의 사슬(Norm → Dot product → 각도 → Cauchy-Schwarz → cosine similarity)을 <strong>한 문제</strong>로 종합합니다.</p>
+<p><span class="arithmatex">\(\mathbf{u} = (3, 4)^\top\)</span>, <span class="arithmatex">\(\mathbf{v} = (1, 7)^\top\)</span>에 대해 다음을 모두 구하세요.</p>
+<ul>
+<li><strong>(a)</strong> <span class="arithmatex">\(\|\mathbf{u}\|_2,\;\|\mathbf{v}\|_2\)</span></li>
+<li><strong>(b)</strong> <span class="arithmatex">\(\mathbf{u}\cdot\mathbf{v}\)</span></li>
+<li><strong>(c)</strong> <span class="arithmatex">\(\cos\theta\)</span> — cosine similarity</li>
+<li><strong>(d)</strong> Cauchy-Schwarz <span class="arithmatex">\(|\mathbf{u}\cdot\mathbf{v}| \le \|\mathbf{u}\|\|\mathbf{v}\|\)</span> 수치 검증</li>
+<li><strong>(e)</strong> 항등식 검증: <span class="arithmatex">\(\|\mathbf{u} - \mathbf{v}\|_2^2 = \|\mathbf{u}\|^2 + \|\mathbf{v}\|^2 - 2(\mathbf{u}\cdot\mathbf{v})\)</span></li>
+</ul>
+<blockquote>
+<p><strong>메시지</strong>: (e)는 코사인 법칙의 Vector 버전입니다. <strong>오늘 본 모든 객체(Norm·Dot product)가 한 식 안에 모두 등장</strong>합니다.</p>
+</blockquote>
+<hr />
+<!-- _class: exercise -->
+
+<h2>오늘의 마무리 문제 — 답</h2>
+<ul>
+<li><strong>(a)</strong> <span class="arithmatex">\(\|\mathbf{u}\|_2 = \sqrt{9 + 16} = 5\)</span>, <span class="arithmatex">\(\;\|\mathbf{v}\|_2 = \sqrt{1 + 49} = \sqrt{50}\)</span></li>
+<li><strong>(b)</strong> <span class="arithmatex">\(\mathbf{u}\cdot\mathbf{v} = 3\cdot 1 + 4\cdot 7 = 31\)</span></li>
+<li><strong>(c)</strong> <span class="arithmatex">\(\cos\theta = \dfrac{31}{5\sqrt{50}} = \dfrac{31}{\sqrt{1250}} \approx 0.877\)</span> → 두 Vector가 거의 같은 방향 (<span class="arithmatex">\(\theta \approx 28.7°\)</span>)</li>
+<li><strong>(d)</strong> <span class="arithmatex">\(|31| = 31 \le 5\sqrt{50} = \sqrt{1250} \approx 35.36\)</span> ✓ Cauchy-Schwarz 성립 (등호는 아님 → 두 Vector가 정확히 평행은 아님)</li>
+<li><strong>(e)</strong> <span class="arithmatex">\(\mathbf{u} - \mathbf{v} = (2, -3)^\top\)</span>, <span class="arithmatex">\(\;\|\mathbf{u}-\mathbf{v}\|_2^2 = 4 + 9 = 13\)</span>
+   우변: <span class="arithmatex">\(25 + 50 - 2\cdot 31 = 13\)</span> ✓ 항등식 성립</li>
+</ul>
+<blockquote>
+<p><strong>핵심</strong>: (e) 항등식은 오늘 본 모든 개념의 종합이고, 다음 회차 Matrix·Vector 곱 → 4회차 Orthogonality(피타고라스의 일반화)로 이어집니다.</p>
+</blockquote>
+<hr />
+<!-- _class: exercise -->
+
+<h2>📝 다음 회차 Review용 숙제</h2>
+<p>위 마무리 문제의 <strong>유사 문제</strong>입니다. 강의 후 풀어 와서 <strong>3회차 Review 시간</strong>에 비교합니다.</p>
+<p>3차원으로 확장: <span class="arithmatex">\(\mathbf{u} = (2, 2, 1)^\top\)</span>, <span class="arithmatex">\(\mathbf{v} = (1, -2, 2)^\top\)</span>에 대해 (a)~(e)를 동일하게 구하세요.</p>
+<h3>풀이 시 자기 점검</h3>
+<ul>
+<li>(c) <span class="arithmatex">\(\cos\theta\)</span>의 값이 <strong>특별한 수</strong>가 나오는가? 그 의미는?</li>
+<li>(e) 항등식이 이 경우 어떻게 <strong>더 단순해지는가</strong>? — 어떤 정리가 등장합니까?</li>
+</ul>
+<h3>추가 (코딩)</h3>
+<p><code>numpy</code>로 위 결과를 모두 재현하고, <code>np.linalg.norm</code>·<code>np.dot</code>를 사용한 결과가 손계산과 일치함을 <code>np.allclose</code>로 검증하세요.</p>
+<p>3회차 시작 시 함께 답을 맞추고, 그 결과가 3회차 본 주제(<strong>Matrix·Vector 곱</strong>)에서 <strong>Row picture = Dot product 묶음</strong>으로 어떻게 직접 이어지는지 봅니다.</p>
+<hr />
+<h2>E-4. 과제 안내</h2>
+<p><code>04_과제/Part1/02회차_homework.md</code> — 마감: 3회차 시작 전</p>
+<p><strong>수학 30점</strong>
+- 진위 판정 — 예: "Dot product가 0이면 둘 중 하나가 영Vector" (반례 제시)
+- Norm·Dot product·cosine similarity 계산 (4문제)
+- <strong>Cauchy-Schwarz 재증명</strong> (이차식 판별식 패턴, 자신의 손으로)
+- <span class="arithmatex">\(\|\mathbf{u}+\mathbf{v}\|^2 + \|\mathbf{u}-\mathbf{v}\|^2 = 2(\|\mathbf{u}\|^2 + \|\mathbf{v}\|^2)\)</span> <strong>평행사변형 법칙</strong> 증명</p>
+<p><strong>코딩 20점</strong>
+- <span class="arithmatex">\(\ell_1, \ell_2, \ell_\infty\)</span> Norm 직접 구현 + <code>np.linalg.norm</code>과 비교
+- cosine similarity로 MNIST 한 query 이미지의 <strong>top-5 nearest neighbors</strong> 찾기
+- 사전 훈련 단어 임베딩(gensim Word2Vec 또는 sentence-transformers)에서 한 단어와 가장 비슷한 10개 단어 찾기
+- broadcasting vs for문 속도 비교 (<span class="arithmatex">\(n = 100, 1000, 10000\)</span> Vector 쌍)</p>
+<hr />
+<h2>E-5. 다음 회차 (3회차) 예고</h2>
+<p><strong>주제</strong>: Matrix(행렬)와 Matrix·Vector 곱의 두 해석 (Row picture · Column picture)</p>
+<p><strong>연결</strong>: 오늘 본 Dot product가 그대로 <strong>Matrix·Vector 곱의 Row picture 해석</strong>이 됩니다. <span class="arithmatex">\(A\mathbf{x}\)</span>의 <span class="arithmatex">\(i\)</span>번째 성분 = <span class="arithmatex">\(A\)</span>의 <span class="arithmatex">\(i\)</span>행과 <span class="arithmatex">\(\mathbf{x}\)</span>의 <strong>Dot product</strong>. 즉 오늘의 한 줄 정의 <span class="arithmatex">\(\mathbf{u}\cdot\mathbf{v}\)</span>가 <strong>모든 행에 대해 일괄 적용된 것이 곧 행렬 곱</strong>입니다.</p>
+<p>그리고 더 본질적인 해석(<strong>Column picture</strong>)이 1회차의 <strong>Linear combination</strong>과 직접 연결됩니다 — 두 회차에서 본 도구들이 3회차 한 식 <span class="arithmatex">\(A\mathbf{x}\)</span> 안에 모두 들어옵니다.</p>
+<p><strong>사전 reading</strong>:
+- Strang §1.3, §2.1
+- MML §2.2 (참조)
+- 3Blue1Brown EoLA Ch.3 (Linear transformations and matrices)</p>
+<hr />
+<h2>E-6. 부록 — Strang §1.2 추천 연습문제</h2>
+<p>자기 학습용 (과제와 별도, 자신의 페이스로):</p>
+<ul>
+<li><strong>§1.2 Problem 1, 2, 3</strong> — Dot product 계산·각도 (워밍업)</li>
+<li><strong>§1.2 Problem 4, 5</strong> — 단위 Vector·정규화</li>
+<li><strong>§1.2 Problem 11</strong> — Cauchy-Schwarz 수치 검증</li>
+<li><strong>§1.2 Problem 15</strong> — 삼각부등식 수치 검증</li>
+<li><strong>§1.2 Problem 18~20</strong> — cosine similarity 응용</li>
+</ul>
+<p>MIT OCW 18.06 Lecture 1 (Strang 본인) 영상 — 첫 30분이 오늘 회차 내용과 거의 일치합니다.</p>
+<hr />
+<!-- _class: lead -->
+
+<h1>Q &amp; A</h1>
+<p>오늘의 사슬:</p>
+<p><strong>Norm(<span class="arithmatex">\(\ell_2\)</span>) → Dot product → 각도 정의 → Cauchy-Schwarz → cosine similarity → 임베딩 비교</strong></p>
+<p>한 줄 결론: <strong>Cauchy-Schwarz 부등식 하나가 AI의 임베딩 검색 시스템 전체의 정당성을 보장합니다.</strong></p>
+<p><code>HANDOUT</code>: 본 PDF + <code>02_노름_내적_코사인유사도.ipynb</code></p></div></section><section class="doc" id="p3-3회차"><div class="doc-header"><span class="doc-tag p3">Phase 3</span><span class="doc-tag doc-tag-sub">Strang §1.3 회차번호 조정</span><h2 class="doc-title">3회차 Matrix·Matrix·Vector 곱</h2><div class="doc-meta"><code>07_강의교안/Part1/03회차_행렬_행렬벡터곱.md</code><span>29.8 KB</span></div></div><div class="doc-content"><hr />
+<p>marp: true
+theme: default
+paginate: true
+header: '인공지능 전공자를 위한 선형대수학'
+footer: '3회차 — Matrix와 Matrix·Vector 곱 (Row·Column picture)'
+math: mathjax
+size: 16:9
+style: |
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css');
+  section { font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            font-size: 22px; padding: 50px 60px 70px 60px; color: #111827; letter-spacing: -0.011em; }
+  section.lead { padding: 100px 60px; }
+  h1 { color: #1E40AF; margin-top: 0; font-weight: 700; letter-spacing: -0.02em; }
+  h2 { color: #111827; border-bottom: 2px solid #E5E7EB; padding-bottom: 4px; margin-top: 0; font-weight: 700; }
+  table { font-size: 17px; border-collapse: collapse; }
+  th { background: #F9FAFB; border: 1px solid #E5E7EB; }
+  td { border: 1px solid #E5E7EB; }
+  code { font-size: 17px; background: #F3F4F6; color: #BE185D; padding: 2px 6px; border-radius: 6px;
+         font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace; }
+  blockquote { font-size: 19px; border-left: 4px solid #3B82F6; color: #1E40AF;
+               background: #DBEAFE; padding: 8px 14px; border-radius: 0 8px 8px 0; }
+  section.exercise { background: #FFFBEB; }
+  section.exercise h1 { color: #B45309; }
+  section.exercise h2 { color: #92400E; border-bottom-color: #FDE68A; }
+  .analogy { background: #D1FAE5; border-left: 4px solid #10B981; padding: 10px 16px; margin: 12px 0;
+             font-size: 19px; color: #065F46; border-radius: 0 8px 8px 0; }
+  .analogy strong { color: #047857; }</p>
+<hr />
+<!-- _class: lead -->
+<!-- _paginate: false -->
+
+<h1>3회차</h1>
+<h2>Matrix와 Matrix·Vector 곱의 두 해석</h2>
+<p>MML §2.2, §2.3 · Strang §1.3, §2.1, §2.4 · EoLA Ch.3, Ch.4</p>
+<hr />
+<!-- _class: exercise -->
+
+<h1>🔁 Review — 2회차 마무리 숙제</h1>
+<p>지난 회차 마지막에 가져갔던 문제:</p>
+<blockquote>
+<p><span class="arithmatex">\(\mathbf{u} = (2, 2, 1)^\top\)</span>, <span class="arithmatex">\(\mathbf{v} = (1, -2, 2)^\top\)</span>에 대해 Norm(노름) · Inner product(내적) · 코사인 · Cauchy-Schwarz · 항등식을 검증하세요.</p>
+</blockquote>
+<h3>답</h3>
+<ul>
+<li><strong>(a)</strong> <span class="arithmatex">\(\|\mathbf{u}\|_2 = \sqrt{4+4+1} = 3\)</span>, <span class="arithmatex">\(\;\|\mathbf{v}\|_2 = \sqrt{1+4+4} = 3\)</span></li>
+<li><strong>(b)</strong> <span class="arithmatex">\(\mathbf{u}^\top\mathbf{v} = 2 - 4 + 2 = \mathbf{0}\)</span> ← Orthogonal(직교)!</li>
+<li><strong>(c)</strong> <span class="arithmatex">\(\cos\theta = 0/(3\cdot 3) = 0\)</span> → 정확히 <strong>90°</strong></li>
+<li><strong>(d)</strong> <span class="arithmatex">\(|0| \le 9\)</span> ✓</li>
+<li><strong>(e)</strong> <span class="arithmatex">\(\mathbf{u} - \mathbf{v} = (1, 4, -1)^\top\)</span>, <span class="arithmatex">\(\|\cdot\|_2^2 = 18\)</span>. 우변 <span class="arithmatex">\(= 9 + 9 - 0 = 18\)</span> ✓</li>
+</ul>
+<h3>핵심 관찰</h3>
+<p><span class="arithmatex">\(\mathbf{u}^\top \mathbf{v} = 0\)</span>일 때 (e) 항등식이 <strong>피타고라스 정리</strong> <span class="arithmatex">\(\|\mathbf{u} - \mathbf{v}\|^2 = \|\mathbf{u}\|^2 + \|\mathbf{v}\|^2\)</span>로 단순화됩니다.</p>
+<p>→ <strong>"Orthogonal"이 LA에서 왜 특별한 위상</strong>인지의 출발점입니다. 오늘 회차의 Matrix(행렬) 곱 해석에서 곧장 다시 만납니다.</p>
+<hr />
+<h2>오늘의 핵심 질문</h2>
+<blockquote>
+<h3>Matrix·Vector(벡터) 곱 <span class="arithmatex">\(A\mathbf{x}\)</span>를 어떻게 해석해야 LA 전체 구조가 보입니까?</h3>
+</blockquote>
+<p>이 한 질문이 <strong>Subspace(부분공간) · Dimension(차원) · Rank(랭크) · 해의 존재</strong> 모두를 결정합니다.</p>
+<ul>
+<li>한 가지 정의 — <span class="arithmatex">\((A\mathbf{x})_i = \sum_j a_{ij} x_j\)</span></li>
+<li><strong>두 가지 해석</strong> — Row picture(행 방식) vs <strong>Column picture(열 방식)</strong></li>
+<li>어느 해석이 "LA의 본 모습"인가? — 오늘의 결론은 <strong>Column picture</strong></li>
+</ul>
+<p>오늘 회차의 모든 것이 이 한 식의 두 해석 위에 있습니다.</p>
+<hr />
+<h2>학습 목표</h2>
+<p>이번 회차가 끝나면 학생은 다음을 답할 수 있어야 합니다.</p>
+<ol>
+<li><strong>Matrix</strong>의 수학적 정의 + 세 가지 발생 동기 (Linear equation(선형방정식) · 변환 · 데이터)</li>
+<li><strong>Matrix·Vector 곱</strong>의 두 해석(Row picture vs Column picture)을 정의대로 손계산할 수 있습니다.</li>
+<li><strong>Row picture = Inner product의 묶음, Column picture = 열들의 Linear combination(선형결합)</strong>임을 설명할 수 있습니다.</li>
+<li><strong><span class="arithmatex">\(A\mathbf{x} = \mathbf{b}\)</span>의 해 존재</strong> ↔ <span class="arithmatex">\(\mathbf{b} \in \mathrm{col}(A)\)</span>임을 진술할 수 있습니다.</li>
+<li><strong>Matrix·Matrix 곱</strong>의 4가지 해석을 사용하여 한 곱셈을 4가지로 계산할 수 있습니다.</li>
+<li><strong>비가환성</strong> <span class="arithmatex">\(AB \ne BA\)</span>의 예와 의미를 설명할 수 있습니다.</li>
+</ol>
+<hr />
+<h2>오늘의 논리 사슬</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>질문</th>
+<th>답 (이 강의의 답)</th>
+<th>도구</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>여러 식을 한 객체로?</td>
+<td><strong>Matrix</strong>의 정의</td>
+<td><span class="arithmatex">\(A \in \mathbb{R}^{m\times n}\)</span></td>
+</tr>
+<tr>
+<td>Matrix를 Vector에 적용하면?</td>
+<td><strong>Matrix·Vector 곱</strong></td>
+<td><span class="arithmatex">\(A\mathbf{x}\)</span></td>
+</tr>
+<tr>
+<td>한 식, 두 해석?</td>
+<td><strong>Row picture vs Column picture</strong></td>
+<td><span class="arithmatex">\(\sum\)</span> vs Linear combination</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(A\mathbf{x}=\mathbf{b}\)</span>가 풀리는 조건은?</td>
+<td><strong>Column space(열공간)</strong> <span class="arithmatex">\(\mathrm{col}(A)\)</span></td>
+<td>Column picture 해석</td>
+</tr>
+<tr>
+<td>Matrix를 Matrix에 곱하면?</td>
+<td><strong>4가지 해석</strong></td>
+<td>원소·열·행·outer</td>
+</tr>
+<tr>
+<td>왜 <span class="arithmatex">\(AB \ne BA\)</span>인가?</td>
+<td><strong>비가환성</strong></td>
+<td>함수 합성 순서</td>
+</tr>
+</tbody>
+</table></div>
+<p>오늘 사슬의 클라이맥스 — <strong>Column picture가 LA의 본 줄기</strong>입니다.</p>
+<hr />
+<h2>수업 흐름 (120분)</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>시간</th>
+<th>블록</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0~15</td>
+<td>A</td>
+<td><strong>오프닝</strong> — 핵심 질문 + 2회차 Review</td>
+</tr>
+<tr>
+<td>15~30</td>
+<td>B</td>
+<td><strong>Matrix의 동기와 정의</strong> + 기본 연산</td>
+</tr>
+<tr>
+<td>30~60</td>
+<td><strong>C</strong></td>
+<td><strong>Matrix·Vector 곱의 두 해석</strong> (핵심)</td>
+</tr>
+<tr>
+<td>60~80</td>
+<td><strong>D</strong></td>
+<td><strong><span class="arithmatex">\(A\mathbf{x}=\mathbf{b}\)</span>와 Column space</strong></td>
+</tr>
+<tr>
+<td>80~100</td>
+<td>E</td>
+<td><strong>Matrix·Matrix 곱의 4가지 해석</strong></td>
+</tr>
+<tr>
+<td>100~110</td>
+<td>F</td>
+<td>비가환성·결합·분배 + CS·AI 적용</td>
+</tr>
+<tr>
+<td>110~120</td>
+<td>G</td>
+<td><strong>클로징</strong> — 코딩 + 마무리 문제 + 숙제</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p><strong>C·D가 오늘의 심장입니다.</strong> 30분 + 20분 = 50분으로 집중 배분합니다.</p>
+</blockquote>
+<hr />
+<h1>B. Matrix: 동기와 정의</h1>
+<hr />
+<h2>B-1. Matrix가 왜 생겼는가 — 세 가지 동기</h2>
+<p><strong>(i) Linear equation 묶음</strong>: 미지수가 여러 개인 식들을 한 객체로
+$<span class="arithmatex">\(\begin{cases} 2x_1 + 3x_2 - x_3 = 5 \\ x_1 - x_2 + 4x_3 = 1 \end{cases} \Leftrightarrow \begin{pmatrix} 2 &amp; 3 &amp; -1 \\ 1 &amp; -1 &amp; 4 \end{pmatrix} \mathbf{x} = \mathbf{b}\)</span>$</p>
+<p><strong>(ii) Linear transformation(선형변환)의 표현</strong>: <span class="arithmatex">\(\mathbf{x} \mapsto A\mathbf{x}\)</span> — 한 Vector를 다른 Vector로 보내는 <strong>선형 함수</strong>의 표 (Part 2 5회차 본격 정의)</p>
+<p><strong>(iii) 데이터의 묶음</strong>: <span class="arithmatex">\(n\)</span>개 샘플 × <span class="arithmatex">\(d\)</span>개 특징을 한 객체로
+- 이미지 100장 × 784픽셀 → <span class="arithmatex">\(X \in \mathbb{R}^{100 \times 784}\)</span>
+- 신경망 한 층의 가중치 <span class="arithmatex">\(W \in \mathbb{R}^{d_\text{out} \times d_\text{in}}\)</span></p>
+<p>세 동기 모두 "표 모양의 수의 배열 + 곱셈"이 자연스러운 연산입니다.</p>
+<hr />
+<h2>B-2. 형식적 정의</h2>
+<h3>정의 2.1 (<span class="arithmatex">\(m \times n\)</span> Matrix)</h3>
+<p><span class="arithmatex">\(m\)</span>행 <span class="arithmatex">\(n\)</span>열의 실수 표입니다.</p>
+<div class="arithmatex">\[A = \begin{pmatrix} a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\ a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn} \end{pmatrix} \in \mathbb{R}^{m \times n}\]</div>
+<p>표기: <span class="arithmatex">\(A = (a_{ij})\)</span>, <strong><span class="arithmatex">\(i\)</span>는 행 인덱스, <span class="arithmatex">\(j\)</span>는 열 인덱스</strong>. 행과 열을 헷갈리는 것이 LA 초보의 1번 실수입니다.</p>
+<h3>정의 2.2 (열 표현)</h3>
+<p><span class="arithmatex">\(A\)</span>의 <span class="arithmatex">\(j\)</span>번째 열을 <span class="arithmatex">\(\mathbf{a}_j \in \mathbb{R}^m\)</span>이라 쓰면
+$<span class="arithmatex">\(A = [\mathbf{a}_1 \mid \mathbf{a}_2 \mid \cdots \mid \mathbf{a}_n]\)</span>$</p>
+<p>→ <strong>오늘 회차의 결정적 표기</strong>입니다. Column picture 해석에서 매번 사용합니다.</p>
+<div class="analogy">
+<p>💡 <strong>파인만식 비유</strong>: Matrix는 <strong>재료×메뉴 표</strong>입니다. 행=재료, 열=메뉴. <span class="arithmatex">\(a_{ij}\)</span> = "<span class="arithmatex">\(j\)</span> 메뉴 1개에 <span class="arithmatex">\(i\)</span> 재료가 몇 개 들어가는가". 입력 Vector(<span class="arithmatex">\(\mathbf{x}\)</span> = 메뉴별 주문량)를 곱하면 출력 Vector(<span class="arithmatex">\(A\mathbf{x}\)</span> = 재료별 총 필요량)가 나옵니다. 이 한 표로 식당의 모든 레시피가 정리됩니다.</p>
+</div>
+<hr />
+<h2>B-3. 기본 연산</h2>
+<h3>덧셈·Scalar(스칼라)곱 (성분별)</h3>
+<div class="arithmatex">\[(A + B)_{ij} = a_{ij} + b_{ij}, \qquad (\alpha A)_{ij} = \alpha\,a_{ij}\]</div>
+<p>→ <span class="arithmatex">\(\mathbb{R}^{m \times n}\)</span>도 <strong>Vector space 8 axioms(공리)</strong>를 만족합니다 (7회차에서 정식 정의되는 Vector space의 추상화).</p>
+<h3>Transpose(전치)</h3>
+<p><span class="arithmatex">\(A \in \mathbb{R}^{m \times n}\)</span>의 Transpose <span class="arithmatex">\(A^\top \in \mathbb{R}^{n \times m}\)</span>:
+$<span class="arithmatex">\((A^\top)_{ij} = a_{ji}\)</span>$
+<strong>행과 열을 뒤집습니다</strong>. 즉 <span class="arithmatex">\(A^\top\)</span>의 <span class="arithmatex">\(i\)</span>행 = <span class="arithmatex">\(A\)</span>의 <span class="arithmatex">\(i\)</span>열.</p>
+<h3>Symmetric matrix(대칭행렬)</h3>
+<p><span class="arithmatex">\(A^\top = A\)</span>인 정사각 Matrix입니다. 즉 <span class="arithmatex">\(a_{ij} = a_{ji}\)</span>. (Part 2 1-4회차 핵심)</p>
+<hr />
+<!-- _class: exercise -->
+
+<h1>🖍 잠깐 풀어보기 — Matrix 기본</h1>
+<h3>문제 1 (계산)</h3>
+<p><span class="arithmatex">\(A = \begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4 \\ 5 &amp; 6 \end{pmatrix}\)</span>의 차원·Transpose·각 열 <span class="arithmatex">\(\mathbf{a}_1, \mathbf{a}_2\)</span>를 적어보세요.</p>
+<h3>문제 2 (개념)</h3>
+<p>다음 Matrix 중 <strong>Symmetric</strong>인 것은 무엇입니까?</p>
+<ul>
+<li>(i) <span class="arithmatex">\(\begin{pmatrix} 1 &amp; 2 \\ 2 &amp; 3 \end{pmatrix}\)</span></li>
+<li>(ii) <span class="arithmatex">\(\begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 1 \end{pmatrix}\)</span></li>
+<li>(iii) <span class="arithmatex">\(\begin{pmatrix} 0 &amp; 1 &amp; 2 \\ 1 &amp; 0 &amp; 3 \\ 2 &amp; 3 &amp; 0 \end{pmatrix}\)</span></li>
+</ul>
+<blockquote>
+<p><strong>힌트</strong>: <span class="arithmatex">\(A^\top = A\)</span>, 즉 대각선 기준 대칭이면 OK입니다.</p>
+</blockquote>
+<hr />
+<!-- _class: exercise -->
+
+<h2>잠깐 풀어보기 — 답</h2>
+<h3>문제 1</h3>
+<ul>
+<li>차원: <span class="arithmatex">\(3 \times 2\)</span> (3행 2열)</li>
+<li>Transpose: <span class="arithmatex">\(A^\top = \begin{pmatrix} 1 &amp; 3 &amp; 5 \\ 2 &amp; 4 &amp; 6 \end{pmatrix} \in \mathbb{R}^{2 \times 3}\)</span></li>
+<li>열: <span class="arithmatex">\(\mathbf{a}_1 = (1, 3, 5)^\top\)</span>, <span class="arithmatex">\(\mathbf{a}_2 = (2, 4, 6)^\top\)</span></li>
+</ul>
+<h3>문제 2</h3>
+<ul>
+<li><strong>(i) ✓ Symmetric</strong> — <span class="arithmatex">\(a_{12} = a_{21} = 2\)</span></li>
+<li><strong>(ii) ✗</strong> — <span class="arithmatex">\(a_{12} = 2 \ne 3 = a_{21}\)</span></li>
+<li><strong>(iii) ✓ Symmetric</strong> — 모든 <span class="arithmatex">\(a_{ij} = a_{ji}\)</span></li>
+</ul>
+<blockquote>
+<p><strong>메시지</strong>: Symmetric은 정사각 Matrix에서만 정의됩니다. 비정사각은 절대 Symmetric일 수 없습니다.</p>
+</blockquote>
+<hr />
+<h1>C. 핵심 — Matrix·Vector 곱의 두 해석</h1>
+<blockquote>
+<p>오늘 회차의 심장입니다. 한 정의 = 두 해석.</p>
+</blockquote>
+<hr />
+<h2>C-1. 정의 (한 식)</h2>
+<h3>정의 2.3 (Matrix·Vector 곱)</h3>
+<p><span class="arithmatex">\(A \in \mathbb{R}^{m \times n}\)</span>, <span class="arithmatex">\(\mathbf{x} \in \mathbb{R}^n\)</span>에 대해 <span class="arithmatex">\(A\mathbf{x} \in \mathbb{R}^m\)</span>의 <span class="arithmatex">\(i\)</span>성분:</p>
+<div class="arithmatex">\[(A\mathbf{x})_i = \sum_{j=1}^n a_{ij}\,x_j\]</div>
+<p><strong>조건</strong>: <span class="arithmatex">\(A\)</span>의 <strong>열 수</strong> = <span class="arithmatex">\(\mathbf{x}\)</span>의 차원. 안 맞으면 곱이 정의되지 않습니다.</p>
+<p>이 한 식을 <strong>두 가지로 묶어 봅니다</strong> — 그것이 두 해석입니다.</p>
+<hr />
+<h2>C-2. 해석 1 — Row picture</h2>
+<h3>정의 2.4 (Row picture 해석)</h3>
+<p><span class="arithmatex">\(A\)</span>의 <span class="arithmatex">\(i\)</span>행을 <span class="arithmatex">\(\mathbf{r}_i^\top \in \mathbb{R}^{1 \times n}\)</span>이라 하면</p>
+<div class="arithmatex">\[A\mathbf{x} = \begin{pmatrix} \mathbf{r}_1^\top \mathbf{x} \\ \mathbf{r}_2^\top \mathbf{x} \\ \vdots \\ \mathbf{r}_m^\top \mathbf{x} \end{pmatrix} \;=\; \begin{pmatrix} \mathbf{r}_1 \cdot \mathbf{x} \\ \mathbf{r}_2 \cdot \mathbf{x} \\ \vdots \\ \mathbf{r}_m \cdot \mathbf{x} \end{pmatrix}\]</div>
+<p><strong><span class="arithmatex">\(A\mathbf{x}\)</span>의 <span class="arithmatex">\(i\)</span>성분 = <span class="arithmatex">\(A\)</span>의 <span class="arithmatex">\(i\)</span>행과 <span class="arithmatex">\(\mathbf{x}\)</span>의 Inner product</strong>입니다.</p>
+<div class="analogy">
+<p>💡 <strong>파인만식 비유</strong>: Row picture는 <strong>재료별 총 필요량 계산</strong>입니다. <span class="arithmatex">\(A\)</span>가 재료×메뉴 표면, <span class="arithmatex">\(i\)</span>행 <span class="arithmatex">\(\mathbf{r}_i\)</span> = "<span class="arithmatex">\(i\)</span>재료가 각 메뉴에 몇 개 들어가는가". 메뉴별 주문량 <span class="arithmatex">\(\mathbf{x}\)</span>와 내적하면 <span class="arithmatex">\(\mathbf{r}_i \cdot \mathbf{x}\)</span> = <strong><span class="arithmatex">\(i\)</span>재료의 총 필요 개수</strong>. 출력 = 재료별 필요량 묶음.</p>
+</div>
+<hr />
+<h2>C-3. 해석 2 — Column picture [핵심]</h2>
+<h3>정의 2.5 (Column picture 해석)</h3>
+<p><span class="arithmatex">\(A\)</span>의 <span class="arithmatex">\(j\)</span>열을 <span class="arithmatex">\(\mathbf{a}_j \in \mathbb{R}^m\)</span>이라 하면</p>
+<div class="arithmatex">\[A\mathbf{x} = x_1 \mathbf{a}_1 + x_2 \mathbf{a}_2 + \cdots + x_n \mathbf{a}_n\]</div>
+<p><strong><span class="arithmatex">\(A\mathbf{x}\)</span> = <span class="arithmatex">\(A\)</span>의 열들의 Linear combination</strong>입니다 (계수가 <span class="arithmatex">\(\mathbf{x}\)</span>의 성분).</p>
+<p>→ <strong>1회차 Linear combination과 동일한 식</strong>입니다. <span class="arithmatex">\(A\mathbf{x}\)</span>는 <strong><span class="arithmatex">\(\mathbf{x}\)</span>로 만든 레시피로 <span class="arithmatex">\(A\)</span>의 열들을 섞은 결과</strong>입니다.</p>
+<div class="analogy">
+<p>💡 <strong>파인만식 비유</strong>: Column picture는 <strong>주문량 비율로 메뉴를 합쳐 총 재료를 구하기</strong>입니다. <span class="arithmatex">\(A\)</span>의 각 열 <span class="arithmatex">\(\mathbf{a}_j\)</span>가 "<span class="arithmatex">\(j\)</span>메뉴 1개의 재료 묶음", <span class="arithmatex">\(\mathbf{x}\)</span>는 메뉴별 주문량. <span class="arithmatex">\(A\mathbf{x}\)</span> = 햄버거 <span class="arithmatex">\(x_1\)</span>개 + 샌드위치 <span class="arithmatex">\(x_2\)</span>개를 만들 때의 <strong>총 재료 묶음</strong>. <strong>메뉴(열)가 무엇이냐가 만들 수 있는 재료 묶음 영역을 결정합니다.</strong></p>
+</div>
+<hr />
+<h2>C-4. 두 해석이 같다는 증명</h2>
+<p>성분별로 계산:</p>
+<div class="arithmatex">\[(x_1 \mathbf{a}_1 + \cdots + x_n \mathbf{a}_n)_i = x_1 a_{i1} + x_2 a_{i2} + \cdots + x_n a_{in} = \sum_j a_{ij} x_j = (A\mathbf{x})_i\]</div>
+<p><strong>같은 식, 다른 묶음입니다.</strong> <span class="arithmatex">\(\blacksquare\)</span></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>해석</th>
+<th>묶는 단위</th>
+<th>결과</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Row picture</strong></td>
+<td>한 행씩 (<span class="arithmatex">\(\mathbf{r}_i \cdot \mathbf{x}\)</span>)</td>
+<td>출력의 <span class="arithmatex">\(i\)</span>성분</td>
+</tr>
+<tr>
+<td><strong>Column picture</strong></td>
+<td>한 열씩 (<span class="arithmatex">\(x_j \mathbf{a}_j\)</span>)</td>
+<td>출력 Vector 전체</td>
+</tr>
+</tbody>
+</table></div>
+<p>→ <strong>두 해석은 같은 결과</strong>입니다. 그러나 <strong>다른 통찰</strong>을 줍니다. 다음 슬라이드부터 왜 그런지 봅니다.</p>
+<hr />
+<h2>C-5. 왜 Column picture가 LA의 본 줄기인가</h2>
+<ul>
+<li><strong>Row picture</strong>는 "한 출력 성분을 어떻게 계산할 것인가"를 알려줍니다 — <strong>계산 알고리즘</strong>의 관점.</li>
+<li><strong>Column picture</strong>는 "<span class="arithmatex">\(A\mathbf{x}\)</span>로 도달 가능한 Vector들의 집합은 무엇인가"를 알려줍니다 — <strong>구조</strong>의 관점.</li>
+</ul>
+<p><span class="arithmatex">\(\{A\mathbf{x} : \mathbf{x} \in \mathbb{R}^n\}\)</span> = <span class="arithmatex">\(A\)</span>의 열들의 <strong>모든 Linear combination</strong> = <span class="arithmatex">\(\mathrm{span}(\mathbf{a}_1, \ldots, \mathbf{a}_n)\)</span>.</p>
+<p>이것을 <strong><span class="arithmatex">\(A\)</span>의 Column space</strong> <span class="arithmatex">\(\mathrm{col}(A)\)</span>라 부릅니다 (8회차 정식 정의).</p>
+<blockquote>
+<p><strong>결론</strong>: Row picture는 <strong>계산</strong>, Column picture는 <strong>구조</strong>입니다. LA의 본 줄기(Subspace · Rank · 해 존재)는 <strong>Column picture에서 시작</strong>됩니다.</p>
+</blockquote>
+<hr />
+<!-- _class: exercise -->
+
+<h1>🖍 잠깐 풀어보기 — 두 해석</h1>
+<p><span class="arithmatex">\(A = \begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4 \\ 5 &amp; 6 \end{pmatrix}\)</span>, <span class="arithmatex">\(\mathbf{x} = \begin{pmatrix} 2 \\ -1 \end{pmatrix}\)</span></p>
+<h3>문제 1 (Row picture)</h3>
+<p>각 행과 <span class="arithmatex">\(\mathbf{x}\)</span>의 Inner product로 <span class="arithmatex">\(A\mathbf{x}\)</span>를 구하세요.</p>
+<h3>문제 2 (Column picture)</h3>
+<p><span class="arithmatex">\(A\)</span>의 두 열의 Linear combination으로 <span class="arithmatex">\(A\mathbf{x}\)</span>를 구하세요.</p>
+<h3>문제 3 (사고)</h3>
+<p>두 결과가 같다는 사실에서 어떤 <strong>구조적</strong> 사실을 알 수 있습니까? (<span class="arithmatex">\(A\)</span>의 열들이 <span class="arithmatex">\(\mathbb{R}^3\)</span>의 어떤 부분집합을 만드는지)</p>
+<hr />
+<!-- _class: exercise -->
+
+<h2>잠깐 풀어보기 — 답</h2>
+<h3>문제 1 (Row picture)</h3>
+<ul>
+<li>1행: <span class="arithmatex">\((1, 2) \cdot (2, -1) = 2 - 2 = 0\)</span></li>
+<li>2행: <span class="arithmatex">\((3, 4) \cdot (2, -1) = 6 - 4 = 2\)</span></li>
+<li>3행: <span class="arithmatex">\((5, 6) \cdot (2, -1) = 10 - 6 = 4\)</span></li>
+<li><span class="arithmatex">\(\therefore A\mathbf{x} = (0, 2, 4)^\top\)</span></li>
+</ul>
+<h3>문제 2 (Column picture)</h3>
+<p><span class="arithmatex">\(A\mathbf{x} = 2\cdot(1, 3, 5)^\top + (-1)\cdot(2, 4, 6)^\top = (2-2,\,6-4,\,10-6)^\top = (0, 2, 4)^\top\)</span> ✓ 같음</p>
+<h3>문제 3 (사고)</h3>
+<p><span class="arithmatex">\(A\)</span>의 두 열은 <span class="arithmatex">\(\mathbb{R}^3\)</span>의 <strong>평면</strong>을 만듭니다 (<span class="arithmatex">\((1,3,5)^\top\)</span>와 <span class="arithmatex">\((2,4,6)^\top\)</span>이 Linear independence(일차독립)이므로). 어떤 <span class="arithmatex">\(\mathbf{x}\)</span>를 잡아도 <span class="arithmatex">\(A\mathbf{x}\)</span>는 <strong>그 평면 안에만</strong> 들어갑니다.</p>
+<blockquote>
+<p><strong>메시지</strong>: <span class="arithmatex">\(A\mathbf{x}\)</span>의 도달 가능 집합 = <strong>열들이 만드는 Subspace</strong>입니다. 이것이 8·9회차의 출발점입니다.</p>
+</blockquote>
+<hr />
+<h1>D. <span class="arithmatex">\(A\mathbf{x} = \mathbf{b}\)</span>와 Column space</h1>
+<blockquote>
+<p>1회차에서 본 "Vector로 데이터를 표현"이 이제 "방정식 풀이"로 발전합니다.</p>
+</blockquote>
+<hr />
+<h2>D-1. <span class="arithmatex">\(A\mathbf{x} = \mathbf{b}\)</span>의 의미 (Column picture 재해석)</h2>
+<p><span class="arithmatex">\(A\mathbf{x} = \mathbf{b}\)</span>를 풉니다:</p>
+<p><strong>(Column picture)</strong> <span class="arithmatex">\(\mathbf{b}\)</span>를 <strong><span class="arithmatex">\(A\)</span>의 열들의 Linear combination으로 쓸 수 있는가</strong>?</p>
+<div class="arithmatex">\[x_1 \mathbf{a}_1 + x_2 \mathbf{a}_2 + \cdots + x_n \mathbf{a}_n = \mathbf{b}\]</div>
+<p>이것이 가능한가? 가능하면 <span class="arithmatex">\(\mathbf{x}\)</span>가 그 계수입니다. 불가능하면 해가 없습니다.</p>
+<h3>즉시 따라오는 결론</h3>
+<ul>
+<li><span class="arithmatex">\(A\mathbf{x} = \mathbf{b}\)</span> <strong>해 존재</strong> <span class="arithmatex">\(\iff\)</span> <span class="arithmatex">\(\mathbf{b} \in \mathrm{span}(\mathbf{a}_1, \ldots, \mathbf{a}_n) = \mathrm{col}(A)\)</span></li>
+<li><span class="arithmatex">\(\mathbf{b}\)</span>가 Column space <strong>밖에 있으면</strong> — 어떻게 잡아도 해가 없습니다.</li>
+</ul>
+<hr />
+<h2>D-2. 예시 — 해의 존재가 갈리는 두 경우</h2>
+<p><span class="arithmatex">\(A = \begin{pmatrix} 1 &amp; 2 \\ 2 &amp; 4 \end{pmatrix}\)</span> (두 열이 평행, <span class="arithmatex">\(\mathbf{a}_2 = 2\mathbf{a}_1\)</span>).</p>
+<p><strong>Column space</strong>: <span class="arithmatex">\(\mathrm{col}(A) = \{t \cdot (1,2)^\top : t \in \mathbb{R}\}\)</span> — <span class="arithmatex">\(\mathbb{R}^2\)</span>의 <strong>직선</strong>.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(\mathbf{b}\)</span></th>
+<th style="text-align: center;">직선 위?</th>
+<th>해</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\((3, 6)^\top\)</span></td>
+<td style="text-align: center;">✓ (<span class="arithmatex">\(t=3\)</span>)</td>
+<td>무수히 많은 해 (<span class="arithmatex">\(x_1 + 2x_2 = 3\)</span>의 모든 점)</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\((1, 3)^\top\)</span></td>
+<td style="text-align: center;">✗</td>
+<td>해 없음</td>
+</tr>
+</tbody>
+</table></div>
+<p>→ <strong><span class="arithmatex">\(A\)</span>가 같아도 <span class="arithmatex">\(\mathbf{b}\)</span>의 위치에 따라 해 존재 여부가 결정</strong>됩니다. 그 위치는 <strong><span class="arithmatex">\(A\)</span>의 Column space</strong>로 결정됩니다.</p>
+<hr />
+<h2>D-3. 해의 유일성과 Linear independence (예고)</h2>
+<p>해가 <strong>존재</strong>하면 — <strong>유일한가? 무수히 많은가?</strong></p>
+<p>답: <span class="arithmatex">\(A\)</span>의 <strong>열들이 Linear independence</strong>인가에 달려 있습니다.</p>
+<ul>
+<li>Linear independence → 유일한 표현 → 유일한 해</li>
+<li>Linear dependence → 무수히 많은 표현 → 무수히 많은 해 (해가 있는 경우)</li>
+</ul>
+<p>→ <strong>9회차에서 정식 정의·증명</strong>합니다. 오늘은 직관까지만 봅니다.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(A\)</span>의 열</th>
+<th>해 존재 (b가 col 안)</th>
+<th>해 유일성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linear independence</td>
+<td>있으면 유일</td>
+<td>✓ 유일</td>
+</tr>
+<tr>
+<td>Linear dependence</td>
+<td>있으면 무수</td>
+<td>✗ 무수</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<!-- _class: exercise -->
+
+<h1>🖍 잠깐 풀어보기 — Column space와 해</h1>
+<h3>문제 1 (Column space)</h3>
+<p><span class="arithmatex">\(A = \begin{pmatrix} 1 &amp; 3 \\ 2 &amp; 6 \\ -1 &amp; -3 \end{pmatrix}\)</span>의 Column space <span class="arithmatex">\(\mathrm{col}(A)\)</span>는 <span class="arithmatex">\(\mathbb{R}^3\)</span>의 어떤 모양입니까?</p>
+<h3>문제 2 (해의 존재)</h3>
+<p>위 <span class="arithmatex">\(A\)</span>에 대해 <span class="arithmatex">\(\mathbf{b} = (2, 4, -2)^\top\)</span>가 <span class="arithmatex">\(\mathrm{col}(A)\)</span> 안에 있습니까? 있다면 <span class="arithmatex">\(A\mathbf{x} = \mathbf{b}\)</span>의 해 하나를 구하세요.</p>
+<h3>문제 3 (해 없음)</h3>
+<p>같은 <span class="arithmatex">\(A\)</span>에 대해 <span class="arithmatex">\(\mathbf{b} = (1, 1, 1)^\top\)</span>일 때는 어떻습니까?</p>
+<hr />
+<!-- _class: exercise -->
+
+<h2>잠깐 풀어보기 — 답</h2>
+<h3>문제 1</h3>
+<p><span class="arithmatex">\(\mathbf{a}_2 = (3, 6, -3)^\top = 3 \cdot \mathbf{a}_1\)</span> — 두 열이 평행합니다.
+<span class="arithmatex">\(\mathrm{col}(A) = \{t \cdot (1, 2, -1)^\top : t \in \mathbb{R}\}\)</span> — <strong>1차원 직선</strong>.</p>
+<h3>문제 2</h3>
+<p><span class="arithmatex">\(\mathbf{b} = (2, 4, -2)^\top = 2 \cdot (1, 2, -1)^\top\)</span> — 직선 위 ✓
+해: <span class="arithmatex">\(x_1 \cdot (1,2,-1)^\top + x_2 \cdot (3,6,-3)^\top = (2,4,-2)^\top\)</span>. 예: <span class="arithmatex">\((x_1, x_2) = (2, 0)\)</span> 또는 <span class="arithmatex">\((-1, 1)\)</span> 등 <strong>무수히 많음</strong>.</p>
+<h3>문제 3</h3>
+<p><span class="arithmatex">\(\mathbf{b} = (1,1,1)^\top\)</span> — 직선 위 ✗ (둘째 성분이 첫 성분의 2배여야 하는데 둘 다 1). <strong>해 없음</strong>.</p>
+<blockquote>
+<p><strong>메시지</strong>: <span class="arithmatex">\(A\)</span>의 행 수가 3이라고 <span class="arithmatex">\(\mathbf{b}\)</span>가 <span class="arithmatex">\(\mathbb{R}^3\)</span> 어디든 갈 수 있는 것이 아닙니다. <strong>Column space의 차원이 실제 도달 가능 영역</strong>입니다.</p>
+</blockquote>
+<hr />
+<h1>E. Matrix·Matrix 곱 — 4가지 해석</h1>
+<blockquote>
+<p><span class="arithmatex">\(C = AB\)</span>를 한 식이 아닌 4가지로 봅니다 — 같은 결과, 다른 통찰.</p>
+</blockquote>
+<hr />
+<h2>E-1. 정의</h2>
+<h3>정의 2.6 (Matrix·Matrix 곱)</h3>
+<p><span class="arithmatex">\(A \in \mathbb{R}^{m \times k}\)</span>, <span class="arithmatex">\(B \in \mathbb{R}^{k \times n}\)</span>일 때 <span class="arithmatex">\(C = AB \in \mathbb{R}^{m \times n}\)</span>:</p>
+<div class="arithmatex">\[c_{ij} = \sum_{l=1}^k a_{il}\,b_{lj}\]</div>
+<p><strong>조건</strong>: <span class="arithmatex">\(A\)</span>의 <strong>열 수</strong> = <span class="arithmatex">\(B\)</span>의 <strong>행 수</strong> (<span class="arithmatex">\(= k\)</span>, "inner dimension"). 안 맞으면 곱이 정의되지 않습니다.</p>
+<p>결과 차원: <span class="arithmatex">\(m \times n\)</span> (outer dimensions).</p>
+<p>이 한 식을 <strong>4가지로 묶어 봅니다</strong>.</p>
+<hr />
+<h2>E-2. 해석 1 — 원소 = Inner product</h2>
+<div class="arithmatex">\[c_{ij} = (A\text{의 } i\text{행}) \cdot (B\text{의 } j\text{열})\]</div>
+<p>가장 흔히 배우는 정의입니다. 손계산 표준.</p>
+<p><strong>예시</strong>: <span class="arithmatex">\(\begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{pmatrix} \begin{pmatrix} 5 &amp; 6 \\ 7 &amp; 8 \end{pmatrix}\)</span>의 (1,1) 원소 = <span class="arithmatex">\((1,2)\cdot(5,7) = 19\)</span>.</p>
+<hr />
+<h2>E-3. 해석 2 — 열 묶음</h2>
+<p><span class="arithmatex">\(AB\)</span>의 <span class="arithmatex">\(j\)</span>열 = <span class="arithmatex">\(A \cdot (B\)</span>의 <span class="arithmatex">\(j\)</span>열<span class="arithmatex">\()\)</span></p>
+<div class="arithmatex">\[AB = A [\mathbf{b}_1 \mid \mathbf{b}_2 \mid \cdots \mid \mathbf{b}_n] = [A\mathbf{b}_1 \mid A\mathbf{b}_2 \mid \cdots \mid A\mathbf{b}_n]\]</div>
+<p><strong>Matrix·Vector 곱을 <span class="arithmatex">\(n\)</span>번 반복</strong>합니다 — 각 열이 <span class="arithmatex">\(A\)</span>의 열들의 Linear combination.</p>
+<p>→ 이 해석으로 <strong><span class="arithmatex">\(AB\)</span>의 Column space ⊆ <span class="arithmatex">\(A\)</span>의 Column space</strong>가 즉시 따라옵니다.</p>
+<hr />
+<h2>E-4. 해석 3 — 행 묶음</h2>
+<p><span class="arithmatex">\(AB\)</span>의 <span class="arithmatex">\(i\)</span>행 = <span class="arithmatex">\((A\)</span>의 <span class="arithmatex">\(i\)</span>행<span class="arithmatex">\() \cdot B\)</span></p>
+<div class="arithmatex">\[AB = \begin{pmatrix} \mathbf{r}_1^\top B \\ \mathbf{r}_2^\top B \\ \vdots \\ \mathbf{r}_m^\top B \end{pmatrix}\]</div>
+<p>각 행이 <span class="arithmatex">\(B\)</span>의 행들의 Linear combination입니다. <strong><span class="arithmatex">\(AB\)</span>의 행공간 ⊆ <span class="arithmatex">\(B\)</span>의 행공간</strong>.</p>
+<hr />
+<h2>E-5. 해석 4 — Outer product(외적)의 합</h2>
+<p><span class="arithmatex">\(A\)</span>의 <span class="arithmatex">\(l\)</span>번째 열 <span class="arithmatex">\(\mathbf{a}_l\)</span>과 <span class="arithmatex">\(B\)</span>의 <span class="arithmatex">\(l\)</span>번째 행 <span class="arithmatex">\(\mathbf{b}_l^\top\)</span>의 <strong>Outer product</strong>를 모두 더합니다:</p>
+<div class="arithmatex">\[AB = \sum_{l=1}^k \mathbf{a}_l \mathbf{b}_l^\top\]</div>
+<p>각 항 <span class="arithmatex">\(\mathbf{a}_l \mathbf{b}_l^\top\)</span>은 <strong>rank-1 Matrix</strong> (<span class="arithmatex">\(m \times n\)</span>)입니다. 합이 <span class="arithmatex">\(AB\)</span>입니다.</p>
+<div class="analogy">
+<p>💡 <strong>파인만식 비유</strong>: Outer product는 <strong>요일별 판매량 × 1개당 재료 = 요일×재료 필요량 표</strong>입니다. <span class="arithmatex">\(\mathbf{u}\)</span> = 요일별 햄버거 판매 (월 100, 화 80, 수 120), <span class="arithmatex">\(\mathbf{v}\)</span> = 햄버거 한 개 재료 (빵 2, 패티 1, 피클 5)이면 <span class="arithmatex">\(\mathbf{u}\mathbf{v}^\top\)</span>의 <span class="arithmatex">\((i,j)\)</span> 원소 = <span class="arithmatex">\(i\)</span>요일 <span class="arithmatex">\(j\)</span>재료 필요량. rank-1 Matrix가 <strong>가장 단순한 패턴</strong>인 이유 — 각 요일 행이 모두 같은 비율(2:1:5)의 배수. SVD는 이런 단순 패턴 여러 개의 합으로 복잡한 Matrix를 분해합니다 (Part 2 5-6회차).</p>
+</div>
+<hr />
+<h2>E-6. 4가지 해석 — 한 표</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: center;">해석</th>
+<th>식</th>
+<th>통찰</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">(1) 원소</td>
+<td><span class="arithmatex">\(c_{ij} = \mathbf{r}_i^A \cdot \mathbf{c}_j^B\)</span></td>
+<td>손계산</td>
+</tr>
+<tr>
+<td style="text-align: center;">(2) 열</td>
+<td><span class="arithmatex">\(AB = [A\mathbf{b}_1 \mid \cdots]\)</span></td>
+<td><span class="arithmatex">\(AB\)</span> 열 ⊂ <span class="arithmatex">\(A\)</span> Column space</td>
+</tr>
+<tr>
+<td style="text-align: center;">(3) 행</td>
+<td><span class="arithmatex">\(i\text{행 of } AB = \mathbf{r}_i^A B\)</span></td>
+<td><span class="arithmatex">\(AB\)</span> 행 ⊂ <span class="arithmatex">\(B\)</span> 행공간</td>
+</tr>
+<tr>
+<td style="text-align: center;">(4) outer</td>
+<td><span class="arithmatex">\(AB = \sum \mathbf{a}_l \mathbf{b}_l^\top\)</span></td>
+<td>Low-rank 분해 (SVD)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>같은 결과, 4가지 사고 도구</strong>입니다. 문제에 따라 골라 씁니다.</p>
+<hr />
+<!-- _class: exercise -->
+
+<h1>🖍 잠깐 풀어보기 — Matrix 곱 4가지 해석</h1>
+<p><span class="arithmatex">\(A = \begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{pmatrix}\)</span>, <span class="arithmatex">\(B = \begin{pmatrix} 5 &amp; 6 \\ 7 &amp; 8 \end{pmatrix}\)</span></p>
+<h3>문제 1 (원소 해석)</h3>
+<p><span class="arithmatex">\(AB\)</span>의 4개 원소를 Inner product로 구하세요.</p>
+<h3>문제 2 (열 해석)</h3>
+<p><span class="arithmatex">\(AB\)</span>의 두 열을 <span class="arithmatex">\(A \cdot\)</span>(B의 각 열)로 구하세요. 문제 1과 일치합니까?</p>
+<h3>문제 3 (Outer 해석)</h3>
+<p><span class="arithmatex">\(AB\)</span>를 두 Outer product의 합 <span class="arithmatex">\(\mathbf{a}_1 \mathbf{b}_1^\top + \mathbf{a}_2 \mathbf{b}_2^\top\)</span>으로 구하세요. (단 <span class="arithmatex">\(\mathbf{a}_l\)</span> = <span class="arithmatex">\(A\)</span>의 <span class="arithmatex">\(l\)</span>번째 열, <span class="arithmatex">\(\mathbf{b}_l\)</span> = <span class="arithmatex">\(B\)</span>의 <span class="arithmatex">\(l\)</span>번째 행을 열Vector로)</p>
+<hr />
+<!-- _class: exercise -->
+
+<h2>잠깐 풀어보기 — 답</h2>
+<h3>문제 1 (원소)</h3>
+<p><span class="arithmatex">\((AB)_{11} = (1,2)\cdot(5,7) = 19\)</span>, <span class="arithmatex">\((AB)_{12} = (1,2)\cdot(6,8) = 22\)</span>,
+<span class="arithmatex">\((AB)_{21} = (3,4)\cdot(5,7) = 43\)</span>, <span class="arithmatex">\((AB)_{22} = (3,4)\cdot(6,8) = 50\)</span></p>
+<p><span class="arithmatex">\(AB = \begin{pmatrix} 19 &amp; 22 \\ 43 &amp; 50 \end{pmatrix}\)</span></p>
+<h3>문제 2 (열)</h3>
+<p><span class="arithmatex">\(A\mathbf{b}_1 = A(5,7)^\top = 5(1,3)^\top + 7(2,4)^\top = (19, 43)^\top\)</span> ✓
+<span class="arithmatex">\(A\mathbf{b}_2 = A(6,8)^\top = 6(1,3)^\top + 8(2,4)^\top = (22, 50)^\top\)</span> ✓</p>
+<h3>문제 3 (Outer)</h3>
+<p><span class="arithmatex">\(\mathbf{a}_1\mathbf{b}_1^\top = (1,3)^\top (5,6) = \begin{pmatrix} 5 &amp; 6 \\ 15 &amp; 18 \end{pmatrix}\)</span>,
+<span class="arithmatex">\(\mathbf{a}_2\mathbf{b}_2^\top = (2,4)^\top (7,8) = \begin{pmatrix} 14 &amp; 16 \\ 28 &amp; 32 \end{pmatrix}\)</span></p>
+<p>합 = <span class="arithmatex">\(\begin{pmatrix} 19 &amp; 22 \\ 43 &amp; 50 \end{pmatrix}\)</span> ✓ — 같음</p>
+<hr />
+<h1>F. 비가환성·결합·CS·AI 적용</h1>
+<hr />
+<h2>F-1. 비가환성 <span class="arithmatex">\(AB \ne BA\)</span></h2>
+<h3>예시</h3>
+<p><span class="arithmatex">\(A = \begin{pmatrix} 0 &amp; 1 \\ 0 &amp; 0 \end{pmatrix}\)</span>, <span class="arithmatex">\(B = \begin{pmatrix} 0 &amp; 0 \\ 1 &amp; 0 \end{pmatrix}\)</span>:</p>
+<p><span class="arithmatex">\(AB = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 0 \end{pmatrix}\)</span>, <span class="arithmatex">\(BA = \begin{pmatrix} 0 &amp; 0 \\ 0 &amp; 1 \end{pmatrix}\)</span> — 완전히 다릅니다.</p>
+<h3>차원 차이로 한쪽만 가능</h3>
+<p><span class="arithmatex">\(A \in \mathbb{R}^{2 \times 3}\)</span>, <span class="arithmatex">\(B \in \mathbb{R}^{3 \times 4}\)</span>: <span class="arithmatex">\(AB\)</span>는 정의되지만 <span class="arithmatex">\(BA\)</span>는 정의되지 않습니다.</p>
+<div class="analogy">
+<p>💡 <strong>파인만식 비유</strong>: Matrix 곱은 <strong>옷 입는 순서</strong>입니다. 양말→신발 ≠ 신발→양말. <span class="arithmatex">\(AB\)</span>는 "먼저 <span class="arithmatex">\(B\)</span> 적용, 그 다음 <span class="arithmatex">\(A\)</span>" — 함수 합성 <span class="arithmatex">\((A \circ B)(\mathbf{x}) = A(B\mathbf{x})\)</span>. <strong>순서가 본질</strong>입니다.</p>
+</div>
+<h3>결합·분배는 성립</h3>
+<ul>
+<li><span class="arithmatex">\((AB)C = A(BC)\)</span> ✓</li>
+<li><span class="arithmatex">\(A(B+C) = AB + AC\)</span> ✓</li>
+<li><span class="arithmatex">\((AB)^\top = B^\top A^\top\)</span> ← <strong>순서가 뒤집힙니다</strong></li>
+</ul>
+<hr />
+<h2>F-2. CS·AI 적용</h2>
+<h3>신경망 한 층</h3>
+<div class="arithmatex">\[\mathbf{y} = W\mathbf{x} + \mathbf{b}, \quad W \in \mathbb{R}^{d_\text{out} \times d_\text{in}}\]</div>
+<ul>
+<li><span class="arithmatex">\(W\mathbf{x}\)</span> = <strong><span class="arithmatex">\(W\)</span>의 열들의 Linear combination</strong> (Column picture) — "<span class="arithmatex">\(d_\text{in}\)</span>개 입력 특징을 어떤 비율로 섞을 것인가"</li>
+<li>또는 <strong><span class="arithmatex">\(d_\text{out}\)</span>개 뉴런 각각의 가중 합</strong> (Row picture)</li>
+</ul>
+<h3>Transformer Attention(어텐션)</h3>
+<div class="arithmatex">\[\text{Attn}(Q, K, V) = \mathrm{softmax}\!\left(\frac{QK^\top}{\sqrt{d_k}}\right) V\]</div>
+<ul>
+<li><span class="arithmatex">\(QK^\top\)</span> — <strong>모든 query·key 쌍의 Inner product</strong> (1·2회차 + 오늘 Row picture)</li>
+<li><span class="arithmatex">\(\cdots V\)</span> — <strong><span class="arithmatex">\(V\)</span>의 행들의 가중합</strong> (오늘 Row picture)</li>
+<li>softmax 가중치는 <strong>각 query가 어느 key에 얼마나 주목하는가</strong>를 결정합니다.</li>
+</ul>
+<p>오늘 본 두 해석이 Transformer의 모든 Matrix 곱을 설명합니다.</p>
+<hr />
+<h2>F-3. GPU에서 빠른 이유</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>해석</th>
+<th>병렬화 효율</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>원소 = Inner product</td>
+<td>모든 <span class="arithmatex">\(c_{ij}\)</span>를 독립 스레드로 (병렬화 최고)</td>
+</tr>
+<tr>
+<td>열 묶음</td>
+<td><span class="arithmatex">\(n\)</span>개 열을 독립 스레드로</td>
+</tr>
+<tr>
+<td>Outer 합</td>
+<td>각 항 <span class="arithmatex">\(\mathbf{a}_l \mathbf{b}_l^\top\)</span>를 GPU 코어에 분산</td>
+</tr>
+</tbody>
+</table></div>
+<p>→ <strong>Matrix 곱은 GPU의 천직</strong>입니다. 같은 연산을 수많은 코어가 독립적으로 처리합니다.</p>
+<p>cuBLAS·oneDNN 같은 라이브러리는 위 해석들을 Matrix 크기·메모리 패턴에 따라 <strong>자동 전환</strong>합니다.</p>
+<hr />
+<h1>G. 클로징</h1>
+<hr />
+<h2>G-1. 코딩 실습 골자</h2>
+<p>→ <code>11_주피터노트북/Part1/02_행렬_두해석.ipynb</code></p>
+<ol>
+<li>NumPy에서 <code>@</code> 연산자로 Matrix 곱</li>
+<li><strong>Row picture · Column picture 직접 구현</strong> — <code>for i: dot(A[i], x)</code> vs <code>sum(x[j] * A[:, j] for j)</code></li>
+<li>두 결과가 <code>np.allclose</code>로 같음을 확인</li>
+<li><strong>속도 비교</strong> — 손구현 vs NumPy <code>@</code> (broadcasting의 위력)</li>
+<li>MNIST 데이터셋에 가중치 Matrix <span class="arithmatex">\(W\)</span>를 곱해 "한 층 통과"</li>
+<li>4가지 해석으로 같은 곱을 계산 — 통찰의 차이를 체험합니다.</li>
+</ol>
+<hr />
+<h2>G-2. 오늘 회차 핵심 5개</h2>
+<ol>
+<li><strong>Matrix</strong> = 표 모양의 수의 배열 + Linear transformation의 표현</li>
+<li><strong>Matrix·Vector 곱의 두 해석</strong> — Row picture(Inner product 묶음) / <strong>Column picture(Linear combination)</strong></li>
+<li><strong>Column picture가 LA의 본 줄기</strong>입니다 — Column space · Rank · 해 존재가 모두 여기서 따라옵니다.</li>
+<li><strong><span class="arithmatex">\(A\mathbf{x}=\mathbf{b}\)</span>의 해 존재 ↔ <span class="arithmatex">\(\mathbf{b} \in \mathrm{col}(A)\)</span></strong></li>
+<li><strong>Matrix·Matrix 곱의 4가지 해석</strong> — 원소·열·행·Outer. 같은 결과, 다른 통찰.</li>
+</ol>
+<hr />
+<h2>G-3. 자기 점검 질문</h2>
+<ul>
+<li><span class="arithmatex">\(A \in \mathbb{R}^{4 \times 3}\)</span>, <span class="arithmatex">\(\mathbf{x} \in \mathbb{R}^3\)</span>. <span class="arithmatex">\(A\mathbf{x}\)</span>의 차원은? Column picture로 풀면 몇 개 열의 Linear combination?</li>
+<li><span class="arithmatex">\(A \in \mathbb{R}^{3 \times 5}\)</span>. <span class="arithmatex">\(A\mathbf{x} = \mathbf{b}\)</span>가 모든 <span class="arithmatex">\(\mathbf{b} \in \mathbb{R}^3\)</span>에 대해 해를 가지려면 <span class="arithmatex">\(\mathrm{col}(A)\)</span>가 어때야 합니까?</li>
+<li><span class="arithmatex">\(A, B \in \mathbb{R}^{2 \times 2}\)</span>. <span class="arithmatex">\((AB)^\top\)</span>를 <span class="arithmatex">\(A^\top, B^\top\)</span>로 표현하세요.</li>
+<li>Outer product <span class="arithmatex">\(\mathbf{u}\mathbf{v}^\top\)</span>의 Rank는 얼마입니까?</li>
+</ul>
+<hr />
+<!-- _class: exercise -->
+
+<h1>🎯 오늘의 마무리 문제 — 즉석 풀이</h1>
+<p>오늘의 사슬(Matrix → 두 해석 → Column space → Matrix 곱)을 <strong>한 문제</strong>로 종합합니다.</p>
+<p><span class="arithmatex">\(A = \begin{pmatrix} 1 &amp; 2 \\ 2 &amp; 4 \\ 3 &amp; 6 \end{pmatrix}\)</span>, <span class="arithmatex">\(\mathbf{x} = \begin{pmatrix} 3 \\ -1 \end{pmatrix}\)</span>, <span class="arithmatex">\(\mathbf{b}_1 = \begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix}\)</span>, <span class="arithmatex">\(\mathbf{b}_2 = \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}\)</span></p>
+<ul>
+<li><strong>(a)</strong> <span class="arithmatex">\(A\mathbf{x}\)</span>를 <strong>Row picture</strong>로 구하세요.</li>
+<li><strong>(b)</strong> 같은 <span class="arithmatex">\(A\mathbf{x}\)</span>를 <strong>Column picture</strong>로 구하세요.</li>
+<li><strong>(c)</strong> <span class="arithmatex">\(A\)</span>의 두 열의 관계는 무엇입니까? <span class="arithmatex">\(\mathrm{col}(A)\)</span>는 <span class="arithmatex">\(\mathbb{R}^3\)</span>의 어떤 모양입니까?</li>
+<li><strong>(d)</strong> <span class="arithmatex">\(A\mathbf{x} = \mathbf{b}_1\)</span>의 해가 존재합니까? <span class="arithmatex">\(A\mathbf{x} = \mathbf{b}_2\)</span>는 어떻습니까?</li>
+</ul>
+<hr />
+<!-- _class: exercise -->
+
+<h2>오늘의 마무리 문제 — 답</h2>
+<ul>
+<li><strong>(a)</strong> Row: <span class="arithmatex">\((1,2)\cdot(3,-1) = 1\)</span>, <span class="arithmatex">\((2,4)\cdot(3,-1) = 2\)</span>, <span class="arithmatex">\((3,6)\cdot(3,-1) = 3\)</span> → <span class="arithmatex">\(A\mathbf{x} = (1, 2, 3)^\top\)</span></li>
+<li><strong>(b)</strong> Column: <span class="arithmatex">\(3\cdot(1,2,3)^\top + (-1)\cdot(2,4,6)^\top = (1, 2, 3)^\top\)</span> ✓</li>
+<li><strong>(c)</strong> <span class="arithmatex">\(\mathbf{a}_2 = 2\mathbf{a}_1\)</span> — 두 열이 평행합니다. <span class="arithmatex">\(\mathrm{col}(A) = \{t \cdot (1,2,3)^\top : t \in \mathbb{R}\}\)</span> — <strong>1차원 직선</strong>.</li>
+<li><strong>(d)</strong> <span class="arithmatex">\(\mathbf{b}_1 = (1,2,3)^\top\)</span> — 직선 위 (<span class="arithmatex">\(t = 1\)</span>) → 해 있음 (무수히, Linear dependence). <span class="arithmatex">\(\mathbf{b}_2 = (1,1,1)^\top\)</span> — 직선 위 아님 → <strong>해 없음</strong>.</li>
+</ul>
+<blockquote>
+<p><strong>핵심</strong>: <span class="arithmatex">\(A\)</span>의 행이 3이라고 도달 가능한 영역이 <span class="arithmatex">\(\mathbb{R}^3\)</span> 전체가 아닙니다. <strong>Column space가 실제 도달 영역</strong>이고, 이것이 8-9회차의 출발점입니다.</p>
+</blockquote>
+<hr />
+<!-- _class: exercise -->
+
+<h2>📝 다음 회차 Review용 숙제</h2>
+<p>위 마무리 문제의 <strong>유사 문제</strong>입니다. 4회차 Review 시간에 함께 답을 맞춥니다.</p>
+<p><span class="arithmatex">\(A = \begin{pmatrix} 1 &amp; 0 &amp; 1 \\ 0 &amp; 1 &amp; 1 \\ 1 &amp; 1 &amp; 2 \end{pmatrix}\)</span>, <span class="arithmatex">\(\mathbf{x} = (1, 1, 1)^\top\)</span></p>
+<ul>
+<li>(a) <span class="arithmatex">\(A\mathbf{x}\)</span>를 Row picture · Column picture로 각각 구하세요.</li>
+<li>(b) <span class="arithmatex">\(A\)</span>의 세 열 사이에 어떤 관계가 있습니까? (셋째 열을 처음 둘로 표현할 수 있습니까?)</li>
+<li>(c) <span class="arithmatex">\(\mathrm{col}(A)\)</span>는 <span class="arithmatex">\(\mathbb{R}^3\)</span>의 어떤 모양입니까 (직선·평면·전체)?</li>
+<li>(d) <span class="arithmatex">\(A\mathbf{y} = (1, 2, 3)^\top\)</span>의 해 존재 여부를 (c)를 사용해 판정하세요.</li>
+</ul>
+<h3>자기 점검</h3>
+<ul>
+<li>셋째 열을 분해할 수 있다면 그 의미는 무엇입니까?</li>
+<li><span class="arithmatex">\(\mathbb{R}^3\)</span>의 평면을 정의하는 데 Linear independence Vector가 몇 개 필요합니까?</li>
+</ul>
+<p>4회차 본 주제(<strong>일반 Linear equation 풀이</strong>)와 직접 연결됩니다.</p>
+<hr />
+<h2>G-4. 과제 안내</h2>
+<p><code>04_과제/Part1/03회차_homework.md</code> — 마감: 4회차 시작 전</p>
+<p><strong>수학 30점</strong>
+- Matrix·Vector 곱 두 해석 손계산 (5문제)
+- 4가지 Matrix 곱 해석으로 같은 곱 계산 (1문제 × 4해석)
+- <span class="arithmatex">\(A\mathbf{x} = \mathbf{b}\)</span> 해 존재 판정 (3문제)
+- <span class="arithmatex">\((AB)^\top = B^\top A^\top\)</span> 직접 증명</p>
+<p><strong>코딩 20점</strong>
+- 두 해석을 NumPy <code>for</code>문으로 구현 + <code>@</code>와 비교
+- 속도 측정 (<span class="arithmatex">\(n = 10, 100, 1000\)</span> × <span class="arithmatex">\(n = 10, 100, 1000\)</span> Matrix)
+- MNIST 한 층 통과 시뮬레이션</p>
+<hr />
+<h2>G-5. 다음 회차 (4회차) 예고</h2>
+<p><strong>주제</strong>: Linear equation 풀이 — 가우스 소거법 · 기약사다리꼴(RREF)</p>
+<p><strong>연결</strong>: 오늘 본 <span class="arithmatex">\(A\mathbf{x} = \mathbf{b}\)</span>의 <strong>해 존재</strong>를 <strong>구체적 알고리즘으로 푸는 방법</strong>입니다. 가우스 소거가 본질적으로 <strong>Row picture의 체계적 운영</strong>이라는 사실, 그리고 그 결과로 나오는 RREF가 Column space · 해의 구조를 직접 드러낸다는 사실을 봅니다.</p>
+<p><strong>사전 reading</strong>:
+- MML §2.3.2~§2.3.4
+- Strang §2.2, §2.3, §3.2
+- 3Blue1Brown EoLA Ch.7 (Inverse matrices, column space, null space)</p>
+<hr />
+<!-- _class: lead -->
+
+<h1>Q &amp; A</h1>
+<p>오늘의 사슬:
+<strong>Matrix → Matrix·Vector 곱 → 두 해석 → Column space → 해 존재 → Matrix 곱 4해석</strong></p>
+<p>핵심 한 줄: <strong><span class="arithmatex">\(A\mathbf{x}\)</span> = <span class="arithmatex">\(A\)</span>의 열들의 Linear combination</strong> (Column picture가 LA의 본 줄기).</p>
+<p><code>HANDOUT</code>: 본 PDF + <code>02_행렬_두해석.ipynb</code></p></div></section><section class="doc" id="p3-4회차"><div class="doc-header"><span class="doc-tag p3">Phase 3</span><span class="doc-tag doc-tag-sub">Strang §2.1-2.3 회차번호 조정</span><h2 class="doc-title">4회차 Gauss·RREF</h2><div class="doc-meta"><code>07_강의교안/Part1/04회차_가우스소거_RREF.md</code><span>21.5 KB</span></div></div><div class="doc-content"><hr />
+<p>marp: true
+theme: default
+paginate: true
+header: '인공지능 전공자를 위한 선형대수학'
+footer: '4회차 — Gaussian elimination · RREF · 해의 구조'
+math: mathjax
+size: 16:9
+style: |
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css');
+  section { font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            font-size: 22px; padding: 50px 60px 70px 60px; color: #111827; letter-spacing: -0.011em; }
+  section.lead { padding: 100px 60px; }
+  h1 { color: #1E40AF; margin-top: 0; font-weight: 700; letter-spacing: -0.02em; }
+  h2 { color: #111827; border-bottom: 2px solid #E5E7EB; padding-bottom: 4px; margin-top: 0; font-weight: 700; }
+  table { font-size: 17px; border-collapse: collapse; }
+  th { background: #F9FAFB; border: 1px solid #E5E7EB; }
+  td { border: 1px solid #E5E7EB; }
+  code { font-size: 17px; background: #F3F4F6; color: #BE185D; padding: 2px 6px; border-radius: 6px;
+         font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace; }
+  blockquote { font-size: 19px; border-left: 4px solid #3B82F6; color: #1E40AF;
+               background: #DBEAFE; padding: 8px 14px; border-radius: 0 8px 8px 0; }
+  section.exercise { background: #FFFBEB; }
+  section.exercise h1 { color: #B45309; }
+  section.exercise h2 { color: #92400E; border-bottom-color: #FDE68A; }
+  .analogy { background: #D1FAE5; border-left: 4px solid #10B981; padding: 10px 16px; margin: 12px 0;
+             font-size: 19px; color: #065F46; border-radius: 0 8px 8px 0; }
+  .analogy strong { color: #047857; }</p>
+<hr />
+<!-- _class: lead -->
+<!-- _paginate: false -->
+
+<h1>4회차</h1>
+<h2>Gaussian elimination · RREF · 해의 구조</h2>
+<p>MML §2.3.2~§2.3.4 · Strang §2.2, §2.3, §3.2 · EoLA Ch.7</p>
+<hr />
+<!-- _class: exercise -->
+
+<h1>🔁 Review — 3회차 마무리 숙제</h1>
+<p>지난 회차 마지막에 가져갔던 문제:</p>
+<blockquote>
+<p><span class="arithmatex">\(A = \begin{pmatrix} 1 &amp; 0 &amp; 1 \\ 0 &amp; 1 &amp; 1 \\ 1 &amp; 1 &amp; 2 \end{pmatrix}\)</span>, <span class="arithmatex">\(\mathbf{x} = (1, 1, 1)^\top\)</span>
+(a) Row · Column picture로 <span class="arithmatex">\(A\mathbf{x}\)</span>, (b) 세 열의 관계, (c) <span class="arithmatex">\(\mathrm{col}(A)\)</span>의 모양, (d) <span class="arithmatex">\(A\mathbf{y}=(1,2,3)^\top\)</span>의 해 존재.</p>
+</blockquote>
+<h3>답</h3>
+<ul>
+<li><strong>(a)</strong> Row: <span class="arithmatex">\((2, 2, 4)^\top\)</span>. Column: <span class="arithmatex">\(1(1,0,1)^\top + 1(0,1,1)^\top + 1(1,1,2)^\top = (2, 2, 4)^\top\)</span> ✓</li>
+<li><strong>(b)</strong> <span class="arithmatex">\(\mathbf{a}_3 = \mathbf{a}_1 + \mathbf{a}_2\)</span> — 셋째 열은 처음 둘의 합. <strong>Linear dependence(일차종속)</strong>.</li>
+<li><strong>(c)</strong> <span class="arithmatex">\(\mathrm{col}(A) = \mathrm{span}\{(1,0,1)^\top, (0,1,1)^\top\}\)</span> — <span class="arithmatex">\(\mathbb{R}^3\)</span>의 <strong>평면</strong> (2차원).</li>
+<li><strong>(d)</strong> <span class="arithmatex">\((1,2,3)^\top = 1(1,0,1)^\top + 2(0,1,1)^\top\)</span> ✓ — 평면 위. <strong>해 있음</strong> (무수히, 일차종속이므로).</li>
+</ul>
+<h3>핵심 관찰</h3>
+<p>"<span class="arithmatex">\(\mathbf{b}\)</span>가 평면 위에 있는가"를 <strong>눈으로</strong> 확인하기 어렵습니다 — 3개의 식이 동시에 맞아떨어지는지 일일이 검사해야 합니다. 더 차원이 커지면 불가능합니다.</p>
+<p>→ 오늘 회차의 <strong>Gaussian elimination(가우스 소거법)</strong>이 이 검사를 <strong>알고리즘</strong>으로 만듭니다.</p>
+<hr />
+<h2>오늘의 핵심 질문</h2>
+<blockquote>
+<h3><span class="arithmatex">\(A\mathbf{x} = \mathbf{b}\)</span>를 어떻게 <strong>알고리즘으로</strong> 풀고, 동시에 <strong>해의 구조</strong>(유일·무수·없음)를 한 번에 판정합니까?</h3>
+</blockquote>
+<p>이 한 알고리즘이 LA의 모든 손계산의 기초가 됩니다.</p>
+<ul>
+<li><strong>도구</strong>: Elementary row operations(기본 행 연산) 3가지</li>
+<li><strong>과정</strong>: Gaussian elimination → REF → RREF(Reduced Row Echelon Form, 기약사다리꼴)</li>
+<li><strong>결과</strong>: Pivot(피벗) 위치를 보면 해의 구조가 즉시 보입니다.</li>
+</ul>
+<p>오늘 회차의 모든 것이 "한 알고리즘 + 한 표준형" 위에 있습니다.</p>
+<hr />
+<h2>학습 목표</h2>
+<p>이번 회차가 끝나면 학생은 다음을 답할 수 있어야 합니다.</p>
+<ol>
+<li><strong>Elementary row operations</strong> 세 가지를 진술하고 적용할 수 있습니다.</li>
+<li><strong>Gaussian elimination</strong>으로 <span class="arithmatex">\(A\mathbf{x} = \mathbf{b}\)</span>를 손계산할 수 있습니다.</li>
+<li><strong>REF</strong>와 <strong>RREF</strong>의 정의·차이를 설명하고 RREF가 <strong>유일</strong>하다는 사실을 진술할 수 있습니다.</li>
+<li><strong>Pivot 열과 Free 열</strong>을 식별하고 그 의미를 설명할 수 있습니다.</li>
+<li><strong>해의 세 경우</strong> (유일·무수·없음)를 RREF의 Pivot 패턴으로 판정할 수 있습니다.</li>
+<li>해의 구조와 3회차 <strong>Column space</strong>의 관계를 진술할 수 있습니다.</li>
+</ol>
+<hr />
+<h2>오늘의 논리 사슬</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>질문</th>
+<th>답</th>
+<th>도구</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>식 묶음을 어떻게 단순화?</td>
+<td><strong>Row operations</strong></td>
+<td>3가지 연산</td>
+</tr>
+<tr>
+<td>체계적으로 어떻게?</td>
+<td><strong>Gaussian elimination</strong></td>
+<td>Forward + Backward</td>
+</tr>
+<tr>
+<td>가장 단순한 표준형은?</td>
+<td><strong>RREF</strong></td>
+<td>Pivot=1, 위·아래 0</td>
+</tr>
+<tr>
+<td>어떤 변수가 자유인가?</td>
+<td><strong>Free variables</strong></td>
+<td>Pivot 없는 열</td>
+</tr>
+<tr>
+<td>해의 존재·유일성은?</td>
+<td><strong>Pivot 패턴 판정</strong></td>
+<td>3가지 경우</td>
+</tr>
+</tbody>
+</table></div>
+<p>이 사슬을 한 회차에 완주합니다.</p>
+<hr />
+<h2>수업 흐름 (120분)</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>시간</th>
+<th>블록</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0~15</td>
+<td>A</td>
+<td><strong>오프닝</strong> — 핵심 질문 + 3회차 Review</td>
+</tr>
+<tr>
+<td>15~30</td>
+<td>B</td>
+<td>Linear equation system의 행렬 표현 + Row operations</td>
+</tr>
+<tr>
+<td>30~60</td>
+<td><strong>C</strong></td>
+<td><strong>Gaussian elimination</strong> (Forward · Backward)</td>
+</tr>
+<tr>
+<td>60~80</td>
+<td><strong>D</strong></td>
+<td><strong>RREF · Pivot · Free variables</strong></td>
+</tr>
+<tr>
+<td>80~100</td>
+<td><strong>E</strong></td>
+<td><strong>해의 세 경우</strong> (유일·무수·없음)</td>
+</tr>
+<tr>
+<td>100~110</td>
+<td>F</td>
+<td>CS·AI 적용 + Column space 연결</td>
+</tr>
+<tr>
+<td>110~120</td>
+<td>G</td>
+<td><strong>클로징</strong> — 코딩 + 마무리 문제 + 숙제</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p><strong>C·D·E가 오늘의 심장</strong>. 30분 + 20분 + 20분 = 70분 집중 배분.</p>
+</blockquote>
+<hr />
+<h1>B. Linear equation system의 표현 + Row operations</h1>
+<hr />
+<h2>B-1. Augmented matrix(첨가행렬)</h2>
+<div class="arithmatex">\[\begin{cases} a_{11}x_1 + a_{12}x_2 + \cdots = b_1 \\ a_{21}x_1 + a_{22}x_2 + \cdots = b_2 \\ \vdots \end{cases} \;\Leftrightarrow\; A\mathbf{x} = \mathbf{b} \;\Leftrightarrow\; [A \mid \mathbf{b}]\]</div>
+<p><strong>Augmented matrix</strong> <span class="arithmatex">\([A \mid \mathbf{b}]\)</span>로 한 표에 모든 정보를 담습니다.</p>
+<h3>예</h3>
+<p><span class="arithmatex">\(\begin{cases} 2x + y = 5 \\ x + 3y = 5 \end{cases} \;\Leftrightarrow\; \left[\begin{array}{cc|c} 2 &amp; 1 &amp; 5 \\ 1 &amp; 3 &amp; 5 \end{array}\right]\)</span></p>
+<hr />
+<h2>B-2. Elementary row operations — 3가지</h2>
+<p>해를 바꾸지 않는 세 가지 행 연산입니다.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: center;">기호</th>
+<th>연산</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>(R1)</strong></td>
+<td><span class="arithmatex">\(R_i \leftrightarrow R_j\)</span></td>
+<td>두 행을 교환</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>(R2)</strong></td>
+<td><span class="arithmatex">\(R_i \leftarrow c\,R_i\;(c \ne 0)\)</span></td>
+<td>한 행을 0이 아닌 Scalar(스칼라)로 곱하기</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>(R3)</strong></td>
+<td><span class="arithmatex">\(R_i \leftarrow R_i + c\,R_j\)</span></td>
+<td>한 행에 다른 행의 Scalar배를 더하기</td>
+</tr>
+</tbody>
+</table></div>
+<h3>명제 3.1 (해 불변성)</h3>
+<p>세 연산은 모두 <span class="arithmatex">\(A\mathbf{x} = \mathbf{b}\)</span>의 <strong>해집합을 보존</strong>합니다.</p>
+<p><strong>증명 골자</strong>: 각 연산이 가역(invertible). <span class="arithmatex">\(R_i \leftrightarrow R_j\)</span>를 한 번 더 하면 원래대로, <span class="arithmatex">\(c\)</span>로 곱하면 <span class="arithmatex">\(1/c\)</span>로 다시 곱하면 원래로 — 따라서 식 묶음이 동치(equivalent)입니다. <span class="arithmatex">\(\blacksquare\)</span></p>
+<hr />
+<h1>C. Gaussian elimination</h1>
+<hr />
+<h2>C-1. 전체 흐름</h2>
+<div class="analogy">
+<p>💡 <strong>파인만식 비유</strong>: 복잡한 주문서를 <strong>단계별로 정리</strong>하는 작업입니다. 처음엔 메뉴가 마구 섞여 있어 누가 뭘 주문했는지 안 보이지만, <strong>한 행씩 차근차근 정리</strong>(소거)하면 끝에는 누가 무엇을 얼마나 시켰는지 한눈에 보입니다.</p>
+</div>
+<h3>두 단계</h3>
+<ol>
+<li><strong>Forward elimination(전방 소거)</strong> — <span class="arithmatex">\(A\)</span>를 <strong>상삼각형</strong>으로 (Row Echelon Form, REF)</li>
+<li><strong>Backward substitution(후방 대입)</strong> — REF에서 미지수를 거꾸로 구하기</li>
+</ol>
+<p>또는 한 번에: <strong>Forward 후 계속 위로도 소거 → RREF</strong>, 답을 직접 읽기 (Gauss-Jordan).</p>
+<hr />
+<h2>C-2. 손계산 예제 — Forward 단계</h2>
+<p><span class="arithmatex">\(\left[\begin{array}{cc|c} 2 &amp; 1 &amp; 5 \\ 1 &amp; 3 &amp; 5 \end{array}\right]\)</span> — 위에서 본 그 식.</p>
+<p><strong>(R1)</strong> <span class="arithmatex">\(R_1 \leftrightarrow R_2\)</span> (첫 pivot을 1로 만들기 위해):
+<span class="arithmatex">\(\left[\begin{array}{cc|c} 1 &amp; 3 &amp; 5 \\ 2 &amp; 1 &amp; 5 \end{array}\right]\)</span></p>
+<p><strong>(R3)</strong> <span class="arithmatex">\(R_2 \leftarrow R_2 - 2R_1\)</span>:
+<span class="arithmatex">\(\left[\begin{array}{cc|c} 1 &amp; 3 &amp; 5 \\ 0 &amp; -5 &amp; -5 \end{array}\right]\)</span></p>
+<p><strong>(R2)</strong> <span class="arithmatex">\(R_2 \leftarrow R_2 / (-5)\)</span>:
+<span class="arithmatex">\(\left[\begin{array}{cc|c} 1 &amp; 3 &amp; 5 \\ 0 &amp; 1 &amp; 1 \end{array}\right]\)</span> ← <strong>REF (상삼각형, pivot = 1)</strong></p>
+<hr />
+<h2>C-3. Backward substitution</h2>
+<p>REF <span class="arithmatex">\(\left[\begin{array}{cc|c} 1 &amp; 3 &amp; 5 \\ 0 &amp; 1 &amp; 1 \end{array}\right]\)</span>를 식으로 다시 쓰면:</p>
+<div class="arithmatex">\[\begin{cases} x + 3y = 5 \\ y = 1 \end{cases}\]</div>
+<p><strong>아래에서 위로</strong> 대입합니다:
+- <span class="arithmatex">\(y = 1\)</span>
+- <span class="arithmatex">\(x = 5 - 3y = 5 - 3 = 2\)</span></p>
+<p><strong>해</strong>: <span class="arithmatex">\((x, y) = (2, 1)\)</span>. ✓ (검산: <span class="arithmatex">\(2\cdot 2 + 1 = 5\)</span>, <span class="arithmatex">\(2 + 3 = 5\)</span>)</p>
+<hr />
+<h2>C-4. Pivot(피벗)의 의미</h2>
+<p><strong>Pivot</strong> = 각 행에서 <strong>0이 아닌 첫 원소</strong>(REF 기준).</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Augmented matrix</th>
+<th>Pivot 위치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\left[\begin{array}{cc\|c} 1 &amp; 3 &amp; 5 \\ 0 &amp; 1 &amp; 1 \end{array}\right]\)</span></td>
+<td>(1,1), (2,2) — 두 열 모두</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\left[\begin{array}{ccc\|c} 1 &amp; 2 &amp; 3 &amp; 6 \\ 0 &amp; 0 &amp; 1 &amp; 2 \\ 0 &amp; 0 &amp; 0 &amp; 0 \end{array}\right]\)</span></td>
+<td>(1,1), (2,3) — 1열·3열</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Pivot 위치가 해의 구조를 결정합니다</strong>:
+- 모든 열에 pivot → 유일해
+- 일부 열에 pivot 없음 → 자유 변수 발생
+- <span class="arithmatex">\(\mathbf{b}\)</span> 열에 pivot → 해 없음 (다음에 설명)</p>
+<hr />
+<!-- _class: exercise -->
+
+<h1>🖍 잠깐 풀어보기 — Gaussian elimination</h1>
+<h3>문제 1 (2×2)</h3>
+<p>다음을 Gaussian elimination으로 풀어보세요.
+$<span class="arithmatex">\(\begin{cases} x + 2y = 4 \\ 3x + 7y = 13 \end{cases}\)</span>$</p>
+<h3>문제 2 (3×3, 일관해)</h3>
+<p>다음을 푸세요.
+$<span class="arithmatex">\(\begin{cases} x + y + z = 6 \\ x + 2y + 3z = 14 \\ x + 3y + 5z = 22 \end{cases}\)</span>$</p>
+<blockquote>
+<p><strong>힌트</strong>: 첫 행을 그대로 두고 둘째·셋째 행에서 첫 행의 배수를 빼는 것부터 시작.</p>
+</blockquote>
+<hr />
+<!-- _class: exercise -->
+
+<h2>잠깐 풀어보기 — 답</h2>
+<h3>문제 1</h3>
+<p><span class="arithmatex">\(\left[\begin{array}{cc|c} 1 &amp; 2 &amp; 4 \\ 3 &amp; 7 &amp; 13 \end{array}\right]\)</span> →<span class="arithmatex">\(_{R_2 - 3R_1}\)</span> <span class="arithmatex">\(\left[\begin{array}{cc|c} 1 &amp; 2 &amp; 4 \\ 0 &amp; 1 &amp; 1 \end{array}\right]\)</span>
+<span class="arithmatex">\(y = 1\)</span>, <span class="arithmatex">\(x = 4 - 2 = 2\)</span>. <strong>해 <span class="arithmatex">\((2, 1)\)</span></strong>.</p>
+<h3>문제 2</h3>
+<p><span class="arithmatex">\(\left[\begin{array}{ccc|c} 1 &amp; 1 &amp; 1 &amp; 6 \\ 1 &amp; 2 &amp; 3 &amp; 14 \\ 1 &amp; 3 &amp; 5 &amp; 22 \end{array}\right]\)</span>
+→<span class="arithmatex">\(_{R_2 - R_1,\,R_3 - R_1}\)</span> <span class="arithmatex">\(\left[\begin{array}{ccc|c} 1 &amp; 1 &amp; 1 &amp; 6 \\ 0 &amp; 1 &amp; 2 &amp; 8 \\ 0 &amp; 2 &amp; 4 &amp; 16 \end{array}\right]\)</span>
+→<span class="arithmatex">\(_{R_3 - 2R_2}\)</span> <span class="arithmatex">\(\left[\begin{array}{ccc|c} 1 &amp; 1 &amp; 1 &amp; 6 \\ 0 &amp; 1 &amp; 2 &amp; 8 \\ 0 &amp; 0 &amp; 0 &amp; 0 \end{array}\right]\)</span></p>
+<p>마지막 행이 <span class="arithmatex">\(0=0\)</span>. <strong>Free variable 발생</strong> — <span class="arithmatex">\(z = t\)</span>로 두면 <span class="arithmatex">\(y = 8 - 2t\)</span>, <span class="arithmatex">\(x = 6 - y - z = 6 - (8-2t) - t = t - 2\)</span>. <strong>해</strong>: <span class="arithmatex">\((t-2,\,8-2t,\,t)\)</span>, <span class="arithmatex">\(t \in \mathbb{R}\)</span> — 무수히.</p>
+<blockquote>
+<p><strong>메시지</strong>: 한 식이 다른 식의 Linear combination(선형결합)이면 자유 변수가 생깁니다.</p>
+</blockquote>
+<hr />
+<h1>D. RREF · Pivot · Free variables</h1>
+<hr />
+<h2>D-1. REF vs RREF</h2>
+<p><strong>REF (Row Echelon Form, 사다리꼴)</strong>
+- 각 행의 첫 0 아닌 원소(pivot)가 그 위 행의 pivot보다 <strong>오른쪽</strong>
+- pivot 아래는 모두 0
+- 0행은 모두 맨 아래</p>
+<p><strong>RREF (Reduced REF, 기약사다리꼴)</strong> — REF + 두 조건
+- 모든 pivot이 정확히 <strong>1</strong>
+- 모든 pivot의 <strong>위·아래가 0</strong> (열 전체가 표준 단위 벡터)</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Augmented matrix</th>
+<th>상태</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\left[\begin{array}{cc\|c} 2 &amp; 3 &amp; 7 \\ 0 &amp; 1 &amp; 1 \end{array}\right]\)</span></td>
+<td>REF (pivot 위 0 X)</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\left[\begin{array}{cc\|c} 1 &amp; 0 &amp; 4 \\ 0 &amp; 1 &amp; 1 \end{array}\right]\)</span></td>
+<td><strong>RREF</strong> ✓</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>D-2. RREF의 유일성</h2>
+<h3>정리 3.1 (RREF 유일성)</h3>
+<p>어떤 행렬 <span class="arithmatex">\(A\)</span>에 대해서도 행 연산으로 도달하는 RREF는 <strong>유일</strong>합니다.</p>
+<p><strong>의미</strong>: REF는 어떤 행 교환을 했느냐에 따라 모양이 다를 수 있지만, <strong>RREF는 한 가지뿐</strong>입니다. → <strong>표준형(canonical form)</strong>.</p>
+<p>→ "<span class="arithmatex">\(A\)</span>의 RREF" 라고 부를 수 있습니다 (정관사 the).</p>
+<p><strong>증명</strong>: 9회차 Basis(기저) 도구가 필요하므로 그때.</p>
+<hr />
+<h2>D-3. Pivot column vs Free column</h2>
+<p><strong>Pivot column(피벗 열)</strong>: RREF에서 pivot이 들어 있는 열.
+<strong>Free column(자유 열)</strong>: pivot이 없는 열.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>RREF</th>
+<th>Pivot 열</th>
+<th>Free 열</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\left[\begin{array}{ccc\|c} 1 &amp; 0 &amp; -1 &amp; 0 \\ 0 &amp; 1 &amp; 2 &amp; 3 \\ 0 &amp; 0 &amp; 0 &amp; 0 \end{array}\right]\)</span></td>
+<td>1, 2</td>
+<td><strong>3</strong></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\left[\begin{array}{ccc\|c} 1 &amp; 2 &amp; 0 &amp; 3 \\ 0 &amp; 0 &amp; 1 &amp; 1 \\ 0 &amp; 0 &amp; 0 &amp; 0 \end{array}\right]\)</span></td>
+<td>1, 3</td>
+<td><strong>2</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Free column 수 = 자유 변수 수 = 해의 자유도</strong>.</p>
+<hr />
+<h2>D-4. RREF에서 해 직접 읽기</h2>
+<p><span class="arithmatex">\(\left[\begin{array}{ccc|c} 1 &amp; 0 &amp; -1 &amp; 0 \\ 0 &amp; 1 &amp; 2 &amp; 3 \\ 0 &amp; 0 &amp; 0 &amp; 0 \end{array}\right]\)</span></p>
+<ul>
+<li>1열·2열 pivot → <span class="arithmatex">\(x_1, x_2\)</span>가 종속 변수</li>
+<li>3열 free → <span class="arithmatex">\(x_3 = t\)</span> 임의</li>
+</ul>
+<p>식으로:
+- <span class="arithmatex">\(x_1 - x_3 = 0 \Rightarrow x_1 = t\)</span>
+- <span class="arithmatex">\(x_2 + 2x_3 = 3 \Rightarrow x_2 = 3 - 2t\)</span></p>
+<p><strong>해</strong>: <span class="arithmatex">\((t, 3-2t, t)\)</span> — 직선 (1차원 자유도).</p>
+<p>→ RREF만 보면 해의 <strong>완전한 모양</strong>이 즉시 나옵니다.</p>
+<hr />
+<h1>E. 해의 세 경우</h1>
+<hr />
+<h2>E-1. 세 경우의 판정</h2>
+<p><span class="arithmatex">\([A \mid \mathbf{b}]\)</span>의 RREF를 보고 판정합니다.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>경우</th>
+<th>RREF의 특징</th>
+<th>예</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>(i) 유일해</strong></td>
+<td>모든 변수 열에 pivot, <span class="arithmatex">\(\mathbf{b}\)</span> 열 pivot 없음</td>
+<td><span class="arithmatex">\(\left[\begin{array}{cc\|c} 1 &amp; 0 &amp; 2 \\ 0 &amp; 1 &amp; 1 \end{array}\right]\)</span></td>
+</tr>
+<tr>
+<td><strong>(ii) 무수히 많은 해</strong></td>
+<td>Free column이 있음, <span class="arithmatex">\(\mathbf{b}\)</span> 열 pivot 없음</td>
+<td><span class="arithmatex">\(\left[\begin{array}{ccc\|c} 1 &amp; 0 &amp; -1 &amp; 0 \\ 0 &amp; 1 &amp; 2 &amp; 3 \\ 0 &amp; 0 &amp; 0 &amp; 0 \end{array}\right]\)</span></td>
+</tr>
+<tr>
+<td><strong>(iii) 해 없음</strong></td>
+<td><span class="arithmatex">\(\mathbf{b}\)</span> 열에 pivot (<span class="arithmatex">\(0 = c \ne 0\)</span>의 식)</td>
+<td><span class="arithmatex">\(\left[\begin{array}{cc\|c} 1 &amp; 2 &amp; 3 \\ 0 &amp; 0 &amp; 1 \end{array}\right]\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>한 표로</strong>: <span class="arithmatex">\(\mathbf{b}\)</span> 열 pivot이 있으면 모순 → 해 없음. 없으면 free column 수가 해의 자유도.</p>
+<hr />
+<h2>E-2. 해 없음의 의미 — 모순 행</h2>
+<p><span class="arithmatex">\(\left[\begin{array}{cc|c} 1 &amp; 2 &amp; 3 \\ 0 &amp; 0 &amp; 1 \end{array}\right]\)</span>의 둘째 행은 식으로 <span class="arithmatex">\(0 \cdot x_1 + 0 \cdot x_2 = 1\)</span>, 즉 <span class="arithmatex">\(0 = 1\)</span>.</p>
+<p><strong>어떤 <span class="arithmatex">\(x_1, x_2\)</span>를 잡아도 모순</strong>입니다 — 해 없음.</p>
+<h3>3회차와 연결</h3>
+<ul>
+<li>해 없음 ↔ <span class="arithmatex">\(\mathbf{b} \notin \mathrm{col}(A)\)</span> — <span class="arithmatex">\(\mathbf{b}\)</span>가 <span class="arithmatex">\(A\)</span>의 Column space 밖</li>
+<li>해 있음 ↔ <span class="arithmatex">\(\mathbf{b} \in \mathrm{col}(A)\)</span> — Column space 안</li>
+</ul>
+<p>오늘의 알고리즘이 <strong>그 멤버십 판정을 손계산으로</strong> 가능하게 합니다.</p>
+<hr />
+<h2>E-3. 무수히 많은 해의 구조</h2>
+<p>해가 있고 free column이 <span class="arithmatex">\(k\)</span>개면 → 해 집합은 <strong><span class="arithmatex">\(k\)</span>차원 affine subspace</strong>(평행이동된 부분공간).</p>
+<h3>구조</h3>
+<p><span class="arithmatex">\(\mathbf{x} = \mathbf{x}_p + \mathbf{x}_h\)</span></p>
+<ul>
+<li><span class="arithmatex">\(\mathbf{x}_p\)</span> = <strong>특수해(particular solution)</strong> — RREF에서 free 변수를 0으로</li>
+<li><span class="arithmatex">\(\mathbf{x}_h\)</span> = <strong>동차해(homogeneous solution)</strong> — <span class="arithmatex">\(A\mathbf{x} = \mathbf{0}\)</span>의 해 집합 (Null space, 7회차)</li>
+</ul>
+<h3>예 (앞 슬라이드)</h3>
+<p>해 <span class="arithmatex">\((t, 3-2t, t) = (0, 3, 0) + t(1, -2, 1)\)</span>
+- <span class="arithmatex">\(\mathbf{x}_p = (0, 3, 0)\)</span>
+- <span class="arithmatex">\(\mathbf{x}_h = t(1, -2, 1)\)</span>, 모든 <span class="arithmatex">\(t \in \mathbb{R}\)</span></p>
+<p>→ <strong>7회차 Null space</strong>의 출발점.</p>
+<hr />
+<!-- _class: exercise -->
+
+<h1>🖍 잠깐 풀어보기 — 해의 세 경우</h1>
+<p>각 경우를 RREF로 판정하고 해를 구하세요.</p>
+<h3>문제 1 (해 없음)</h3>
+<div class="arithmatex">\[\begin{cases} x + y = 3 \\ 2x + 2y = 7 \end{cases}\]</div>
+<h3>문제 2 (유일해)</h3>
+<div class="arithmatex">\[\begin{cases} x + 2y - z = 1 \\ -x + y + 2z = 2 \\ y + z = 1 \end{cases}\]</div>
+<h3>문제 3 (무수해)</h3>
+<div class="arithmatex">\[\begin{cases} x + y - z = 2 \\ 2x + 2y - 2z = 4 \\ 3x + 3y - 3z = 6 \end{cases}\]</div>
+<hr />
+<!-- _class: exercise -->
+
+<h2>잠깐 풀어보기 — 답</h2>
+<h3>문제 1</h3>
+<p><span class="arithmatex">\(\left[\begin{array}{cc|c} 1 &amp; 1 &amp; 3 \\ 2 &amp; 2 &amp; 7 \end{array}\right]\)</span> →<span class="arithmatex">\(_{R_2 - 2R_1}\)</span> <span class="arithmatex">\(\left[\begin{array}{cc|c} 1 &amp; 1 &amp; 3 \\ 0 &amp; 0 &amp; 1 \end{array}\right]\)</span> — <span class="arithmatex">\(\mathbf{b}\)</span> 열에 pivot → <strong>해 없음</strong>.</p>
+<h3>문제 2</h3>
+<p>RREF로 가면 <span class="arithmatex">\(\left[\begin{array}{ccc|c} 1 &amp; 0 &amp; 0 &amp; 1 \\ 0 &amp; 1 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 1 \end{array}\right]\)</span>. 모든 변수 열 pivot → <strong>유일해 <span class="arithmatex">\((1, 0, 1)\)</span></strong>.</p>
+<h3>문제 3</h3>
+<p>세 식이 같은 식의 1·2·3배. RREF: <span class="arithmatex">\(\left[\begin{array}{ccc|c} 1 &amp; 1 &amp; -1 &amp; 2 \\ 0 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 0 \end{array}\right]\)</span>. Pivot 1개, free 2개.
+<span class="arithmatex">\(y = s, z = t\)</span>로 두면 <span class="arithmatex">\(x = 2 - s + t\)</span>. 해: <span class="arithmatex">\((2-s+t,\,s,\,t)\)</span>. <strong>2차원 자유 해 집합</strong>.</p>
+<blockquote>
+<p><strong>메시지</strong>: 세 식이 본질적으로 같은 식이면 자유도가 그만큼 커집니다.</p>
+</blockquote>
+<hr />
+<h1>F. CS·AI 적용 + Column space 연결</h1>
+<hr />
+<h2>F-1. AI에서 Linear equation 풀이</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>응용</th>
+<th><span class="arithmatex">\(A\mathbf{x} = \mathbf{b}\)</span>의 역할</th>
+<th>회차</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>선형 회귀</strong></td>
+<td><span class="arithmatex">\(A\hat\beta = \mathbf{b}\)</span> (overdetermined → 최소제곱)</td>
+<td>11</td>
+</tr>
+<tr>
+<td><strong>신경망 한 층의 역방향</strong></td>
+<td>입력 복원 (역연산)</td>
+<td>Part 2</td>
+</tr>
+<tr>
+<td><strong>Embedding 정규화</strong></td>
+<td>Linear constraint 적용</td>
+<td>11</td>
+</tr>
+<tr>
+<td><strong>Optimization KKT</strong></td>
+<td>등식 제약 = <span class="arithmatex">\(A\mathbf{x} = \mathbf{b}\)</span></td>
+<td>졸업 후</td>
+</tr>
+<tr>
+<td><strong>Computer Graphics</strong></td>
+<td>좌표 변환 풀이</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<p>대형 신경망 학습에서도 본질은 거대한 Linear equation system 근사 풀이입니다.</p>
+<hr />
+<h2>F-2. 수치적 주의 — 부동소수점</h2>
+<p>손계산은 정확하지만 NumPy 등 부동소수점에서는 작은 오차가 누적됩니다.</p>
+<pre><code class="language-python">A = np.array([[2.0, 1.0], [1.0, 3.0]])
+b = np.array([5.0, 5.0])
+x = np.linalg.solve(A, b)  # → [2.0, 1.0] (정확)
+</code></pre>
+<p><code>np.linalg.solve</code>는 LU Decomposition(5회차)을 내부적으로 사용합니다 — Gaussian elimination이 그 토대.</p>
+<h3>Partial pivoting (간단 안내)</h3>
+<p>큰 행렬에서 <strong>가장 큰 값을 pivot으로</strong> 선택해 수치 안정성을 높이는 표준 기법입니다. 5회차 LU에서 다시 봅니다.</p>
+<hr />
+<h1>G. 클로징</h1>
+<hr />
+<h2>G-1. 코딩 실습 골자</h2>
+<p>→ <code>11_주피터노트북/Part1/03_가우스소거_RREF.ipynb</code></p>
+<ol>
+<li><strong>Gaussian elimination을 직접 구현</strong> (Forward + Backward)</li>
+<li>NumPy <code>np.linalg.solve</code>와 결과 비교</li>
+<li><code>sympy.Matrix(...).rref()</code>로 RREF 직접 계산 + 손계산과 비교</li>
+<li>해의 세 경우를 모두 실험 (유일·무수·없음)</li>
+<li><strong>랜덤 행렬 100개</strong>에 대해 해 존재 여부를 RREF로 자동 판정</li>
+<li>시각화 — 2변수 경우 두 직선의 교차·평행·일치</li>
+</ol>
+<hr />
+<h2>G-2. 오늘 회차 핵심 5개</h2>
+<ol>
+<li><strong>Elementary row operations 3가지</strong> — 해를 바꾸지 않는 식 묶음 변형</li>
+<li><strong>Gaussian elimination</strong> — Forward(REF) + Backward(해 읽기)</li>
+<li><strong>RREF는 유일</strong> — 한 행렬의 표준형</li>
+<li><strong>Pivot 열 vs Free 열</strong> — Free 열 수 = 자유 변수 수</li>
+<li><strong>해의 세 경우 판정</strong> — <span class="arithmatex">\(\mathbf{b}\)</span> 열 pivot 있음 → 없음. Free 열 있음 → 무수. 모든 변수 열 pivot → 유일.</li>
+</ol>
+<hr />
+<h2>G-3. 자기 점검 질문</h2>
+<ul>
+<li>Elementary row operations 세 가지를 말해보세요. 왜 해를 보존합니까?</li>
+<li>REF와 RREF의 차이는 무엇입니까?</li>
+<li>어떤 행렬의 RREF는 유일합니까, 아니면 알고리즘에 따라 달라집니까?</li>
+<li>"Free column이 있으면 무수히 많은 해" — 항상 참입니까? 반례를 생각해보세요.</li>
+<li><span class="arithmatex">\(\mathbf{b}\)</span> 열에 pivot이 있다는 것의 기하학적 의미는?</li>
+</ul>
+<hr />
+<!-- _class: exercise -->
+
+<h1>🎯 오늘의 마무리 문제 — 즉석 풀이</h1>
+<p>다음 system을 RREF로 풀고 <strong>해의 종류</strong>(유일·무수·없음)를 판정하세요.</p>
+<div class="arithmatex">\[\begin{cases} x + 2y + 3z = 4 \\ 2x + 5y + 7z = 9 \\ x + 3y + 5z = 6 \end{cases}\]</div>
+<ul>
+<li><strong>(a)</strong> Augmented matrix를 적으세요.</li>
+<li><strong>(b)</strong> Gaussian elimination으로 REF를 만드세요.</li>
+<li><strong>(c)</strong> 추가 행 연산으로 RREF로 만드세요.</li>
+<li><strong>(d)</strong> Pivot 열과 Free 열을 식별하세요.</li>
+<li><strong>(e)</strong> 해의 종류·해를 적으세요.</li>
+</ul>
+<hr />
+<!-- _class: exercise -->
+
+<h2>오늘의 마무리 문제 — 답</h2>
+<ul>
+<li><strong>(a)</strong> <span class="arithmatex">\(\left[\begin{array}{ccc|c} 1 &amp; 2 &amp; 3 &amp; 4 \\ 2 &amp; 5 &amp; 7 &amp; 9 \\ 1 &amp; 3 &amp; 5 &amp; 6 \end{array}\right]\)</span></li>
+<li><strong>(b)</strong> <span class="arithmatex">\(R_2 \leftarrow R_2 - 2R_1,\;R_3 \leftarrow R_3 - R_1\)</span>:
+   <span class="arithmatex">\(\left[\begin{array}{ccc|c} 1 &amp; 2 &amp; 3 &amp; 4 \\ 0 &amp; 1 &amp; 1 &amp; 1 \\ 0 &amp; 1 &amp; 2 &amp; 2 \end{array}\right]\)</span>
+   <span class="arithmatex">\(R_3 \leftarrow R_3 - R_2\)</span>:
+   <span class="arithmatex">\(\left[\begin{array}{ccc|c} 1 &amp; 2 &amp; 3 &amp; 4 \\ 0 &amp; 1 &amp; 1 &amp; 1 \\ 0 &amp; 0 &amp; 1 &amp; 1 \end{array}\right]\)</span> ← <strong>REF</strong></li>
+<li><strong>(c)</strong> <span class="arithmatex">\(R_2 \leftarrow R_2 - R_3,\;R_1 \leftarrow R_1 - 3R_3,\;R_1 \leftarrow R_1 - 2R_2\)</span>:
+   <span class="arithmatex">\(\left[\begin{array}{ccc|c} 1 &amp; 0 &amp; 0 &amp; 1 \\ 0 &amp; 1 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 1 \end{array}\right]\)</span> ← <strong>RREF</strong></li>
+<li><strong>(d)</strong> Pivot 열: 1, 2, 3 (모두). Free 열: 없음.</li>
+<li><strong>(e)</strong> <strong>유일해</strong>: <span class="arithmatex">\((x, y, z) = (1, 0, 1)\)</span>.</li>
+</ul>
+<blockquote>
+<p><strong>검산</strong>: <span class="arithmatex">\(1 + 0 + 3 = 4\)</span> ✓, <span class="arithmatex">\(2 + 0 + 7 = 9\)</span> ✓, <span class="arithmatex">\(1 + 0 + 5 = 6\)</span> ✓
+<strong>핵심</strong>: 모든 변수 열에 pivot → 해 유일. RREF의 <span class="arithmatex">\(\mathbf{b}\)</span> 열이 곧 해.</p>
+</blockquote>
+<hr />
+<!-- _class: exercise -->
+
+<h2>📝 다음 회차 Review용 숙제</h2>
+<p>위 마무리 문제의 <strong>유사 문제</strong>. 5회차 Review에서 함께 답을 맞춥니다.</p>
+<p>다음 system을 RREF로 풀어 <strong>해의 종류</strong>를 판정하고 해를 구하세요.</p>
+<div class="arithmatex">\[\begin{cases} x + y + 2z = 4 \\ 2x + 3y + 5z = 9 \\ 3x + 5y + 8z = 14 \end{cases}\]</div>
+<ul>
+<li>(a) Augmented matrix → REF → RREF</li>
+<li>(b) Pivot · Free 열 식별</li>
+<li>(c) 해의 종류 (유일·무수·없음)</li>
+<li>(d) 해를 구하세요. (자유 변수가 있으면 일반해 형태로)</li>
+</ul>
+<h3>자기 점검</h3>
+<ul>
+<li>(b)에서 세 행이 모두 살아남나요? 한 행이 0행이 되면 그 이유는?</li>
+<li>5회차의 <strong>Inverse matrix(역행렬)</strong>가 정의되려면 RREF에서 어떤 조건이 필요한지 생각해보세요.</li>
+</ul>
+<p>5회차 본 주제(<strong>Inverse matrix · LU Decomposition</strong>)와 직접 연결.</p>
+<hr />
+<h2>G-4. 과제 안내</h2>
+<p><code>04_과제/Part1/04회차_homework.md</code> — 마감: 5회차 시작 전</p>
+<p><strong>수학 30점</strong>
+- Gaussian elimination 손계산 (3문제, 2×2~3×3)
+- 해의 세 경우 판정 (4문제)
+- RREF 직접 구하기 (3문제)
+- 자유 변수가 있을 때 일반해 표현</p>
+<p><strong>코딩 20점</strong>
+- Gaussian elimination 직접 구현 (Forward + Backward)
+- <code>sympy.rref()</code>와 결과 비교
+- 부동소수점 오차 관찰 (큰 행렬에서)</p>
+<hr />
+<h2>G-5. 다음 회차 (5회차) 예고</h2>
+<p><strong>주제</strong>: Inverse matrix · LU Decomposition</p>
+<p><strong>연결</strong>: 오늘 본 Gaussian elimination을 <strong>행렬 형태로 정리</strong>하면 LU Decomposition입니다. <span class="arithmatex">\(A = LU\)</span> — 가우스 소거의 모든 단계가 하삼각 Matrix <span class="arithmatex">\(L\)</span>에 누적되고, 결과 REF가 상삼각 <span class="arithmatex">\(U\)</span>.</p>
+<p>또한 RREF에서 변수 열 모두 pivot ↔ Inverse matrix 존재. <strong>Inverse matrix</strong>가 5회차 첫 분해의 주인공.</p>
+<p><strong>사전 reading</strong>:
+- MML §2.2.2 (Inverse), §2.3.5 (LU)
+- Strang §2.5, §2.6
+- 3Blue1Brown EoLA Ch.7 (Inverse, column space)</p>
+<hr />
+<!-- _class: lead -->
+
+<h1>Q &amp; A</h1>
+<p>오늘의 사슬:
+<strong>Row operations → Gaussian elimination → REF → RREF → Pivot 패턴 → 해의 세 경우</strong></p>
+<p>핵심 한 줄: <strong>RREF의 Pivot 위치를 보면 <span class="arithmatex">\(A\mathbf{x}=\mathbf{b}\)</span>의 해가 한눈에 보인다.</strong></p>
+<p><code>HANDOUT</code>: 본 PDF + <code>03_가우스소거_RREF.ipynb</code></p></div></section></main></div><a href="#" class="top-link" title="맨 위로">↑</a></body></html>
