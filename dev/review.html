@@ -1,73 +1,201 @@
-<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow"><title>선형대수학 강의 자료 검토 — Phase 1·2 (DEV)</title><style>
-* { box-sizing: border-box; }
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Apple SD Gothic Neo',
-       'Malgun Gothic', sans-serif; margin: 0; padding: 0;
-       line-height: 1.7; font-size: 16px; color: #1f2937; background: #f9fafb; }
-.layout { display: flex; min-height: 100vh; }
-.sidebar { width: 280px; background: #1e3a8a; color: white; padding: 24px 20px;
-           position: sticky; top: 0; height: 100vh; overflow-y: auto; flex-shrink: 0; }
-.sidebar h1 { font-size: 1.1em; margin: 0 0 6px 0; color: white; }
-.sidebar .sub { font-size: 0.85em; color: #bfdbfe; margin-bottom: 20px; }
-.sidebar h2 { font-size: 0.9em; margin: 18px 0 6px 0; color: #93c5fd;
-              border-bottom: 1px solid #3b5da3; padding-bottom: 4px; text-transform: uppercase; }
-.sidebar ul { list-style: none; padding: 0; margin: 0; }
-.sidebar li { margin: 4px 0; }
-.sidebar a { color: #dbeafe; text-decoration: none; font-size: 0.92em; display: block;
-             padding: 6px 8px; border-radius: 4px; }
-.sidebar a:hover { background: #2563eb; color: white; }
-.sidebar a.tag-p1 { border-left: 3px solid #10b981; padding-left: 8px; }
-.sidebar a.tag-p2 { border-left: 3px solid #f59e0b; padding-left: 8px; }
-.main { flex: 1; padding: 32px 48px; max-width: 920px; }
-.doc { margin-bottom: 80px; }
-.doc-header { background: linear-gradient(90deg, #1e3a8a, #2563eb); color: white;
-              padding: 20px 28px; border-radius: 8px; margin: 0 0 28px 0; }
-.doc-header h1 { color: white; margin: 0; font-size: 1.4em; border: none; }
-.doc-header .meta { font-size: 0.85em; color: #dbeafe; margin-top: 6px; }
-.doc-header .badge { display: inline-block; background: rgba(255,255,255,0.2);
-                     padding: 2px 10px; border-radius: 12px; font-size: 0.8em; margin-right: 8px; }
-.doc-content h1 { color: #1e3a8a; border-bottom: 2px solid #2563eb;
-                  padding-bottom: 6px; margin-top: 32px; font-size: 1.5em; }
-.doc-content h2 { color: #1e3a8a; border-bottom: 1px solid #e5e7eb;
-                  padding-bottom: 4px; margin-top: 24px; font-size: 1.2em; }
-.doc-content h3 { color: #1f2937; margin-top: 20px; font-size: 1.05em; }
+<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow"><meta name="color-scheme" content="dark"><title>Phase 1·2 검토 · 선형대수학</title><link rel="preconnect" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"><style>
+/* AI디자인.md §3 Modern Dark / Linear — Vercel·Linear 스타일 */
+:root {
+    --primary: #06B6D4;      /* 시안 */
+    --secondary: #8B5CF6;    /* 바이올렛 — glow */
+    --bg: #0A0A0A;           /* 딥 블랙 */
+    --surface: #111111;      /* 카드 */
+    --surface-2: rgba(255,255,255,0.03);
+    --border: rgba(255,255,255,0.10);
+    --border-strong: rgba(255,255,255,0.18);
+    --text: #FFFFFF;
+    --text-mut: #A1A1AA;     /* 비둘기색 회색 */
+    --text-dim: #71717A;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { background: var(--bg); }
+body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI',
+       'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+       background: var(--bg); color: var(--text); font-size: 15px;
+       line-height: 1.7; letter-spacing: -0.011em;
+       min-height: 100vh; position: relative; overflow-x: hidden; }
+
+/* 글로우 효과 — 심연에서 빛이 새어 나오는 듯한 심도 */
+body::before { content: ''; position: fixed; top: -200px; right: -200px;
+               width: 600px; height: 600px; background: var(--secondary);
+               border-radius: 50%; filter: blur(100px); opacity: 0.10;
+               pointer-events: none; z-index: 0; }
+body::after { content: ''; position: fixed; bottom: -200px; left: -100px;
+              width: 500px; height: 500px; background: var(--primary);
+              border-radius: 50%; filter: blur(100px); opacity: 0.06;
+              pointer-events: none; z-index: 0; }
+
+.layout { display: flex; min-height: 100vh; position: relative; z-index: 1; }
+
+/* 사이드바 — 미니멀 */
+.sidebar { width: 260px; background: rgba(10,10,10,0.7); backdrop-filter: blur(12px);
+           border-right: 1px solid var(--border);
+           padding: 28px 18px; position: sticky; top: 0; height: 100vh;
+           overflow-y: auto; flex-shrink: 0; }
+.sidebar::-webkit-scrollbar { width: 6px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+.brand { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+.brand-dot { width: 8px; height: 8px; border-radius: 50%;
+             background: var(--primary); box-shadow: 0 0 12px var(--primary); }
+.brand-title { font-size: 0.95em; font-weight: 600; color: var(--text);
+               letter-spacing: -0.02em; }
+.brand-sub { font-size: 0.78em; color: var(--text-dim); margin: 2px 0 28px 18px;
+             letter-spacing: 0.02em; }
+
+.nav-section { margin-bottom: 24px; }
+.nav-label { font-size: 0.7em; color: var(--text-dim); text-transform: uppercase;
+             letter-spacing: 0.12em; margin: 0 0 8px 8px; font-weight: 500; }
+
+.nav-list { list-style: none; }
+.nav-item { margin: 1px 0; }
+.nav-link { display: block; padding: 8px 12px; color: var(--text-mut);
+            font-size: 0.9em; text-decoration: none; border-radius: 6px;
+            transition: all 0.15s ease; position: relative;
+            border-left: 2px solid transparent; }
+.nav-link:hover { color: var(--text); background: rgba(255,255,255,0.04); }
+.nav-link.active { color: var(--text); background: rgba(6,182,212,0.08);
+                   border-left-color: var(--primary); }
+.nav-link .nav-meta { font-size: 0.78em; color: var(--text-dim);
+                      margin-top: 2px; }
+
+.nav-tag-p1 { color: #10B981; font-size: 0.7em; margin-right: 6px; }
+.nav-tag-p2 { color: #F59E0B; font-size: 0.7em; margin-right: 6px; }
+
+/* 본문 */
+.main { flex: 1; padding: 48px 64px; max-width: 880px; min-width: 0; }
+
+.hero { margin-bottom: 56px; padding-bottom: 32px;
+        border-bottom: 1px solid var(--border); }
+.hero-tag { display: inline-block; font-size: 0.72em; color: var(--primary);
+            background: rgba(6,182,212,0.10); border: 1px solid rgba(6,182,212,0.25);
+            padding: 4px 10px; border-radius: 12px; letter-spacing: 0.04em;
+            margin-bottom: 16px; font-weight: 500; }
+.hero-title { font-size: 2em; font-weight: 600; letter-spacing: -0.03em;
+              margin-bottom: 12px; color: var(--text); }
+.hero-desc { color: var(--text-mut); font-size: 1.05em; max-width: 640px; }
+.hero-meta { margin-top: 20px; display: flex; gap: 16px; flex-wrap: wrap;
+             font-size: 0.85em; color: var(--text-dim); }
+.hero-meta-item { display: flex; align-items: center; gap: 6px; }
+.hero-meta-item .dot { width: 6px; height: 6px; border-radius: 50%;
+                       background: var(--primary); }
+.hero-meta-item.p2 .dot { background: #F59E0B; }
+
+/* 문서 카드 */
+.doc { margin-bottom: 72px; scroll-margin-top: 24px; }
+.doc-header { background: var(--surface); border: 1px solid var(--border);
+              border-radius: 12px; padding: 24px 28px; margin-bottom: 24px;
+              position: relative; overflow: hidden; }
+.doc-header::before { content: ''; position: absolute; top: 0; left: 0; right: 0;
+                      height: 1px; background: linear-gradient(90deg,
+                      transparent, var(--primary), transparent); opacity: 0.4; }
+.doc-tag { display: inline-block; font-size: 0.7em; padding: 3px 10px;
+           border-radius: 12px; letter-spacing: 0.04em; font-weight: 500;
+           margin-right: 8px; }
+.doc-tag.p1 { background: rgba(16,185,129,0.10); color: #10B981;
+              border: 1px solid rgba(16,185,129,0.25); }
+.doc-tag.p2 { background: rgba(245,158,11,0.10); color: #F59E0B;
+              border: 1px solid rgba(245,158,11,0.25); }
+.doc-title { font-size: 1.5em; font-weight: 600; letter-spacing: -0.02em;
+             color: var(--text); margin: 10px 0 4px 0; }
+.doc-meta { font-size: 0.82em; color: var(--text-dim); display: flex;
+            gap: 12px; flex-wrap: wrap; }
+.doc-meta code { background: rgba(255,255,255,0.06); color: var(--text-mut);
+                 padding: 2px 8px; border-radius: 4px; font-size: 0.92em; }
+
+/* 본문 markdown */
+.doc-content { color: var(--text-mut); font-size: 0.95em; }
+.doc-content h1 { color: var(--text); font-size: 1.35em; font-weight: 600;
+                  letter-spacing: -0.02em; margin: 36px 0 12px 0;
+                  padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+.doc-content h1:first-child { margin-top: 8px; }
+.doc-content h2 { color: var(--text); font-size: 1.15em; font-weight: 600;
+                  letter-spacing: -0.015em; margin: 28px 0 10px 0; }
+.doc-content h3 { color: var(--text); font-size: 1.02em; font-weight: 500;
+                  margin: 22px 0 8px 0; }
+.doc-content h4 { color: var(--text); font-size: 0.95em; font-weight: 500;
+                  margin: 18px 0 6px 0; }
 .doc-content p { margin: 10px 0; }
-.doc-content ul, .doc-content ol { padding-left: 22px; }
+.doc-content ul, .doc-content ol { padding-left: 22px; margin: 10px 0; }
 .doc-content li { margin: 4px 0; }
-.doc-content strong { color: #111; }
-.doc-content em { color: #4b5563; }
-.doc-content code { background: #f3f4f6; padding: 2px 6px; border-radius: 3px;
-                    font-size: 0.88em; font-family: ui-monospace, monospace;
+.doc-content strong { color: var(--text); font-weight: 600; }
+.doc-content em { color: var(--text-mut); font-style: italic; }
+
+.doc-content a { color: var(--primary); text-decoration: none;
+                 border-bottom: 1px dashed rgba(6,182,212,0.4); }
+.doc-content a:hover { border-bottom-style: solid; }
+
+.doc-content code { background: rgba(255,255,255,0.06); color: #E4E4E7;
+                    padding: 2px 6px; border-radius: 4px;
+                    font-size: 0.88em;
+                    font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
                     word-break: break-word; }
-.doc-content pre { background: #f9fafb; border: 1px solid #e5e7eb; padding: 10px 14px;
-                   overflow-x: auto; border-radius: 4px; font-size: 0.88em; }
-.doc-content pre code { background: transparent; padding: 0; }
-.doc-content blockquote { border-left: 4px solid #2563eb; padding: 8px 14px;
-                          margin: 12px 0; background: #eff6ff; color: #1e3a8a;
-                          border-radius: 0 4px 4px 0; }
+.doc-content pre { background: var(--surface-2); border: 1px solid var(--border);
+                   padding: 14px 18px; overflow-x: auto; border-radius: 8px;
+                   font-size: 0.85em; margin: 14px 0; }
+.doc-content pre code { background: transparent; padding: 0; color: var(--text); }
+
+.doc-content blockquote { border-left: 3px solid var(--primary);
+                          background: rgba(6,182,212,0.05);
+                          padding: 12px 18px; margin: 14px 0;
+                          color: var(--text-mut); border-radius: 0 6px 6px 0; }
+
+.doc-content hr { border: 0; border-top: 1px solid var(--border); margin: 28px 0; }
+
+/* 표 */
 .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch;
-              margin: 12px 0; border: 1px solid #e5e7eb; border-radius: 4px;
-              background: white; }
-.doc-content table { border-collapse: collapse; width: 100%; font-size: 0.9em; min-width: 480px; }
-.doc-content th, .doc-content td { border: 1px solid #e5e7eb; padding: 6px 10px; text-align: left; }
-.doc-content th { background: #f3f4f6; font-weight: 600; }
-.doc-content hr { border: 0; border-top: 1px solid #e5e7eb; margin: 24px 0; }
-.menu-toggle { display: none; }
+              margin: 14px 0; border: 1px solid var(--border);
+              border-radius: 8px; background: var(--surface); }
+.table-wrap::-webkit-scrollbar { height: 6px; }
+.table-wrap::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+.doc-content table { border-collapse: collapse; width: 100%; min-width: 520px;
+                     font-size: 0.88em; }
+.doc-content th { background: rgba(255,255,255,0.04); color: var(--text);
+                  font-weight: 600; text-align: left;
+                  padding: 10px 14px; border-bottom: 1px solid var(--border); }
+.doc-content td { padding: 10px 14px; color: var(--text-mut);
+                  border-bottom: 1px solid rgba(255,255,255,0.06); }
+.doc-content tr:last-child td { border-bottom: none; }
+.doc-content tr:hover td { background: rgba(255,255,255,0.02); }
+
+/* 모바일 */
 @media (max-width: 900px) {
     .layout { flex-direction: column; }
-    .sidebar { width: 100%; height: auto; max-height: 320px; position: static; }
-    .main { padding: 18px 16px; }
-    body { font-size: 15px; }
-    .doc-content h1 { font-size: 1.25em; }
-    .doc-content h2 { font-size: 1.1em; }
+    .sidebar { width: 100%; height: auto; max-height: 360px;
+               position: static; border-right: none;
+               border-bottom: 1px solid var(--border); }
+    .main { padding: 32px 22px; }
+    .hero-title { font-size: 1.5em; }
+    .doc-title { font-size: 1.2em; }
+    .doc-content h1 { font-size: 1.15em; }
+    .doc-content h2 { font-size: 1.05em; }
 }
-.top-link { position: fixed; bottom: 24px; right: 24px;
-            background: #2563eb; color: white; padding: 10px 14px;
-            border-radius: 50%; text-decoration: none; box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-            font-size: 18px; }
-.dev-banner { background: #fef3c7; border-bottom: 2px solid #f59e0b;
-              padding: 10px 20px; font-size: 0.92em; color: #92400e; }
-.dev-banner strong { color: #78350f; }
-</style></head><body><div class="dev-banner"><strong>🔧 DEV 페이지</strong> · 강사 본인 검토용 · 외부 검색 비공개 (noindex)</div><div class="layout"><nav class="sidebar"><h1>📚 선형대수학 강의 자료 검토</h1><div class="sub">Phase 1·2 결과 9 파일</div><h2>Phase 1</h2><ul><li><a href="#p1-curriculum" class="tag-p1">01 커리큘럼 총괄표 (30회차)</a></li><li><a href="#p1-part1" class="tag-p1">02 Part 1 회차표 (12회차)</a></li><li><a href="#p1-part2" class="tag-p1">03 Part 2 회차표 (18회차)</a></li></ul><h2>Phase 2</h2><ul><li><a href="#p2-prompt" class="tag-p2">00 프롬프트 (수업 설계)</a></li><li><a href="#p2-intro" class="tag-p2">00회차 Introduction (강의 첫 슬라이드)</a></li><li><a href="#p2-repo-readme" class="tag-p2">_repo README (GitHub 사본)</a></li><li><a href="#p2-web-index" class="tag-p2">08 웹페이지 index 본문</a></li><li><a href="#p2-web-faq" class="tag-p2">08 웹페이지 FAQ</a></li><li><a href="#p2-web-readme" class="tag-p2">08 웹페이지 README</a></li></ul><h2>외부 링크</h2><ul><li><a href="../index.html">↩ 메인 페이지로</a></li><li><a href="../curriculum.html">curriculum.html</a></li></ul></nav><main class="main"><div style="background:white;padding:24px;border-radius:8px;border:1px solid #e5e7eb;margin-bottom:32px;"><h1 style="margin-top:0;color:#1e3a8a;">📋 검토 안내</h1><p>2026-05-22~23 Phase 1·2 결과 9 파일을 한 페이지에 통합. 좌측 사이드바에서 파일 선택해 검토.</p><ul><li><strong>Phase 1</strong> (초록): 커리큘럼 골격 재설계 (Strang 메인, 30회차) — 3 파일</li><li><strong>Phase 2</strong> (주황): 메타·도입 갱신 (Intro·웹페이지·_repo) — 6 파일</li></ul><p style="color:#6b7280;font-size:0.9em;">URL: <code>https://repairer5812.github.io/linear-algebra-for-ai/dev/review.html</code></p></div><div class="doc" id="p1-curriculum"><div class="doc-header"><h1>01 커리큘럼 총괄표 (30회차)</h1><div class="meta"><span class="badge">Phase 1</span><code style="background:rgba(255,255,255,0.15);color:white;">01_커리큘럼_총괄표.md</code> · 7.1 KB</div></div><div class="doc-content"><h1>인공지능 전공자를 위한 선형대수학 — Part 시리즈 총괄</h1>
+
+/* 상단 가기 */
+.top-link { position: fixed; bottom: 28px; right: 28px;
+            background: var(--surface); color: var(--text-mut);
+            border: 1px solid var(--border);
+            width: 44px; height: 44px; border-radius: 8px;
+            text-decoration: none;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 16px; backdrop-filter: blur(12px);
+            transition: all 0.15s ease; z-index: 100; }
+.top-link:hover { color: var(--primary); border-color: var(--primary);
+                  background: rgba(6,182,212,0.05); }
+
+/* Overflow 방어 (AI디자인.md §라) */
+.doc-content { min-width: 0; }
+.table-wrap { min-width: 0; }
+.doc-content p, .doc-content li { word-break: keep-all; overflow-wrap: anywhere; }
+</style></head><body><div class="layout"><nav class="sidebar"><div class="brand"><span class="brand-dot"></span><span class="brand-title">검토 · DEV</span></div><div class="brand-sub">선형대수학 Phase 1·2</div><div class="nav-section"><div class="nav-label">Phase 1 · 골격</div><ul class="nav-list"><li class="nav-item"><a href="#p1-curriculum" class="nav-link"><span class="nav-tag-p1">●</span>01 커리큘럼 총괄표<div class="nav-meta">30회차 골격</div></a></li><li class="nav-item"><a href="#p1-part1" class="nav-link"><span class="nav-tag-p1">●</span>02 Part 1 회차표<div class="nav-meta">12회차 Strang</div></a></li><li class="nav-item"><a href="#p1-part2" class="nav-link"><span class="nav-tag-p1">●</span>03 Part 2 회차표<div class="nav-meta">18회차 Strang+MML</div></a></li></ul></div><div class="nav-section"><div class="nav-label">Phase 2 · 메타·도입</div><ul class="nav-list"><li class="nav-item"><a href="#p2-prompt" class="nav-link"><span class="nav-tag-p2">●</span>00 프롬프트<div class="nav-meta">수업 설계</div></a></li><li class="nav-item"><a href="#p2-intro" class="nav-link"><span class="nav-tag-p2">●</span>00회차 Introduction<div class="nav-meta">강의 첫 슬라이드</div></a></li><li class="nav-item"><a href="#p2-repo-readme" class="nav-link"><span class="nav-tag-p2">●</span>_repo README<div class="nav-meta">GitHub 사본</div></a></li><li class="nav-item"><a href="#p2-web-index" class="nav-link"><span class="nav-tag-p2">●</span>08 웹페이지 index<div class="nav-meta">메인 본문</div></a></li><li class="nav-item"><a href="#p2-web-faq" class="nav-link"><span class="nav-tag-p2">●</span>08 웹페이지 FAQ<div class="nav-meta">자주 묻는 질문</div></a></li><li class="nav-item"><a href="#p2-web-readme" class="nav-link"><span class="nav-tag-p2">●</span>08 웹페이지 README<div class="nav-meta">README</div></a></li></ul></div><div class="nav-section"><div class="nav-label">외부 링크</div><ul class="nav-list"><li class="nav-item"><a href="../index.html" class="nav-link">↩ 메인 페이지</a></li><li class="nav-item"><a href="../curriculum.html" class="nav-link">curriculum.html</a></li></ul></div></nav><main class="main"><div class="hero"><span class="hero-tag">DEV · 본인 검토용 · 외부 비공개</span><h1 class="hero-title">선형대수학 강의 자료 검토</h1><p class="hero-desc">Phase 1·2 결과 9 파일을 한 페이지에 통합했습니다. 좌측 navigation에서 파일을 선택해 검토하세요.</p><div class="hero-meta"><div class="hero-meta-item"><span class="dot"></span>Phase 1 · 골격 재설계 3 파일</div><div class="hero-meta-item p2"><span class="dot"></span>Phase 2 · 메타·도입 6 파일</div></div></div><section class="doc" id="p1-curriculum"><div class="doc-header"><span class="doc-tag p1">Phase 1</span><span class="doc-tag" style="background:rgba(255,255,255,0.04);color:var(--text-mut);border:1px solid var(--border);">30회차 골격</span><h2 class="doc-title">01 커리큘럼 총괄표</h2><div class="doc-meta"><code>01_커리큘럼_총괄표.md</code><span>7.1 KB</span></div></div><div class="doc-content"><h1>인공지능 전공자를 위한 선형대수학 — Part 시리즈 총괄</h1>
 <blockquote>
 <p><strong>Linear Algebra Part 1</strong> (Part 1, 12회차) — <a href="02_Part1_회차표.md">02_Part1_회차표.md</a>
 <strong>Linear Algebra Part 2</strong> (Part 2, 18회차) — <a href="03_Part2_회차표.md">03_Part2_회차표.md</a></p>
@@ -240,7 +368,7 @@ Linear Algebra Part 2 (18회차) — Strang LA Ch 6-8 + MML 전체 확장
 </tr>
 </tbody>
 </table></div>
-<p>전환 원칙: 같은 회차 안에서는 메인 교재 한 권만 인용하고, 다른 책 보충 인용은 명시적 "참조"로 표기한다.</p></div></div><div class="doc" id="p1-part1"><div class="doc-header"><h1>02 Part 1 회차표 (12회차)</h1><div class="meta"><span class="badge">Phase 1</span><code style="background:rgba(255,255,255,0.15);color:white;">02_Part1_회차표.md</code> · 6.7 KB</div></div><div class="doc-content"><h1>Linear Algebra Part 1 — 12회차 회차표</h1>
+<p>전환 원칙: 같은 회차 안에서는 메인 교재 한 권만 인용하고, 다른 책 보충 인용은 명시적 "참조"로 표기한다.</p></div></section><section class="doc" id="p1-part1"><div class="doc-header"><span class="doc-tag p1">Phase 1</span><span class="doc-tag" style="background:rgba(255,255,255,0.04);color:var(--text-mut);border:1px solid var(--border);">12회차 Strang</span><h2 class="doc-title">02 Part 1 회차표</h2><div class="doc-meta"><code>02_Part1_회차표.md</code><span>6.7 KB</span></div></div><div class="doc-content"><h1>Linear Algebra Part 1 — 12회차 회차표</h1>
 <blockquote>
 <p>SW·AI 융합대학원 1학년 / 학부 선대 미이수 및 보습·보완이 필요하신 분들 / Python·NumPy 가능 / Jupyter 운영
 1 Session(회차) 2시간 × 12회차 = 24시간
@@ -418,7 +546,7 @@ Linear Algebra Part 2 (18회차) — Strang LA Ch 6-8 + MML 전체 확장
 - Linear independence (→ 9회차)
 - Basis·Dimension (→ 9회차)
 - 4 Fundamental subspaces (→ 9회차)</p>
-<p>1-3회차에서는 R^n에 한정하여 dot product·norm·matrix-vector 곱을 직관·예제 위주로 다룬다. 모든 추상 정의는 R^n에서 이미 구체적으로 만져본 후 7회차에서 일반화한다.</p></div></div><div class="doc" id="p1-part2"><div class="doc-header"><h1>03 Part 2 회차표 (18회차)</h1><div class="meta"><span class="badge">Phase 1</span><code style="background:rgba(255,255,255,0.15);color:white;">03_Part2_회차표.md</code> · 9.5 KB</div></div><div class="doc-content"><h1>Linear Algebra Part 2 — 18회차 회차표</h1>
+<p>1-3회차에서는 R^n에 한정하여 dot product·norm·matrix-vector 곱을 직관·예제 위주로 다룬다. 모든 추상 정의는 R^n에서 이미 구체적으로 만져본 후 7회차에서 일반화한다.</p></div></section><section class="doc" id="p1-part2"><div class="doc-header"><span class="doc-tag p1">Phase 1</span><span class="doc-tag" style="background:rgba(255,255,255,0.04);color:var(--text-mut);border:1px solid var(--border);">18회차 Strang+MML</span><h2 class="doc-title">03 Part 2 회차표</h2><div class="doc-meta"><code>03_Part2_회차표.md</code><span>9.5 KB</span></div></div><div class="doc-content"><h1>Linear Algebra Part 2 — 18회차 회차표</h1>
 <blockquote>
 <p>SW·AI 융합대학원 1학년 / Linear Algebra Part 1 이수 가정 / Jupyter·PyTorch 운영
 1 Session(회차) 2시간 × 18회차 = 36시간
@@ -728,7 +856,7 @@ Linear Algebra Part 2 (18회차) — Strang LA Ch 6-8 + MML 전체 확장
 </tr>
 </tbody>
 </table></div>
-<p>자세한 정리는 Petersen·Pedersen, <em>Matrix Cookbook</em> §2-§9 참조.</p></div></div><div class="doc" id="p2-prompt"><div class="doc-header"><h1>00 프롬프트 (수업 설계)</h1><div class="meta"><span class="badge">Phase 2</span><code style="background:rgba(255,255,255,0.15);color:white;">00_프롬프트.md</code> · 4.6 KB</div></div><div class="doc-content"><h1>인공지능 전공자를 위한 선형대수학 — 수업 설계 프롬프트</h1>
+<p>자세한 정리는 Petersen·Pedersen, <em>Matrix Cookbook</em> §2-§9 참조.</p></div></section><section class="doc" id="p2-prompt"><div class="doc-header"><span class="doc-tag p2">Phase 2</span><span class="doc-tag" style="background:rgba(255,255,255,0.04);color:var(--text-mut);border:1px solid var(--border);">수업 설계</span><h2 class="doc-title">00 프롬프트</h2><div class="doc-meta"><code>00_프롬프트.md</code><span>4.6 KB</span></div></div><div class="doc-content"><h1>인공지능 전공자를 위한 선형대수학 — 수업 설계 프롬프트</h1>
 <p>너는 MIT 스타일의 공학·컴퓨터과학 중심 선형대수 교육 전문가이자, AI·딥러닝·컴퓨터비전·데이터과학까지 연결 가능한 현대적 선형대수 커리큘럼 설계자다.</p>
 <p>다음 3가지 자료의 장점을 통합하여, "컴퓨터공학과 학생들을 위한 직관적이고 실용적인 선형대수 수업 가이드 및 수업지도안"을 설계하라.</p>
 <h2>참고 철학 및 스타일</h2>
@@ -838,7 +966,7 @@ Linear Algebra Part 2 (18회차) — Strang LA Ch 6-8 + MML 전체 확장
 <li>표와 계층 구조 적극 활용</li>
 <li>설명은 깊고 명확하게</li>
 <li>학생 반응을 고려한 교육적 흐름 포함</li>
-</ul></div></div><div class="doc" id="p2-intro"><div class="doc-header"><h1>00회차 Introduction (강의 첫 슬라이드)</h1><div class="meta"><span class="badge">Phase 2</span><code style="background:rgba(255,255,255,0.15);color:white;">07_강의교안/Part1/00회차_Introduction.md</code> · 21.8 KB</div></div><div class="doc-content"><hr />
+</ul></div></section><section class="doc" id="p2-intro"><div class="doc-header"><span class="doc-tag p2">Phase 2</span><span class="doc-tag" style="background:rgba(255,255,255,0.04);color:var(--text-mut);border:1px solid var(--border);">강의 첫 슬라이드</span><h2 class="doc-title">00회차 Introduction</h2><div class="doc-meta"><code>07_강의교안/Part1/00회차_Introduction.md</code><span>21.8 KB</span></div></div><div class="doc-content"><hr />
 <p>marp: true
 theme: default
 paginate: true
@@ -1762,7 +1890,7 @@ plt.imshow(mean_seven, cmap='gray')
 <h1>Q &amp; A</h1>
 <p>오늘은 Definition·증명 없이 큰 그림만 보았습니다.
 <strong>다음 회차부터 본격 수학을 시작합니다.</strong></p>
-<p><code>HANDOUT</code>: 본 PDF + <code>00_Introduction_평균이미지.ipynb</code></p></div></div><div class="doc" id="p2-repo-readme"><div class="doc-header"><h1>_repo README (GitHub 사본)</h1><div class="meta"><span class="badge">Phase 2</span><code style="background:rgba(255,255,255,0.15);color:white;">_repo/README.md</code> · 2.0 KB</div></div><div class="doc-content"><h1>인공지능 전공자를 위한 선형대수학</h1>
+<p><code>HANDOUT</code>: 본 PDF + <code>00_Introduction_평균이미지.ipynb</code></p></div></section><section class="doc" id="p2-repo-readme"><div class="doc-header"><span class="doc-tag p2">Phase 2</span><span class="doc-tag" style="background:rgba(255,255,255,0.04);color:var(--text-mut);border:1px solid var(--border);">GitHub 사본</span><h2 class="doc-title">_repo README</h2><div class="doc-meta"><code>_repo/README.md</code><span>2.0 KB</span></div></div><div class="doc-content"><h1>인공지능 전공자를 위한 선형대수학</h1>
 <blockquote>
 <p>인공지능 전공 대학원생을 위한 30회차 (1회차 2시간 × 30 = 60시간) 선형대수학 강좌 공식 웹사이트.</p>
 </blockquote>
@@ -1804,7 +1932,7 @@ plt.imshow(mean_seven, cmap='gray')
 <li>Cloudflare Worker (<code>worker/</code> 디렉터리) — 익명 응답 수집·집계</li>
 </ul>
 <h2>라이선스</h2>
-<p>본 저장소의 페이지·문서·이미지 자료는 MIT License 하에 공개한다. 외부 인용 자료(MML, Strang, EoLA 등)는 각 원저작자의 라이선스를 따른다.</p></div></div><div class="doc" id="p2-web-index"><div class="doc-header"><h1>08 웹페이지 index 본문</h1><div class="meta"><span class="badge">Phase 2</span><code style="background:rgba(255,255,255,0.15);color:white;">08_웹페이지_콘텐츠/01_index_text.md</code> · 6.1 KB</div></div><div class="doc-content"><h1>인공지능 전공자를 위한 선형대수학</h1>
+<p>본 저장소의 페이지·문서·이미지 자료는 MIT License 하에 공개한다. 외부 인용 자료(MML, Strang, EoLA 등)는 각 원저작자의 라이선스를 따른다.</p></div></section><section class="doc" id="p2-web-index"><div class="doc-header"><span class="doc-tag p2">Phase 2</span><span class="doc-tag" style="background:rgba(255,255,255,0.04);color:var(--text-mut);border:1px solid var(--border);">메인 본문</span><h2 class="doc-title">08 웹페이지 index</h2><div class="doc-meta"><code>08_웹페이지_콘텐츠/01_index_text.md</code><span>6.1 KB</span></div></div><div class="doc-content"><h1>인공지능 전공자를 위한 선형대수학</h1>
 <blockquote>
 <p>메인 페이지에 사용할 텍스트. HTML 변환은 다음 단계에서 진행한다.</p>
 </blockquote>
@@ -1885,7 +2013,7 @@ plt.imshow(mean_seven, cmap='gray')
 <h2>신청</h2>
 <p>정원 20명. 신청 전 진단 테스트 응시 후 본인의 6축 역량을 확인할 것을 권장한다. 진단 결과는 강의 적합도 판단과 사전 학습 우선순위 결정에 사용된다.</p>
 <p>→ <strong>[진단 테스트 시작]</strong></p>
-<p>(LMS 코드는 본 페이지에서 추후 공개)</p></div></div><div class="doc" id="p2-web-faq"><div class="doc-header"><h1>08 웹페이지 FAQ</h1><div class="meta"><span class="badge">Phase 2</span><code style="background:rgba(255,255,255,0.15);color:white;">08_웹페이지_콘텐츠/04_faq.md</code> · 3.9 KB</div></div><div class="doc-content"><h1>FAQ</h1>
+<p>(LMS 코드는 본 페이지에서 추후 공개)</p></div></section><section class="doc" id="p2-web-faq"><div class="doc-header"><span class="doc-tag p2">Phase 2</span><span class="doc-tag" style="background:rgba(255,255,255,0.04);color:var(--text-mut);border:1px solid var(--border);">자주 묻는 질문</span><h2 class="doc-title">08 웹페이지 FAQ</h2><div class="doc-meta"><code>08_웹페이지_콘텐츠/04_faq.md</code><span>3.9 KB</span></div></div><div class="doc-content"><h1>FAQ</h1>
 <blockquote>
 <p>강좌 신청 전·중에 자주 받는 질문 정리. 각 답은 200자 이내.</p>
 </blockquote>
@@ -1912,7 +2040,7 @@ plt.imshow(mean_seven, cmap='gray')
 <p>기존 32주 (Part 1 16주 + Part 2 16주, 1주 1차시 100분) 설계를 1회차 2시간으로 묶어 운영합니다. Part 1은 Strang Ch 1-5를 12회차에 차분히 다루고, Part 2는 18회차로 확장하여 Strang 후반(Eigenvalue·SVD·Linear Transformation)에 더해 MML 추가 수학(Vector Calculus·Probability·Optimization)과 MML Part II ML 4대 응용(Linear Regression·PCA·GMM·SVM)을 거쳐 CNN·Attention의 선형대수 환원까지 진행합니다.</p>
 <blockquote>
 <p>비고: 대학원생 자체 강의이므로 정식 시험이 아닌 학습 확인 목적의 평가다.</p>
-</blockquote></div></div><div class="doc" id="p2-web-readme"><div class="doc-header"><h1>08 웹페이지 README</h1><div class="meta"><span class="badge">Phase 2</span><code style="background:rgba(255,255,255,0.15);color:white;">08_웹페이지_콘텐츠/05_readme.md</code> · 1.6 KB</div></div><div class="doc-content"><h1>인공지능 전공자를 위한 선형대수학</h1>
+</blockquote></div></section><section class="doc" id="p2-web-readme"><div class="doc-header"><span class="doc-tag p2">Phase 2</span><span class="doc-tag" style="background:rgba(255,255,255,0.04);color:var(--text-mut);border:1px solid var(--border);">README</span><h2 class="doc-title">08 웹페이지 README</h2><div class="doc-meta"><code>08_웹페이지_콘텐츠/05_readme.md</code><span>1.6 KB</span></div></div><div class="doc-content"><h1>인공지능 전공자를 위한 선형대수학</h1>
 <blockquote>
 <p>인공지능 전공 대학원생을 위한 30회차 (1회차 2시간 × 30 = 60시간) 선형대수학 강좌 공식 웹사이트.</p>
 </blockquote>
@@ -1946,4 +2074,4 @@ plt.imshow(mean_seven, cmap='gray')
 <h2>강사</h2>
 <p>최경찬 / SW AI 융합정보대학원 61기</p>
 <h2>라이선스</h2>
-<p>본 저장소의 페이지·문서·이미지 자료는 MIT License 하에 공개한다. 외부 인용 자료(MML, Strang, EoLA 등)는 각 원저작자의 라이선스를 따른다.</p></div></div></main></div><a href="#" class="top-link" title="맨 위로">↑</a></body></html>
+<p>본 저장소의 페이지·문서·이미지 자료는 MIT License 하에 공개한다. 외부 인용 자료(MML, Strang, EoLA 등)는 각 원저작자의 라이선스를 따른다.</p></div></section></main></div><a href="#" class="top-link" title="맨 위로">↑</a></body></html>
