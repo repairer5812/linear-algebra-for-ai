@@ -1074,7 +1074,7 @@ Linear Algebra Part 2 (18회차) — Strang LA Ch 6-8 + MML 전체 확장
 <li>표와 계층 구조 적극 활용</li>
 <li>설명은 깊고 명확하게</li>
 <li>학생 반응을 고려한 교육적 흐름 포함</li>
-</ul></div></section><section class="doc" id="p2-intro"><div class="doc-header"><span class="doc-tag p2">Phase 2</span><span class="doc-tag doc-tag-sub">강의 첫 슬라이드</span><span class="doc-mode-badge">슬라이드 41장</span><h2 class="doc-title">00회차 Introduction</h2><div class="doc-meta"><code>07_강의교안/Part1/00회차_Introduction.md</code><span>22.8 KB</span></div></div><div class="slide-viewer"><div class="slide-stage"><div class="slide slide-lead"><h1>인공지능 전공자를 위한 선형대수학</h1>
+</ul></div></section><section class="doc" id="p2-intro"><div class="doc-header"><span class="doc-tag p2">Phase 2</span><span class="doc-tag doc-tag-sub">강의 첫 슬라이드</span><span class="doc-mode-badge">슬라이드 31장</span><h2 class="doc-title">00회차 Introduction</h2><div class="doc-meta"><code>07_강의교안/Part1/00회차_Introduction.md</code><span>22.7 KB</span></div></div><div class="slide-viewer"><div class="slide-stage"><div class="slide slide-lead"><h1>인공지능 전공자를 위한 선형대수학</h1>
 <h2>0회차 · Introduction</h2>
 <p>SW·AI 융합대학원 · Part 1 + Part 2 (총 30회차)
 메인 교재: Strang, <em>Introduction to Linear Algebra</em> · 보조: MML (Deisenroth et al.) · 시각: 3Blue1Brown EoLA</p></div><div class="slide"><h2>오늘 회차 학습 목표</h2>
@@ -1094,7 +1094,10 @@ Linear Algebra Part 2 (18회차) — Strang LA Ch 6-8 + MML 전체 확장
 <li><strong>오늘의 부분 답</strong>: 가장 단순한 정의(Vector(벡터)의 평균) 한 줄이 <strong>MNIST 숫자 분류</strong>까지 곧장 이어집니다 (G 시그니처).</li>
 <li><strong>학기 전체의 답</strong>: <span class="arithmatex">\(\mathrm{softmax}(QK^\top/\sqrt{d_k})V\)</span> — Transformer Attention(어텐션) 한 줄을 LA 객체로 완전 분해합니다 (Part 2 12회차).</li>
 </ul>
-<p>매 회차 첫 슬라이드에 그날의 핵심 질문이 있습니다. 강의 중 길을 잃으면 이 한 질문으로 돌아옵니다.</p></div><div class="slide"><h2>오늘 수업 흐름 (120분)</h2>
+<p>매 회차 첫 슬라이드에 그날의 핵심 질문이 있습니다. 강의 중 길을 잃으면 이 한 질문으로 돌아옵니다.</p></div><div class="slide"><h2>오늘 수업 흐름</h2>
+<blockquote>
+<p>아래 시간 분배는 120분 분량 가이드. 실제 회차당 50~60분 압축 진행.</p>
+</blockquote>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -1149,11 +1152,11 @@ Linear Algebra Part 2 (18회차) — Strang LA Ch 6-8 + MML 전체 확장
 <blockquote>
 <p><strong>순서의 의미</strong>: 수학 흐름 → CS 흐름 → 두 흐름이 만나는 한 예제(평균 이미지)로 마무리합니다.
 오늘은 첫 회차이므로 Review가 없습니다. 다음 회차부터 표준 사이클(핵심 질문 → Review → 본 강의 → 마무리 문제 → 숙제)을 운영합니다.</p>
-</blockquote></div><div class="slide"><h1>A. 강의 소개</h1></div><div class="slide"><h2>A-1. 교과 정보</h2>
+</blockquote></div><div class="slide"><h2>A-1. 교과 정보</h2>
 <ul>
 <li><strong>과목명</strong>: Linear Algebra Part 1 (12회차) / Part 2 (18회차)</li>
 <li><strong>대상</strong>: SW·AI 융합대학원 1학년 · <strong>학부 LA 미이수 학생</strong> 표준</li>
-<li><strong>운영</strong>: 1회차 2시간 × 30회차 = 60시간</li>
+<li><strong>운영</strong>: 30회차 (콘텐츠 120분 분량, 실제 50~60분 압축 진행)</li>
 <li><strong>메인 교재</strong>: Gilbert Strang, <em>Introduction to Linear Algebra</em> (6th ed.)</li>
 <li><strong>보조·확장 교재</strong>: Deisenroth·Faisal·Ong, <em>Mathematics for Machine Learning</em> (MML) — Strang 미수록 수학 (Vector Calculus·Probability·Optimization) + ML 응용 (LR·PCA·GMM·SVM)</li>
 <li><strong>시각 보조</strong>: 3Blue1Brown <em>Essence of Linear Algebra</em> (EoLA)</li>
@@ -1199,7 +1202,7 @@ Linear Algebra Part 2 (18회차) — Strang LA Ch 6-8 + MML 전체 확장
 <li>Python · NumPy 사용 가능</li>
 <li>PyTorch는 처음이어도 학습 의지</li>
 </ul>
-<p>학부 LA 미이수 학생을 표준으로 한 강의입니다 — Part 1 전반부에서 Definition·Theorem(정리)을 천천히 다지고 Part 2에서 응용으로 가속합니다.</p></div><div class="slide"><h1>B. 왜 Linear Algebra인가 — 네 가지 동기</h1></div><div class="slide"><h2>B-1. 동기 1 — AI 논문 한 줄을 읽으려면</h2>
+<p>학부 LA 미이수 학생을 표준으로 한 강의입니다 — Part 1 전반부에서 Definition·Theorem(정리)을 천천히 다지고 Part 2에서 응용으로 가속합니다.</p></div><div class="slide"><h2>B-1. 동기 1 — AI 논문 한 줄을 읽으려면</h2>
 <p>다음은 LLM 표준 논문의 한 문장입니다.</p>
 <blockquote>
 <p>"Self-attention computes <span class="arithmatex">\(\mathrm{softmax}(QK^\top / \sqrt{d_k})V\)</span>, where <span class="arithmatex">\(Q, K, V \in \mathbb{R}^{n \times d}\)</span>."</p>
@@ -1284,7 +1287,8 @@ $<span class="arithmatex">\(f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0)
 </table></div></div><div class="slide"><h1>C. 수학적 흐름의 큰 그림</h1>
 <blockquote>
 <p>"Definition → Theorem → Decomposition → Application(응용)" 사이클이 매 회차 반복됩니다.</p>
-</blockquote></div><div class="slide"><h2>C-1. 4단 사고 구조</h2>
+</blockquote>
+<h2>C-1. 4단 사고 구조</h2>
 <p>매 회차가 다음 네 단계 안에 위치합니다.</p>
 <div class="table-wrap"><table>
 <thead>
@@ -1500,7 +1504,8 @@ $<span class="arithmatex">\(f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0)
 <p><strong>핵심 명제</strong>: 어떤 Matrix도 <strong>SVD로 회전·신축·회전으로 분해</strong>됩니다. 그 위에 미분·확률·최적화 도구를 쌓아 <strong>임의 AI 모듈을 선형대수 객체로 환원</strong>할 수 있습니다.</p></div><div class="slide"><h1>D. CS·AI 흐름</h1>
 <blockquote>
 <p>수학 5대 줄기가 컴퓨터와 AI에서 어디에 등장하는지를 봅니다.</p>
-</blockquote></div><div class="slide"><h2>D-1. 데이터·연산의 LA 환원</h2>
+</blockquote>
+<h2>D-1. 데이터·연산의 LA 환원</h2>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -1632,7 +1637,7 @@ $<span class="arithmatex">\(f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0)
 </tr>
 </tbody>
 </table></div>
-<p>Decomposition이 AI의 절반입니다 — 이 강의 후반부가 다 이 표 안에 있습니다.</p></div><div class="slide"><h1>E. 교재 운용 — MML / Strang / EoLA / 코드</h1></div><div class="slide"><h2>E-1. 4단 운영 모델</h2>
+<p>Decomposition이 AI의 절반입니다 — 이 강의 후반부가 다 이 표 안에 있습니다.</p></div><div class="slide"><h2>E-1. 4단 운영 모델</h2>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -1683,7 +1688,7 @@ $<span class="arithmatex">\(f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0)
   ⑤ 회차 ipynb (11/Part1/N_*.ipynb) 실행
   ⑥ 과제 (04_과제/Part1/N회차_homework.md) 착수
 </code></pre>
-<p><strong>24시간 전·직후의 2회 노출</strong>이 6회차 중간학습확인평가 기억 유지의 결정 변수입니다.</p></div><div class="slide"><h1>F. 이수 후 능력 점검표</h1></div><div class="slide"><h2>F-1. Part 1 종료 시 (12회차 후)</h2>
+<p><strong>24시간 전·직후의 2회 노출</strong>이 6회차 중간학습확인평가 기억 유지의 결정 변수입니다.</p></div><div class="slide"><h2>F-1. Part 1 종료 시 (12회차 후)</h2>
 <p>학생은 다음을 할 수 있습니다.</p>
 <ul>
 <li>[ ] Vector·Matrix·Linear equation Definition을 정확히 진술하고 손계산할 수 있습니다.</li>
@@ -1734,7 +1739,8 @@ $<span class="arithmatex">\(f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0)
 <p>LLM 시대에 LA를 <strong>다시 배우는 이유</strong> — 라이브러리 호출 한 줄 안에 무엇이 들어 있는지 <strong>알면서 부르는</strong> 사람이 되기 위해서입니다.</p></div><div class="slide"><h1>G. 시그니처 시연 — 손글씨 "7"의 평균은 어떻게 생겼을까요</h1>
 <blockquote>
 <p>지금까지의 수학·CS 흐름이 <strong>가장 친숙한 한 예제</strong>에 모이는 클라이맥스입니다.</p>
-</blockquote></div><div class="slide"><h2>G-1. 질문</h2>
+</blockquote>
+<h2>G-1. 질문</h2>
 <p>손글씨 숫자 데이터(MNIST)에서 <strong>숫자 "7"이라고 적힌 모든 이미지를 평균내면</strong> 어떤 그림이 나올까요?</p>
 <div class="table-wrap"><table>
 <thead>
@@ -1821,17 +1827,19 @@ plt.imshow(mean_seven, cmap='gray')
 <li>시각화 — 10개 평균이 흐릿한 0, 1, ..., 9 모양으로 보입니다.</li>
 <li><strong>응용</strong> — 새 이미지를 가장 가까운 평균으로 분류합니다 (간단한 분류기).</li>
 <li>보너스: 평균을 빼면 무엇이 남는가 (PCA 미리보기)</li>
-</ol></div><div class="slide"><h1>H. 1회차 사전 reading 안내</h1></div><div class="slide"><h2>H-1. 1회차 주제</h2>
-<p><strong>Vector · Linear combination(선형결합) · Span(생성공간) — Strang §1.1</strong></p>
+</ol></div><div class="slide"><h2>H. 1회차 사전 reading 안내</h2>
+<p><strong>1회차 주제</strong>: Vector · Linear combination(선형결합) · Span(생성공간) — Strang §1.1</p>
 <blockquote>
 <p>오늘 본 평균 이미지 시연의 토대 — <strong>Vector의 Definition·R^n·Linear combination</strong>을 1회차에 정식 수학으로 맞춥니다.
 <strong>Norm·Inner product·Cosine similarity는 2회차</strong> (Strang §1.2), Cauchy-Schwarz까지의 논리 사슬은 2회차에서 봅니다.</p>
-</blockquote></div><div class="slide"><h2>H-2. 1회차 시작 24시간 전까지</h2>
+</blockquote>
+<p><strong>1회차 시작 24시간 전까지</strong></p>
 <ul>
 <li>[ ] <strong>Strang</strong> §1.1 (Vectors and Linear Combinations) — 메인 reading</li>
 <li>[ ] <strong>3Blue1Brown EoLA</strong> Ch.1 (Vectors), Ch.2 (Linear combinations, span, basis) — 시각 사전 시청</li>
 <li>[ ] (선택) <strong>MML</strong> §2.1 (Vectors) — 참조·확장</li>
-</ul></div><div class="slide"><h2>H-3. 0회차 종료 후 권장</h2>
+</ul>
+<p><strong>0회차 종료 후 권장</strong></p>
 <ul>
 <li>오늘 본 평균 이미지 시연을 <code>00_Introduction_평균이미지.ipynb</code>에서 <strong>다른 숫자(예: 4·8)로 재실행</strong>해보세요.</li>
 <li>어색한 부분을 1회차 강의에서 질문할 수 있도록 준비합니다.</li>
@@ -1879,7 +1887,7 @@ plt.imshow(mean_seven, cmap='gray')
 <p>오늘(0회차)은 ④의 첫 출발입니다 — 위 1문제가 <strong>1회차 시작 시 Review 문제</strong>가 됩니다.</p></div><div class="slide slide-lead"><h1>Q &amp; A</h1>
 <p>오늘은 Definition·증명 없이 큰 그림만 보았습니다.
 <strong>다음 회차부터 본격 수학을 시작합니다.</strong></p>
-<p><code>HANDOUT</code>: 본 PDF + <code>00_Introduction_평균이미지.ipynb</code></p></div></div><div class="slide-controls"><button class="slide-btn slide-prev" type="button">◀ 이전</button><div class="slide-indicator">1 / 41</div><button class="slide-btn slide-next" type="button">다음 ▶</button><input class="slide-jump" type="number" min="1" max="41" value="1" title="슬라이드 번호로 이동"></div></div></section><section class="doc" id="p2-repo-readme"><div class="doc-header"><span class="doc-tag p2">Phase 2</span><span class="doc-tag doc-tag-sub">GitHub 사본</span><h2 class="doc-title">_repo README</h2><div class="doc-meta"><code>_repo/README.md</code><span>2.0 KB</span></div></div><div class="doc-content"><h1>인공지능 전공자를 위한 선형대수학</h1>
+<p><code>HANDOUT</code>: 본 PDF + <code>00_Introduction_평균이미지.ipynb</code></p></div></div><div class="slide-controls"><button class="slide-btn slide-prev" type="button">◀ 이전</button><div class="slide-indicator">1 / 31</div><button class="slide-btn slide-next" type="button">다음 ▶</button><input class="slide-jump" type="number" min="1" max="31" value="1" title="슬라이드 번호로 이동"></div></div></section><section class="doc" id="p2-repo-readme"><div class="doc-header"><span class="doc-tag p2">Phase 2</span><span class="doc-tag doc-tag-sub">GitHub 사본</span><h2 class="doc-title">_repo README</h2><div class="doc-meta"><code>_repo/README.md</code><span>2.0 KB</span></div></div><div class="doc-content"><h1>인공지능 전공자를 위한 선형대수학</h1>
 <blockquote>
 <p>인공지능 전공 대학원생을 위한 30회차 (1회차 2시간 × 30 = 60시간) 선형대수학 강좌 공식 웹사이트.</p>
 </blockquote>
@@ -2063,7 +2071,7 @@ plt.imshow(mean_seven, cmap='gray')
 <h2>강사</h2>
 <p>최경찬 / SW AI 융합정보대학원 61기</p>
 <h2>라이선스</h2>
-<p>본 저장소의 페이지·문서·이미지 자료는 MIT License 하에 공개한다. 외부 인용 자료(MML, Strang, EoLA 등)는 각 원저작자의 라이선스를 따른다.</p></div></section><section class="doc" id="p3-1회차"><div class="doc-header"><span class="doc-tag p3">Phase 3</span><span class="doc-tag doc-tag-sub">Strang §1.1 신규</span><span class="doc-mode-badge">슬라이드 43장</span><h2 class="doc-title">1회차 Vector·Linear combination</h2><div class="doc-meta"><code>07_강의교안/Part1/01회차_벡터_선형결합.md</code><span>35.0 KB</span></div></div><div class="slide-viewer"><div class="slide-stage"><div class="slide slide-lead"><h1>1회차</h1>
+<p>본 저장소의 페이지·문서·이미지 자료는 MIT License 하에 공개한다. 외부 인용 자료(MML, Strang, EoLA 등)는 각 원저작자의 라이선스를 따른다.</p></div></section><section class="doc" id="p3-1회차"><div class="doc-header"><span class="doc-tag p3">Phase 3</span><span class="doc-tag doc-tag-sub">Strang §1.1 신규</span><span class="doc-mode-badge">슬라이드 39장</span><h2 class="doc-title">1회차 Vector·Linear combination</h2><div class="doc-meta"><code>07_강의교안/Part1/01회차_벡터_선형결합.md</code><span>35.0 KB</span></div></div><div class="slide-viewer"><div class="slide-stage"><div class="slide slide-lead"><h1>1회차</h1>
 <h2>Vector(벡터)·<span class="arithmatex">\(\mathbb{R}^n\)</span>·Linear combination(선형결합)</h2>
 <p>Strang §1.1 · EoLA Ch.1 · (MML 참조 X)
 <strong>Part 1 첫 회차</strong> — <span class="arithmatex">\(\mathbb{R}^n\)</span> 위에서 가장 단순한 두 연산(덧셈·Scalar곱)부터 시작합니다.</p></div><div class="slide slide-exercise"><h1>🔁 Review — 0회차 마무리 문제</h1>
@@ -2156,7 +2164,10 @@ plt.imshow(mean_seven, cmap='gray')
 </tr>
 </tbody>
 </table></div>
-<p>이 사슬을 한 회차에 완주합니다. <strong>추상 정의(Vector space 8 axioms · Subspace 정식 정의 · 일차독립)는 의도적으로 미룹니다</strong> — 7~9회차에서 정식 도입합니다.</p></div><div class="slide"><h2>수업 흐름 (120분)</h2>
+<p>이 사슬을 한 회차에 완주합니다. <strong>추상 정의(Vector space 8 axioms · Subspace 정식 정의 · 일차독립)는 의도적으로 미룹니다</strong> — 7~9회차에서 정식 도입합니다.</p></div><div class="slide"><h2>수업 흐름</h2>
+<blockquote>
+<p>아래 시간 분배는 120분 분량 가이드. 실제 회차당 50~60분 압축 진행.</p>
+</blockquote>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -2199,7 +2210,8 @@ plt.imshow(mean_seven, cmap='gray')
 </blockquote></div><div class="slide"><h1>B. Vector — 동기와 정의</h1>
 <blockquote>
 <p>"왜 Vector가 필요한가?" 세 가지 동기로 시작합니다.</p>
-</blockquote></div><div class="slide"><h2>B-1. Vector가 왜 생겼는가 — 세 가지 동기</h2>
+</blockquote>
+<h2>B-1. Vector가 왜 생겼는가 — 세 가지 동기</h2>
 <p><strong>(i) 물리적 동기</strong>: 크기 + 방향이 필요한 양 (변위·속도·힘)
 - "북쪽 3 m"와 "동쪽 3 m"는 다릅니다 — 같은 크기지만 방향이 다르면 다른 양.
 - 두 변위의 합 = <strong>평행사변형 법칙</strong>.</p>
@@ -2295,7 +2307,8 @@ $<span class="arithmatex">\(\mathbf{x} = x_1\mathbf{e}_1 + x_2\mathbf{e}_2 + \cd
 </blockquote></div><div class="slide"><h1>C. Linear combination · Span (직관)</h1>
 <blockquote>
 <p>오늘 회차의 두 번째 심장. 두 연산을 <strong>섞어 쓰면</strong> 무엇이 만들어지는가.</p>
-</blockquote></div><div class="slide"><h2>C-1. Linear combination — 정의</h2>
+</blockquote>
+<h2>C-1. Linear combination — 정의</h2>
 <h3>정의 1.4 (Linear combination)</h3>
 <p>Vector <span class="arithmatex">\(\mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_k \in \mathbb{R}^n\)</span>, Scalar <span class="arithmatex">\(\alpha_1, \alpha_2, \ldots, \alpha_k \in \mathbb{R}\)</span>에 대해
 $<span class="arithmatex">\(\alpha_1 \mathbf{v}_1 + \alpha_2 \mathbf{v}_2 + \cdots + \alpha_k \mathbf{v}_k \;\in\; \mathbb{R}^n\)</span>$
@@ -2410,7 +2423,8 @@ $<span class="arithmatex">\(A\mathbf{x} = 5\begin{pmatrix} 1 \\ 2 \end{pmatrix} 
 </blockquote></div><div class="slide"><h1>D. CS·AI 적용 — 데이터를 Vector로</h1>
 <blockquote>
 <p>오늘 본 수학이 AI에서 어디에 등장하는가.</p>
-</blockquote></div><div class="slide"><h2>D-1. 이미지를 Vector로 — MNIST</h2>
+</blockquote>
+<h2>D-1. 이미지를 Vector로 — MNIST</h2>
 <p>손글씨 숫자 데이터셋 <strong>MNIST</strong>: 28×28 픽셀 흑백 이미지 70,000장.</p>
 <div class="table-wrap"><table>
 <thead>
@@ -2519,7 +2533,7 @@ $<span class="arithmatex">\(A\mathbf{x} = 5\begin{pmatrix} 1 \\ 2 \end{pmatrix} 
 <p>이 식의 본질:
 - <span class="arithmatex">\(w_i x_i\)</span>의 합 = <strong>가중치 Vector와 입력 Vector의 곱셈 합</strong> → <strong>Inner product</strong> (2회차)
 - 더 일반화: <span class="arithmatex">\(\mathbf{y} = W\mathbf{x} + \mathbf{b}\)</span> → <strong>Matrix·Vector 곱</strong> (3회차)</p>
-<p>→ 오늘 본 Vector 정의 + 두 연산이 곧 <strong>신경망의 한 줄</strong>입니다. 뉴런 한 개의 출력 = 입력 Vector의 한 가지 Linear combination + Bias.</p></div><div class="slide"><h1>E. 코딩 실습 + 클로징</h1></div><div class="slide"><h2>E-1. 코딩 실습 골자</h2>
+<p>→ 오늘 본 Vector 정의 + 두 연산이 곧 <strong>신경망의 한 줄</strong>입니다. 뉴런 한 개의 출력 = 입력 Vector의 한 가지 Linear combination + Bias.</p></div><div class="slide"><h2>E-1. 코딩 실습 + 클로징 — 골자</h2>
 <p>→ <code>11_주피터노트북/Part1/01_벡터_R^n_MNIST.ipynb</code></p>
 <ol>
 <li><strong>NumPy로 Vector 만들기</strong>: <code>np.array([1, 2, 3])</code>, 차원 확인 (<code>.shape</code>, <code>.ndim</code>)</li>
@@ -2709,7 +2723,7 @@ mean_seven = X[y == 7].mean(axis=0)  # (64,) — 7의 평균 Vector
 <blockquote>
 <p>두 Vector의 <strong>길이</strong>와 <strong>각도</strong>를 어떻게 정의하면 자연스러운가?</p>
 </blockquote>
-<p><code>HANDOUT</code>: 본 PDF + <code>01_벡터_R^n_MNIST.ipynb</code></p></div></div><div class="slide-controls"><button class="slide-btn slide-prev" type="button">◀ 이전</button><div class="slide-indicator">1 / 43</div><button class="slide-btn slide-next" type="button">다음 ▶</button><input class="slide-jump" type="number" min="1" max="43" value="1" title="슬라이드 번호로 이동"></div></div></section><section class="doc" id="p3-2회차"><div class="doc-header"><span class="doc-tag p3">Phase 3</span><span class="doc-tag doc-tag-sub">Strang §1.2 신규</span><span class="doc-mode-badge">슬라이드 41장</span><h2 class="doc-title">2회차 Norm·Dot·Cosine</h2><div class="doc-meta"><code>07_강의교안/Part1/02회차_노름_내적_코사인유사도.md</code><span>35.2 KB</span></div></div><div class="slide-viewer"><div class="slide-stage"><div class="slide slide-lead"><h1>2회차</h1>
+<p><code>HANDOUT</code>: 본 PDF + <code>01_벡터_R^n_MNIST.ipynb</code></p></div></div><div class="slide-controls"><button class="slide-btn slide-prev" type="button">◀ 이전</button><div class="slide-indicator">1 / 39</div><button class="slide-btn slide-next" type="button">다음 ▶</button><input class="slide-jump" type="number" min="1" max="39" value="1" title="슬라이드 번호로 이동"></div></div></section><section class="doc" id="p3-2회차"><div class="doc-header"><span class="doc-tag p3">Phase 3</span><span class="doc-tag doc-tag-sub">Strang §1.2 신규</span><span class="doc-mode-badge">슬라이드 37장</span><h2 class="doc-title">2회차 Norm·Dot·Cosine</h2><div class="doc-meta"><code>07_강의교안/Part1/02회차_노름_내적_코사인유사도.md</code><span>35.3 KB</span></div></div><div class="slide-viewer"><div class="slide-stage"><div class="slide slide-lead"><h1>2회차</h1>
 <h2>Norm·Dot product·Cosine similarity</h2>
 <p>Strang §1.2 · MML §3.1, §3.2 (참조) · EoLA Ch.9</p>
 <p>이제 Vector(벡터) 사이의 <strong>거리와 각도</strong>를 정의합니다.</p></div><div class="slide slide-exercise"><h1>🔁 Review — 1회차 마무리 숙제</h1>
@@ -2792,7 +2806,10 @@ mean_seven = X[y == 7].mean(axis=0)  # (64,) — 7의 평균 Vector
 </tr>
 </tbody>
 </table></div>
-<p>이 사슬을 한 회차에 완주합니다.</p></div><div class="slide"><h2>수업 흐름 (120분)</h2>
+<p>이 사슬을 한 회차에 완주합니다.</p></div><div class="slide"><h2>수업 흐름</h2>
+<blockquote>
+<p>아래 시간 분배는 120분 분량 가이드. 실제 회차당 50~60분 압축 진행.</p>
+</blockquote>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -2835,7 +2852,8 @@ mean_seven = X[y == 7].mean(axis=0)  # (64,) — 7의 평균 Vector
 </blockquote></div><div class="slide"><h1>B. 수학 1 — Norm: "길이"의 정확한 명세</h1>
 <blockquote>
 <p>1회차에서 본 한 Vector를 이제 <strong>하나의 숫자(크기)로 요약</strong>합니다.</p>
-</blockquote></div><div class="slide"><h2>B-1. 왜 길이를 정의해야 하는가</h2>
+</blockquote>
+<h2>B-1. 왜 길이를 정의해야 하는가</h2>
 <p><strong>문제 상황</strong>: MNIST 평균 7 이미지 <span class="arithmatex">\(\mathbf{m} \in \mathbb{R}^{784}\)</span>와 새 이미지 <span class="arithmatex">\(\mathbf{x} \in \mathbb{R}^{784}\)</span>. 둘이 얼마나 비슷한가?</p>
 <p>가장 자연스러운 답: <strong>두 점 사이 거리</strong> <span class="arithmatex">\(\|\mathbf{x} - \mathbf{m}\|\)</span>.</p>
 <p>→ 그러면 "거리"가 무엇인지부터 정의해야 합니다.</p>
@@ -2993,7 +3011,8 @@ $<span class="arithmatex">\(\hat{\mathbf{x}} := \frac{\mathbf{x}}{\|\mathbf{x}\|
 </blockquote></div><div class="slide"><h1>C. 수학 2 — Dot product · 각도 · Cauchy-Schwarz</h1>
 <blockquote>
 <p>오늘 회차의 심장입니다. 두 Vector를 한 Scalar로 묶어 <strong>각도</strong>를 정의합니다.</p>
-</blockquote></div><div class="slide"><h2>C-1. Dot product의 정의</h2>
+</blockquote>
+<h2>C-1. Dot product의 정의</h2>
 <h3>정의 2.2 (<span class="arithmatex">\(\mathbb{R}^n\)</span>의 Dot product)</h3>
 <p><span class="arithmatex">\(\mathbf{u}, \mathbf{v} \in \mathbb{R}^n\)</span>의 <strong>Dot product</strong>(내적, inner product):</p>
 <div class="arithmatex">\[\mathbf{u} \cdot \mathbf{v} := u_1 v_1 + u_2 v_2 + \cdots + u_n v_n = \sum_{i=1}^n u_i v_i \in \mathbb{R}\]</div>
@@ -3121,7 +3140,8 @@ $<span class="arithmatex">\(= \|\mathbf{u}\|^2 + \|\mathbf{v}\|^2 - 2(\mathbf{u}
 </blockquote></div><div class="slide"><h1>D. 수학 3 — Cosine similarity와 CS·AI 적용</h1>
 <blockquote>
 <p>정의된 각도를 그대로 <strong>AI 임베딩 비교의 표준 도구</strong>로 사용합니다.</p>
-</blockquote></div><div class="slide"><h2>D-1. Cosine similarity의 정의</h2>
+</blockquote>
+<h2>D-1. Cosine similarity의 정의</h2>
 <h3>정의 2.5 (Cosine similarity)</h3>
 <p><span class="arithmatex">\(\mathbf{u}, \mathbf{v} \in \mathbb{R}^n\)</span> (<span class="arithmatex">\(\ne \mathbf{0}\)</span>)에 대해</p>
 <div class="arithmatex">\[\mathrm{cos\_sim}(\mathbf{u}, \mathbf{v}) := \cos\theta = \frac{\mathbf{u}\cdot\mathbf{v}}{\|\mathbf{u}\|_2\,\|\mathbf{v}\|_2} \in [-1, 1]\]</div>
@@ -3245,7 +3265,8 @@ $<span class="arithmatex">\(\mathrm{cos\_sim}(\mathbf{u}, \mathbf{v}) = \hat{\ma
 <p>→ 가장 비슷한 쌍: <span class="arithmatex">\((\mathbf{a}, \mathbf{b})\)</span>. 가장 먼 쌍: <span class="arithmatex">\((\mathbf{a}, \mathbf{d})\)</span>.</p>
 <blockquote>
 <p><strong>메시지</strong>: cosine similarity의 <strong>세 극단값</strong> <span class="arithmatex">\(+1, 0, -1\)</span>이 각각 평행·직교·반평행에 정확히 대응합니다. Euclidean 거리에는 이런 깔끔한 해석이 없습니다.</p>
-</blockquote></div><div class="slide"><h1>E. 코딩 실습 + 정리 + 과제</h1></div><div class="slide"><h2>E-1. 코딩 실습 골자</h2>
+</blockquote></div><div class="slide"><h1>E. 코딩 실습 + 정리 + 과제</h1>
+<h2>E-1. 코딩 실습 골자</h2>
 <p>→ <code>11_주피터노트북/Part1/02_노름_내적_코사인유사도.ipynb</code></p>
 <ol>
 <li><strong>Norm 직접 구현</strong> — <span class="arithmatex">\(\ell_1, \ell_2, \ell_\infty\)</span>를 라이브러리 호출 없이 NumPy로 + <code>np.linalg.norm</code>과 <code>np.allclose</code>로 검증</li>
@@ -3355,7 +3376,7 @@ $<span class="arithmatex">\(\mathrm{cos\_sim}(\mathbf{u}, \mathbf{v}) = \hat{\ma
 <p>오늘의 사슬:</p>
 <p><strong>Norm(<span class="arithmatex">\(\ell_2\)</span>) → Dot product → 각도 정의 → Cauchy-Schwarz → cosine similarity → 임베딩 비교</strong></p>
 <p>한 줄 결론: <strong>Cauchy-Schwarz 부등식 하나가 AI의 임베딩 검색 시스템 전체의 정당성을 보장합니다.</strong></p>
-<p><code>HANDOUT</code>: 본 PDF + <code>02_노름_내적_코사인유사도.ipynb</code></p></div></div><div class="slide-controls"><button class="slide-btn slide-prev" type="button">◀ 이전</button><div class="slide-indicator">1 / 41</div><button class="slide-btn slide-next" type="button">다음 ▶</button><input class="slide-jump" type="number" min="1" max="41" value="1" title="슬라이드 번호로 이동"></div></div></section><section class="doc" id="p3-3회차"><div class="doc-header"><span class="doc-tag p3">Phase 3</span><span class="doc-tag doc-tag-sub">Strang §1.3 회차번호 조정</span><span class="doc-mode-badge">슬라이드 49장</span><h2 class="doc-title">3회차 Matrix·Matrix·Vector 곱</h2><div class="doc-meta"><code>07_강의교안/Part1/03회차_행렬_행렬벡터곱.md</code><span>29.8 KB</span></div></div><div class="slide-viewer"><div class="slide-stage"><div class="slide slide-lead"><h1>3회차</h1>
+<p><code>HANDOUT</code>: 본 PDF + <code>02_노름_내적_코사인유사도.ipynb</code></p></div></div><div class="slide-controls"><button class="slide-btn slide-prev" type="button">◀ 이전</button><div class="slide-indicator">1 / 37</div><button class="slide-btn slide-next" type="button">다음 ▶</button><input class="slide-jump" type="number" min="1" max="37" value="1" title="슬라이드 번호로 이동"></div></div></section><section class="doc" id="p3-3회차"><div class="doc-header"><span class="doc-tag p3">Phase 3</span><span class="doc-tag doc-tag-sub">Strang §1.3 회차번호 조정</span><span class="doc-mode-badge">슬라이드 42장</span><h2 class="doc-title">3회차 Matrix·Matrix·Vector 곱</h2><div class="doc-meta"><code>07_강의교안/Part1/03회차_행렬_행렬벡터곱.md</code><span>29.8 KB</span></div></div><div class="slide-viewer"><div class="slide-stage"><div class="slide slide-lead"><h1>3회차</h1>
 <h2>Matrix와 Matrix·Vector 곱의 두 해석</h2>
 <p>MML §2.2, §2.3 · Strang §1.3, §2.1, §2.4 · EoLA Ch.3, Ch.4</p></div><div class="slide slide-exercise"><h1>🔁 Review — 2회차 마무리 숙제</h1>
 <p>지난 회차 마지막에 가져갔던 문제:</p>
@@ -3433,7 +3454,10 @@ $<span class="arithmatex">\(\mathrm{cos\_sim}(\mathbf{u}, \mathbf{v}) = \hat{\ma
 </tr>
 </tbody>
 </table></div>
-<p>오늘 사슬의 클라이맥스 — <strong>Column picture가 LA의 본 줄기</strong>입니다.</p></div><div class="slide"><h2>수업 흐름 (120분)</h2>
+<p>오늘 사슬의 클라이맥스 — <strong>Column picture가 LA의 본 줄기</strong>입니다.</p></div><div class="slide"><h2>수업 흐름</h2>
+<blockquote>
+<p>아래 시간 분배는 120분 분량 가이드. 실제 회차당 50~60분 압축 진행.</p>
+</blockquote>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -3482,7 +3506,8 @@ $<span class="arithmatex">\(\mathrm{cos\_sim}(\mathbf{u}, \mathbf{v}) = \hat{\ma
 </table></div>
 <blockquote>
 <p><strong>C·D가 오늘의 심장입니다.</strong> 30분 + 20분 = 50분으로 집중 배분합니다.</p>
-</blockquote></div><div class="slide"><h1>B. Matrix: 동기와 정의</h1></div><div class="slide"><h2>B-1. Matrix가 왜 생겼는가 — 세 가지 동기</h2>
+</blockquote></div><div class="slide"><h1>B. Matrix: 동기와 정의</h1>
+<h2>B-1. Matrix가 왜 생겼는가 — 세 가지 동기</h2>
 <p><strong>(i) Linear equation 묶음</strong>: 미지수가 여러 개인 식들을 한 객체로
 $<span class="arithmatex">\(\begin{cases} 2x_1 + 3x_2 - x_3 = 5 \\ x_1 - x_2 + 4x_3 = 1 \end{cases} \Leftrightarrow \begin{pmatrix} 2 &amp; 3 &amp; -1 \\ 1 &amp; -1 &amp; 4 \end{pmatrix} \mathbf{x} = \mathbf{b}\)</span>$</p>
 <p><strong>(ii) Linear transformation(선형변환)의 표현</strong>: <span class="arithmatex">\(\mathbf{x} \mapsto A\mathbf{x}\)</span> — 한 Vector를 다른 Vector로 보내는 <strong>선형 함수</strong>의 표 (Part 2 5회차 본격 정의)</p>
@@ -3539,7 +3564,8 @@ $<span class="arithmatex">\((A^\top)_{ij} = a_{ji}\)</span>$
 </blockquote></div><div class="slide"><h1>C. 핵심 — Matrix·Vector 곱의 두 해석</h1>
 <blockquote>
 <p>오늘 회차의 심장입니다. 한 정의 = 두 해석.</p>
-</blockquote></div><div class="slide"><h2>C-1. 정의 (한 식)</h2>
+</blockquote>
+<h2>C-1. 정의 (한 식)</h2>
 <h3>정의 2.3 (Matrix·Vector 곱)</h3>
 <p><span class="arithmatex">\(A \in \mathbb{R}^{m \times n}\)</span>, <span class="arithmatex">\(\mathbf{x} \in \mathbb{R}^n\)</span>에 대해 <span class="arithmatex">\(A\mathbf{x} \in \mathbb{R}^m\)</span>의 <span class="arithmatex">\(i\)</span>성분:</p>
 <div class="arithmatex">\[(A\mathbf{x})_i = \sum_{j=1}^n a_{ij}\,x_j\]</div>
@@ -3617,7 +3643,8 @@ $<span class="arithmatex">\((A^\top)_{ij} = a_{ji}\)</span>$
 </blockquote></div><div class="slide"><h1>D. <span class="arithmatex">\(A\mathbf{x} = \mathbf{b}\)</span>와 Column space</h1>
 <blockquote>
 <p>1회차에서 본 "Vector로 데이터를 표현"이 이제 "방정식 풀이"로 발전합니다.</p>
-</blockquote></div><div class="slide"><h2>D-1. <span class="arithmatex">\(A\mathbf{x} = \mathbf{b}\)</span>의 의미 (Column picture 재해석)</h2>
+</blockquote>
+<h2>D-1. <span class="arithmatex">\(A\mathbf{x} = \mathbf{b}\)</span>의 의미 (Column picture 재해석)</h2>
 <p><span class="arithmatex">\(A\mathbf{x} = \mathbf{b}\)</span>를 풉니다:</p>
 <p><strong>(Column picture)</strong> <span class="arithmatex">\(\mathbf{b}\)</span>를 <strong><span class="arithmatex">\(A\)</span>의 열들의 Linear combination으로 쓸 수 있는가</strong>?</p>
 <div class="arithmatex">\[x_1 \mathbf{a}_1 + x_2 \mathbf{a}_2 + \cdots + x_n \mathbf{a}_n = \mathbf{b}\]</div>
@@ -3698,29 +3725,30 @@ $<span class="arithmatex">\((A^\top)_{ij} = a_{ji}\)</span>$
 </blockquote></div><div class="slide"><h1>E. Matrix·Matrix 곱 — 4가지 해석</h1>
 <blockquote>
 <p><span class="arithmatex">\(C = AB\)</span>를 한 식이 아닌 4가지로 봅니다 — 같은 결과, 다른 통찰.</p>
-</blockquote></div><div class="slide"><h2>E-1. 정의</h2>
+</blockquote>
+<h2>E-1. 정의</h2>
 <h3>정의 2.6 (Matrix·Matrix 곱)</h3>
 <p><span class="arithmatex">\(A \in \mathbb{R}^{m \times k}\)</span>, <span class="arithmatex">\(B \in \mathbb{R}^{k \times n}\)</span>일 때 <span class="arithmatex">\(C = AB \in \mathbb{R}^{m \times n}\)</span>:</p>
 <div class="arithmatex">\[c_{ij} = \sum_{l=1}^k a_{il}\,b_{lj}\]</div>
 <p><strong>조건</strong>: <span class="arithmatex">\(A\)</span>의 <strong>열 수</strong> = <span class="arithmatex">\(B\)</span>의 <strong>행 수</strong> (<span class="arithmatex">\(= k\)</span>, "inner dimension"). 안 맞으면 곱이 정의되지 않습니다.</p>
 <p>결과 차원: <span class="arithmatex">\(m \times n\)</span> (outer dimensions).</p>
-<p>이 한 식을 <strong>4가지로 묶어 봅니다</strong>.</p></div><div class="slide"><h2>E-2. 해석 1 — 원소 = Inner product</h2>
+<p>이 한 식을 <strong>4가지로 묶어 봅니다</strong>.</p></div><div class="slide"><h2>E-2. 해석 1·2 — 원소 = Inner product, 열 묶음</h2>
+<h3>해석 1 — 원소</h3>
 <div class="arithmatex">\[c_{ij} = (A\text{의 } i\text{행}) \cdot (B\text{의 } j\text{열})\]</div>
-<p>가장 흔히 배우는 정의입니다. 손계산 표준.</p>
-<p><strong>예시</strong>: <span class="arithmatex">\(\begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{pmatrix} \begin{pmatrix} 5 &amp; 6 \\ 7 &amp; 8 \end{pmatrix}\)</span>의 (1,1) 원소 = <span class="arithmatex">\((1,2)\cdot(5,7) = 19\)</span>.</p></div><div class="slide"><h2>E-3. 해석 2 — 열 묶음</h2>
+<p>가장 흔히 배우는 정의(손계산 표준). <strong>예시</strong>: <span class="arithmatex">\(\begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{pmatrix} \begin{pmatrix} 5 &amp; 6 \\ 7 &amp; 8 \end{pmatrix}\)</span>의 (1,1) 원소 = <span class="arithmatex">\((1,2)\cdot(5,7) = 19\)</span>.</p>
+<h3>해석 2 — 열 묶음</h3>
 <p><span class="arithmatex">\(AB\)</span>의 <span class="arithmatex">\(j\)</span>열 = <span class="arithmatex">\(A \cdot (B\)</span>의 <span class="arithmatex">\(j\)</span>열<span class="arithmatex">\()\)</span></p>
-<div class="arithmatex">\[AB = A [\mathbf{b}_1 \mid \mathbf{b}_2 \mid \cdots \mid \mathbf{b}_n] = [A\mathbf{b}_1 \mid A\mathbf{b}_2 \mid \cdots \mid A\mathbf{b}_n]\]</div>
-<p><strong>Matrix·Vector 곱을 <span class="arithmatex">\(n\)</span>번 반복</strong>합니다 — 각 열이 <span class="arithmatex">\(A\)</span>의 열들의 Linear combination.</p>
-<p>→ 이 해석으로 <strong><span class="arithmatex">\(AB\)</span>의 Column space ⊆ <span class="arithmatex">\(A\)</span>의 Column space</strong>가 즉시 따라옵니다.</p></div><div class="slide"><h2>E-4. 해석 3 — 행 묶음</h2>
+<div class="arithmatex">\[AB = A [\mathbf{b}_1 \mid \cdots \mid \mathbf{b}_n] = [A\mathbf{b}_1 \mid \cdots \mid A\mathbf{b}_n]\]</div>
+<p><strong>Matrix·Vector 곱을 <span class="arithmatex">\(n\)</span>번 반복</strong> — 각 열이 <span class="arithmatex">\(A\)</span>의 열들의 Linear combination. 이 해석으로 <strong><span class="arithmatex">\(AB\)</span>의 Column space ⊆ <span class="arithmatex">\(A\)</span>의 Column space</strong>가 즉시 따라옵니다.</p></div><div class="slide"><h2>E-3. 해석 3 — 행 묶음</h2>
 <p><span class="arithmatex">\(AB\)</span>의 <span class="arithmatex">\(i\)</span>행 = <span class="arithmatex">\((A\)</span>의 <span class="arithmatex">\(i\)</span>행<span class="arithmatex">\() \cdot B\)</span></p>
 <div class="arithmatex">\[AB = \begin{pmatrix} \mathbf{r}_1^\top B \\ \mathbf{r}_2^\top B \\ \vdots \\ \mathbf{r}_m^\top B \end{pmatrix}\]</div>
-<p>각 행이 <span class="arithmatex">\(B\)</span>의 행들의 Linear combination입니다. <strong><span class="arithmatex">\(AB\)</span>의 행공간 ⊆ <span class="arithmatex">\(B\)</span>의 행공간</strong>.</p></div><div class="slide"><h2>E-5. 해석 4 — Outer product(외적)의 합</h2>
+<p>각 행이 <span class="arithmatex">\(B\)</span>의 행들의 Linear combination입니다. <strong><span class="arithmatex">\(AB\)</span>의 행공간 ⊆ <span class="arithmatex">\(B\)</span>의 행공간</strong>.</p></div><div class="slide"><h2>E-4. 해석 4 — Outer product(외적)의 합</h2>
 <p><span class="arithmatex">\(A\)</span>의 <span class="arithmatex">\(l\)</span>번째 열 <span class="arithmatex">\(\mathbf{a}_l\)</span>과 <span class="arithmatex">\(B\)</span>의 <span class="arithmatex">\(l\)</span>번째 행 <span class="arithmatex">\(\mathbf{b}_l^\top\)</span>의 <strong>Outer product</strong>를 모두 더합니다:</p>
 <div class="arithmatex">\[AB = \sum_{l=1}^k \mathbf{a}_l \mathbf{b}_l^\top\]</div>
 <p>각 항 <span class="arithmatex">\(\mathbf{a}_l \mathbf{b}_l^\top\)</span>은 <strong>rank-1 Matrix</strong> (<span class="arithmatex">\(m \times n\)</span>)입니다. 합이 <span class="arithmatex">\(AB\)</span>입니다.</p>
 <div class="analogy">
 <p>💡 <strong>파인만식 비유</strong>: Outer product는 <strong>요일별 판매량 × 1개당 재료 = 요일×재료 필요량 표</strong>입니다. <span class="arithmatex">\(\mathbf{u}\)</span> = 요일별 햄버거 판매 (월 100, 화 80, 수 120), <span class="arithmatex">\(\mathbf{v}\)</span> = 햄버거 한 개 재료 (빵 2, 패티 1, 피클 5)이면 <span class="arithmatex">\(\mathbf{u}\mathbf{v}^\top\)</span>의 <span class="arithmatex">\((i,j)\)</span> 원소 = <span class="arithmatex">\(i\)</span>요일 <span class="arithmatex">\(j\)</span>재료 필요량. rank-1 Matrix가 <strong>가장 단순한 패턴</strong>인 이유 — 각 요일 행이 모두 같은 비율(2:1:5)의 배수. SVD는 이런 단순 패턴 여러 개의 합으로 복잡한 Matrix를 분해합니다 (Part 2 5-6회차).</p>
-</div></div><div class="slide"><h2>E-6. 4가지 해석 — 한 표</h2>
+</div></div><div class="slide"><h2>E-5. 4가지 해석 — 한 표</h2>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -3770,7 +3798,8 @@ $<span class="arithmatex">\((A^\top)_{ij} = a_{ji}\)</span>$
 <h3>문제 3 (Outer)</h3>
 <p><span class="arithmatex">\(\mathbf{a}_1\mathbf{b}_1^\top = (1,3)^\top (5,6) = \begin{pmatrix} 5 &amp; 6 \\ 15 &amp; 18 \end{pmatrix}\)</span>,
 <span class="arithmatex">\(\mathbf{a}_2\mathbf{b}_2^\top = (2,4)^\top (7,8) = \begin{pmatrix} 14 &amp; 16 \\ 28 &amp; 32 \end{pmatrix}\)</span></p>
-<p>합 = <span class="arithmatex">\(\begin{pmatrix} 19 &amp; 22 \\ 43 &amp; 50 \end{pmatrix}\)</span> ✓ — 같음</p></div><div class="slide"><h1>F. 비가환성·결합·CS·AI 적용</h1></div><div class="slide"><h2>F-1. 비가환성 <span class="arithmatex">\(AB \ne BA\)</span></h2>
+<p>합 = <span class="arithmatex">\(\begin{pmatrix} 19 &amp; 22 \\ 43 &amp; 50 \end{pmatrix}\)</span> ✓ — 같음</p></div><div class="slide"><h1>F. 비가환성·결합·CS·AI 적용</h1>
+<h2>F-1. 비가환성 <span class="arithmatex">\(AB \ne BA\)</span></h2>
 <h3>예시</h3>
 <p><span class="arithmatex">\(A = \begin{pmatrix} 0 &amp; 1 \\ 0 &amp; 0 \end{pmatrix}\)</span>, <span class="arithmatex">\(B = \begin{pmatrix} 0 &amp; 0 \\ 1 &amp; 0 \end{pmatrix}\)</span>:</p>
 <p><span class="arithmatex">\(AB = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 0 \end{pmatrix}\)</span>, <span class="arithmatex">\(BA = \begin{pmatrix} 0 &amp; 0 \\ 0 &amp; 1 \end{pmatrix}\)</span> — 완전히 다릅니다.</p>
@@ -3822,7 +3851,8 @@ $<span class="arithmatex">\((A^\top)_{ij} = a_{ji}\)</span>$
 </tbody>
 </table></div>
 <p>→ <strong>Matrix 곱은 GPU의 천직</strong>입니다. 같은 연산을 수많은 코어가 독립적으로 처리합니다.</p>
-<p>cuBLAS·oneDNN 같은 라이브러리는 위 해석들을 Matrix 크기·메모리 패턴에 따라 <strong>자동 전환</strong>합니다.</p></div><div class="slide"><h1>G. 클로징</h1></div><div class="slide"><h2>G-1. 코딩 실습 골자</h2>
+<p>cuBLAS·oneDNN 같은 라이브러리는 위 해석들을 Matrix 크기·메모리 패턴에 따라 <strong>자동 전환</strong>합니다.</p></div><div class="slide"><h1>G. 클로징</h1>
+<h2>G-1. 코딩 실습 골자</h2>
 <p>→ <code>11_주피터노트북/Part1/02_행렬_두해석.ipynb</code></p>
 <ol>
 <li>NumPy에서 <code>@</code> 연산자로 Matrix 곱</li>
@@ -3895,7 +3925,7 @@ $<span class="arithmatex">\((A^\top)_{ij} = a_{ji}\)</span>$
 <p>오늘의 사슬:
 <strong>Matrix → Matrix·Vector 곱 → 두 해석 → Column space → 해 존재 → Matrix 곱 4해석</strong></p>
 <p>핵심 한 줄: <strong><span class="arithmatex">\(A\mathbf{x}\)</span> = <span class="arithmatex">\(A\)</span>의 열들의 Linear combination</strong> (Column picture가 LA의 본 줄기).</p>
-<p><code>HANDOUT</code>: 본 PDF + <code>02_행렬_두해석.ipynb</code></p></div></div><div class="slide-controls"><button class="slide-btn slide-prev" type="button">◀ 이전</button><div class="slide-indicator">1 / 49</div><button class="slide-btn slide-next" type="button">다음 ▶</button><input class="slide-jump" type="number" min="1" max="49" value="1" title="슬라이드 번호로 이동"></div></div></section><section class="doc" id="p3-4회차"><div class="doc-header"><span class="doc-tag p3">Phase 3</span><span class="doc-tag doc-tag-sub">Strang §2.1-2.3 회차번호 조정</span><span class="doc-mode-badge">슬라이드 40장</span><h2 class="doc-title">4회차 Gauss·RREF</h2><div class="doc-meta"><code>07_강의교안/Part1/04회차_가우스소거_RREF.md</code><span>21.5 KB</span></div></div><div class="slide-viewer"><div class="slide-stage"><div class="slide slide-lead"><h1>4회차</h1>
+<p><code>HANDOUT</code>: 본 PDF + <code>02_행렬_두해석.ipynb</code></p></div></div><div class="slide-controls"><button class="slide-btn slide-prev" type="button">◀ 이전</button><div class="slide-indicator">1 / 42</div><button class="slide-btn slide-next" type="button">다음 ▶</button><input class="slide-jump" type="number" min="1" max="42" value="1" title="슬라이드 번호로 이동"></div></div></section><section class="doc" id="p3-4회차"><div class="doc-header"><span class="doc-tag p3">Phase 3</span><span class="doc-tag doc-tag-sub">Strang §2.1-2.3 회차번호 조정</span><span class="doc-mode-badge">슬라이드 33장</span><h2 class="doc-title">4회차 Gauss·RREF</h2><div class="doc-meta"><code>07_강의교안/Part1/04회차_가우스소거_RREF.md</code><span>21.5 KB</span></div></div><div class="slide-viewer"><div class="slide-stage"><div class="slide slide-lead"><h1>4회차</h1>
 <h2>Gaussian elimination · RREF · 해의 구조</h2>
 <p>MML §2.3.2~§2.3.4 · Strang §2.2, §2.3, §3.2 · EoLA Ch.7</p></div><div class="slide slide-exercise"><h1>🔁 Review — 3회차 마무리 숙제</h1>
 <p>지난 회차 마지막에 가져갔던 문제:</p>
@@ -3968,7 +3998,10 @@ $<span class="arithmatex">\((A^\top)_{ij} = a_{ji}\)</span>$
 </tr>
 </tbody>
 </table></div>
-<p>이 사슬을 한 회차에 완주합니다.</p></div><div class="slide"><h2>수업 흐름 (120분)</h2>
+<p>이 사슬을 한 회차에 완주합니다.</p></div><div class="slide"><h2>수업 흐름</h2>
+<blockquote>
+<p>아래 시간 분배는 120분 분량 가이드. 실제 회차당 50~60분 압축 진행.</p>
+</blockquote>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -4017,7 +4050,7 @@ $<span class="arithmatex">\((A^\top)_{ij} = a_{ji}\)</span>$
 </table></div>
 <blockquote>
 <p><strong>C·D·E가 오늘의 심장</strong>. 30분 + 20분 + 20분 = 70분 집중 배분.</p>
-</blockquote></div><div class="slide"><h1>B. Linear equation system의 표현 + Row operations</h1></div><div class="slide"><h2>B-1. Augmented matrix(첨가행렬)</h2>
+</blockquote></div><div class="slide"><h2>B. Linear equation system의 표현 — B-1. Augmented matrix(첨가행렬)</h2>
 <div class="arithmatex">\[\begin{cases} a_{11}x_1 + a_{12}x_2 + \cdots = b_1 \\ a_{21}x_1 + a_{22}x_2 + \cdots = b_2 \\ \vdots \end{cases} \;\Leftrightarrow\; A\mathbf{x} = \mathbf{b} \;\Leftrightarrow\; [A \mid \mathbf{b}]\]</div>
 <p><strong>Augmented matrix</strong> <span class="arithmatex">\([A \mid \mathbf{b}]\)</span>로 한 표에 모든 정보를 담습니다.</p>
 <h3>예</h3>
@@ -4051,7 +4084,7 @@ $<span class="arithmatex">\((A^\top)_{ij} = a_{ji}\)</span>$
 </table></div>
 <h3>명제 3.1 (해 불변성)</h3>
 <p>세 연산은 모두 <span class="arithmatex">\(A\mathbf{x} = \mathbf{b}\)</span>의 <strong>해집합을 보존</strong>합니다.</p>
-<p><strong>증명 골자</strong>: 각 연산이 가역(invertible). <span class="arithmatex">\(R_i \leftrightarrow R_j\)</span>를 한 번 더 하면 원래대로, <span class="arithmatex">\(c\)</span>로 곱하면 <span class="arithmatex">\(1/c\)</span>로 다시 곱하면 원래로 — 따라서 식 묶음이 동치(equivalent)입니다. <span class="arithmatex">\(\blacksquare\)</span></p></div><div class="slide"><h1>C. Gaussian elimination</h1></div><div class="slide"><h2>C-1. 전체 흐름</h2>
+<p><strong>증명 골자</strong>: 각 연산이 가역(invertible). <span class="arithmatex">\(R_i \leftrightarrow R_j\)</span>를 한 번 더 하면 원래대로, <span class="arithmatex">\(c\)</span>로 곱하면 <span class="arithmatex">\(1/c\)</span>로 다시 곱하면 원래로 — 따라서 식 묶음이 동치(equivalent)입니다. <span class="arithmatex">\(\blacksquare\)</span></p></div><div class="slide"><h2>C. Gaussian elimination — C-1. 전체 흐름</h2>
 <div class="analogy">
 <p>💡 <strong>파인만식 비유</strong>: 복잡한 주문서를 <strong>단계별로 정리</strong>하는 작업입니다. 처음엔 메뉴가 마구 섞여 있어 누가 뭘 주문했는지 안 보이지만, <strong>한 행씩 차근차근 정리</strong>(소거)하면 끝에는 누가 무엇을 얼마나 시켰는지 한눈에 보입니다.</p>
 </div>
@@ -4116,7 +4149,7 @@ $<span class="arithmatex">\(\begin{cases} x + y + z = 6 \\ x + 2y + 3z = 14 \\ x
 <p>마지막 행이 <span class="arithmatex">\(0=0\)</span>. <strong>Free variable 발생</strong> — <span class="arithmatex">\(z = t\)</span>로 두면 <span class="arithmatex">\(y = 8 - 2t\)</span>, <span class="arithmatex">\(x = 6 - y - z = 6 - (8-2t) - t = t - 2\)</span>. <strong>해</strong>: <span class="arithmatex">\((t-2,\,8-2t,\,t)\)</span>, <span class="arithmatex">\(t \in \mathbb{R}\)</span> — 무수히.</p>
 <blockquote>
 <p><strong>메시지</strong>: 한 식이 다른 식의 Linear combination(선형결합)이면 자유 변수가 생깁니다.</p>
-</blockquote></div><div class="slide"><h1>D. RREF · Pivot · Free variables</h1></div><div class="slide"><h2>D-1. REF vs RREF</h2>
+</blockquote></div><div class="slide"><h2>D. RREF · Pivot · Free variables — D-1. REF vs RREF</h2>
 <p><strong>REF (Row Echelon Form, 사다리꼴)</strong>
 - 각 행의 첫 0 아닌 원소(pivot)가 그 위 행의 pivot보다 <strong>오른쪽</strong>
 - pivot 아래는 모두 0
@@ -4141,12 +4174,9 @@ $<span class="arithmatex">\(\begin{cases} x + y + z = 6 \\ x + 2y + 3z = 14 \\ x
 <td><strong>RREF</strong> ✓</td>
 </tr>
 </tbody>
-</table></div></div><div class="slide"><h2>D-2. RREF의 유일성</h2>
-<h3>정리 3.1 (RREF 유일성)</h3>
-<p>어떤 행렬 <span class="arithmatex">\(A\)</span>에 대해서도 행 연산으로 도달하는 RREF는 <strong>유일</strong>합니다.</p>
-<p><strong>의미</strong>: REF는 어떤 행 교환을 했느냐에 따라 모양이 다를 수 있지만, <strong>RREF는 한 가지뿐</strong>입니다. → <strong>표준형(canonical form)</strong>.</p>
-<p>→ "<span class="arithmatex">\(A\)</span>의 RREF" 라고 부를 수 있습니다 (정관사 the).</p>
-<p><strong>증명</strong>: 9회차 Basis(기저) 도구가 필요하므로 그때.</p></div><div class="slide"><h2>D-3. Pivot column vs Free column</h2>
+</table></div>
+<h3>D-2. RREF의 유일성 — 정리 3.1</h3>
+<p>어떤 행렬 <span class="arithmatex">\(A\)</span>에 대해서도 행 연산으로 도달하는 RREF는 <strong>유일</strong>합니다. REF는 어떤 행 교환을 했느냐에 따라 모양이 다를 수 있지만, <strong>RREF는 한 가지뿐</strong> — <strong>표준형(canonical form)</strong>. → "<span class="arithmatex">\(A\)</span>의 RREF" 라고 부를 수 있습니다 (정관사 the). 증명은 9회차 Basis(기저) 도구 이후.</p></div><div class="slide"><h2>D-3. Pivot column vs Free column</h2>
 <p><strong>Pivot column(피벗 열)</strong>: RREF에서 pivot이 들어 있는 열.
 <strong>Free column(자유 열)</strong>: pivot이 없는 열.</p>
 <div class="table-wrap"><table>
@@ -4180,7 +4210,7 @@ $<span class="arithmatex">\(\begin{cases} x + y + z = 6 \\ x + 2y + 3z = 14 \\ x
 - <span class="arithmatex">\(x_1 - x_3 = 0 \Rightarrow x_1 = t\)</span>
 - <span class="arithmatex">\(x_2 + 2x_3 = 3 \Rightarrow x_2 = 3 - 2t\)</span></p>
 <p><strong>해</strong>: <span class="arithmatex">\((t, 3-2t, t)\)</span> — 직선 (1차원 자유도).</p>
-<p>→ RREF만 보면 해의 <strong>완전한 모양</strong>이 즉시 나옵니다.</p></div><div class="slide"><h1>E. 해의 세 경우</h1></div><div class="slide"><h2>E-1. 세 경우의 판정</h2>
+<p>→ RREF만 보면 해의 <strong>완전한 모양</strong>이 즉시 나옵니다.</p></div><div class="slide"><h2>E. 해의 세 경우 — E-1. 세 경우의 판정</h2>
 <p><span class="arithmatex">\([A \mid \mathbf{b}]\)</span>의 RREF를 보고 판정합니다.</p>
 <div class="table-wrap"><table>
 <thead>
@@ -4245,7 +4275,7 @@ $<span class="arithmatex">\(\begin{cases} x + y + z = 6 \\ x + 2y + 3z = 14 \\ x
 <span class="arithmatex">\(y = s, z = t\)</span>로 두면 <span class="arithmatex">\(x = 2 - s + t\)</span>. 해: <span class="arithmatex">\((2-s+t,\,s,\,t)\)</span>. <strong>2차원 자유 해 집합</strong>.</p>
 <blockquote>
 <p><strong>메시지</strong>: 세 식이 본질적으로 같은 식이면 자유도가 그만큼 커집니다.</p>
-</blockquote></div><div class="slide"><h1>F. CS·AI 적용 + Column space 연결</h1></div><div class="slide"><h2>F-1. AI에서 Linear equation 풀이</h2>
+</blockquote></div><div class="slide"><h2>F. CS·AI 적용 — F-1. AI에서 Linear equation 풀이</h2>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -4290,7 +4320,7 @@ x = np.linalg.solve(A, b)  # → [2.0, 1.0] (정확)
 </code></pre>
 <p><code>np.linalg.solve</code>는 LU Decomposition(5회차)을 내부적으로 사용합니다 — Gaussian elimination이 그 토대.</p>
 <h3>Partial pivoting (간단 안내)</h3>
-<p>큰 행렬에서 <strong>가장 큰 값을 pivot으로</strong> 선택해 수치 안정성을 높이는 표준 기법입니다. 5회차 LU에서 다시 봅니다.</p></div><div class="slide"><h1>G. 클로징</h1></div><div class="slide"><h2>G-1. 코딩 실습 골자</h2>
+<p>큰 행렬에서 <strong>가장 큰 값을 pivot으로</strong> 선택해 수치 안정성을 높이는 표준 기법입니다. 5회차 LU에서 다시 봅니다.</p></div><div class="slide"><h2>G. 클로징 — G-1. 코딩 실습 골자</h2>
 <p>→ <code>11_주피터노트북/Part1/03_가우스소거_RREF.ipynb</code></p>
 <ol>
 <li><strong>Gaussian elimination을 직접 구현</strong> (Forward + Backward)</li>
@@ -4373,7 +4403,7 @@ x = np.linalg.solve(A, b)  # → [2.0, 1.0] (정확)
 <p>오늘의 사슬:
 <strong>Row operations → Gaussian elimination → REF → RREF → Pivot 패턴 → 해의 세 경우</strong></p>
 <p>핵심 한 줄: <strong>RREF의 Pivot 위치를 보면 <span class="arithmatex">\(A\mathbf{x}=\mathbf{b}\)</span>의 해가 한눈에 보인다.</strong></p>
-<p><code>HANDOUT</code>: 본 PDF + <code>03_가우스소거_RREF.ipynb</code></p></div></div><div class="slide-controls"><button class="slide-btn slide-prev" type="button">◀ 이전</button><div class="slide-indicator">1 / 40</div><button class="slide-btn slide-next" type="button">다음 ▶</button><input class="slide-jump" type="number" min="1" max="40" value="1" title="슬라이드 번호로 이동"></div></div></section></main></div><a href="#" class="top-link" title="맨 위로">↑</a><script>
+<p><code>HANDOUT</code>: 본 PDF + <code>03_가우스소거_RREF.ipynb</code></p></div></div><div class="slide-controls"><button class="slide-btn slide-prev" type="button">◀ 이전</button><div class="slide-indicator">1 / 33</div><button class="slide-btn slide-next" type="button">다음 ▶</button><input class="slide-jump" type="number" min="1" max="33" value="1" title="슬라이드 번호로 이동"></div></div></section></main></div><a href="#" class="top-link" title="맨 위로">↑</a><script>
 document.querySelectorAll('.slide-viewer').forEach(viewer => {
     const slides = viewer.querySelectorAll('.slide');
     const total = slides.length;
