@@ -380,8 +380,8 @@ const CASE_TEXT = {
         <li><strong>더 심화된 주제</strong>: 텐서대수, 미분기하, 정보이론, 무한차원 함수해석, 작용소이론 등 후속 주제가 본인 연구와 더 직접적으로 연결될 수 있습니다.</li>
         <li><strong>본 강좌 청강은 환영합니다</strong>: 다만 과제 부담을 새로 지시기보다, 다음 두 부분만 선별 청강하시는 방식이 효율적입니다.
           <ul>
-            <li>Part 2 7-8회차 (행렬미분) + 16-17회차 (AI<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Artificial Intelligence, 인공지능)</small> 모듈 환원) — attention의 row-stochastic·convex combination 분해, conv1d의 토플리츠 환원 등 표준 LA<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Linear Algebra, 선형대수)</small> 교과서에 잘 정리되지 않은 응용</li>
-            <li>Part 2 Case Study (11회차 주제 결정, 19회차 발표) — 임의 AI 모델 한 모듈을 표준 LA 객체로 분해·재구현. 본인 연구 코드의 LA 검토를 동시에 수행 가능</li>
+            <li>Part 2 7-8회차 (행렬미분) + Part 3 6-7회차 (AI<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Artificial Intelligence, 인공지능)</small> 모듈 환원) — attention의 row-stochastic·convex combination 분해, conv1d의 토플리츠 환원 등 표준 LA<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Linear Algebra, 선형대수)</small> 교과서에 잘 정리되지 않은 응용</li>
+            <li>Part 3 Case Study (1회차 주제 결정, 9회차 발표) — 임의 AI 모델 한 모듈을 표준 LA 객체로 분해·재구현. 본인 연구 코드의 LA 검토를 동시에 수행 가능</li>
           </ul>
         </li>
       </ul>
@@ -405,7 +405,7 @@ const CASE_TEXT = {
           <tr><td>3. 부분공간·계수</td><td>Part 1 7-9회차</td><td>Strang Ch.3 / MML §2.4-§2.7</td></tr>
           <tr><td>4. 직교성·정사영</td><td>Part 1 10-11회차</td><td>Strang Ch.4 / MML §3.6-§3.8</td></tr>
           <tr><td>5. 분해·고윳값</td><td>Part 2 1-5회차</td><td>Strang Ch.6-7 / MML §4.2, §4.5</td></tr>
-          <tr><td>6. AI 응용·코딩</td><td>Part 2 7-8, 16-18회차</td><td>(강의 진행 중 보충, 사전 reading은 NumPy 튜토리얼)</td></tr>
+          <tr><td>6. AI 응용·코딩</td><td>Part 2 7-8 · Part 3 6-8회차</td><td>(강의 진행 중 보충, 사전 reading은 NumPy 튜토리얼)</td></tr>
         </tbody>
       </table></div>
       <p><strong>이 강좌에서 얻으실 수 있는 것</strong>: 약점 축의 정의·정리를 정확히 진술 가능한 수준까지 끌어올리고, 강점 축은 AI 응용 맥락에서 재해석되어 본인의 연구·코드 작성 시 LA 객체 식별 속도가 빨라집니다.</p>
@@ -433,7 +433,7 @@ const CASE_TEXT = {
       <ul>
         <li><strong>(Eigenvalue(고윳값)·SVD<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Singular Value Decomposition, 특이값 분해)</small>는 알지만 부분공간·정사영이 약함)</strong> — 분해의 결과는 알지만 그것이 "어느 부분공간으로의 사영"인지 해석이 안 되는 경우. Part 1 10-11회차가 이 빈틈을 채웁니다.</li>
         <li><strong>(코드는 작성하지만 정의가 약함)</strong> — <code>np.linalg.svd</code>는 호출하지만 SVD의 존재 정리·기하학적 의미를 진술하지 못하는 경우. 매 회차 정의·증명 부분이 도움이 됩니다.</li>
-        <li><strong>(정의는 알지만 AI<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Artificial Intelligence, 인공지능)</small> 응용 매핑이 안 됨)</strong> — 행렬곱 정의는 정확하지만 attention의 $QK^\\top$이 내적·정사영 구조임을 즉석에서 보지 못하는 경우. Part 2 7-8·16-17회차가 이 매핑을 명시화합니다.</li>
+        <li><strong>(정의는 알지만 AI<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Artificial Intelligence, 인공지능)</small> 응용 매핑이 안 됨)</strong> — 행렬곱 정의는 정확하지만 attention의 $QK^\\top$이 내적·정사영 구조임을 즉석에서 보지 못하는 경우. Part 2 7-8·Part 3 6-7회차가 이 매핑을 명시화합니다.</li>
       </ul>
       <p><strong>이 강좌에서 얻으실 수 있는 것</strong>: 6축이 별개 영역이 아니라 하나의 큰 그림 — "$Ax=b$의 해 → 부분공간 분류 → 직교 분해 → 고유 분해 → SVD → AI 모듈 환원"이라는 단일 흐름 — 임을 Part 내내 반복적으로 보시게 됩니다. 강점 축은 더 깊어지고, 약점 축은 강점 축과의 연결 속에서 빠르게 채워집니다.</p>
     `
