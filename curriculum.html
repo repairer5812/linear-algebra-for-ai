@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>진도표 — 인공지능 전공자를 위한 선형대수학</title>
-<meta name="description" content="Part 1 12회차·Part 2 18회차 상세 회차표, 평가 비중, Case Study 안내, 자가진단 체크리스트. 메인 Strang, 보조·확장 MML.">
+<meta name="description" content="Part 1 13회차·Part 2 19회차 상세 회차표, 평가 비중, Case Study 안내, 자가진단 체크리스트. 메인 Strang, 보조·확장 MML.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -30,14 +30,14 @@
 <main>
   <section class="hero">
     <h1 class="hero__title">진도표</h1>
-    <p class="hero__subtitle">Part 1 (12 Session(회차)) + Part 2 (18회차) = 총 30회차, 1회차 2시간 × 30 = 60시간 운영</p>
+    <p class="hero__subtitle">Part 1 (13 Session(회차)) + Part 2 (19회차) = 총 32회차, 1회차 2시간 × 32 = 64시간 운영</p>
     <p class="hero__meta">메인 Strang <em>Introduction to Linear Algebra</em> · 보조·확장 MML<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Mathematics for Machine Learning)</small> · 시각 EoLA<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Essence of Linear Algebra)</small> · 실습 Jupyter / NumPy / PyTorch</p>
   </section>
 
   <!-- Part 1 -->
   <section class="section" id="part1">
     <div class="part-header">
-      <h2>Part 1 (12회차) — Strang Ch 1-5, 선형대수 기초</h2>
+      <h2>Part 1 (13회차) — Strang Ch 1-5, 선형대수 기초</h2>
       <p>Vector(벡터), Matrix(행렬), 선형방정식, 벡터공간, Subspace(부분공간), Orthogonal projection(정사영), Determinant(행렬식)의 정의·정리 + 행렬을 선형사상으로 다루는 관점 체화 + $Ax=b$ 의 해 존재·유일성을 4 기본 부분공간으로 판별 + NumPy로 가우스 소거·LU<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(LU Decomposition, LU 분해)</small>·그람-슈미트·Normal equation(정규방정식)·행렬식 구현. Strang의 구체적 출발(R^n 벡터·dot product·matrix-vector 곱)이 학부 미이수자에게 추상부터 시작하는 것보다 안전합니다.</p>
     </div>
 
@@ -48,8 +48,9 @@
       <li><strong>6회차</strong> Midterm(중간학습확인평가) — 1-5회차 통합</li>
       <li><strong>7-9회차</strong> 벡터공간·부분공간·rank·일차독립·4 기본 부분공간 (Strang Ch 3)</li>
       <li><strong>10회차</strong> Orthogonality(직교성)·정사영 — $P=A(A^\top A)^{-1}A^\top$ 중심 (Strang Ch 4.1-4.2)</li>
-      <li><strong>11회차</strong> Least squares(최소제곱)·Normal equation(정규방정식)·Gram-Schmidt·QR<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(QR Decomposition, QR 분해)</small> (Strang Ch 4.3-4.4)</li>
-      <li><strong>12회차</strong> 행렬식 + Final assessment(종합학습확인평가) (Strang Ch 5)</li>
+      <li><strong>11회차</strong> Least squares(최소제곱)·Normal equation(정규방정식) (Strang Ch 4.3)</li>
+      <li><strong>12회차</strong> Gram-Schmidt·QR<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(QR Decomposition, QR 분해)</small>·Rotation matrix(회전 행렬) (Strang Ch 4.4)</li>
+      <li><strong>13회차</strong> 행렬식 + Final assessment(종합학습확인평가) (Strang Ch 5)</li>
     </ul>
     <p class="info-msg" style="margin-top:0.4rem;">추상 정의(vector space 8 axioms, subspace 정식 정의)는 7회차에서 처음 등장합니다. 그 이전(1-5회차)에는 R^n에 한정해 구체적으로 다뤄, 학부 미이수자가 추상 출발의 부담 없이 진입하도록 했습니다.</p>
 
@@ -77,8 +78,9 @@
         <tr><td><strong>8회차</strong></td><td>§3.3</td><td>§2.5</td><td>$Ax=b$ 완전해 ($x_p + x_n$), Column space $C(A)$, Rank(계수)</td><td>데이터 행렬의 유효 차원, 임베딩 내재 차원 추정</td><td>잡음 섞인 저차원 데이터 <code>matrix_rank</code>와 특잇값 분포 비교</td></tr>
         <tr><td><strong>9회차</strong></td><td>§3.4, §3.5</td><td>§2.6, §2.7</td><td>Linear independence(일차독립), Basis(기저), Dimension(차원), <strong>4 기본 부분공간</strong> ($C(A^\top), N(A), C(A), N(A^\top)$), 차원 정리</td><td>컨볼루션 행렬의 nullspace(불변 패턴), 신호 분해</td><td>RREF로 일차독립 판정, 4 부분공간 기저 직접 출력</td></tr>
         <tr><td><strong>10회차</strong></td><td>§4.1, §4.2</td><td>§3.6, §3.7</td><td>4 부분공간의 직교성, Projection(정사영), 정사영 행렬 $P=A(A^\top A)^{-1}A^\top$, 멱등성 $P^2=P$, 대칭성 $P^\top=P$</td><td>Attention의 query·key 내적, 정보검색의 코사인 정렬, 잔차의 직교성</td><td>벡터를 평면에 정사영, $P^2=P$ 검증, 직교 여공간 기저</td></tr>
-        <tr><td><strong>11회차</strong></td><td>§4.3, §4.4</td><td>§3.7, §3.8</td><td>Least squares(최소제곱), 정규방정식 $A^\top A\hat x=A^\top b$, Gram-Schmidt, $QR$ 분해, Rotation matrix(회전 행렬) ($R^\top R=I$, $\det R=1$, 단원 끝 5-7분)</td><td>선형회귀, 신경망 최종층 회귀, 수치 안정한 회귀 풀이, RoPE(LLaMA·Mistral)·SO(3)(NeRF·SLAM)</td><td>NumPy 정규방정식 직접 구현·<code>np.linalg.lstsq</code> 비교, Gram-Schmidt·<code>np.linalg.qr</code> 정확도 비교</td></tr>
-        <tr><td><strong>12회차</strong></td><td>§5.1~§5.3</td><td>§4.1</td><td>Determinant(행렬식) 정의(라이프니츠 합·코팩터·LU 곱), 부피 해석, 가역 판정 ($\det \ne 0 \iff$ 가역), Cramer 공식(reading) + 종합학습확인평가</td><td>변환의 부피 비율, 그래픽스 가역성·반전 판정</td><td>2D 단위 정사각형 변환·부피 시각화 + 지필·실기 통합</td></tr>
+        <tr><td><strong>11회차</strong></td><td>§4.3</td><td>§3.7</td><td><strong>Least squares(최소제곱)</strong>, 정규방정식 $A^\top A\hat x=A^\top b$, 정사영 해석, $A^\top A$ 가역 조건(다중공선성)</td><td>선형회귀, 신경망 최종층 회귀, 수치 안정한 회귀 풀이</td><td>NumPy 정규방정식 직접 구현·<code>np.linalg.lstsq</code> 비교, 다중공선성 데이터 거동</td></tr>
+        <tr><td><strong>12회차</strong></td><td>§4.4</td><td>§3.8</td><td><strong>Gram-Schmidt</strong> 직교화(CGS·MGS 수치 안정성), <strong>$QR$ 분해</strong> $A=QR$, <strong>Rotation matrix(회전 행렬)</strong> ($R^\top R=I$, $\det R=1$, 노름 보존, $R(\alpha)R(\beta)=R(\alpha+\beta)$)</td><td>직교 기저 생성, 수치 안정한 분해, RoPE(LLaMA·Mistral)·SO(3)(NeRF·SLAM)</td><td>Gram-Schmidt 직접 구현·<code>np.linalg.qr</code> 정확도 비교, 회전행렬 노름 보존 검증</td></tr>
+        <tr><td><strong>13회차</strong></td><td>§5.1~§5.3</td><td>§4.1</td><td>Determinant(행렬식) 정의(라이프니츠 합·코팩터·LU 곱), 부피 해석, 가역 판정 ($\det \ne 0 \iff$ 가역), Cramer 공식(reading) + 종합학습확인평가</td><td>변환의 부피 비율, 그래픽스 가역성·반전 판정</td><td>2D 단위 정사각형 변환·부피 시각화 + 지필·실기 통합</td></tr>
       </tbody>
     </table>
     </div>
@@ -91,7 +93,7 @@
         <tr><td>출석·참여</td><td>10%</td><td>—</td></tr>
         <tr><td>과제</td><td>20%</td><td>매 회차 Strang 연습문제 + Jupyter 노트북</td></tr>
         <tr><td>Midterm(중간학습확인평가)</td><td>30%</td><td>지필 (6회차)</td></tr>
-        <tr><td>Final assessment(종합학습확인평가)</td><td>40%</td><td>지필·실기 통합 (12회차)</td></tr>
+        <tr><td>Final assessment(종합학습확인평가)</td><td>40%</td><td>지필·실기 통합 (13회차)</td></tr>
       </tbody>
     </table>
     </div>
@@ -101,7 +103,7 @@
   <!-- Part 2 -->
   <section class="section" id="part2">
     <div class="part-header">
-      <h2>Part 2 (18회차) — Strang 후반 + MML 확장 + AI 모듈 환원</h2>
+      <h2>Part 2 (19회차) — Strang 후반 + MML 확장 + AI 모듈 환원·설계 원리</h2>
       <p>Eigenvalue(고윳값) 분해, SVD, PCA<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Principal Component Analysis, 주성분 분석)</small>의 정리·응용을 자유롭게 사용 + Vector Calculus(Jacobian·Hessian·Chain rule)로 Neural Network(신경망) forward·backward 분해 + MLE·KL divergence·Cross entropy로 LLM·RLHF·VAE의 수학적 본질 + Convex·Lagrange·KKT로 Ridge·Lasso·SVM 정식화 + Linear Regression·PCA·GMM·SVM 4대 ML 방법론 + CNN<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Convolutional Neural Network, 합성곱 신경망)</small> convolution·attention·embedding의 LA 환원 + 임의 AI 모델 한 부분의 LA 구조 분해 보고서.</p>
     </div>
 
@@ -111,8 +113,8 @@
       <li><strong>6회차</strong> Midterm(중간학습확인평가) — 여기서 교재가 Strang에서 MML로 전환</li>
       <li><strong>[B] MML 추가 수학 (7-10회차)</strong> — Jacobian·Chain rule → Hessian·Newton·옵티마이저 → 확률·MLE·KL → Convex·Lagrange·KKT</li>
       <li><strong>[C] MML Part II ML 응용 (11-15회차)</strong> — Linear Regression → PCA·PPCA → GMM·EM → SVM·Kernel</li>
-      <li><strong>[D] AI 모듈 환원 (16-17회차)</strong> — Conv = Toeplitz / Attention 분해·Embedding</li>
-      <li><strong>18회차</strong> Final assessment(종합학습확인평가) + Case Study 발표</li>
+      <li><strong>[D] AI 모듈 환원 + 설계 원리 (16-18회차)</strong> — Conv = Toeplitz / Attention 분해·Embedding / Equivariance(등변성)·Kronecker</li>
+      <li><strong>19회차</strong> Final assessment(종합학습확인평가) + Case Study 발표</li>
     </ul>
 
     <h3>회차표</h3>
@@ -146,10 +148,11 @@
         <tr><td><strong>13회차</strong></td><td>MML §10</td><td><strong>Gaussian Mixture Models · EM algorithm</strong></td><td>클러스터링, 잠재 변수 모델, VAE의 GMM prior 직관</td><td>2D GMM EM 직접 구현, scikit-learn <code>GaussianMixture</code> 비교</td></tr>
         <tr><td><strong>14회차</strong></td><td>MML §11.1-11.3</td><td><strong>SVM</strong> — Hard margin, Soft margin, Hinge loss, Dual 정식</td><td>분류기 표준, 마진 최대화 직관</td><td>NumPy로 Hard margin SVM 직접 구현 (Lagrange dual)</td></tr>
         <tr><td><strong>15회차</strong></td><td>MML §11.4-11.5</td><td><strong>Kernel SVM</strong>, Kernel trick, RBF·Polynomial kernel</td><td>비선형 분류, 커널 trick의 deep learning 후계 (NTK 한 슬라이드)</td><td>RBF kernel SVM, scikit-learn 검증, 결정 경계 시각화</td></tr>
-        <tr><td colspan="5" style="background:#f3f4f6;font-weight:600;">[D] AI 모듈 환원 + 마무리 — 16-18회차 (본 강좌 자체 교안)</td></tr>
+        <tr><td colspan="5" style="background:#f3f4f6;font-weight:600;">[D] AI 모듈 환원 + 설계 원리 + 마무리 — 16-19회차 (본 강좌 자체 교안)</td></tr>
         <tr><td><strong>16회차</strong></td><td>자체 교안</td><td><strong>CNN·Conv = Toeplitz 환원</strong>, 1×1 Conv = 행렬곱, 블록 Toeplitz, padding·stride</td><td>GPU 텐서코어와 행렬곱, CUDA 컨볼루션 구현</td><td><code>nn.Conv1d</code> 한 층을 Toeplitz 행렬 곱으로 재구성, 출력 일치 검증</td></tr>
-        <tr><td><strong>17회차</strong></td><td>자체 교안 + MML 부록</td><td><strong>Attention</strong> $\mathrm{softmax}(QK^\top/\sqrt d)V$ 분해, Multi-head Kronecker(한 슬라이드), Embedding lookup = 행렬곱, Attention backward 자코비안 곱</td><td>Transformer의 LA 분해, FlashAttention의 블록 사고, KV cache</td><td>NumPy ↔ PyTorch Attention forward·backward 자코비안 곱 검증</td></tr>
-        <tr><td><strong>18회차</strong></td><td>—</td><td>Part 2 종합학습확인평가 + <strong>Case Study 발표</strong> — 임의 AI 모델 한 부분의 LA 분해 보고서</td><td>—</td><td>모델 분해 보고서·코드 제출</td></tr>
+        <tr><td><strong>17회차</strong></td><td>자체 교안 + MML 부록</td><td><strong>Attention</strong> $\mathrm{softmax}(QK^\top/\sqrt d)V$ 분해, Multi-head(실무 batched matmul), Embedding lookup = 행렬곱, Attention backward 자코비안 곱</td><td>Transformer의 LA 분해, FlashAttention의 블록 사고, KV cache</td><td>NumPy ↔ PyTorch Attention forward·backward 자코비안 곱 검증</td></tr>
+        <tr><td><strong>18회차</strong></td><td>자체 교안</td><td><strong>Equivariance(등변성)·Kronecker — 현대 아키텍처 LA 설계 원리</strong>: $f(T\mathbf{x})=T'f(\mathbf{x})$, 대칭과 commute하는 선형사상, Translation equivariance(circulant·CNN), Permutation equivariance(GNN), Multi-head의 $I_H\otimes W$ 구조 (군론 형식 없이)</td><td>CNN·GNN·Transformer 설계의 inductive bias, weight sharing의 LA 의미</td><td>circulant 행렬의 translation equivariance 검증, $I_H\otimes W$로 multi-head 재구성·batched matmul과 일치 확인</td></tr>
+        <tr><td><strong>19회차</strong></td><td>—</td><td>Part 2 종합학습확인평가 + <strong>Case Study 발표</strong> — 임의 AI 모델 한 부분의 LA 분해 보고서</td><td>—</td><td>모델 분해 보고서·코드 제출</td></tr>
       </tbody>
     </table>
     </div>
@@ -162,15 +165,15 @@
         <tr><td>출석·참여</td><td>10%</td><td>—</td></tr>
         <tr><td>과제</td><td>20%</td><td>매 회차 Strang/MML 연습문제 + Jupyter 노트북</td></tr>
         <tr><td>Midterm(중간학습확인평가)</td><td>25%</td><td>지필 (6회차)</td></tr>
-        <tr><td>Case Study</td><td>30%</td><td>11회차부터 진행, 18회차 발표</td></tr>
-        <tr><td>Final assessment(종합학습확인평가)</td><td>15%</td><td>18회차</td></tr>
+        <tr><td>Case Study</td><td>30%</td><td>11회차부터 진행, 19회차 발표</td></tr>
+        <tr><td>Final assessment(종합학습확인평가)</td><td>15%</td><td>19회차</td></tr>
       </tbody>
     </table>
     </div>
     <p class="info-msg" style="margin-top:0.4rem;">매 회차 퀴즈는 쉬운 복습 도구이며 게이트가 아닙니다. 80% 기준은 중간·종합학습확인평가에 적용됩니다.</p>
 
     <h3>Case Study — 모델 한 모듈 분해</h3>
-    <p>11회차 시점에 주제 결정, 18회차 발표. <strong>스코프는 한 모듈</strong>로 한정하여 구현 부담을 낮춥니다. 학생은 임의 AI 모델 한 부분(예: ResNet의 1×1 Conv block, ViT의 Attention head, LoRA adapter, RoPE positional embedding 등)을 선택해 선형대수 객체로 환원합니다.</p>
+    <p>11회차 시점에 주제 결정, 19회차 발표. <strong>스코프는 한 모듈</strong>로 한정하여 구현 부담을 낮춥니다. 학생은 임의 AI 모델 한 부분(예: ResNet의 1×1 Conv block, ViT의 Attention head, LoRA adapter, RoPE positional embedding 등)을 선택해 선형대수 객체로 환원합니다.</p>
     <ol>
       <li>분해할 한 모듈 선택 (GPT-Neo 125M의 attention head/MLP, nanoGPT 한 transformer block, LeNet-5 한 conv 레이어 등)</li>
       <li>모듈 내 텐서 연산을 표준 LA 객체(행렬곱, 정사영, 고유분해, SVD, Kronecker곱)로 환원</li>
@@ -186,7 +189,7 @@
     <h2>학생 자가진단 체크리스트</h2>
     <p>매 회차 강의 직후 또는 과제 제출 전에 다음 질문에 답할 수 있는지 점검하시기 바랍니다. 이 질문들은 그 회차를 이해했는지 스스로 확인하는 <strong>복습 도구</strong>입니다. 답할 수 없는 항목이 있으면 해당 회차 자료(Strang/MML/EoLA)를 다시 보시기 바랍니다.</p>
 
-    <h3>Part 1 (1-12회차)</h3>
+    <h3>Part 1 (1-13회차)</h3>
 
     <h4>1회차 — 벡터·선형결합·$\mathbb{R}^n$</h4>
     <ol>
@@ -262,22 +265,27 @@
       <li>정규직교 기저 $U$일 때 $P = UU^\top$로 단순화되는 이유?</li>
     </ol>
 
-    <h4>11회차 — 최소제곱·정규방정식·Gram-Schmidt·QR</h4>
+    <h4>11회차 — 최소제곱·정규방정식</h4>
     <ol>
       <li>정규방정식 $A^\top A \hat{\mathbf{x}} = A^\top \mathbf{b}$가 정사영 해석으로 어떻게 도출되는가?</li>
       <li>$A^\top A$가 가역이 아닐 때 무엇이 문제인가? (다중공선성, 해 비유일성)</li>
-      <li>그람-슈미트의 한 단계 $\mathbf{q}_k = \mathbf{a}_k - \sum \langle\mathbf{a}_k, \mathbf{q}_j\rangle \mathbf{q}_j$를 식으로 쓸 수 있는가?</li>
-      <li>$A = QR$ 분해에서 $Q, R$의 차원과 성질?</li>
-      <li>2D Rotation matrix(회전 행렬)의 핵심 성질 3가지 ($R^\top R = I$, $\det R = 1$, 노름 보존)와 RoPE<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Rotary Position Embedding, LLaMA·Mistral)</small> 응용 인지?</li>
+      <li>신경망 최종층(linear regression head)이 사실 최소제곱과 동치인가?</li>
     </ol>
 
-    <h4>12회차 — 행렬식 + 종합학습확인평가</h4>
+    <h4>12회차 — Gram-Schmidt·QR·회전행렬</h4>
+    <ol>
+      <li>그람-슈미트의 한 단계 $\mathbf{q}_k = \mathbf{a}_k - \sum \langle\mathbf{a}_k, \mathbf{q}_j\rangle \mathbf{q}_j$를 식으로 쓸 수 있는가? CGS와 MGS의 수치 안정성 차이는?</li>
+      <li>$A = QR$ 분해에서 $Q, R$의 차원과 성질?</li>
+      <li>2D Rotation matrix(회전 행렬)의 핵심 성질 3가지 ($R^\top R = I$, $\det R = 1$, 노름 보존)와 합성 $R(\alpha)R(\beta)=R(\alpha+\beta)$, RoPE<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Rotary Position Embedding, LLaMA·Mistral)</small> 응용 인지?</li>
+    </ol>
+
+    <h4>13회차 — 행렬식 + 종합학습확인평가</h4>
     <ol>
       <li>행렬식의 부피 해석을 2D에서 설명할 수 있는가? ($|\det A|$ = 평행사변형 면적)</li>
       <li>$\det(A) = 0 \iff A$ 비가역임을 진술할 수 있는가?</li>
     </ol>
 
-    <h3>Part 2 (1-18회차)</h3>
+    <h3>Part 2 (1-19회차)</h3>
 
     <h4>1회차 — 고윳값·고유벡터·특성다항식</h4>
     <ol>
@@ -418,7 +426,15 @@
       <li>Self-attention $\mathrm{softmax}(QK^\top/\sqrt d)V$의 row-stochastic·볼록조합 해석 + output이 V 행들의 convex hull 안에 있음을 설명?</li>
       <li>Multi-head attention의 batched matmul 처리 (reshape + batched GEMM)?</li>
       <li>Embedding lookup이 왜 one-hot 행렬곱과 동치인가?</li>
-      <li><strong>(reading)</strong> Kronecker곱 $A \otimes B$ 정의 + $I_H \otimes (\cdot)$이 multi-head의 이론적 동치임을 1-2문장 인지 (CP/Tucker 자율 학습)</li>
+      <li>Multi-head를 실무에서 batched matmul로 처리하는 이유? (Kronecker 정식은 18회차에서)</li>
+    </ol>
+
+    <h4>18회차 — Equivariance(등변성)·Kronecker (설계 원리)</h4>
+    <ol>
+      <li>Equivariance(등변성)의 정의 $f(T\mathbf{x}) = T'f(\mathbf{x})$를 invariance(불변성)와 구별해 설명할 수 있는가?</li>
+      <li>CNN의 translation equivariance가 왜 conv를 circulant(블록 Toeplitz) 행렬로 보면 자명한가? (16회차 환원과 연결)</li>
+      <li>Permutation equivariance(GNN·DeepSets)란 무엇이며, "대칭 변환과 commute하는 선형사상"이라는 표현이 무슨 뜻인가?</li>
+      <li>Multi-head attention의 $I_H \otimes W$ Kronecker 구조가 batched matmul과 동치임을 설명하고, weight sharing이 등변성과 어떻게 연결되는가?</li>
     </ol>
 
     <h3 style="margin-top:2rem;">부록: Matrix phylogeny (행렬 분해 정리표)</h3>

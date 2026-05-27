@@ -381,7 +381,7 @@ const CASE_TEXT = {
         <li><strong>본 강좌 청강은 환영합니다</strong>: 다만 과제 부담을 새로 지시기보다, 다음 두 부분만 선별 청강하시는 방식이 효율적입니다.
           <ul>
             <li>Part 2 7-8회차 (행렬미분) + 16-17회차 (AI<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Artificial Intelligence, 인공지능)</small> 모듈 환원) — attention의 row-stochastic·convex combination 분해, conv1d의 토플리츠 환원 등 표준 LA<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Linear Algebra, 선형대수)</small> 교과서에 잘 정리되지 않은 응용</li>
-            <li>Part 2 Case Study (11회차 주제 결정, 18회차 발표) — 임의 AI 모델 한 모듈을 표준 LA 객체로 분해·재구현. 본인 연구 코드의 LA 검토를 동시에 수행 가능</li>
+            <li>Part 2 Case Study (11회차 주제 결정, 19회차 발표) — 임의 AI 모델 한 모듈을 표준 LA 객체로 분해·재구현. 본인 연구 코드의 LA 검토를 동시에 수행 가능</li>
           </ul>
         </li>
       </ul>
@@ -405,7 +405,7 @@ const CASE_TEXT = {
           <tr><td>3. 부분공간·계수</td><td>Part 1 7-9회차</td><td>Strang Ch.3 / MML §2.4-§2.7</td></tr>
           <tr><td>4. 직교성·정사영</td><td>Part 1 10-11회차</td><td>Strang Ch.4 / MML §3.6-§3.8</td></tr>
           <tr><td>5. 분해·고윳값</td><td>Part 2 1-5회차</td><td>Strang Ch.6-7 / MML §4.2, §4.5</td></tr>
-          <tr><td>6. AI 응용·코딩</td><td>Part 2 7-8, 16-17회차</td><td>(강의 진행 중 보충, 사전 reading은 NumPy 튜토리얼)</td></tr>
+          <tr><td>6. AI 응용·코딩</td><td>Part 2 7-8, 16-18회차</td><td>(강의 진행 중 보충, 사전 reading은 NumPy 튜토리얼)</td></tr>
         </tbody>
       </table></div>
       <p><strong>이 강좌에서 얻으실 수 있는 것</strong>: 약점 축의 정의·정리를 정확히 진술 가능한 수준까지 끌어올리고, 강점 축은 AI 응용 맥락에서 재해석되어 본인의 연구·코드 작성 시 LA 객체 식별 속도가 빨라집니다.</p>

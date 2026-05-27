@@ -35,7 +35,7 @@ style: |
 
 ## 0회차 · Introduction
 
-SW·AI 융합대학원 · Part 1 + Part 2 (총 30회차)
+SW·AI 융합대학원 · Part 1 + Part 2 (총 32회차)
 메인 교재: Strang, *Introduction to Linear Algebra* · 보조: MML (Deisenroth et al.) · 시각: 3Blue1Brown EoLA
 
 ---
@@ -45,7 +45,7 @@ SW·AI 융합대학원 · Part 1 + Part 2 (총 30회차)
 이번 회차가 끝나면 학생은 다음을 답할 수 있어야 합니다.
 
 1. **왜** AI 대학원에서 Linear Algebra(선형대수)를 한 학기 다시 배우는지
-2. **무엇을** 30회차 동안 배우는지 — 수학적 흐름과 CS/AI 흐름의 큰 그림
+2. **무엇을** 32회차 동안 배우는지 — 수학적 흐름과 CS/AI 흐름의 큰 그림
 3. **어떻게** 배우는지 — Strang / MML / EoLA / NumPy의 4단 운영
 4. **결과** — 이 강의를 마치면 어떤 능력이 생기는지
 5. 한 Definition(정의)이 코드 한 줄과 그림 한 장으로 어떻게 이어지는지 (시그니처 예제)
@@ -56,10 +56,10 @@ SW·AI 융합대학원 · Part 1 + Part 2 (총 30회차)
 
 > ### 수학 정의 한 줄이 어떻게 AI 모델 한 줄이 됩니까?
 
-이 한 질문에 30회차에 걸쳐 답합니다.
+이 한 질문에 32회차에 걸쳐 답합니다.
 
 - **오늘의 부분 답**: 가장 단순한 정의(Vector(벡터)의 평균) 한 줄이 **MNIST 숫자 분류**까지 곧장 이어집니다 (G 시그니처).
-- **학기 전체의 답**: $\mathrm{softmax}(QK^\top/\sqrt{d_k})V$ — Transformer Attention(어텐션) 한 줄을 LA 객체로 완전 분해합니다 (Part 2 12회차).
+- **학기 전체의 답**: $\mathrm{softmax}(QK^\top/\sqrt{d_k})V$ — Transformer Attention(어텐션) 한 줄을 LA 객체로 완전 분해합니다 (Part 2 17회차).
 
 매 회차 첫 슬라이드에 그날의 핵심 질문이 있습니다. 강의 중 길을 잃으면 이 한 질문으로 돌아옵니다.
 
@@ -85,9 +85,9 @@ SW·AI 융합대학원 · Part 1 + Part 2 (총 30회차)
 
 ## A-1. 교과 정보
 
-- **과목명**: Linear Algebra Part 1 (12회차) / Part 2 (18회차)
+- **과목명**: Linear Algebra Part 1 (13회차) / Part 2 (19회차)
 - **대상**: SW·AI 융합대학원 1학년 · **학부 LA 미이수 학생** 표준
-- **운영**: 총 30회차
+- **운영**: 총 32회차
 - **메인 교재**: Gilbert Strang, *Introduction to Linear Algebra* (6th ed.)
 - **보조·확장 교재**: Deisenroth·Faisal·Ong, *Mathematics for Machine Learning* (MML) — Strang 미수록 수학 (Vector Calculus·Probability·Optimization) + ML 응용 (LR·PCA·GMM·SVM)
 - **시각 보조**: 3Blue1Brown *Essence of Linear Algebra* (EoLA)
@@ -136,7 +136,7 @@ SW·AI 융합대학원 · Part 1 + Part 2 (총 30회차)
 
 <div class="analogy">
 
-💡 **파인만식 비유**: 이 한 줄은 **5층 건물의 청사진 한 장**과 같습니다. 오늘 전부 이해할 필요는 없고, 각 층이 뭔지(QK·softmax·V)만 알면 됩니다. **30회차에 걸쳐 한 층씩 들어가 봅니다.**
+💡 **파인만식 비유**: 이 한 줄은 **5층 건물의 청사진 한 장**과 같습니다. 오늘 전부 이해할 필요는 없고, 각 층이 뭔지(QK·softmax·V)만 알면 됩니다. **32회차에 걸쳐 한 층씩 들어가 봅니다.**
 
 </div>
 
@@ -344,7 +344,7 @@ Decomposition이 AI의 절반입니다 — 이 강의 후반부가 다 이 표 �
 
 ---
 
-## F-1. Part 1 종료 시 (12회차 후)
+## F-1. Part 1 종료 시 (13회차 후)
 
 학생은 다음을 할 수 있습니다.
 
@@ -357,7 +357,7 @@ Decomposition이 AI의 절반입니다 — 이 강의 후반부가 다 이 표 �
 
 ---
 
-## F-2. Part 2 종료 시 (18회차 후)
+## F-2. Part 2 종료 시 (19회차 후)
 
 - [ ] Eigenvalue Decomposition · SVD의 Definition·계산법을 자유롭게 사용할 수 있습니다.
 - [ ] PCA·Low-rank 근사를 SVD로 **한 줄에 구현**할 수 있습니다.
@@ -436,7 +436,7 @@ plt.imshow(mean_seven, cmap='gray')
 
 ---
 
-## G-4. 이 한 시연에 들어 있는 30회차의 지점
+## G-4. 이 한 시연에 들어 있는 32회차의 지점
 
 | 시연의 부분 | 회차 |
 |---|:---:|
@@ -447,7 +447,7 @@ plt.imshow(mean_seven, cmap='gray')
 | 평균을 빼고 본 분산의 주방향 — **PCA** | **Part 2 12** |
 | 분류기로 확장 — 가장 가까운 평균 ⇒ 클래스 | **2·11** |
 
-가장 단순한 수학(Vector 평균) 한 줄이 **30회차 전체의 입구**입니다.
+가장 단순한 수학(Vector 평균) 한 줄이 **32회차 전체의 입구**입니다.
 
 ---
 
