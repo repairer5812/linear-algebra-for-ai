@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>인공지능 전공자를 위한 선형대수학</title>
-<meta name="description" content="정의·정리에서 출발해 NumPy·PyTorch로 직접 구현하고, 임의 AI 모델 한 모듈을 표준 선형대수 객체로 분해할 수 있는 수준까지 끌어올리는 25회차 강좌.">
+<meta name="description" content="Strang 선형대수를 메인 골격으로, 정의·정리에서 출발해 NumPy·PyTorch로 직접 구현하고, 임의 AI 모델 한 모듈을 표준 선형대수 객체로 분해할 수 있는 수준까지 끌어올리는 30회차 강좌.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -30,15 +30,16 @@
 <main>
   <section class="hero">
     <h1 class="hero__title">Artificial Intelligence(인공지능) 전공자를 위한 Linear Algebra(선형대수학)</h1>
-    <p class="hero__subtitle">정의·정리에서 출발해 NumPy·PyTorch로 구현하고, AI<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Artificial Intelligence, 인공지능)</small> 모델을 표준 LA<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Linear Algebra, 선형대수)</small> 객체로 분해합니다 (25회차, 1회차 2시간 × 25 = 50시간, Part 1 12회차 + Part 2 13회차)</p>
-    <p class="hero__meta">SW·AI 융합정보대학원 · 정원 20명 · 메인 교재 MML<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Mathematics for Machine Learning)</small> · 실습 Google Colab</p>
+    <p class="hero__subtitle">정의·정리에서 출발해 NumPy·PyTorch로 구현하고, AI<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Artificial Intelligence, 인공지능)</small> 모델을 표준 LA<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Linear Algebra, 선형대수)</small> 객체로 분해합니다 (30회차, 1회차 2시간 × 30 = 60시간, Part 1 12회차 + Part 2 18회차)</p>
+    <p class="hero__meta">SW·AI 융합정보대학원 · 정원 20명 · 메인 교재 Strang <em>Introduction to Linear Algebra</em> · 보조·확장 MML<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Mathematics for Machine Learning)</small> · 실습 Google Colab</p>
   </section>
 
   <section class="section" id="purpose">
     <h2>수업의 목적</h2>
-    <p>본 강좌는 인공지능을 전공하는 대학원생이 선형대수학의 정의·정리·증명을 자신의 언어로 진술하고, 임의의 AI 모델 한 부분을 표준 LA 객체로 분해할 수 있도록 만드는 것을 목적으로 합니다. AI 모델의 거의 모든 연산은 Matrix(행렬) 곱, Orthogonal projection(정사영), Eigendecomposition(고유분해), SVD<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Singular Value Decomposition, 특이값 분해)</small>, Kronecker곱과 같은 LA 객체로 환원되므로, 이 객체들을 모르면 모델의 forward·backward 흐름과 수치적 거동을 설명할 수 없습니다.</p>
-    <p>수업은 한 Part에 응용을 직접 보여주는 데 그치지 않습니다. 정의에서 출발해 정리를 증명하고, 그 정리를 NumPy·PyTorch로 구현하는 흐름을 매 회차 반복합니다. 학생이 강좌를 마칠 때 "이 모델의 이 부분이 어떤 LA 객체인가"라는 질문에 망설임 없이 답하는 것이 목표입니다.</p>
-    <p>본 강좌는 총 25 Session(회차) (1회차 2시간 × 25회차 = 50시간)로 운영합니다. Part 1은 12회차로 학부 한 Part 분량을 차분히 다지고, Part 2는 13회차로 분해와 AI 응용으로 확장합니다.</p>
+    <p>본 강좌는 인공지능을 전공하는 대학원생이 선형대수학의 정의와 정리를 직관과 함께 자기 것으로 만들고, 임의의 AI 모델 한 부분을 표준 LA 객체로 분해할 수 있도록 만드는 것을 목적으로 합니다. AI 모델의 거의 모든 연산은 Matrix(행렬) 곱, Orthogonal projection(정사영), Eigendecomposition(고유분해), SVD<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Singular Value Decomposition, 특이값 분해)</small>, Kronecker곱과 같은 LA 객체로 환원되므로, 이 객체들을 모르면 모델의 forward·backward 흐름과 수치적 거동을 읽어 낼 수 없습니다.</p>
+    <p>수업은 응용을 직접 보여주는 데 그치지 않습니다. 정의에서 출발해 정리를 이해하고, 그 정리를 NumPy·PyTorch로 구현하는 흐름을 매 회차 반복합니다. 손으로 증명을 처음부터 만들어 내기보다, <strong>논문·손실곡선·코드 속의 선형대수를 눈으로 읽어 내는 능력</strong>에 무게를 둡니다. 학생이 강좌를 마칠 때 "이 모델의 이 부분이 어떤 LA 객체인가"라는 질문에 망설임 없이 답하는 것이 목표입니다.</p>
+    <p>본 강좌는 총 30 Session(회차) (1회차 2시간 × 30회차 = 60시간)로 운영합니다. Part 1은 12회차로 학부 선형대수 분량을 Strang으로 차분히 다지고, Part 2는 18회차로 Strang 후반(Eigenvalue·SVD)에서 출발해 MML을 거쳐 분해와 AI 응용으로 확장합니다.</p>
+    <p class="info-msg" style="margin-top:0.6rem;">학부에서 선형대수를 미이수했거나 보습·보완이 필요한 분을 표준 대상으로 합니다. 정의에서 차근차근 출발하므로 수식이 약해도 따라올 수 있도록 설계했고, 학부에서 한 번 들은 분은 Part 1 전반부를 빠르게 통과하고 응용에 집중하면 됩니다.</p>
   </section>
 
   <section class="section" id="overview">
@@ -61,7 +62,7 @@
         <div class="card__body">NumPy·PyTorch로 정리를 직접 구현하거나 응용을 재현</div>
       </div>
     </div>
-    <p>25회차 흐름은 Part 1에서 Vector(벡터)·행렬·선형방정식·Subspace(부분공간)·정사영·Determinant(행렬식)의 기초를 완성하고, Part 2에서 Eigenvalue(고윳값)·SVD·PCA<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Principal Component Analysis, 주성분 분석)</small>·수치LA·Covariance(공분산)·Whitening(화이트닝)·텐서대수를 거쳐 Neural Network(신경망) 모듈의 분해까지 이어집니다.</p>
+    <p>30회차 흐름은 Part 1에서 Strang으로 Vector(벡터)·행렬·선형방정식·Subspace(부분공간)·정사영·Determinant(행렬식)의 기초를 완성하고, Part 2 전반에 Strang의 Eigenvalue(고윳값)·SVD·Linear Transformation(선형변환)을 거친 뒤, 6회차 중간학습확인평가 이후 MML로 전환하여 Vector Calculus(벡터 미적분)·Probability(확률)·Optimization(최적화)과 ML 4대 응용(Linear Regression·PCA<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Principal Component Analysis, 주성분 분석)</small>·GMM·SVM)을 다룹니다. 마지막 2회차에 본 강좌 자체 교안으로 Neural Network(신경망) 모듈(CNN·Attention)을 선형대수 객체로 환원합니다.</p>
   </section>
 
   <section class="section" id="competencies">
@@ -104,28 +105,34 @@
   <section class="section" id="curriculum">
     <h2>교육과정 총괄 + 진도표 요약</h2>
 
-    <h3>Part 1 (12회차) — 4 단계 흐름</h3>
+    <h3>Part 1 (12회차) — Strang Ch 1-5, 선형대수 기초 체화</h3>
     <ul class="flow-list">
-      <li><strong>1-3회차</strong> 벡터·행렬·선형방정식 — "AI의 모든 것은 <code>Ax=b</code>에서 시작한다"</li>
-      <li><strong>4회차</strong> 역행렬·가역성·LU 분해</li>
-      <li><strong>5-6회차</strong> 벡터공간·부분공간·영공간·행공간·열공간·rank</li>
-      <li><strong>7회차</strong> Midterm(중간평가)</li>
-      <li><strong>8-9회차</strong> 일차독립·기저·4 기본 부분공간</li>
-      <li><strong>10회차</strong> 직교성·정사영</li>
-      <li><strong>11회차</strong> 최소제곱·정규방정식·Gram-Schmidt·QR</li>
-      <li><strong>12회차</strong> 행렬식 + Final assessment(종합평가)</li>
+      <li><strong>1-3회차</strong> 벡터·내적·행렬-벡터 곱 (Strang Ch 1) — "AI의 모든 것은 <code>Ax</code>의 열 결합에서 시작한다"</li>
+      <li><strong>4-5회차</strong> 선형방정식·가우스 소거·역행렬·LU 분해 (Strang Ch 2)</li>
+      <li><strong>6회차</strong> Midterm(중간학습확인평가)</li>
+      <li><strong>7-9회차</strong> 벡터공간·부분공간·rank·일차독립·4 기본 부분공간 (Strang Ch 3)</li>
+      <li><strong>10회차</strong> 직교성·정사영 (Strang Ch 4.1-4.2)</li>
+      <li><strong>11회차</strong> 최소제곱·정규방정식·Gram-Schmidt·QR (Strang Ch 4.3-4.4)</li>
+      <li><strong>12회차</strong> 행렬식 + Final assessment(종합학습확인평가) (Strang Ch 5)</li>
     </ul>
 
-    <h3>Part 2 (13회차) — 4 단계 흐름</h3>
+    <h3>Part 2 (18회차) — Strang 후반 + MML 확장 + AI 모듈 환원</h3>
     <ul class="flow-list">
-      <li><strong>1-4회차</strong> 분해의 기본 — 고윳값·Diagonalization(대각화)·Symmetric matrix(대칭행렬)·Positive definite(양정치)</li>
-      <li><strong>5-6회차</strong> 분해의 보편화 — SVD·저계수근사·Eckart-Young·PCA</li>
-      <li><strong>7회차</strong> Midterm(중간평가)</li>
-      <li><strong>8회차</strong> 수치LA·공분산·화이트닝</li>
-      <li><strong>9회차</strong> Linear transformation(선형변환)·Change of basis(기저 변환)</li>
-      <li><strong>10-11회차</strong> 행렬 미분 — Jacobian(자코비안)·Chain rule(체인룰) / 헤시안·옵티마이저 LA (Natural gradient(자연그래디언트)·K-FAC는 한 슬라이드 안내)</li>
-      <li><strong>12회차</strong> AI 모듈 환원 (Conv·Attention) — Toeplitz·Attention 분해 main, Multi-head Kronecker는 한 슬라이드</li>
-      <li><strong>13회차</strong> Final assessment(종합평가) + 텀 프로젝트 발표</li>
+      <li><strong>1-2회차</strong> 고윳값·Diagonalization(대각화)·Symmetric matrix(대칭행렬)·Spectral theorem (Strang Ch 6.1-6.4)</li>
+      <li><strong>3회차</strong> Positive definite(양정치)·Cholesky 분해 (Strang Ch 6.5)</li>
+      <li><strong>4-5회차</strong> SVD·Eckart-Young·PCA·Linear transformation(선형변환) (Strang Ch 7-8)</li>
+      <li><strong>6회차</strong> Midterm(중간학습확인평가) — 여기서 교재가 Strang에서 MML로 전환</li>
+      <li><strong>7회차</strong> 행렬 미분 1 — Jacobian(자코비안)·Chain rule(체인룰) (MML Ch 5.1-5.4)</li>
+      <li><strong>8회차</strong> 행렬 미분 2 — Hessian(헤시안)·Newton 법·옵티마이저 LA (MML Ch 5.5-5.8)</li>
+      <li><strong>9회차</strong> 확률·MLE·KL divergence·Cross entropy (MML Ch 6 + 8.2)</li>
+      <li><strong>10회차</strong> 연속 최적화 — Convex·Lagrange·KKT (MML Ch 7)</li>
+      <li><strong>11회차</strong> Linear Regression(선형회귀) (MML Ch 8)</li>
+      <li><strong>12회차</strong> PCA 깊이 + Probabilistic PCA(PPCA) (MML Ch 9)</li>
+      <li><strong>13회차</strong> Gaussian Mixture Models·EM (MML Ch 10)</li>
+      <li><strong>14-15회차</strong> SVM·Kernel methods (MML Ch 11)</li>
+      <li><strong>16회차</strong> AI 모듈 환원 1 — CNN·Conv = Toeplitz 환원, 1×1 Conv = 행렬곱 (자체 교안)</li>
+      <li><strong>17회차</strong> AI 모듈 환원 2 — Attention 분해·Embedding lookup (자체 교안)</li>
+      <li><strong>18회차</strong> Final assessment(종합학습확인평가) + Case Study 발표</li>
     </ul>
 
     <p><a class="btn btn--ghost" href="curriculum.html">상세 진도표 보기 →</a></p>
@@ -133,9 +140,10 @@
 
   <section class="section" id="evaluation">
     <h2>평가·수료</h2>
+    <p><strong>매 회차 퀴즈는 그 회차 핵심 정의·정리를 스스로 점검하는 쉬운 복습 도구입니다.</strong> 난이도는 강의 중 다룬 예제 수준이며, 떨어뜨리기 위한 시험이 아닙니다.</p>
     <ul>
-      <li><strong>수료 기준</strong>: 매 회차 퀴즈 + Midterm(중간평가) + Final assessment(종합평가) 모두 80% 이상</li>
-      <li>한 항목이라도 80% 미달 시 해당 퀴즈 재시험으로 보완</li>
+      <li><strong>수료 기준</strong>: Midterm(중간학습확인평가) + Final assessment(종합학습확인평가) 80% 이상</li>
+      <li><strong>회차 퀴즈</strong>: 점검 도구이므로 80% 미달 시 같은 범위의 다른 문항으로 다시 풀어 보며 그 회차 내용을 확실히 잡고 넘어갑니다 (점수 기록이 아니라 학습 다지기 장치)</li>
       <li><strong>시험 형식</strong>: 종이 50점 + Jupyter 실기 50점</li>
     </ul>
   </section>
@@ -143,8 +151,8 @@
   <section class="section" id="environment">
     <h2>학습 환경</h2>
     <ul>
-      <li><strong>메인 교재</strong>: Deisenroth·Faisal·Ong, <em>Mathematics for Machine Learning</em> (MML) — 무료 PDF: <a href="https://mml-book.github.io/" rel="noopener">mml-book.github.io</a></li>
-      <li><strong>보조 교재</strong>: Gilbert Strang, <em>Introduction to Linear Algebra</em></li>
+      <li><strong>메인 교재</strong>: Gilbert Strang, <em>Introduction to Linear Algebra</em> (6th ed.) — 정의·정리·예제·4 기본 부분공간 framework</li>
+      <li><strong>보조·확장 교재</strong>: Deisenroth·Faisal·Ong, <em>Mathematics for Machine Learning</em> (MML) — Strang 미수록 수학(Vector Calculus·Probability·Optimization)·ML 응용. 무료 PDF: <a href="https://mml-book.github.io/" rel="noopener">mml-book.github.io</a></li>
       <li><strong>시각 보조</strong>: Grant Sanderson (3Blue1Brown), <em>Essence of Linear Algebra</em> (EoLA<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Essence of Linear Algebra, 3Blue1Brown 시각 자료)</small>, YouTube 무료 공개)</li>
       <li><strong>실습 환경</strong>: Google Colab</li>
       <li><strong>LMS</strong>: Google Classroom (코드: 추후 공개)</li>
@@ -171,7 +179,7 @@
     <details class="faq-item">
       <summary>Q1. 수학을 잘 못해도 따라갈 수 있나요?</summary>
       <div class="faq-item__answer">
-        <p>미적분학·이산수학·확률 기초가 학부 수준에서 잡혀 있으면 충분합니다. 본 강좌는 선형대수의 정의에서 출발하므로 사전 선대 이수가 필수는 아닙니다. 다만 매 Session(회차) 정의·정리·증명을 진지하게 따라야 하므로 수식을 회피하는 학습 습관은 본 강좌와 맞지 않습니다.</p>
+        <p>네, 그런 분을 표준 대상으로 설계한 강좌입니다. 미적분학·이산수학·확률 기초가 학부 수준에서 잡혀 있으면 충분하고, 선형대수는 정의에서 차근차근 출발하므로 사전 선대 이수가 필수는 아닙니다. 매 회차 직관과 예제를 먼저 잡은 뒤 정리로 넘어가도록 구성했습니다. 학부에서 선대를 한 번 들은 분은 Part 1 전반부를 빠르게 통과하고 응용에 집중하시면 됩니다.</p>
       </div>
     </details>
     <details class="faq-item">
@@ -183,31 +191,31 @@
     <details class="faq-item">
       <summary>Q3. 결석하면 어떻게 되나요?</summary>
       <div class="faq-item__answer">
-        <p>매 회차 퀴즈가 있으므로 결석 회차의 퀴즈는 미응시 처리됩니다. 80% 미달 시 재시험 절차로 보완 가능합니다. 결석 자체에 대한 별도 패널티 정책은 추후 운영 안내에서 공지합니다.</p>
+        <p>매 회차 퀴즈는 그 회차 내용을 잡고 넘어가는 복습 도구입니다. 결석한 회차의 퀴즈는 나중에 같은 범위의 문항으로 풀어 보며 보충하면 됩니다. 수료 기준이 되는 실질 평가는 중간·종합학습확인평가이며, 결석 자체에 대한 별도 패널티 정책은 추후 운영 안내에서 공지합니다.</p>
       </div>
     </details>
     <details class="faq-item">
-      <summary>Q4. 퀴즈가 80% 미달이면 재시험은 어떻게 진행되나요?</summary>
+      <summary>Q4. 회차 퀴즈를 한 번에 못 풀면 어떻게 되나요?</summary>
       <div class="faq-item__answer">
-        <p>해당 회차 퀴즈 한정으로 재응시 기회가 주어집니다. <strong>동일 범위·동일 난이도의 새 문항</strong>으로 출제되며, 재시험 점수가 80% 이상이면 수료 기준을 충족한 것으로 처리합니다. 재시험 일정은 회차별로 별도 공지합니다.</p>
+        <p>회차 퀴즈는 게이트가 아니라 <strong>학습을 다지는 기회</strong>입니다. 한 번에 잘 안 풀려도 같은 범위의 다른 문항으로 다시 풀어 보며 그 회차 내용을 확실히 잡고 넘어가면 됩니다. 점수를 기록해 떨어뜨리려는 장치가 아니라, "이 회차는 확실히 이해했다"를 본인이 확인하는 도구입니다.</p>
       </div>
     </details>
     <details class="faq-item">
       <summary>Q5. 교재 비용 부담이 있나요?</summary>
       <div class="faq-item__answer">
-        <p>메인 교재 MML(<em>Mathematics for Machine Learning</em>)은 저자가 무료 PDF로 공개합니다 (<a href="https://mml-book.github.io/" rel="noopener">mml-book.github.io</a>). 보조 교재 Strang은 도서관·중고로 구할 수 있고 시각 보조 자료(3Blue1Brown EoLA)는 YouTube 무료 공개입니다. 필수 구매 자료는 없습니다.</p>
+        <p>메인 교재 Strang(<em>Introduction to Linear Algebra</em>)은 도서관·중고로 구할 수 있고, 보조·확장 교재 MML(<em>Mathematics for Machine Learning</em>)은 저자가 무료 PDF로 공개합니다 (<a href="https://mml-book.github.io/" rel="noopener">mml-book.github.io</a>). 시각 보조 자료(3Blue1Brown EoLA)는 YouTube 무료 공개입니다. 원서 구매는 선택이며 필수 구매 자료는 없습니다.</p>
       </div>
     </details>
     <details class="faq-item">
       <summary>Q6. Google Colab 사용에 비용이 들어가나요?</summary>
       <div class="faq-item__answer">
-        <p>본 강좌의 모든 실습은 Colab 무료 티어에서 충분히 동작하도록 설계되어 있습니다. 대규모 GPU가 필요한 일부 응용(Part 2 12회차)도 무료 티어 GPU로 재현 가능한 수준의 예제를 사용합니다. 유료 티어 가입은 권장하지 않습니다.</p>
+        <p>본 강좌의 모든 실습은 Colab 무료 티어에서 충분히 동작하도록 설계되어 있습니다. GPU가 필요한 일부 응용(Part 2 후반 Conv·Attention 환원, 16-17회차)도 무료 티어 GPU로 재현 가능한 수준의 예제를 사용합니다. 유료 티어 가입은 권장하지 않습니다.</p>
       </div>
     </details>
     <details class="faq-item">
       <summary>Q7. ChatGPT·Claude 같은 AI 도구를 과제에 써도 되나요?</summary>
       <div class="faq-item__answer">
-        <p>코드 디버깅·개념 보조 질의 용도로 사용은 허용합니다. 다만 과제 제출물은 <strong>본인이 정의·정리를 자신의 언어로 진술</strong>해야 하며, 코드는 한 줄씩 설명할 수 있어야 합니다. AI 출력을 그대로 붙여넣기만 하면 시험·프로젝트에서 막히게 되므로 권장하지 않습니다.</p>
+        <p>코드 디버깅·개념 보조 질의 용도로 사용은 허용합니다. 다만 과제 제출물은 <strong>본인이 개념을 자기 말로 설명</strong>할 수 있어야 하며, 코드는 한 줄씩 설명할 수 있어야 합니다. AI 출력을 그대로 붙여넣기만 하면 시험·프로젝트에서 막히게 되므로 권장하지 않습니다.</p>
       </div>
     </details>
     <details class="faq-item">
@@ -223,9 +231,9 @@
       </div>
     </details>
     <details class="faq-item">
-      <summary>Q10. 강좌가 25회차 (50시간)로 운영되는데 학부 한 학기 32주 분량과 어떻게 다른가요?</summary>
+      <summary>Q10. 30회차 (60시간)는 학부 선형대수와 어떻게 다른가요?</summary>
       <div class="faq-item__answer">
-        <p>기존 32주 (Part 1 16주 + Part 2 16주, 1주 1차시 100분) 설계를 1회차 2시간 × 25회차로 압축한 것입니다. 본질적 토픽은 유지하되, 통합 가능한 회차를 묶어 효율적으로 운영합니다. Part 1은 W4+W5(역행렬·LU)/W11+W12(직교성·정사영)/W13+W14(최소제곱·QR)/W15+W16(행렬식·Final assessment(종합평가))를 통합해 12회차로, Part 2는 W6+W7(저계수·PCA)/W9+W10(수치 LA·공분산·화이트닝)/W14+W13(AI 모듈·Kronecker)/W15+W16(Final assessment(종합평가)·텀 프로젝트)를 통합해 13회차로 운영합니다.</p>
+        <p>Part 1 12회차(Strang Ch 1-5)는 학부 선형대수 한 학기 핵심을 차분히 다지는 분량이고, Part 2 18회차는 학부 강의가 거의 다루지 않는 부분 — Strang 후반(Eigenvalue·SVD)에서 시작해 MML의 Vector Calculus·Probability·Optimization과 ML 4대 응용(Linear Regression·PCA·GMM·SVM), 그리고 CNN·Attention의 선형대수 환원까지 — 으로 확장합니다. 즉 "학부 선대를 AI 관점에서 다시 세우고, 그 위에 모델을 읽어 내는 도구를 얹는" 구성입니다.</p>
       </div>
     </details>
   </section>
