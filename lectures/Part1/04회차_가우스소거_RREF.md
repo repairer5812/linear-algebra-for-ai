@@ -3,28 +3,35 @@ marp: true
 theme: default
 paginate: true
 header: '인공지능 전공자를 위한 선형대수학'
-footer: '3회차 — Gaussian elimination · RREF · 해의 구조'
+footer: '4회차 — Gaussian elimination · RREF · 해의 구조'
 math: mathjax
 size: 16:9
 style: |
-  section { font-size: 22px; padding: 50px 60px 70px 60px; }
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css');
+  section { font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            font-size: 22px; padding: 50px 60px 70px 60px; color: #111827; letter-spacing: -0.011em; }
   section.lead { padding: 100px 60px; }
-  h1 { color: #1a365d; margin-top: 0; }
-  h2 { color: #2d3748; border-bottom: 2px solid #cbd5e0; padding-bottom: 4px; margin-top: 0; }
-  table { font-size: 17px; }
-  code { font-size: 17px; background: #f7fafc; padding: 2px 6px; border-radius: 3px; }
-  blockquote { font-size: 19px; border-left: 4px solid #4299e1; color: #2d3748; background: #ebf8ff; padding: 8px 14px; }
-  section.exercise { background: #fffaf0; }
-  section.exercise h1 { color: #c05621; }
-  section.exercise h2 { color: #9c4221; border-bottom-color: #fbd38d; }
-  .analogy { background: #f5f3ff; border-left: 4px solid #7c3aed; padding: 10px 16px; margin: 12px 0; font-size: 19px; color: #1f2937; }
-  .analogy strong { color: #5b21b6; }
+  h1 { color: #1E40AF; margin-top: 0; font-weight: 700; letter-spacing: -0.02em; }
+  h2 { color: #111827; border-bottom: 2px solid #E5E7EB; padding-bottom: 4px; margin-top: 0; font-weight: 700; }
+  table { font-size: 17px; border-collapse: collapse; }
+  th { background: #F9FAFB; border: 1px solid #E5E7EB; }
+  td { border: 1px solid #E5E7EB; }
+  code { font-size: 17px; background: #F3F4F6; color: #BE185D; padding: 2px 6px; border-radius: 6px;
+         font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace; }
+  blockquote { font-size: 19px; border-left: 4px solid #3B82F6; color: #1E40AF;
+               background: #DBEAFE; padding: 8px 14px; border-radius: 0 8px 8px 0; }
+  section.exercise { background: #FFFBEB; }
+  section.exercise h1 { color: #B45309; }
+  section.exercise h2 { color: #92400E; border-bottom-color: #FDE68A; }
+  .analogy { background: #D1FAE5; border-left: 4px solid #10B981; padding: 10px 16px; margin: 12px 0;
+             font-size: 19px; color: #065F46; border-radius: 0 8px 8px 0; }
+  .analogy strong { color: #047857; }
 ---
 
 <!-- _class: lead -->
 <!-- _paginate: false -->
 
-# 3회차
+# 4회차
 
 ## Gaussian elimination · RREF · 해의 구조
 
@@ -34,7 +41,7 @@ MML §2.3.2~§2.3.4 · Strang §2.2, §2.3, §3.2 · EoLA Ch.7
 
 <!-- _class: exercise -->
 
-# 🔁 Review — 2회차 마무리 숙제
+# 🔁 Review — 3회차 마무리 숙제
 
 지난 회차 마지막에 가져갔던 문제:
 
@@ -79,7 +86,7 @@ MML §2.3.2~§2.3.4 · Strang §2.2, §2.3, §3.2 · EoLA Ch.7
 3. **REF**와 **RREF**의 정의·차이를 설명하고 RREF가 **유일**하다는 사실을 진술할 수 있습니다.
 4. **Pivot 열과 Free 열**을 식별하고 그 의미를 설명할 수 있습니다.
 5. **해의 세 경우** (유일·무수·없음)를 RREF의 Pivot 패턴으로 판정할 수 있습니다.
-6. 해의 구조와 2회차 **Column space**의 관계를 진술할 수 있습니다.
+6. 해의 구조와 3회차 **Column space**의 관계를 진술할 수 있습니다.
 
 ---
 
@@ -97,27 +104,23 @@ MML §2.3.2~§2.3.4 · Strang §2.2, §2.3, §3.2 · EoLA Ch.7
 
 ---
 
-## 수업 흐름 (120분)
+## 수업 흐름
 
-| 시간 | 블록 | 내용 |
-|---|---|---|
-| 0~15 | A | **오프닝** — 핵심 질문 + 2회차 Review |
-| 15~30 | B | Linear equation system의 행렬 표현 + Row operations |
-| 30~60 | **C** | **Gaussian elimination** (Forward · Backward) |
-| 60~80 | **D** | **RREF · Pivot · Free variables** |
-| 80~100 | **E** | **해의 세 경우** (유일·무수·없음) |
-| 100~110 | F | CS·AI 적용 + Column space 연결 |
-| 110~120 | G | **클로징** — 코딩 + 마무리 문제 + 숙제 |
+| 순서 | 블록 | 내용 |
+|:---:|:---:|---|
+| ① | A | **오프닝** — 핵심 질문 + 3회차 Review |
+| ② | B | Linear equation system의 행렬 표현 + Row operations |
+| ③ | **C** | **Gaussian elimination** (Forward · Backward) |
+| ④ | **D** | **RREF · Pivot · Free variables** |
+| ⑤ | **E** | **해의 세 경우** (유일·무수·없음) |
+| ⑥ | F | CS·AI 적용 + Column space 연결 |
+| ⑦ | G | **클로징** — 코딩 + 마무리 문제 + 숙제 |
 
-> **C·D·E가 오늘의 심장**. 30분 + 20분 + 20분 = 70분 집중 배분.
-
----
-
-# B. Linear equation system의 표현 + Row operations
+> **C·D·E가 오늘의 심장입니다.**
 
 ---
 
-## B-1. Augmented matrix(첨가행렬)
+## B. Linear equation system의 표현 — B-1. Augmented matrix(첨가행렬)
 
 $$\begin{cases} a_{11}x_1 + a_{12}x_2 + \cdots = b_1 \\ a_{21}x_1 + a_{22}x_2 + \cdots = b_2 \\ \vdots \end{cases} \;\Leftrightarrow\; A\mathbf{x} = \mathbf{b} \;\Leftrightarrow\; [A \mid \mathbf{b}]$$
 
@@ -145,11 +148,7 @@ $\begin{cases} 2x + y = 5 \\ x + 3y = 5 \end{cases} \;\Leftrightarrow\; \left[\b
 
 ---
 
-# C. Gaussian elimination
-
----
-
-## C-1. 전체 흐름
+## C. Gaussian elimination — C-1. 전체 흐름
 
 <div class="analogy">
 
@@ -245,11 +244,7 @@ $\left[\begin{array}{ccc|c} 1 & 1 & 1 & 6 \\ 1 & 2 & 3 & 14 \\ 1 & 3 & 5 & 22 \e
 
 ---
 
-# D. RREF · Pivot · Free variables
-
----
-
-## D-1. REF vs RREF
+## D. RREF · Pivot · Free variables — D-1. REF vs RREF
 
 **REF (Row Echelon Form, 사다리꼴)**
 - 각 행의 첫 0 아닌 원소(pivot)가 그 위 행의 pivot보다 **오른쪽**
@@ -265,18 +260,8 @@ $\left[\begin{array}{ccc|c} 1 & 1 & 1 & 6 \\ 1 & 2 & 3 & 14 \\ 1 & 3 & 5 & 22 \e
 | $\left[\begin{array}{cc\|c} 2 & 3 & 7 \\ 0 & 1 & 1 \end{array}\right]$ | REF (pivot 위 0 X) |
 | $\left[\begin{array}{cc\|c} 1 & 0 & 4 \\ 0 & 1 & 1 \end{array}\right]$ | **RREF** ✓ |
 
----
-
-## D-2. RREF의 유일성
-
-### 정리 3.1 (RREF 유일성)
-어떤 행렬 $A$에 대해서도 행 연산으로 도달하는 RREF는 **유일**합니다.
-
-**의미**: REF는 어떤 행 교환을 했느냐에 따라 모양이 다를 수 있지만, **RREF는 한 가지뿐**입니다. → **표준형(canonical form)**.
-
-→ "$A$의 RREF" 라고 부를 수 있습니다 (정관사 the).
-
-**증명**: 8회차 Basis(기저) 도구가 필요하므로 그때.
+### D-2. RREF의 유일성 — 정리 3.1
+어떤 행렬 $A$에 대해서도 행 연산으로 도달하는 RREF는 **유일**합니다. REF는 어떤 행 교환을 했느냐에 따라 모양이 다를 수 있지만, **RREF는 한 가지뿐** — **표준형(canonical form)**. → "$A$의 RREF" 라고 부를 수 있습니다 (정관사 the). 증명은 9회차 Basis(기저) 도구 이후.
 
 ---
 
@@ -311,11 +296,7 @@ $\left[\begin{array}{ccc|c} 1 & 0 & -1 & 0 \\ 0 & 1 & 2 & 3 \\ 0 & 0 & 0 & 0 \en
 
 ---
 
-# E. 해의 세 경우
-
----
-
-## E-1. 세 경우의 판정
+## E. 해의 세 경우 — E-1. 세 경우의 판정
 
 $[A \mid \mathbf{b}]$의 RREF를 보고 판정합니다.
 
@@ -335,7 +316,7 @@ $\left[\begin{array}{cc|c} 1 & 2 & 3 \\ 0 & 0 & 1 \end{array}\right]$의 둘째 
 
 **어떤 $x_1, x_2$를 잡아도 모순**입니다 — 해 없음.
 
-### 2회차와 연결
+### 3회차와 연결
 - 해 없음 ↔ $\mathbf{b} \notin \mathrm{col}(A)$ — $\mathbf{b}$가 $A$의 Column space 밖
 - 해 있음 ↔ $\mathbf{b} \in \mathrm{col}(A)$ — Column space 안
 
@@ -351,14 +332,14 @@ $\left[\begin{array}{cc|c} 1 & 2 & 3 \\ 0 & 0 & 1 \end{array}\right]$의 둘째 
 $\mathbf{x} = \mathbf{x}_p + \mathbf{x}_h$
 
 - $\mathbf{x}_p$ = **특수해(particular solution)** — RREF에서 free 변수를 0으로
-- $\mathbf{x}_h$ = **동차해(homogeneous solution)** — $A\mathbf{x} = \mathbf{0}$의 해 집합 (Null space, 5회차)
+- $\mathbf{x}_h$ = **동차해(homogeneous solution)** — $A\mathbf{x} = \mathbf{0}$의 해 집합 (Null space, 7회차)
 
 ### 예 (앞 슬라이드)
 해 $(t, 3-2t, t) = (0, 3, 0) + t(1, -2, 1)$
 - $\mathbf{x}_p = (0, 3, 0)$
 - $\mathbf{x}_h = t(1, -2, 1)$, 모든 $t \in \mathbb{R}$
 
-→ **5회차 Null space**의 출발점.
+→ **7회차 Null space**의 출발점.
 
 ---
 
@@ -397,11 +378,7 @@ $y = s, z = t$로 두면 $x = 2 - s + t$. 해: $(2-s+t,\,s,\,t)$. **2차원 자�
 
 ---
 
-# F. CS·AI 적용 + Column space 연결
-
----
-
-## F-1. AI에서 Linear equation 풀이
+## F. CS·AI 적용 — F-1. AI에서 Linear equation 풀이
 
 | 응용 | $A\mathbf{x} = \mathbf{b}$의 역할 | 회차 |
 |---|---|---|
@@ -425,18 +402,14 @@ b = np.array([5.0, 5.0])
 x = np.linalg.solve(A, b)  # → [2.0, 1.0] (정확)
 ```
 
-`np.linalg.solve`는 LU Decomposition(4회차)을 내부적으로 사용합니다 — Gaussian elimination이 그 토대.
+`np.linalg.solve`는 LU Decomposition(5회차)을 내부적으로 사용합니다 — Gaussian elimination이 그 토대.
 
 ### Partial pivoting (간단 안내)
-큰 행렬에서 **가장 큰 값을 pivot으로** 선택해 수치 안정성을 높이는 표준 기법입니다. 4회차 LU에서 다시 봅니다.
+큰 행렬에서 **가장 큰 값을 pivot으로** 선택해 수치 안정성을 높이는 표준 기법입니다. 5회차 LU에서 다시 봅니다.
 
 ---
 
-# G. 클로징
-
----
-
-## G-1. 코딩 실습 골자
+## G. 클로징 — G-1. 코딩 실습 골자
 
 → `11_주피터노트북/Part1/03_가우스소거_RREF.ipynb`
 
@@ -508,7 +481,7 @@ $$\begin{cases} x + 2y + 3z = 4 \\ 2x + 5y + 7z = 9 \\ x + 3y + 5z = 6 \end{case
 
 ## 📝 다음 회차 Review용 숙제
 
-위 마무리 문제의 **유사 문제**. 4회차 Review에서 함께 답을 맞춥니다.
+위 마무리 문제의 **유사 문제**. 5회차 Review에서 함께 답을 맞춥니다.
 
 다음 system을 RREF로 풀어 **해의 종류**를 판정하고 해를 구하세요.
 
@@ -521,15 +494,15 @@ $$\begin{cases} x + y + 2z = 4 \\ 2x + 3y + 5z = 9 \\ 3x + 5y + 8z = 14 \end{cas
 
 ### 자기 점검
 - (b)에서 세 행이 모두 살아남나요? 한 행이 0행이 되면 그 이유는?
-- 4회차의 **Inverse matrix(역행렬)**가 정의되려면 RREF에서 어떤 조건이 필요한지 생각해보세요.
+- 5회차의 **Inverse matrix(역행렬)**가 정의되려면 RREF에서 어떤 조건이 필요한지 생각해보세요.
 
-4회차 본 주제(**Inverse matrix · LU Decomposition**)와 직접 연결.
+5회차 본 주제(**Inverse matrix · LU Decomposition**)와 직접 연결.
 
 ---
 
 ## G-4. 과제 안내
 
-`04_과제/Part1/03회차_homework.md` — 마감: 4회차 시작 전
+`04_과제/Part1/04회차_homework.md` — 마감: 5회차 시작 전
 
 **수학 30점**
 - Gaussian elimination 손계산 (3문제, 2×2~3×3)
@@ -544,13 +517,13 @@ $$\begin{cases} x + y + 2z = 4 \\ 2x + 3y + 5z = 9 \\ 3x + 5y + 8z = 14 \end{cas
 
 ---
 
-## G-5. 다음 회차 (4회차) 예고
+## G-5. 다음 회차 (5회차) 예고
 
 **주제**: Inverse matrix · LU Decomposition
 
 **연결**: 오늘 본 Gaussian elimination을 **행렬 형태로 정리**하면 LU Decomposition입니다. $A = LU$ — 가우스 소거의 모든 단계가 하삼각 Matrix $L$에 누적되고, 결과 REF가 상삼각 $U$.
 
-또한 RREF에서 변수 열 모두 pivot ↔ Inverse matrix 존재. **Inverse matrix**가 4회차 첫 분해의 주인공.
+또한 RREF에서 변수 열 모두 pivot ↔ Inverse matrix 존재. **Inverse matrix**가 5회차 첫 분해의 주인공.
 
 **사전 reading**:
 - MML §2.2.2 (Inverse), §2.3.5 (LU)

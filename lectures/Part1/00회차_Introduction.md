@@ -7,18 +7,25 @@ footer: '0회차 — Introduction'
 math: mathjax
 size: 16:9
 style: |
-  section { font-size: 22px; padding: 50px 60px 70px 60px; }
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css');
+  section { font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            font-size: 22px; padding: 50px 60px 70px 60px; color: #111827; letter-spacing: -0.011em; }
   section.lead { padding: 100px 60px; }
-  h1 { color: #1a365d; margin-top: 0; }
-  h2 { color: #2d3748; border-bottom: 2px solid #cbd5e0; padding-bottom: 4px; margin-top: 0; }
-  table { font-size: 17px; }
-  code { font-size: 17px; background: #f7fafc; padding: 2px 6px; border-radius: 3px; }
-  blockquote { font-size: 19px; border-left: 4px solid #4299e1; color: #2d3748; background: #ebf8ff; padding: 8px 14px; }
-  section.exercise { background: #fffaf0; }
-  section.exercise h1 { color: #c05621; }
-  section.exercise h2 { color: #9c4221; border-bottom-color: #fbd38d; }
-  .analogy { background: #f5f3ff; border-left: 4px solid #7c3aed; padding: 10px 16px; margin: 12px 0; font-size: 19px; color: #1f2937; }
-  .analogy strong { color: #5b21b6; }
+  h1 { color: #1E40AF; margin-top: 0; font-weight: 700; letter-spacing: -0.02em; }
+  h2 { color: #111827; border-bottom: 2px solid #E5E7EB; padding-bottom: 4px; margin-top: 0; font-weight: 700; }
+  table { font-size: 17px; border-collapse: collapse; }
+  th { background: #F9FAFB; border: 1px solid #E5E7EB; }
+  td { border: 1px solid #E5E7EB; }
+  code { font-size: 17px; background: #F3F4F6; color: #BE185D; padding: 2px 6px; border-radius: 6px;
+         font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace; }
+  blockquote { font-size: 19px; border-left: 4px solid #3B82F6; color: #1E40AF;
+               background: #DBEAFE; padding: 8px 14px; border-radius: 0 8px 8px 0; }
+  section.exercise { background: #FFFBEB; }
+  section.exercise h1 { color: #B45309; }
+  section.exercise h2 { color: #92400E; border-bottom-color: #FDE68A; }
+  .analogy { background: #D1FAE5; border-left: 4px solid #10B981; padding: 10px 16px; margin: 12px 0;
+             font-size: 19px; color: #065F46; border-radius: 0 8px 8px 0; }
+  .analogy strong { color: #047857; }
 ---
 
 <!-- _class: lead -->
@@ -58,25 +65,21 @@ SW·AI 융합대학원 · Part 1 + Part 2 (총 30회차)
 
 ---
 
-## 오늘 수업 흐름 (120분)
+## 오늘 수업 흐름
 
-| 시간 | 블록 | 내용 |
-|---|---|---|
-| 0~10 | A | **오프닝** — 핵심 질문 + 강의 소개 · 평가 · 전제 |
-| 10~25 | B | 왜 Linear Algebra인가 — 네 가지 동기 |
-| 25~45 | **C** | **수학적 흐름의 큰 그림** |
-| 45~65 | **D** | **CS·AI 흐름** |
-| 65~80 | E | 교재 운용 — Strang (메인) / MML (보조·확장) / EoLA (시각) |
-| 80~95 | F | 이수 후 능력 점검표 |
-| 95~110 | **G** | **시그니처 시연 — MNIST 평균 이미지** |
-| 110~120 | H | **클로징** — 1회차로 가져갈 마무리 문제 + 사전 reading |
+| 순서 | 블록 | 내용 |
+|:---:|:---:|---|
+| ① | A | **오프닝** — 핵심 질문 + 강의 소개 · 평가 · 전제 |
+| ② | B | 왜 Linear Algebra인가 — 네 가지 동기 |
+| ③ | **C** | **수학적 흐름의 큰 그림** |
+| ④ | **D** | **CS·AI 흐름** |
+| ⑤ | E | 교재 운용 — Strang (메인) / MML (보조·확장) / EoLA (시각) |
+| ⑥ | F | 이수 후 능력 점검표 |
+| ⑦ | **G** | **시그니처 시연 — MNIST 평균 이미지** |
+| ⑧ | H | **클로징** — 1회차로 가져갈 마무리 문제 + 사전 reading |
 
 > **순서의 의미**: 수학 흐름 → CS 흐름 → 두 흐름이 만나는 한 예제(평균 이미지)로 마무리합니다.
 > 오늘은 첫 회차이므로 Review가 없습니다. 다음 회차부터 표준 사이클(핵심 질문 → Review → 본 강의 → 마무리 문제 → 숙제)을 운영합니다.
-
----
-
-# A. 강의 소개
 
 ---
 
@@ -84,7 +87,7 @@ SW·AI 융합대학원 · Part 1 + Part 2 (총 30회차)
 
 - **과목명**: Linear Algebra Part 1 (12회차) / Part 2 (18회차)
 - **대상**: SW·AI 융합대학원 1학년 · **학부 LA 미이수 학생** 표준
-- **운영**: 1회차 2시간 × 30회차 = 60시간
+- **운영**: 총 30회차
 - **메인 교재**: Gilbert Strang, *Introduction to Linear Algebra* (6th ed.)
 - **보조·확장 교재**: Deisenroth·Faisal·Ong, *Mathematics for Machine Learning* (MML) — Strang 미수록 수학 (Vector Calculus·Probability·Optimization) + ML 응용 (LR·PCA·GMM·SVM)
 - **시각 보조**: 3Blue1Brown *Essence of Linear Algebra* (EoLA)
@@ -118,10 +121,6 @@ SW·AI 융합대학원 · Part 1 + Part 2 (총 30회차)
 
 ---
 
-# B. 왜 Linear Algebra인가 — 네 가지 동기
-
----
-
 ## B-1. 동기 1 — AI 논문 한 줄을 읽으려면
 
 다음은 LLM 표준 논문의 한 문장입니다.
@@ -130,10 +129,10 @@ SW·AI 융합대학원 · Part 1 + Part 2 (총 30회차)
 
 이 한 줄을 이해하려면 알아야 하는 것:
 
-- $\mathbb{R}^{n \times d}$ → **Vector space(벡터공간)·Dimension(차원)** (5·8회차)
-- $QK^\top$ → **모든 쌍의 Inner product(내적)** (1·2회차)
-- $\sqrt{d_k}$로 나누는 이유 → **Vector Norm(노름)의 통계** (1·11회차)
-- softmax 후 $V$ → **Matrix(행렬)·Vector 곱의 두 해석** (2회차)
+- $\mathbb{R}^{n \times d}$ → **Vector space(벡터공간)·Dimension(차원)** (7·9회차)
+- $QK^\top$ → **모든 쌍의 Inner product(내적)** (2회차)
+- $\sqrt{d_k}$로 나누는 이유 → **Vector Norm(노름)의 정규화** (2회차)
+- softmax 후 $V$ → **Matrix(행렬)·Vector 곱의 두 해석** (3회차)
 
 <div class="analogy">
 
@@ -189,8 +188,6 @@ $$f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0) + J(\mathbf{x}_0)\,\mathb
 
 > "Definition → Theorem → Decomposition → Application(응용)" 사이클이 매 회차 반복됩니다.
 
----
-
 ## C-1. 4단 사고 구조
 
 매 회차가 다음 네 단계 안에 위치합니다.
@@ -214,9 +211,9 @@ $$f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0) + J(\mathbf{x}_0)\,\mathb
 
 | 줄기 | 주제 | 의미 | 회차 |
 |:---:|---|---|---|
-| 1 | **Vector · Matrix** | 객체의 정의 | 1·2 |
-| 2 | **Linear equation(선형방정식)** $A\mathbf{x}=\mathbf{b}$ | 연산의 의미 | 3·4 |
-| 3 | **Space(공간)** | Subspace · Basis(기저) · Dimension | 5·6·8·9 |
+| 1 | **Vector · Matrix** | 객체의 정의 | 1·3 |
+| 2 | **Linear equation(선형방정식)** $A\mathbf{x}=\mathbf{b}$ | 연산의 의미 | 4·5 |
+| 3 | **Space(공간)** | Subspace · Basis(기저) · Dimension | 7·8·9 |
 | 4 | **Orthogonality(직교성) · Projection(정사영)** | 거리·각도의 분해 | 10·11 |
 | 5 | **Decomposition** | Determinant(행렬식) · Eigenvalue(고윳값) · SVD | 12·Part 2 전체 |
 
@@ -245,7 +242,8 @@ $$f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0) + J(\mathbf{x}_0)\,\mathb
 
 | 회차 | 주제 | 단계 |
 |:---:|---|:---:|
-| 1-3 | Eigenvalue · Diagonalization · Spectral theorem · Positive definite (Strang Ch 6) | ③ 정사각 분해 |
+| 1-2 | Eigenvalue · Diagonalization · Spectral theorem (Strang Ch 6.1-6.4) | ③ 정사각 분해 |
+| 3 | Positive definite · Cholesky (Strang Ch 6.5) | ③ |
 | 4-5 | SVD · Eckart-Young · PCA · Linear Transformation (Strang Ch 7-8) | ③ 임의 분해 + ④ 압축 |
 | 6 | **중간학습확인평가** | — |
 | 7-8 | Vector Calculus (Jacobian · Hessian · Newton) (MML Ch 5) | ④ 신경망 미분 |
@@ -267,19 +265,17 @@ $$f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0) + J(\mathbf{x}_0)\,\mathb
 
 > 수학 5대 줄기가 컴퓨터와 AI에서 어디에 등장하는지를 봅니다.
 
----
-
 ## D-1. 데이터·연산의 LA 환원
 
 | CS·AI 객체 | LA 환원 | 회차 |
 |---|---|---|
-| 이미지·텍스트·사용자 | $\mathbb{R}^d$ **Vector** | 1·2 |
-| 데이터셋 ($n$개 샘플) | $\mathbb{R}^{n \times d}$ **Matrix** | 5·6 |
-| 신경망 한 층 | $\mathbf{x} \mapsto W\mathbf{x} + \mathbf{b}$ | 2·5 |
-| 손실 함수의 미분 | **Jacobian / Hessian** | 10·11 |
+| 이미지·텍스트·사용자 | $\mathbb{R}^d$ **Vector** | 1 |
+| 데이터셋 ($n$개 샘플) | $\mathbb{R}^{n \times d}$ **Matrix** | 3 |
+| 신경망 한 층 | $\mathbf{x} \mapsto W\mathbf{x} + \mathbf{b}$ | 3·7 |
+| 손실 함수의 미분 | **Jacobian / Hessian** | Part 2 7-8 |
 | 학습 = 최소화 | **Least squares · 정규방정식** | 11 |
-| 추론 = Matrix 곱 누적 | **BLAS · GPU 병렬화** | 3·P2 8 |
-| 모델 압축·Quantization(양자화) | **Low-rank Decomposition (SVD·LoRA)** | P2 5·6 |
+| 추론 = Matrix 곱 누적 | **BLAS · GPU 병렬화** | 3 |
+| 모델 압축·Quantization(양자화) | **Low-rank Decomposition (SVD·LoRA)** | Part 2 4-5 |
 
 ---
 
@@ -290,9 +286,9 @@ Transformer 한 블록의 입력 → 출력 흐름:
 | 단계 | 식 | LA 객체 | 회차 |
 |---|---|---|:---:|
 | **입력** | $\mathbf{x} \in \mathbb{R}^d$ | Vector | 1 |
-| **Embedding(임베딩)** | $E\mathbf{x}$ | Matrix·Vector 곱 | 2 |
-| **Attention** | $\mathrm{softmax}\!\left(\frac{QK^\top}{\sqrt{d}}\right)V$ | 모든 쌍의 Inner product | 1·12 |
-| **FFN** | $W_2\,\mathrm{ReLU}(W_1\mathbf{x}+\mathbf{b}_1)+\mathbf{b}_2$ | affine 변환 | 5 |
+| **Embedding(임베딩)** | $E\mathbf{x}$ | Matrix·Vector 곱 | 3 |
+| **Attention** | $\mathrm{softmax}\!\left(\frac{QK^\top}{\sqrt{d}}\right)V$ | 모든 쌍의 Inner product | 2 · Part 2 17 |
+| **FFN** | $W_2\,\mathrm{ReLU}(W_1\mathbf{x}+\mathbf{b}_1)+\mathbf{b}_2$ | affine 변환 | 7 |
 | **출력** | $\mathrm{softmax}(\cdots)$ | 확률 Vector | — |
 
 각 작업 단계가 회차별 주제와 일대일로 대응합니다.
@@ -314,22 +310,18 @@ Decomposition이 AI의 절반입니다 — 이 강의 후반부가 다 이 표 �
 
 ---
 
-# E. 교재 운용 — MML / Strang / EoLA / 코드
-
----
-
 ## E-1. 4단 운영 모델
 
 | 자료 | 위상 | 사용 시점 | 비유 |
 |---|---|---|---|
-| **MML** | 메인 | 골격·정의·AI 응용 | 지도 |
-| **Strang** | 보조 | Theorem·예제·연습문제 | 지도책 |
+| **Strang** | 메인 | 정의·정리·예제·연습문제 | 지도 |
+| **MML** | 보조·확장 | Vector Calculus·Probability·ML 응용 (PCA·LR·GMM·SVM) | 지도책 |
 | **3Blue1Brown** | 시각 | 사전 시청 | 위성사진 |
 | **NumPy / PyTorch** | 실습 | 매 회차 ipynb | 탐사 장비 |
 
-**왜 MML이 메인입니까?**
-- MML Ch.2~4가 LA 표준을 다루고, Ch.5~12가 곧장 ML 응용으로 갑니다 (PCA·회귀·SVM·GMM).
-- Strang은 응용이 약합니다 → 정의·예제 보조로 씁니다.
+**왜 Strang이 메인입니까?**
+- Strang Ch 1-5가 LA 표준 (Vector·Matrix·Linear equation·Subspace·Determinant)을 정의·정리 위주로 단단히 다집니다.
+- MML은 Strang에 없는 Vector Calculus·Probability·Optimization과 ML 4대 응용(LR·PCA·GMM·SVM)을 Part 2 후반에서 확장으로 씁니다.
 - EoLA는 직관·시각 잡기에 좋습니다.
 
 ---
@@ -338,8 +330,8 @@ Decomposition이 AI의 절반입니다 — 이 강의 후반부가 다 이 표 �
 
 ```
 회차 시작 24시간 전:
-  ① MML 해당 절 본문 (Definition 표시)
-  ② Strang 해당 절 본문 + 연습문제 3개
+  ① Strang 해당 절 본문 + 연습문제 3개 (메인)
+  ② MML 해당 절 본문 (참조·확장)
   ③ 3Blue1Brown EoLA 해당 편 1편
 
 회차 종료 직후:
@@ -349,10 +341,6 @@ Decomposition이 AI의 절반입니다 — 이 강의 후반부가 다 이 표 �
 ```
 
 **24시간 전·직후의 2회 노출**이 6회차 중간학습확인평가 기억 유지의 결정 변수입니다.
-
----
-
-# F. 이수 후 능력 점검표
 
 ---
 
@@ -369,7 +357,7 @@ Decomposition이 AI의 절반입니다 — 이 강의 후반부가 다 이 표 �
 
 ---
 
-## F-2. Part 2 종료 시 (13회차 후)
+## F-2. Part 2 종료 시 (18회차 후)
 
 - [ ] Eigenvalue Decomposition · SVD의 Definition·계산법을 자유롭게 사용할 수 있습니다.
 - [ ] PCA·Low-rank 근사를 SVD로 **한 줄에 구현**할 수 있습니다.
@@ -397,8 +385,6 @@ LLM 시대에 LA를 **다시 배우는 이유** — 라이브러리 호출 한 �
 # G. 시그니처 시연 — 손글씨 "7"의 평균은 어떻게 생겼을까요
 
 > 지금까지의 수학·CS 흐름이 **가장 친숙한 한 예제**에 모이는 클라이맥스입니다.
-
----
 
 ## G-1. 질문
 
@@ -456,10 +442,10 @@ plt.imshow(mean_seven, cmap='gray')
 |---|:---:|
 | 이미지를 Vector로 보기 ($\mathbb{R}^{784}$) | **1** |
 | Vector 덧셈·Scalar곱 (평균 연산) | **1** |
-| 데이터셋을 Matrix로 ($\mathbb{R}^{n\times 784}$) | **2** |
-| 평균 Vector·중심화 — 데이터의 "원점" | **8 · Part 2 8** |
-| 평균을 빼고 본 분산의 주방향 — **PCA** | **Part 2 5-6** |
-| 분류기로 확장 — 가장 가까운 평균 ⇒ 클래스 | **1·11** |
+| 데이터셋을 Matrix로 ($\mathbb{R}^{n\times 784}$) | **3** |
+| 평균 Vector·중심화 — 데이터의 "원점" | **8 · Part 2 12** |
+| 평균을 빼고 본 분산의 주방향 — **PCA** | **Part 2 12** |
+| 분류기로 확장 — 가장 가까운 평균 ⇒ 클래스 | **2·11** |
 
 가장 단순한 수학(Vector 평균) 한 줄이 **30회차 전체의 입구**입니다.
 
@@ -476,28 +462,20 @@ plt.imshow(mean_seven, cmap='gray')
 
 ---
 
-# H. 1회차 사전 reading 안내
+## H. 1회차 사전 reading 안내
 
----
+**1회차 주제**: Vector · Linear combination(선형결합) · Span(생성공간) — Strang §1.1
 
-## H-1. 1회차 주제
+> 오늘 본 평균 이미지 시연의 토대 — **Vector의 Definition·R^n·Linear combination**을 1회차에 정식 수학으로 맞춥니다.
+> **Norm·Inner product·Cosine similarity는 2회차** (Strang §1.2), Cauchy-Schwarz까지의 논리 사슬은 2회차에서 봅니다.
 
-**Vector · Linear combination(선형결합) · Norm · Inner product · Cosine similarity(코사인 유사도)**
+**1회차 시작 24시간 전까지**
 
-> 오늘 본 평균 이미지 시연의 토대 — **Vector의 Definition·Norm·Inner product**를 1회차에 수학적으로 쌓습니다.
-> 8 axioms(공리)에서 Cauchy-Schwarz까지의 논리 사슬을 한 번에 봅니다.
+- [ ] **Strang** §1.1 (Vectors and Linear Combinations) — 메인 reading
+- [ ] **3Blue1Brown EoLA** Ch.1 (Vectors), Ch.2 (Linear combinations, span, basis) — 시각 사전 시청
+- [ ] (선택) **MML** §2.1 (Vectors) — 참조·확장
 
----
-
-## H-2. 1회차 시작 24시간 전까지
-
-- [ ] **MML** §2.1 (Vectors), §3.1 (Norms), §3.2 (Inner Products)
-- [ ] **Strang** §1.1 (Vectors and Linear Combinations), §1.2 (Lengths and Dot Products)
-- [ ] **3Blue1Brown EoLA** Ch.1 (Vectors), Ch.2 (Linear combinations, span, basis)
-
----
-
-## H-3. 0회차 종료 후 권장
+**0회차 종료 후 권장**
 
 - 오늘 본 평균 이미지 시연을 `00_Introduction_평균이미지.ipynb`에서 **다른 숫자(예: 4·8)로 재실행**해보세요.
 - 어색한 부분을 1회차 강의에서 질문할 수 있도록 준비합니다.
@@ -520,7 +498,7 @@ MNIST에서 숫자 "7"인 이미지 1,000장의 평균 Vector를 $\mathbf{m}$이
 
 **(b)** 두 방법은 어떤 면에서 다릅니까? — **하나는 길이만 보고, 하나는 방향까지 본다**는 직관까지 답해보세요.
 
-→ 1회차에서 답할 두 도구: **Norm**과 **Inner product**.
+→ 1회차에서는 **Vector·Linear combination**으로 평균이 잘 정의되는지를 먼저 단단히 합니다. 두 도구 **Norm**과 **Inner product**는 2회차에서 정식으로 답합니다.
 
 ---
 
