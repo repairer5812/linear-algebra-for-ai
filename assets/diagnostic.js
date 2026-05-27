@@ -17,125 +17,129 @@ const AXIS_NAMES = [
 
 // 20 questions. axis: 1-6. answer: 'a'|'b'|'c'|'d'.
 const QUESTIONS = [
+  // 축 1: 벡터·내적공간 (Q1-Q3)
   {
     n: 1, axis: 1, level: "입문",
-    text: "두 벡터 $\\mathbf{u}, \\mathbf{v} \\in \\mathbb{R}^n$의 내적(inner product) $\\mathbf{u} \\cdot \\mathbf{v}$의 정의로 옳은 것은?",
+    text: "두 벡터 $\\mathbf{u}, \\mathbf{v} \\in \\mathbb{R}^n$의 내적(inner product)이 $\\mathbf{u} \\cdot \\mathbf{v} = \\|\\mathbf{u}\\|\\,\\|\\mathbf{v}\\|\\cos\\theta$로 주어질 때, 두 벡터가 <strong>직교(orthogonal)</strong>일 필요충분조건은?",
     options: {
-      a: "$\\sum_{i=1}^{n} (u_i + v_i)$",
-      b: "$\\sum_{i=1}^{n} u_i v_i$",
-      c: "$\\prod_{i=1}^{n} u_i v_i$",
-      d: "$\\sum_{i=1}^{n} (u_i - v_i)^2$"
-    },
-    answer: "b"
-  },
-  {
-    n: 2, axis: 1, level: "입문",
-    text: "두 벡터 $\\mathbf{u}, \\mathbf{v}$가 직교일 필요충분조건은?",
-    options: {
-      a: "$\\|\\mathbf{u}\\| = \\|\\mathbf{v}\\|$",
-      b: "$\\mathbf{u} = \\mathbf{v}$",
-      c: "$\\mathbf{u} + \\mathbf{v} = \\mathbf{0}$",
-      d: "$\\mathbf{u} \\cdot \\mathbf{v} = 0$"
+      a: "$\\|\\mathbf{u}\\| = \\|\\mathbf{v}\\|$ (노름이 같음)",
+      b: "$\\mathbf{u} + \\mathbf{v} = \\mathbf{0}$ (합이 영벡터)",
+      c: "$\\mathbf{u} \\cdot \\mathbf{v} = \\|\\mathbf{u}\\|\\,\\|\\mathbf{v}\\|$ (내적이 최대)",
+      d: "$\\mathbf{u} \\cdot \\mathbf{v} = 0$ (내적이 0)"
     },
     answer: "d"
   },
   {
-    n: 3, axis: 1, level: "학부",
-    text: "벡터 $\\mathbf{v}_1, \\mathbf{v}_2, \\dots, \\mathbf{v}_k$의 span (생성공간) $\\mathrm{span}\\{\\mathbf{v}_1, \\dots, \\mathbf{v}_k\\}$의 정의는?",
+    n: 2, axis: 1, level: "학부",
+    text: "임의의 $\\mathbf{u}, \\mathbf{v} \\in \\mathbb{R}^n$에 대해 항상 성립하는 <strong>코시-슈바르츠 부등식(Cauchy-Schwarz inequality)</strong>은?",
     options: {
-      a: "그 벡터들의 집합 $\\{\\mathbf{v}_1, \\dots, \\mathbf{v}_k\\}$ 자체",
-      b: "그 벡터들의 노름의 곱",
-      c: "그 벡터들의 모든 가능한 일차결합(linear combination)의 집합",
-      d: "그 벡터들 사이의 모든 내적 값의 집합"
-    },
-    answer: "c"
-  },
-  {
-    n: 4, axis: 2, level: "입문",
-    text: "$A = \\begin{pmatrix}1 & 2 \\\\ 3 & 4\\end{pmatrix}, \\mathbf{x} = \\begin{pmatrix}1 \\\\ 1\\end{pmatrix}$ 일 때 $A\\mathbf{x}$는?",
-    options: {
-      a: "$(3, 7)^\\top$",
-      b: "$(3, 4)^\\top$",
-      c: "$(4, 6)^\\top$",
-      d: "$(1, 4)^\\top$"
+      a: "$|\\mathbf{u} \\cdot \\mathbf{v}| \\le \\|\\mathbf{u}\\|\\,\\|\\mathbf{v}\\|$",
+      b: "$|\\mathbf{u} \\cdot \\mathbf{v}| \\ge \\|\\mathbf{u}\\|\\,\\|\\mathbf{v}\\|$",
+      c: "$\\|\\mathbf{u} + \\mathbf{v}\\| \\ge \\|\\mathbf{u}\\| + \\|\\mathbf{v}\\|$",
+      d: "$\\mathbf{u} \\cdot \\mathbf{v} \\le \\|\\mathbf{u}\\| + \\|\\mathbf{v}\\|$"
     },
     answer: "a"
   },
   {
-    n: 5, axis: 2, level: "입문",
-    text: "행렬 곱에 대해 항상 성립하지 않는 것은?",
+    n: 3, axis: 1, level: "응용",
+    text: "임베딩(embedding) 벡터 $\\mathbf{a}, \\mathbf{b}$의 <strong>코사인 유사도(cosine similarity)</strong>를 정확히 나타내는 식은?",
     options: {
-      a: "$(AB)C = A(BC)$",
-      b: "$AB = BA$",
-      c: "$A(B+C) = AB + AC$",
-      d: "$(AB)^\\top = B^\\top A^\\top$"
+      a: "$\\mathbf{a} \\cdot \\mathbf{b}$ (내적 그 자체)",
+      b: "$\\dfrac{\\mathbf{a} \\cdot \\mathbf{b}}{\\|\\mathbf{a}\\|\\,\\|\\mathbf{b}\\|}$",
+      c: "$\\|\\mathbf{a} - \\mathbf{b}\\|$ (유클리드 거리)",
+      d: "$\\dfrac{\\|\\mathbf{a}\\|\\,\\|\\mathbf{b}\\|}{\\mathbf{a} \\cdot \\mathbf{b}}$"
     },
     answer: "b"
   },
+
+  // 축 2: 선형방정식·행렬 (Q4-Q7)
   {
-    n: 6, axis: 2, level: "학부",
-    text: "선형방정식 $A\\mathbf{x} = \\mathbf{b}$가 해를 가질 <strong>필요충분조건</strong>은? ($A \\in \\mathbb{R}^{m \\times n}$)",
+    n: 4, axis: 2, level: "입문",
+    text: "$A = \\begin{pmatrix}2 & 1 \\\\ 0 & 3\\end{pmatrix}, \\ \\mathbf{x} = \\begin{pmatrix}1 \\\\ 2\\end{pmatrix}$ 일 때 $A\\mathbf{x}$는?",
     options: {
-      a: "$A$가 정방행렬",
-      b: "$A$가 가역(invertible)",
-      c: "$\\mathbf{b}$가 $A$의 열공간 $C(A)$에 속함",
-      d: "$\\mathbf{b}$가 $A$의 영공간 $N(A)$에 속함"
+      a: "$(2, 6)^\\top$",
+      b: "$(3, 5)^\\top$",
+      c: "$(4, 6)^\\top$",
+      d: "$(4, 5)^\\top$"
     },
     answer: "c"
   },
   {
-    n: 7, axis: 2, level: "학부",
-    text: "정방행렬 $A \\in \\mathbb{R}^{n \\times n}$가 가역(invertible)일 필요충분조건이 <strong>아닌</strong> 것은?",
+    n: 5, axis: 2, level: "학부",
+    text: "정방행렬에 대해 항상 성립하는 등식은? (단, $A, B$는 곱이 정의되는 임의의 행렬)",
     options: {
-      a: "$\\det(A) \\ne 0$",
-      b: "$A\\mathbf{x} = \\mathbf{0}$의 유일한 해가 $\\mathbf{x} = \\mathbf{0}$",
-      c: "$A$의 RREF(기약 행 사다리꼴)가 단위행렬 $I$",
-      d: "$A$의 한 행이 다른 행들의 일차결합으로 표현됨"
+      a: "$AB = BA$ (교환법칙)",
+      b: "$(A + B)^2 = A^2 + 2AB + B^2$",
+      c: "$(AB)^{-1} = A^{-1} B^{-1}$ (둘 다 가역일 때)",
+      d: "$(AB)^\\top = B^\\top A^\\top$"
     },
     answer: "d"
   },
   {
-    n: 8, axis: 3, level: "입문",
-    text: "$\\mathbb{R}^3$의 부분공간이 <strong>될 수 없는</strong> 집합은?",
+    n: 6, axis: 2, level: "학부",
+    text: "$A \\in \\mathbb{R}^{m \\times n}$인 선형방정식 $A\\mathbf{x} = \\mathbf{b}$가 <strong>무한히 많은 해</strong>를 가지려면? (해가 존재한다고 가정)",
     options: {
-      a: "$\\{(x, y, z) : x + y + z = 0\\}$",
-      b: "$\\{(x, y, z) : x + y + z = 1\\}$",
-      c: "$\\{(x, y, 0) : x, y \\in \\mathbb{R}\\}$",
-      d: "$\\{(0, 0, 0)\\}$"
+      a: "$A$가 정방행렬이면 충분하다",
+      b: "$\\mathrm{rank}(A) = m$ (행이 가득 찬 계수)",
+      c: "$\\det(A) \\neq 0$",
+      d: "$\\mathrm{rank}(A) < n$ (자유변수가 존재, 즉 영공간이 자명하지 않음)"
     },
-    answer: "b"
+    answer: "d"
+  },
+  {
+    n: 7, axis: 2, level: "응용",
+    text: "정방행렬 $A \\in \\mathbb{R}^{n \\times n}$가 <strong>가역(invertible)</strong>일 필요충분조건이 <strong>아닌</strong> 것은?",
+    options: {
+      a: "$\\det(A) \\ne 0$",
+      b: "$A$의 $n$개 열이 일차독립",
+      c: "$A$가 대칭(symmetric)이다 ($A = A^\\top$)",
+      d: "$A\\mathbf{x} = \\mathbf{0}$의 유일한 해가 $\\mathbf{x} = \\mathbf{0}$"
+    },
+    answer: "c"
+  },
+
+  // 축 3: 벡터공간·부분공간 (Q8-Q11)
+  {
+    n: 8, axis: 3, level: "입문",
+    text: "$\\mathbb{R}^3$의 <strong>부분공간(subspace)</strong>이 되는 집합은?",
+    options: {
+      a: "$\\{(x, y, z) : x + y + z = 1\\}$",
+      b: "$\\{(x, y, z) : x \\ge 0\\}$ (반공간)",
+      c: "$\\{(x, y, z) : z = x + y\\}$ (원점을 지나는 평면)",
+      d: "단위구 $\\{(x, y, z) : x^2 + y^2 + z^2 = 1\\}$"
+    },
+    answer: "c"
   },
   {
     n: 9, axis: 3, level: "학부",
-    text: "$A \\in \\mathbb{R}^{m \\times n}$, $\\mathrm{rank}(A) = r$일 때 영공간 $N(A)$의 차원은?",
+    text: "$A \\in \\mathbb{R}^{m \\times n}$, $\\mathrm{rank}(A) = r$일 때 <strong>차원 정리(rank-nullity theorem)</strong>가 주는 영공간 $N(A)$의 차원은?",
     options: {
       a: "$n - r$",
-      b: "$m - r$",
-      c: "$r$",
+      b: "$r$",
+      c: "$m - r$",
       d: "$\\min(m, n) - r$"
     },
     answer: "a"
   },
   {
     n: 10, axis: 3, level: "학부",
-    text: "벡터 $\\mathbf{v}_1, \\mathbf{v}_2, \\dots, \\mathbf{v}_k \\in \\mathbb{R}^n$이 <strong>일차독립(linearly independent)</strong>일 필요충분조건은?",
+    text: "벡터 $\\mathbf{v}_1, \\dots, \\mathbf{v}_k \\in \\mathbb{R}^n$가 부분공간 $V$의 <strong>기저(basis)</strong>가 되기 위한 조건은?",
     options: {
-      a: "모든 $\\mathbf{v}_i$가 단위벡터",
-      b: "모든 $\\mathbf{v}_i$가 서로 직교",
-      c: "$c_1\\mathbf{v}_1 + c_2\\mathbf{v}_2 + \\dots + c_k\\mathbf{v}_k = \\mathbf{0}$의 유일한 해가 $c_1 = c_2 = \\dots = c_k = 0$",
-      d: "모든 $\\mathbf{v}_i$의 노름이 같음"
+      a: "$V$를 생성(span)하기만 하면 된다",
+      b: "일차독립이기만 하면 된다",
+      c: "$V$를 생성하면서 동시에 일차독립이어야 한다",
+      d: "모두 서로 직교(orthogonal)하면서 단위벡터여야 한다"
     },
     answer: "c"
   },
-  // 축 3: 벡터공간·부분공간 (Q11 신규 — 4 기본 부분공간 직교성)
   {
     n: 11, axis: 3, level: "응용",
-    text: "$A \\in \\mathbb{R}^{m \\times n}$의 4 기본 부분공간 중 <strong>항상 직교</strong>하는 두 공간 쌍은? (Strang의 선형대수 기본정리)",
+    text: "$A \\in \\mathbb{R}^{m \\times n}$의 4대 기본 부분공간 중, 선형대수 기본정리에 의해 $\\mathbb{R}^n$ 안에서 <strong>서로 직교 여공간(orthogonal complement)</strong>을 이루는 쌍은?",
     options: {
-      a: "$C(A) \\perp C(A^\\top)$ (열공간 ⊥ 행공간)",
-      b: "$C(A) \\perp N(A)$ (열공간 ⊥ 영공간)",
-      c: "$N(A) \\perp N(A^\\top)$ (영공간 ⊥ 좌영공간)",
-      d: "$C(A^\\top) \\perp N(A)$ (행공간 ⊥ 영공간)"
+      a: "열공간 $C(A)$ 와 행공간 $C(A^\\top)$",
+      b: "열공간 $C(A)$ 와 좌영공간 $N(A^\\top)$",
+      c: "영공간 $N(A)$ 와 좌영공간 $N(A^\\top)$",
+      d: "행공간 $C(A^\\top)$ 와 영공간 $N(A)$"
     },
     answer: "d"
   },
@@ -143,99 +147,104 @@ const QUESTIONS = [
   // 축 4: 직교성·정사영 (Q12-Q14)
   {
     n: 12, axis: 4, level: "입문",
-    text: "벡터 $\\mathbf{b}$를 부분공간 $C(A)$ 위로 정사영(orthogonal projection)한 결과를 $\\mathbf{p}$라 할 때, 잔차 $\\mathbf{e} = \\mathbf{b} - \\mathbf{p}$의 핵심 성질은?",
+    text: "벡터 $\\mathbf{b}$를 부분공간 $C(A)$ 위로 정사영(orthogonal projection)한 결과 $\\mathbf{p}$에 대해, 잔차 $\\mathbf{e} = \\mathbf{b} - \\mathbf{p}$가 가지는 핵심 성질은?",
     options: {
-      a: "$\\mathbf{e}$의 노름이 1",
-      b: "$\\mathbf{e}$가 $\\mathbf{b}$와 평행",
-      c: "$\\mathbf{e}$가 $C(A)$ 안의 어떤 벡터",
-      d: "$\\mathbf{e}$가 $C(A)$와 직교 ($A^\\top \\mathbf{e} = \\mathbf{0}$)"
-    },
-    answer: "d"
-  },
-  {
-    n: 13, axis: 4, level: "학부",
-    text: "최소제곱(least squares)법의 정규방정식(normal equation)은?",
-    options: {
-      a: "$A^\\top A \\hat{\\mathbf{x}} = A^\\top \\mathbf{b}$",
-      b: "$A \\hat{\\mathbf{x}} = \\mathbf{b}$",
-      c: "$AA^\\top \\hat{\\mathbf{x}} = \\mathbf{b}$",
-      d: "$\\hat{\\mathbf{x}} = A^{-1} \\mathbf{b}$"
+      a: "$\\mathbf{e}$가 $C(A)$와 직교한다 ($A^\\top \\mathbf{e} = \\mathbf{0}$)",
+      b: "$\\mathbf{e}$가 $C(A)$ 안에 들어 있다",
+      c: "$\\mathbf{e}$의 노름이 항상 1이다",
+      d: "$\\mathbf{e}$가 $\\mathbf{b}$와 평행하다"
     },
     answer: "a"
   },
   {
-    n: 14, axis: 4, level: "응용",
-    text: "<strong>Gram-Schmidt 직교화</strong>에서 새 기저 벡터 $\\mathbf{q}_2'$ (정규화 전)를 $\\mathbf{a}_2$로부터 만드는 식은? ($\\mathbf{q}_1$은 이미 단위벡터)",
+    n: 13, axis: 4, level: "학부",
+    text: "열이 일차독립인 $A$에 대해, $\\mathbf{b}$를 열공간 $C(A)$로 정사영하는 <strong>정사영 행렬(projection matrix)</strong> $P$ ($\\mathbf{p} = P\\mathbf{b}$)는?",
     options: {
-      a: "$\\mathbf{q}_2' = \\mathbf{a}_2$",
-      b: "$\\mathbf{q}_2' = \\mathbf{a}_2 + (\\mathbf{q}_1^\\top \\mathbf{a}_2) \\, \\mathbf{q}_1$",
-      c: "$\\mathbf{q}_2' = \\mathbf{a}_2 - (\\mathbf{q}_1^\\top \\mathbf{a}_2) \\, \\mathbf{q}_1$",
-      d: "$\\mathbf{q}_2' = \\mathbf{a}_2 \\times \\mathbf{q}_1$ (외적)"
+      a: "$P = A A^\\top$",
+      b: "$P = A (A^\\top A)^{-1} A^\\top$",
+      c: "$P = (A^\\top A)^{-1}$",
+      d: "$P = A^\\top (A A^\\top)^{-1} A$"
     },
-    answer: "c"
+    answer: "b"
+  },
+  {
+    n: 14, axis: 4, level: "응용",
+    text: "$Q$가 <strong>직교 행렬(orthogonal matrix, $Q^\\top Q = I$)</strong>일 때, 임의의 벡터 $\\mathbf{x}$에 대해 항상 성립하는 것은? (회전 행렬 등이 노름을 보존하는 이유)",
+    options: {
+      a: "$\\|Q\\mathbf{x}\\| = \\|\\mathbf{x}\\|$ (노름 보존)",
+      b: "$\\|Q\\mathbf{x}\\| = \\det(Q)\\,\\|\\mathbf{x}\\|$",
+      c: "$Q\\mathbf{x} = \\mathbf{x}$ (모든 벡터를 고정)",
+      d: "$\\|Q\\mathbf{x}\\| = 0$"
+    },
+    answer: "a"
   },
 
   // 축 5: 행렬식·고윳값 (Q15-Q17)
   {
     n: 15, axis: 5, level: "입문",
-    text: "$A\\mathbf{v} = \\lambda\\mathbf{v}, \\mathbf{v} \\neq \\mathbf{0}$의 정의에서 $\\lambda$를 무엇이라 부르는가?",
-    options: { a: "고윳값", b: "특잇값", c: "행렬식", d: "대각합" },
-    answer: "a"
+    text: "$A = \\begin{pmatrix}3 & 1 \\\\ 2 & 4\\end{pmatrix}$의 행렬식 $\\det(A)$는?",
+    options: {
+      a: "$7$",
+      b: "$14$",
+      c: "$10$",
+      d: "$2$"
+    },
+    answer: "c"
   },
   {
     n: 16, axis: 5, level: "학부",
-    text: "정방행렬 $A \\in \\mathbb{R}^{n \\times n}$의 <strong>모든 고윳값의 합</strong>은 어떤 양과 같은가?",
+    text: "정방행렬 $A \\in \\mathbb{R}^{n \\times n}$의 고윳값을 $\\lambda_1, \\dots, \\lambda_n$이라 할 때 항상 옳은 것은?",
     options: {
-      a: "$\\det(A)$",
-      b: "$\\mathrm{trace}(A) = \\sum_{i=1}^{n} a_{ii}$ (대각 성분의 합)",
-      c: "$\\mathrm{rank}(A)$",
-      d: "$\\|A\\|_F$ (Frobenius 노름)"
+      a: "$\\sum_i \\lambda_i = \\det(A)$ 이고 $\\prod_i \\lambda_i = \\mathrm{trace}(A)$",
+      b: "$\\sum_i \\lambda_i = \\mathrm{trace}(A)$ 이고 $\\prod_i \\lambda_i = \\det(A)$",
+      c: "$\\sum_i \\lambda_i = \\mathrm{rank}(A)$",
+      d: "모든 $\\lambda_i$가 항상 실수이다"
     },
     answer: "b"
   },
   {
     n: 17, axis: 5, level: "응용",
-    text: "실대칭(symmetric) 행렬 $A = A^\\top$에 대한 <strong>스펙트럼 정리(spectral theorem)</strong>의 진술로 옳은 것은?",
+    text: "PCA(주성분 분석)에서 데이터의 <strong>주성분 방향</strong>은 무엇으로 주어지는가? (데이터는 중심화되어 있고 공분산 행렬은 $\\Sigma = A = A^\\top$)",
     options: {
-      a: "모든 고윳값이 실수이고, 직교 대각화 가능 ($A = Q\\Lambda Q^\\top$, $Q$ 직교)",
-      b: "모든 고윳값이 양수이고, $A$는 항상 가역",
-      c: "$A$는 항상 단위행렬과 닮음(similar)",
-      d: "$\\det(A) = \\mathrm{trace}(A)$"
+      a: "공분산 행렬의 영공간 기저",
+      b: "공분산 행렬의 행렬식이 가리키는 방향",
+      c: "공분산 행렬의 대각합(trace)이 가리키는 방향",
+      d: "공분산 행렬의 고유벡터 (스펙트럼 정리에 의한 직교 고유벡터)"
     },
-    answer: "a"
+    answer: "d"
   },
 
   // 축 6: SVD·선형변환 (Q18-Q20)
   {
     n: 18, axis: 6, level: "입문",
-    text: "SVD $A = U\\Sigma V^\\top$에서 $A \\in \\mathbb{R}^{m\\times n}$일 때 $U$, $V$의 차원(full SVD)은?",
+    text: "full SVD $A = U\\Sigma V^\\top$ ($A \\in \\mathbb{R}^{m\\times n}$)에서 $U$와 $V$의 공통된 성질은?",
     options: {
-      a: "$U \\in \\mathbb{R}^{n\\times n}, V \\in \\mathbb{R}^{m\\times m}$",
-      b: "$U \\in \\mathbb{R}^{m\\times n}, V \\in \\mathbb{R}^{n\\times m}$",
-      c: "$U \\in \\mathbb{R}^{n\\times m}, V \\in \\mathbb{R}^{m\\times n}$",
-      d: "$U \\in \\mathbb{R}^{m\\times m}, V \\in \\mathbb{R}^{n\\times n}$"
+      a: "둘 다 대각 행렬(diagonal)이다",
+      b: "둘 다 직교 행렬(orthogonal)이다 ($U^\\top U = I, \\ V^\\top V = I$)",
+      c: "둘 다 같은 크기의 정방행렬이다",
+      d: "둘 다 음이 아닌 성분만 가진다"
     },
-    answer: "d"
+    answer: "b"
   },
   {
     n: 19, axis: 6, level: "학부",
-    text: "Eckart-Young 정리: 행렬 $A$의 rank-$k$ 근사 중 Frobenius 노름 의미에서 <strong>최적</strong>인 것은?",
+    text: "<strong>Eckart-Young 정리</strong>: 행렬 $A$를 rank $k$로 근사할 때 Frobenius(또는 스펙트럼) 노름 의미에서 오차를 최소로 하는 근사 $A_k$는?",
     options: {
-      a: "$A$의 RREF의 상위 $k$ 행으로 만든 행렬",
-      b: "임의의 직교 행렬",
-      c: "SVD 상위 $k$ 항만 남긴 $A_k = \\sum_{i=1}^{k} \\sigma_i \\mathbf{u}_i \\mathbf{v}_i^\\top$",
-      d: "$A$의 처음 $k$개 행과 열만 남긴 부분행렬"
+      a: "SVD에서 큰 특잇값 상위 $k$개만 남긴 $A_k = \\sum_{i=1}^{k} \\sigma_i \\mathbf{u}_i \\mathbf{v}_i^\\top$",
+      b: "$A$의 처음 $k$개 행과 열만 잘라낸 부분행렬",
+      c: "$A$의 RREF에서 추축(pivot) $k$개에 해당하는 행",
+      d: "$A$의 고윳값 중 가장 작은 $k$개로 만든 행렬"
     },
-    answer: "c"
+    answer: "a"
   },
   {
     n: 20, axis: 6, level: "응용",
-    text: "두 정방행렬 $A, B$가 <strong>닮음(similar)</strong>이라는 것의 정의는?",
+    text: "LoRA(Low-Rank Adaptation)는 가중치 갱신량 $\\Delta W \\in \\mathbb{R}^{d \\times d}$를 $\\Delta W = BA$ ($B \\in \\mathbb{R}^{d \\times r}, \\ A \\in \\mathbb{R}^{r \\times d}, \\ r \\ll d$)로 표현한다. 이 곱 $BA$의 rank에 대해 항상 옳은 것은?",
     options: {
-      a: "$A = B$",
-      b: "어떤 가역 행렬 $P$가 존재하여 $A = P^{-1} B P$ (같은 고윳값을 가짐)",
-      c: "어떤 직교 행렬 $Q$가 존재하여 $A = Q^\\top B Q$ (대각화)",
-      d: "$\\det(A) = \\det(B)$"
+      a: "$\\mathrm{rank}(BA) = d$ (항상 가득 찬 계수)",
+      b: "$\\mathrm{rank}(BA) \\le r$ (저계수, low-rank)",
+      c: "$\\mathrm{rank}(BA) = 2r$",
+      d: "$\\mathrm{rank}(BA)$는 항상 0이다"
     },
     answer: "b"
   }
