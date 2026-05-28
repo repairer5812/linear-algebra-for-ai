@@ -35,7 +35,7 @@ style: |
 
 ## 0회차 · Introduction
 
-SW·AI 융합대학원 · Part 1 + Part 2 (총 32회차)
+SW·AI 융합대학원 · Part 1·2·3 (총 32회차)
 메인 교재: Strang, *Introduction to Linear Algebra* · 보조: MML (Deisenroth et al.) · 시각: 3Blue1Brown EoLA
 
 ---
@@ -59,7 +59,7 @@ SW·AI 융합대학원 · Part 1 + Part 2 (총 32회차)
 이 한 질문에 32회차에 걸쳐 답합니다.
 
 - **오늘의 부분 답**: 가장 단순한 정의(Vector(벡터)의 평균) 한 줄이 **MNIST 숫자 분류**까지 곧장 이어집니다 (G 시그니처).
-- **학기 전체의 답**: $\mathrm{softmax}(QK^\top/\sqrt{d_k})V$ — Transformer Attention(어텐션) 한 줄을 LA 객체로 완전 분해합니다 (Part 2 17회차).
+- **학기 전체의 답**: $\mathrm{softmax}(QK^\top/\sqrt{d_k})V$ — Transformer Attention(어텐션) 한 줄을 LA 객체로 완전 분해합니다 (Part 3 7회차).
 
 매 회차 첫 슬라이드에 그날의 핵심 질문이 있습니다. 강의 중 길을 잃으면 이 한 질문으로 돌아옵니다.
 
@@ -85,7 +85,7 @@ SW·AI 융합대학원 · Part 1 + Part 2 (총 32회차)
 
 ## A-1. 교과 정보
 
-- **과목명**: Linear Algebra Part 1 (13회차) / Part 2 (19회차)
+- **과목명**: Linear Algebra Part 1 (13회차) / Part 2 (10회차) / Part 3 (9회차)
 - **대상**: SW·AI 융합대학원 1학년 · **학부 LA 미이수 학생** 표준
 - **운영**: 총 32회차
 - **메인 교재**: Gilbert Strang, *Introduction to Linear Algebra* (6th ed.)
@@ -101,7 +101,7 @@ SW·AI 융합대학원 · Part 1 + Part 2 (총 32회차)
 | 출석 | 10% | 0회차는 산정 X |
 | 과제 | 20% | 매 회차 수학 + Jupyter |
 | 중간학습확인평가 | 30% | 6회차, 지필 |
-| 종합학습확인평가 | 40% | Part 1: 지필 60% + 실기 40% · Part 2: 지필 + Case Study |
+| 종합학습확인평가 | 40% | Part 1: 지필 60% + 실기 40% · Part 2·3: 지필 + Case Study |
 
 > 비고: 대학원생 자체 강의이므로 정식 시험이 아닌 학습 확인 목적의 평가다.
 
@@ -117,7 +117,7 @@ SW·AI 융합대학원 · Part 1 + Part 2 (총 32회차)
 - Python · NumPy 사용 가능
 - PyTorch는 처음이어도 학습 의지
 
-학부 LA 미이수 학생을 표준으로 한 강의입니다 — Part 1 전반부에서 Definition·Theorem(정리)을 천천히 다지고 Part 2에서 응용으로 가속합니다.
+학부 LA 미이수 학생을 표준으로 한 강의입니다 — Part 1 전반부에서 Definition·Theorem(정리)을 천천히 다지고 Part 2·3에서 응용으로 가속합니다.
 
 ---
 
@@ -215,10 +215,10 @@ $$f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0) + J(\mathbf{x}_0)\,\mathb
 | 2 | **Linear equation(선형방정식)** $A\mathbf{x}=\mathbf{b}$ | 연산의 의미 | 4·5 |
 | 3 | **Space(공간)** | Subspace · Basis(기저) · Dimension | 7·8·9 |
 | 4 | **Orthogonality(직교성) · Projection(정사영)** | 거리·각도의 분해 | 10·11 |
-| 5 | **Decomposition** | Determinant(행렬식) · Eigenvalue(고윳값) · SVD | 12·Part 2 전체 |
+| 5 | **Decomposition** | Determinant(행렬식) · Eigenvalue(고윳값) · SVD | 12·Part 2·3 전체 |
 
 **Part 1**: 1~4번 줄기를 단단히 다집니다.
-**Part 2**: 5번 줄기 + AI 응용으로 나아갑니다.
+**Part 2·3**: 5번 줄기 + AI 응용으로 나아갑니다.
 
 ---
 
@@ -238,7 +238,7 @@ $$f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0) + J(\mathbf{x}_0)\,\mathb
 
 ---
 
-## C-4. Part 2 흐름 — 분해와 응용
+## C-4. Part 2 흐름 — 분해와 수학 도구
 
 | 회차 | 주제 | 단계 |
 |:---:|---|:---:|
@@ -249,13 +249,21 @@ $$f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0) + J(\mathbf{x}_0)\,\mathb
 | 7-8 | Vector Calculus (Jacobian · Hessian · Newton) (MML Ch 5) | ④ 신경망 미분 |
 | 9 | Probability · MLE · KL divergence · Cross entropy (MML Ch 6 + 8.2) | ④ LLM·RLHF·VAE 수학 |
 | 10 | Continuous Optimization (Convex · Lagrange · KKT) (MML Ch 7) | ④ 옵티마이저·정규화 |
-| 11 | Linear Regression (MML Ch 8) | ⑤ ML 응용 |
-| 12 | PCA 깊이 (MML Ch 9) | ⑤ |
-| 13 | Gaussian Mixture Models · EM (MML Ch 10) | ⑤ |
-| 14-15 | SVM · Kernel methods (MML Ch 11) | ⑤ |
-| 16 | CNN · Conv = Toeplitz 환원 (자체 교안) | ④ 모델 분해 |
-| 17 | Attention · Multi-head Kronecker (자체 교안) | ④ 모델 분해 |
-| 18 | **종합학습확인평가** + Case Study 발표 | — |
+
+---
+
+## C-5. Part 3 흐름 — AI 응용과 모델 분해
+
+| 회차 | 주제 | 단계 |
+|:---:|---|:---:|
+| 1 | Linear Regression (MML Ch 9) | ⑤ ML 응용 |
+| 2 | PCA 깊이 (MML Ch 10) | ⑤ |
+| 3 | Gaussian Mixture Models · EM (MML Ch 11) | ⑤ |
+| 4-5 | SVM · Kernel methods (MML Ch 12) | ⑤ |
+| 6 | CNN · Conv = Toeplitz 환원 (자체 교안) | ④ 모델 분해 |
+| 7 | Attention 분해 · Multi-head (자체 교안) | ④ 모델 분해 |
+| 8 | Equivariance · Kronecker — 현대 아키텍처 LA 설계 원리 (자체 교안) | ④ 설계 원리 |
+| 9 | **종합학습확인평가** + Case Study 발표 | — |
 
 **핵심 명제**: 어떤 Matrix도 **SVD로 회전·신축·회전으로 분해**됩니다. 그 위에 미분·확률·최적화 도구를 쌓아 **임의 AI 모듈을 선형대수 객체로 환원**할 수 있습니다.
 
@@ -287,7 +295,7 @@ Transformer 한 블록의 입력 → 출력 흐름:
 |---|---|---|:---:|
 | **입력** | $\mathbf{x} \in \mathbb{R}^d$ | Vector | 1 |
 | **Embedding(임베딩)** | $E\mathbf{x}$ | Matrix·Vector 곱 | 3 |
-| **Attention** | $\mathrm{softmax}\!\left(\frac{QK^\top}{\sqrt{d}}\right)V$ | 모든 쌍의 Inner product | 2 · Part 2 17 |
+| **Attention** | $\mathrm{softmax}\!\left(\frac{QK^\top}{\sqrt{d}}\right)V$ | 모든 쌍의 Inner product | 2 · Part 3 7 |
 | **FFN** | $W_2\,\mathrm{ReLU}(W_1\mathbf{x}+\mathbf{b}_1)+\mathbf{b}_2$ | affine 변환 | 7 |
 | **출력** | $\mathrm{softmax}(\cdots)$ | 확률 Vector | — |
 
@@ -321,7 +329,7 @@ Decomposition이 AI의 절반입니다 — 이 강의 후반부가 다 이 표 �
 
 **왜 Strang이 메인입니까?**
 - Strang Ch 1-5가 LA 표준 (Vector·Matrix·Linear equation·Subspace·Determinant)을 정의·정리 위주로 단단히 다집니다.
-- MML은 Strang에 없는 Vector Calculus·Probability·Optimization과 ML 4대 응용(LR·PCA·GMM·SVM)을 Part 2 후반에서 확장으로 씁니다.
+- MML은 Strang에 없는 Vector Calculus·Probability·Optimization과 ML 4대 응용(LR·PCA·GMM·SVM)을 Part 2·3 후반에서 확장으로 씁니다.
 - EoLA는 직관·시각 잡기에 좋습니다.
 
 ---
@@ -357,18 +365,21 @@ Decomposition이 AI의 절반입니다 — 이 강의 후반부가 다 이 표 �
 
 ---
 
-## F-2. Part 2 종료 시 (19회차 후)
+## F-2. Part 2 종료 시 (10회차 후)
 
 - [ ] Eigenvalue Decomposition · SVD의 Definition·계산법을 자유롭게 사용할 수 있습니다.
 - [ ] PCA·Low-rank 근사를 SVD로 **한 줄에 구현**할 수 있습니다.
 - [ ] Jacobian·Hessian으로 신경망 한 층의 미분을 분해할 수 있습니다.
+
+## F-3. Part 3 종료 시 (9회차 후)
+
 - [ ] CNN convolution을 Toeplitz matrix로 환원할 수 있습니다.
 - [ ] **Attention $\mathrm{softmax}(QK^\top/\sqrt{d_k})V$를 LA 객체로 분해**할 수 있습니다.
 - [ ] 임의의 AI 모델 한 부분을 골라 LA 분해 보고서를 작성할 수 있습니다 (Case Study).
 
 ---
 
-## F-3. 시그니처 능력 — "수학 → 코드 → 분해 보고"
+## F-4. 시그니처 능력 — "수학 → 코드 → 분해 보고"
 
 | 단계 | 내용 |
 |:---:|---|
@@ -443,8 +454,8 @@ plt.imshow(mean_seven, cmap='gray')
 | 이미지를 Vector로 보기 ($\mathbb{R}^{784}$) | **1** |
 | Vector 덧셈·Scalar곱 (평균 연산) | **1** |
 | 데이터셋을 Matrix로 ($\mathbb{R}^{n\times 784}$) | **3** |
-| 평균 Vector·중심화 — 데이터의 "원점" | **8 · Part 2 12** |
-| 평균을 빼고 본 분산의 주방향 — **PCA** | **Part 2 12** |
+| 평균 Vector·중심화 — 데이터의 "원점" | **8 · Part 3 2** |
+| 평균을 빼고 본 분산의 주방향 — **PCA** | **Part 3 2** |
 | 분류기로 확장 — 가장 가까운 평균 ⇒ 클래스 | **2·11** |
 
 가장 단순한 수학(Vector 평균) 한 줄이 **32회차 전체의 입구**입니다.
