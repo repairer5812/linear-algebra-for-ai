@@ -100,9 +100,12 @@ SW·AI 융합대학원 · Part 1·2·3 (총 30회차)
 |---|---|
 | 출석 | 자율 (대학원생 자체 강의) |
 | 과제 | 매 회차 수학 문제, Jupyter 노트북 |
+| **코딩 실습 (Google Colab)** | **매 회차 필수 X. 회차별 학습 가치에 따라 1-2개 또는 그 이상으로 운영. 필요 없으면 수학 정리·풀이로 마무리** |
 | 종합 문제 풀기 | Part 1 12회차·Part 2 9회차·Part 3 9회차 마지막에 학습 도구로 운영 |
 
 > 대학원생 자체 강의이므로 정식 시험·평가는 없습니다. "종합 문제 풀기"는 각 Part 종료 시 학습 정리를 위한 도구입니다.
+>
+> Colab 노트북은 회차별 `11_주피터노트북/`에 모두 준비되어 있되, 강의 시간 중 실행할지 여부는 회차마다 판단합니다. 시간 부족 또는 수학 내용의 깊이가 더 중요한 회차는 코딩 없이 정리·풀이로 마칠 수 있습니다.
 
 학부 LA 이수자는 Part 1 전반부를 빠르게 통과하고 응용 부분에 집중합니다 (별도 안내).
 
@@ -211,8 +214,8 @@ $$f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0) + J(\mathbf{x}_0)\,\mathb
 | 줄기 | 주제 | 의미 | 회차 |
 |:---:|---|---|---|
 | 1 | **Vector · Matrix** | 객체의 정의 | 1·3 |
-| 2 | **Linear equation(선형방정식)** $A\mathbf{x}=\mathbf{b}$ | 연산의 의미 | 4·5 |
-| 3 | **Space(공간)** | Subspace · Basis(기저) · Dimension | 6·7·8 |
+| 2 | **Linear equation** (선형방정식) $A\mathbf{x}=\mathbf{b}$ | 연산의 의미 | 4·5 |
+| 3 | **Space** (공간) | Subspace · Basis(기저) · Dimension | 6·7·8 |
 | 4 | **Orthogonality(직교성) · Projection(정사영)** | 거리·각도의 분해 | 9·10 |
 | 5 | **Decomposition** | Determinant(행렬식) · Eigenvalue(고윳값) · SVD | 11·12·Part 2·3 전체 |
 
@@ -292,7 +295,7 @@ Transformer 한 블록의 입력 → 출력 흐름:
 | 단계 | 식 | LA 객체 | 회차 |
 |---|---|---|:---:|
 | **입력** | $\mathbf{x} \in \mathbb{R}^d$ | Vector | 1 |
-| **Embedding(임베딩)** | $E\mathbf{x}$ | Matrix·Vector 곱 | 3 |
+| **Embedding** (임베딩) | $E\mathbf{x}$ | Matrix·Vector 곱 | 3 |
 | **Attention** | $\mathrm{softmax}\!\left(\frac{QK^\top}{\sqrt{d}}\right)V$ | 모든 쌍의 Inner product | 2 · Part 3 7 |
 | **FFN** | $W_2\,\mathrm{ReLU}(W_1\mathbf{x}+\mathbf{b}_1)+\mathbf{b}_2$ | affine 변환 | 6 |
 | **출력** | $\mathrm{softmax}(\cdots)$ | 확률 Vector | · |
