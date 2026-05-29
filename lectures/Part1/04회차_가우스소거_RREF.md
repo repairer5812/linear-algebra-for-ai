@@ -35,7 +35,7 @@ style: |
 
 ## Gaussian elimination · RREF · 해의 구조
 
-MML §2.3.2~§2.3.4 · Strang §2.2, §2.3, §3.2 · EoLA Ch.7
+MML §2.3.1-§2.3.3 (메인) · Strang Ch 2.1-2.3 (발췌, **Elementary matrix · LU 절차 시그니처**) · EoLA Ch.7
 
 ---
 
@@ -141,6 +141,8 @@ $\begin{cases} 2x + y = 5 \\ x + 3y = 5 \end{cases} \;\Leftrightarrow\; \left[\b
 | **(R2)** | $R_i \leftarrow c\,R_i\;(c \ne 0)$ | 한 행을 0이 아닌 Scalar(스칼라)로 곱하기 |
 | **(R3)** | $R_i \leftarrow R_i + c\,R_j$ | 한 행에 다른 행의 Scalar배를 더하기 |
 
+> 📚 **Strang Ch 2.2-2.3 발췌 (시그니처, Elementary matrix)**: Strang은 세 행 연산 각각이 **Elementary matrix** $E$로 표현됨을 강조한다. $R_i \leftarrow R_i - cR_j$는 단위행렬 $I$의 $(i, j)$ 자리를 $-c$로 바꾼 $E_{ij}(c)$로 좌측에 곱한 것과 같다. 즉 한 행 연산 = 한 번의 $E A$ 좌측 곱. **Forward elimination 전체 과정** = $E_k \cdots E_2 E_1 A = U$ (상삼각). 이것을 거꾸로 정리하면 $A = (E_1^{-1} E_2^{-1} \cdots E_k^{-1}) U = LU$ (5회차 LU 분해의 정확한 출발점). Strang이 LA 책 전반에서 가장 자주 반복하는 시그니처 패턴이다.
+
 ### 명제 3.1 (해 불변성)
 세 연산은 모두 $A\mathbf{x} = \mathbf{b}$의 **해집합을 보존**한다.
 
@@ -163,6 +165,8 @@ $\begin{cases} 2x + y = 5 \\ x + 3y = 5 \end{cases} \;\Leftrightarrow\; \left[\b
 2. **Backward substitution(후방 대입)**: REF에서 미지수를 거꾸로 구하기
 
 또는 한 번에: **Forward 후 계속 위로도 소거 → RREF**, 답을 직접 읽기 (Gauss-Jordan).
+
+> 📚 **Strang Ch 2.1-2.3 발췌 (시그니처, 절차)**: Strang의 절차 표준은 **"Pivot은 0이 아닌 첫 원소, 그 아래 모두 0으로"**를 위에서 아래로 한 열씩 반복한다. 각 단계가 (R3) Elementary matrix 한 번에 대응된다. 본 회차 C-2 손계산 예제가 이 발췌의 직역이다. Strang은 **부동소수점 안정성을 위해 가장 큰 값을 pivot으로** 선택하는 *partial pivoting*까지 한 흐름으로 다룬다 (본 F-2에서 짧게 안내, 5회차 LU에서 본격).
 
 ---
 
@@ -390,10 +394,10 @@ $y = s, z = t$로 두면 $x = 2 - s + t$. 해: $(2-s+t,\,s,\,t)$, **2차원 자�
 
 | 응용 | $A\mathbf{x} = \mathbf{b}$의 역할 | 회차 |
 |---|---|---|
-| **선형 회귀** | $A\hat\beta = \mathbf{b}$ (overdetermined → 최소제곱) | 11 |
+| **선형 회귀** | $A\hat\beta = \mathbf{b}$ (overdetermined → 최소제곱) | 10 · Part 3 1 |
 | **신경망 한 층의 역방향** | 입력 복원 (역연산) | Part 2 |
-| **Embedding 정규화** | Linear constraint 적용 | 11 |
-| **Optimization KKT** | 등식 제약 = $A\mathbf{x} = \mathbf{b}$ | 졸업 후 |
+| **Embedding 정규화** | Linear constraint 적용 | 10 |
+| **Optimization KKT** | 등식 제약 = $A\mathbf{x} = \mathbf{b}$ | Part 2 9 |
 | **Computer Graphics** | 좌표 변환 풀이 | — |
 
 대형 신경망 학습에서도 본질은 거대한 Linear equation system 근사 풀이이다.
@@ -536,8 +540,8 @@ $$\begin{cases} x + y + 2z = 4 \\ 2x + 3y + 5z = 9 \\ 3x + 5y + 8z = 14 \end{cas
 또한 RREF에서 변수 열 모두 pivot ↔ Inverse matrix 존재이며, **Inverse matrix**가 5회차 첫 분해의 주인공입니다.
 
 **사전 reading**:
-- MML §2.2.2 (Inverse), §2.3.5 (LU)
-- Strang §2.5, §2.6
+- **MML §2.2.2 (Inverse and Transpose)**, **§2.3.4-§2.3.5** (Permutation matrix·LU), 메인
+- **Strang Ch 2.4-2.7 발췌** (LU·BLAS·전치 시그니처), 본문 박스로 가져옴
 - 3Blue1Brown EoLA Ch.7 (Inverse, column space)
 
 ---

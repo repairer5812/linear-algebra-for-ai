@@ -35,8 +35,8 @@ style: |
 
 ## 0회차 · Introduction
 
-SW·AI 융합대학원 · Part 1·2·3 (총 30회차)
-메인 교재: Strang, *Introduction to Linear Algebra* · 보조: MML (Deisenroth et al.) · 시각: 3Blue1Brown EoLA
+SW·AI 융합대학원 · Part 1·2·3 (총 29회차)
+메인 교재: MML (Deisenroth·Faisal·Ong, *Mathematics for Machine Learning*) · 발췌: Strang, *Introduction to Linear Algebra* · 시각: 3Blue1Brown EoLA
 
 ---
 
@@ -45,8 +45,8 @@ SW·AI 융합대학원 · Part 1·2·3 (총 30회차)
 이번 회차가 끝나면 학생은 다음을 답할 수 있어야 합니다.
 
 1. **왜** AI 대학원에서 Linear Algebra(선형대수)를 한 학기 다시 배우는지
-2. **무엇을** 30회차 동안 배우는지: 수학적 흐름과 CS/AI 흐름의 큰 그림
-3. **어떻게** 배우는지: Strang / MML / EoLA / NumPy의 4단 운영
+2. **무엇을** 29회차 동안 배우는지: 수학적 흐름과 CS/AI 흐름의 큰 그림
+3. **어떻게** 배우는지: MML(메인) / Strang(발췌) / EoLA / NumPy의 4단 운영
 4. **결과**: 이 강의를 마치면 어떤 능력이 생기는지
 5. 한 Definition(정의)이 코드 한 줄과 그림 한 장으로 어떻게 이어지는지 (시그니처 예제)
 
@@ -56,7 +56,7 @@ SW·AI 융합대학원 · Part 1·2·3 (총 30회차)
 
 > ### 수학 정의 한 줄이 어떻게 AI 모델 한 줄이 됩니까?
 
-이 한 질문에 30회차에 걸쳐 답합니다.
+이 한 질문에 29회차에 걸쳐 답합니다.
 
 - **본 회차 부분 답**: 가장 단순한 정의 (Vector(벡터)의 평균) 한 줄이 **MNIST 숫자 분류**까지 곧장 이어집니다 (G 시그니처).
 - **학기 전체의 답**: $\mathrm{softmax}(QK^\top/\sqrt{d_k})V$, Transformer Attention(어텐션) 한 줄을 LA 객체로 완전 분해합니다 (Part 3 7회차).
@@ -73,7 +73,7 @@ SW·AI 융합대학원 · Part 1·2·3 (총 30회차)
 | ② | B | 왜 Linear Algebra인가: 네 가지 동기 |
 | ③ | **C** | **수학적 흐름의 큰 그림** |
 | ④ | **D** | **CS·AI 흐름** |
-| ⑤ | E | 교재 운용: Strang (메인) / MML (보조·확장) / EoLA (시각) |
+| ⑤ | E | 교재 운용: MML (메인) / Strang (발췌) / EoLA (시각) |
 | ⑥ | F | 이수 후 능력 점검표 |
 | ⑦ | **G** | **시그니처 시연: MNIST 평균 이미지** |
 | ⑧ | H | **클로징**: 1회차로 가져갈 마무리 문제, 사전 reading |
@@ -85,11 +85,11 @@ SW·AI 융합대학원 · Part 1·2·3 (총 30회차)
 
 ## A-1. 교과 정보
 
-- **과목명**: Linear Algebra Part 1 (12회차) / Part 2 (9회차) / Part 3 (9회차)
+- **과목명**: Linear Algebra Part 1 (12회차) / Part 2 (9회차) / Part 3 (8회차)
 - **대상**: SW·AI 융합대학원 1학년, **학부 LA 미이수 학생** 표준
-- **운영**: 총 30회차
-- **메인 교재**: Gilbert Strang, *Introduction to Linear Algebra* (6th ed.)
-- **보조·확장 교재**: Deisenroth·Faisal·Ong, *Mathematics for Machine Learning* (MML), Strang 미수록 수학 (Vector Calculus·Probability·Optimization), ML 응용 (LR·PCA·GMM·SVM)
+- **운영**: 총 29회차, 1회차 2시간 × 29 = 58시간
+- **메인 교재**: Deisenroth·Faisal·Ong, *Mathematics for Machine Learning* (MML, 무료 공식 PDF 공개)
+- **발췌 교재**: Gilbert Strang, *Introduction to Linear Algebra* (6th ed.), 시그니처 10개 자산을 본문 발췌 박스로 사용 (Row·Column picture·Cauchy-Schwarz 판별식·Elementary matrix·LU·4 fundamental subspaces·Least squares·Gram-Schmidt·Determinant 기하·Eigenvalue 응용·SVD 기하·Eckart-Young)
 - **시각 보조**: 3Blue1Brown *Essence of Linear Algebra* (EoLA)
 
 ---
@@ -101,7 +101,7 @@ SW·AI 융합대학원 · Part 1·2·3 (총 30회차)
 | 출석 | 자율 (대학원생 자체 강의) |
 | 과제 | 매 회차 수학 문제, Jupyter 노트북 |
 | **코딩 실습 (Google Colab)** | **매 회차 필수 X. 회차별 학습 가치에 따라 1-2개 또는 그 이상으로 운영. 필요 없으면 수학 정리·풀이로 마무리** |
-| 종합 문제 풀기 | Part 1 12회차·Part 2 9회차·Part 3 9회차 마지막에 학습 도구로 운영 |
+| 종합 문제 풀기 | Part 1 12회차·Part 2 9회차·Part 3 8회차 마지막에 학습 도구로 운영 |
 
 > 대학원생 자체 강의이므로 정식 시험·평가는 없습니다. "종합 문제 풀기"는 각 Part 종료 시 학습 정리를 위한 도구입니다.
 >
@@ -138,7 +138,7 @@ SW·AI 융합대학원 · Part 1·2·3 (총 30회차)
 
 <div class="analogy">
 
-**직관 (5층 건물 비유)**: 이 한 줄은 **5층 건물의 청사진 한 장**과 같습니다. 본 회차에서 전부 이해할 필요는 없고, 각 층이 무엇인지 (QK·softmax·V)만 알면 됩니다. **30회차에 걸쳐 한 층씩 들어가 봅니다.**
+**직관 (5층 건물 비유)**: 이 한 줄은 **5층 건물의 청사진 한 장**과 같습니다. 본 회차에서 전부 이해할 필요는 없고, 각 층이 무엇인지 (QK·softmax·V)만 알면 됩니다. **29회차에 걸쳐 한 층씩 들어가 봅니다.**
 
 </div>
 
@@ -179,9 +179,9 @@ $$f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0) + J(\mathbf{x}_0)\,\mathb
 
 | Decomposition | 구조 | 회차 |
 |---|---|---|
-| $A = LU$ | 하·상삼각 | 4 |
-| $A = QR$ | 직교, 상삼각 | 10 |
-| $A = Q\Lambda Q^\top$ | 대칭 → 회전·신축 | Part 2 1-4 |
+| $A = LU$ | 하·상삼각 | 5 |
+| $A = QR$ | 직교, 상삼각 | 11 |
+| $A = Q\Lambda Q^\top$ | 대칭 → 회전·신축 | Part 2 1-2 |
 | $A = U\Sigma V^\top$ (SVD) | **임의 Matrix → 회전·신축·회전** | Part 2 4-5 |
 
 ---
@@ -216,8 +216,8 @@ $$f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0) + J(\mathbf{x}_0)\,\mathb
 | 1 | **Vector · Matrix** | 객체의 정의 | 1·3 |
 | 2 | **Linear equation** (선형방정식) $A\mathbf{x}=\mathbf{b}$ | 연산의 의미 | 4·5 |
 | 3 | **Space** (공간) | Subspace · Basis(기저) · Dimension | 6·7·8 |
-| 4 | **Orthogonality(직교성) · Projection(정사영)** | 거리·각도의 분해 | 9·10 |
-| 5 | **Decomposition** | Determinant(행렬식) · Eigenvalue(고윳값) · SVD | 11·12·Part 2·3 전체 |
+| 4 | **Orthogonality(직교성) · Projection(정사영)** | 거리·각도의 분해 | 9·10·11 |
+| 5 | **Decomposition** | Determinant(행렬식) · Eigenvalue(고윳값) · SVD | 12 · Part 2·3 전체 |
 
 **Part 1**: 1~4번 줄기를 단단히 다집니다.
 **Part 2·3**: 5번 줄기 + AI 응용으로 나아갑니다.
@@ -226,15 +226,15 @@ $$f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0) + J(\mathbf{x}_0)\,\mathb
 
 ## C-3. Part 1 흐름: 방정식과 공간
 
-| 회차 | 주제 (Strang Ch) | 단계 |
+| 회차 | 주제 (MML §·Strang Ch 발췌) | 단계 |
 |:---:|---|:---:|
-| 1-3 | Vector · Dot product · Matrix·Vector 곱 (Ch 1) | ①·② 토대 |
-| 4-5 | Gauss 소거 · Inverse matrix · LU 분해 (Ch 2) | ② 풀이, ③ 첫 분해 |
-| 6-8 | Vector space · Subspace · 4 fundamental subspaces · Basis · Dimension (Ch 3) | ② 구조·골격 |
-| 9 | Orthogonality · Projection (Ch 4.1-4.2) | ②·③ |
-| 10 | Least squares · Gram-Schmidt · QR (Ch 4.3-4.4) | ③·④ 회귀 |
-| 11 | Determinant (Ch 5) | ② |
-| 12 | 행렬식 응용, Part 1 종합 문제 풀기 | ②·종합 |
+| 1-3 | Vector · Norm · Inner product · Matrix·Vector 곱 (MML §2.1-§2.2·§3.1-§3.4 / Strang Ch 1) | ①·② 토대 |
+| 4-5 | Gauss 소거 · 행렬곱 · 역행렬 · LU (MML §2.3 / Strang Ch 2) | ② 풀이, ③ 첫 분해 |
+| 6-8 | Vector space · Subspace · 4 fundamental subspaces · Basis · Dimension (MML §2.4-§2.6 / Strang Ch 3) | ② 구조·골격 |
+| 9 | Orthogonality · Projection (MML §3.6·§3.8 / Strang Ch 4.1-4.2) | ②·③ |
+| 10 | Least squares · 정규방정식 · 다중공선성 (MML §3.8 / Strang Ch 4.3) | ③·④ 회귀 |
+| 11 | Orthonormal basis · Gram-Schmidt · QR · Rotation (MML §3.5·§3.9 / Strang Ch 4.4) | ③·④ |
+| 12 | Determinant + Part 1 종합 문제 풀기 (MML §4.1 / Strang Ch 5) | ②·종합 |
 
 **핵심 명제**: $A\mathbf{x} = \mathbf{b}$의 해는 **$A$의 4 fundamental subspaces**로 완전히 결정됩니다.
 
@@ -242,14 +242,15 @@ $$f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0) + J(\mathbf{x}_0)\,\mathb
 
 ## C-4. Part 2 흐름: 분해와 수학 도구
 
-| 회차 | 주제 | 단계 |
+| 회차 | 주제 (MML §·Strang Ch 발췌) | 단계 |
 |:---:|---|:---:|
-| 1-2 | Eigenvalue · Diagonalization · Spectral theorem (Strang Ch 6.1-6.4) | ③ 정사각 분해 |
-| 3 | Positive definite · Cholesky (Strang Ch 6.5) | ③ |
-| 4-5 | SVD · Eckart-Young · PCA · Linear Transformation (Strang Ch 7-8) | ③ 임의 분해, ④ 압축 |
-| 6-7 | Vector Calculus (Jacobian · Hessian · Newton) (MML Ch 5) | ④ 신경망 미분 |
-| 8 | Probability · MLE · KL divergence · Cross entropy (MML Ch 6, 8.2) | ④ LLM·RLHF·VAE 수학 |
-| 9 | Continuous Optimization (Convex · Lagrange · KKT) (MML Ch 7), Part 2 종합 문제 풀기 | ④ 옵티마이저·정규화, 종합 |
+| 1-2 | Eigenvalue · Diagonalization · Spectral theorem (MML §4.2·§4.4 / Strang Ch 6.1-6.4) | ③ 정사각 분해 |
+| 3 | Positive definite · 이차형식 · Cholesky (MML §4.3 / Strang Ch 6.5) | ③ |
+| 4 | SVD 정식·기하 해석 (MML §4.5 / Strang Ch 7.1-7.2) | ③ 임의 분해 |
+| 5 | Eckart-Young · Matrix Approx · Linear Transformation (MML §4.6·§2.7·§2.8 / Strang Ch 7.3-7.4) | ③·④ 압축 |
+| 6-7 | Vector Calculus (Jacobian · Hessian · Newton) (MML §5.1-§5.8) | ④ 신경망 미분 |
+| 8 | Probability · MLE · KL divergence · Cross entropy · MVN (MML §6·§8.3) | ④ LLM·VAE 수학 |
+| 9 | Continuous Optimization (Convex · Lagrange · KKT) (MML §7.1-§7.3), Part 2 종합 문제 풀기 | ④ 옵티마이저·정규화, 종합 |
 
 ---
 
@@ -258,13 +259,13 @@ $$f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0) + J(\mathbf{x}_0)\,\mathb
 | 회차 | 주제 | 단계 |
 |:---:|---|:---:|
 | 1 | Linear Regression (MML Ch 9) | ⑤ ML 응용 |
-| 2 | PCA 깊이 (MML Ch 10) | ⑤ |
+| 2 | PCA · SVD 동치 (MML Ch 10) | ⑤ |
 | 3 | Gaussian Mixture Models · EM (MML Ch 11) | ⑤ |
-| 4-5 | SVM · Kernel methods (MML Ch 12) | ⑤ |
-| 6 | CNN · Conv = Toeplitz 환원 (자체 교안) | ④ 모델 분해 |
-| 7 | Attention 분해 · Multi-head (자체 교안) | ④ 모델 분해 |
-| 8 | Equivariance · Kronecker, 현대 아키텍처 LA 설계 원리 (자체 교안) | ④ 설계 원리 |
-| 9 | Case Study 발표, Part 3 종합 문제 풀기 | 종합 |
+| 4 | SVM Hard/Soft margin · Hinge · Dual (MML §12.1-§12.3) | ⑤ |
+| 5 | Kernel SVM · Kernel trick · RBF · Poly (MML §12.4-§12.5) | ⑤ |
+| 6 | CNN · 1D Conv → Toeplitz · 1×1=행렬곱 (자체 교안) | ④ 모델 분해 |
+| 7 | Attention 분해 · Embedding=행렬곱 · Multi-head 직관 + Equivariance 직관 한 슬라이드 (자체 교안) | ④ 모델 분해 |
+| 8 | Case Study 발표, Part 3 종합 문제 풀기 (자체 교안) | 종합 |
 
 **핵심 명제**: 어떤 Matrix도 **SVD로 회전·신축·회전으로 분해**됩니다. 그 위에 미분·확률·최적화 도구를 쌓아 **임의 AI 모듈을 선형대수 객체로 환원**할 수 있습니다.
 
@@ -323,14 +324,15 @@ Decomposition이 AI의 절반입니다. 이 강의 후반부가 다 이 표 안�
 
 | 자료 | 위상 | 사용 시점 | 비유 |
 |---|---|---|---|
-| **Strang** | 메인 | 정의·정리·예제·연습문제 | 지도 |
-| **MML** | 보조·확장 | Vector Calculus·Probability·ML 응용 (PCA·LR·GMM·SVM) | 지도책 |
+| **MML** | 메인 | 정의·정리·예제·ML 응용 (LR·PCA·GMM·SVM) | 지도 |
+| **Strang** | 발췌 | 시그니처 자산 10개를 본문 발췌 박스로 사용 | 명소 사진첩 |
 | **3Blue1Brown** | 시각 | 사전 시청 | 위성사진 |
 | **NumPy / PyTorch** | 실습 | 매 회차 ipynb | 탐사 장비 |
 
-**왜 Strang이 메인입니까?**
-- Strang Ch 1-5가 LA 표준 (Vector·Matrix·Linear equation·Subspace·Determinant)을 정의·정리 위주로 단단히 다집니다.
-- MML은 Strang에 없는 Vector Calculus·Probability·Optimization과 ML 4대 응용(LR·PCA·GMM·SVM)을 Part 2·3 후반에서 확장으로 씁니다.
+**왜 MML이 메인입니까?**
+- MML은 LA 표준 (Vector·Matrix·Linear equation·Subspace·Determinant) 외에도 Vector Calculus·Probability·Optimization·ML 4대 응용 (LR·PCA·GMM·SVM)을 한 권에 담아 본 강의의 Part 1·2·3을 모두 커버합니다.
+- 무료 공식 PDF가 공개되어 있어 학생 모두가 동일 텍스트로 접근할 수 있습니다.
+- Strang은 Row·Column picture, Cauchy-Schwarz 판별식, 4 fundamental subspaces 등 **시그니처 자산 10개**를 본문 발췌 박스로 가져옵니다 (📚 박스).
 - EoLA는 직관·시각 잡기에 좋습니다.
 
 ---
@@ -339,8 +341,8 @@ Decomposition이 AI의 절반입니다. 이 강의 후반부가 다 이 표 안�
 
 ```
 회차 시작 24시간 전:
-  ① Strang 해당 절 본문 + 연습문제 3개 (메인)
-  ② MML 해당 절 본문 (참조·확장)
+  ① MML 해당 절 본문 + 예제 (메인)
+  ② Strang 해당 절 발췌 (시그니처 자산 회차에 한정)
   ③ 3Blue1Brown EoLA 해당 편 1편
 
 회차 종료 직후:
@@ -372,10 +374,10 @@ Decomposition이 AI의 절반입니다. 이 강의 후반부가 다 이 표 안�
 - [ ] PCA·Low-rank 근사를 SVD로 **한 줄에 구현**할 수 있습니다.
 - [ ] Jacobian·Hessian으로 신경망 한 층의 미분을 분해할 수 있습니다.
 
-## F-3. Part 3 종료 시 (9회차 후)
+## F-3. Part 3 종료 시 (8회차 후)
 
-- [ ] CNN convolution을 Toeplitz matrix로 환원할 수 있습니다.
-- [ ] **Attention $\mathrm{softmax}(QK^\top/\sqrt{d_k})V$를 LA 객체로 분해**할 수 있습니다.
+- [ ] CNN convolution을 1D Toeplitz matrix로 환원하고 1×1 convolution이 일반 행렬곱임을 설명할 수 있습니다.
+- [ ] **Attention $\mathrm{softmax}(QK^\top/\sqrt{d_k})V$를 LA 객체로 분해**하고 Embedding이 행렬곱임을 설명할 수 있습니다. Equivariance(등변성)·Multi-head의 직관도 한 줄로 정리할 수 있습니다.
 - [ ] 임의의 AI 모델 한 부분을 골라 LA 분해 보고서를 작성할 수 있습니다 (Case Study).
 
 ---
@@ -448,7 +450,7 @@ plt.imshow(mean_seven, cmap='gray')
 
 ---
 
-## G-4. 본 시연에 들어 있는 30회차의 지점
+## G-4. 본 시연에 들어 있는 29회차의 지점
 
 | 시연의 부분 | 회차 |
 |---|:---:|
@@ -459,7 +461,7 @@ plt.imshow(mean_seven, cmap='gray')
 | 평균을 빼고 본 분산의 주방향 (**PCA**) | **Part 3 2** |
 | 분류기로 확장 (가장 가까운 평균 ⇒ 클래스) | **2·10** |
 
-가장 단순한 수학(Vector 평균) 한 줄이 **30회차 전체의 입구**입니다.
+가장 단순한 수학(Vector 평균) 한 줄이 **29회차 전체의 입구**입니다.
 
 ---
 
@@ -476,22 +478,22 @@ plt.imshow(mean_seven, cmap='gray')
 
 ## H. 1회차 사전 reading 안내
 
-**1회차 주제**: Vector · Linear combination(선형결합) · Span(생성공간), Strang §1.1
+**1회차 주제**: Vector · Linear combination(선형결합) · Span(생성공간), MML §2.1 도입
 
 > 본 회차에서 본 평균 이미지 시연의 토대로 **Vector의 Definition·$\mathbb{R}^n$·Linear combination**을 1회차에 정식 수학으로 맞춥니다.
-> **Norm·Inner product·Cosine similarity는 2회차** (Strang §1.2), Cauchy-Schwarz까지의 흐름은 2회차에서 다룹니다.
+> **Norm·Inner product·Cosine similarity는 2회차** (MML §3.1-§3.4), Cauchy-Schwarz까지의 흐름은 2회차에서 다룹니다.
 
 **1회차 시작 24시간 전까지**
 
-- [ ] **Strang** §1.1 (Vectors and Linear Combinations): 메인 reading
+- [ ] **MML** §2.1 (Vectors): 메인 reading
 - [ ] **3Blue1Brown EoLA** Ch.1 (Vectors), Ch.2 (Linear combinations, span, basis): 시각 사전 시청
-- [ ] (선택) **MML** §2.1 (Vectors): 참조·확장
+- [ ] (선택) **Strang** Ch 1.1 발췌: Vector 직관, 평행사변형 법칙 그림 참조
 
 **0회차 종료 후 권장**
 
 - 본 회차에서 본 평균 이미지 시연을 `00_Introduction_평균이미지.ipynb`에서 **다른 숫자 (예: 4·8)로 재실행**해보세요.
 - 어색한 부분을 1회차 강의에서 질문할 수 있도록 준비합니다.
-- MML, Strang 책 PDF·종이본을 확인합니다. 매 회차 reading의 시작점입니다.
+- MML (메인) 공식 PDF·Strang (발췌) PDF·종이본을 확인합니다. 매 회차 reading의 시작점입니다.
 
 ---
 
@@ -504,13 +506,13 @@ plt.imshow(mean_seven, cmap='gray')
 
 ### 1회차 시작 전 풀어볼 3문제
 
-본 회차에서 본 객체 (평균 Vector·5층 청사진·30회차 구조)만으로 답할 수 있는 문제들입니다.
+본 회차에서 본 객체 (평균 Vector·5층 청사진·29회차 구조)만으로 답할 수 있는 문제들입니다.
 
 **(a) (평균 Vector 표기)** MNIST에서 숫자 "7"인 이미지 $n$장 $\mathbf{x}_1, \ldots, \mathbf{x}_n \in \mathbb{R}^{784}$이 주어졌다고 하자. 그 평균 이미지 $\mathbf{m}$을 **Vector(벡터)·Linear combination(선형결합)** 두 단어를 모두 사용해 한 줄로 표기하시오. ($\sum$ 기호 사용 가능)
 
 **(b) (5층 청사진 매핑)** Self-attention 한 줄 $\mathrm{softmax}(QK^\top / \sqrt{d_k})\,V$를 본 회차에서 본 **5층 건물 (Vector space · Inner product · Norm · Matrix · Vector 곱)** 의 도움으로 만든다고 할 때, 5개 층 중 **두 개**를 골라 이 식의 어느 부분이 그 층에 대응되는지 한 줄씩 적으시오.
 
-**(c) (강좌 구조)** 이 강의는 32회차가 아니라 30회차로 운영됩니다. Part 1·2·3은 각각 몇 회차이고, 1회차당 강의 시간은 몇 시간입니까?
+**(c) (강좌 구조)** 이 강의는 32회차가 아니라 29회차로 운영됩니다. Part 1·2·3은 각각 몇 회차이고, 1회차당 강의 시간은 몇 시간입니까? 총 강의 시간은 몇 시간입니까?
 
 → 1회차에서는 **Vector·Linear combination**으로 평균 Vector $\mathbf{m}$의 정의를 수학적으로 다지고, $\mathbb{R}^n$의 두 연산을 정식으로 도입합니다. 길이·각도 (Norm·Inner product)는 2회차의 주제이며, 본 회차에서는 그 토대 (Vector·평균)만 단단히 합니다.
 
