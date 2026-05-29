@@ -261,7 +261,7 @@ $\left[\begin{array}{ccc|c} 1 & 1 & 1 & 6 \\ 1 & 2 & 3 & 14 \\ 1 & 3 & 5 & 22 \e
 | $\left[\begin{array}{cc\|c} 1 & 0 & 4 \\ 0 & 1 & 1 \end{array}\right]$ | **RREF** ✓ |
 
 ### D-2. RREF의 유일성 — 정리 3.1
-어떤 행렬 $A$에 대해서도 행 연산으로 도달하는 RREF는 **유일**합니다. REF는 어떤 행 교환을 했느냐에 따라 모양이 다를 수 있지만, **RREF는 한 가지뿐** — **표준형(canonical form)**. → "$A$의 RREF" 라고 부를 수 있습니다 (정관사 the). 증명은 9회차 Basis(기저) 도구 이후.
+어떤 행렬 $A$에 대해서도 행 연산으로 도달하는 RREF는 **유일**합니다. REF는 어떤 행 교환을 했느냐에 따라 모양이 다를 수 있지만, **RREF는 한 가지뿐** — **표준형(canonical form)**. → "$A$의 RREF" 라고 부를 수 있습니다 (정관사 the). 증명은 8회차 Basis(기저) 도구 이후.
 
 ---
 
@@ -332,14 +332,14 @@ $\left[\begin{array}{cc|c} 1 & 2 & 3 \\ 0 & 0 & 1 \end{array}\right]$의 둘째 
 $\mathbf{x} = \mathbf{x}_p + \mathbf{x}_h$
 
 - $\mathbf{x}_p$ = **특수해(particular solution)** — RREF에서 free 변수를 0으로
-- $\mathbf{x}_h$ = **동차해(homogeneous solution)** — $A\mathbf{x} = \mathbf{0}$의 해 집합 (Null space, 7회차)
+- $\mathbf{x}_h$ = **동차해(homogeneous solution)** — $A\mathbf{x} = \mathbf{0}$의 해 집합 (Null space, 6회차)
 
 ### 예 (앞 슬라이드)
 해 $(t, 3-2t, t) = (0, 3, 0) + t(1, -2, 1)$
 - $\mathbf{x}_p = (0, 3, 0)$
 - $\mathbf{x}_h = t(1, -2, 1)$, 모든 $t \in \mathbb{R}$
 
-→ **7회차 Null space**의 출발점.
+→ **6회차 Null space**의 출발점.
 
 ---
 

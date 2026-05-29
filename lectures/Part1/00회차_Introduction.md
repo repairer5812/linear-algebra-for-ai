@@ -3,7 +3,7 @@ marp: true
 theme: default
 paginate: true
 header: '인공지능 전공자를 위한 선형대수학'
-footer: '0회차 — Introduction'
+footer: '0회차 · Introduction'
 math: mathjax
 size: 16:9
 style: |
@@ -35,7 +35,7 @@ style: |
 
 ## 0회차 · Introduction
 
-SW·AI 융합대학원 · Part 1·2·3 (총 32회차)
+SW·AI 융합대학원 · Part 1·2·3 (총 30회차)
 메인 교재: Strang, *Introduction to Linear Algebra* · 보조: MML (Deisenroth et al.) · 시각: 3Blue1Brown EoLA
 
 ---
@@ -45,9 +45,9 @@ SW·AI 융합대학원 · Part 1·2·3 (총 32회차)
 이번 회차가 끝나면 학생은 다음을 답할 수 있어야 합니다.
 
 1. **왜** AI 대학원에서 Linear Algebra(선형대수)를 한 학기 다시 배우는지
-2. **무엇을** 32회차 동안 배우는지 — 수학적 흐름과 CS/AI 흐름의 큰 그림
-3. **어떻게** 배우는지 — Strang / MML / EoLA / NumPy의 4단 운영
-4. **결과** — 이 강의를 마치면 어떤 능력이 생기는지
+2. **무엇을** 30회차 동안 배우는지: 수학적 흐름과 CS/AI 흐름의 큰 그림
+3. **어떻게** 배우는지: Strang / MML / EoLA / NumPy의 4단 운영
+4. **결과**: 이 강의를 마치면 어떤 능력이 생기는지
 5. 한 Definition(정의)이 코드 한 줄과 그림 한 장으로 어떻게 이어지는지 (시그니처 예제)
 
 ---
@@ -56,10 +56,10 @@ SW·AI 융합대학원 · Part 1·2·3 (총 32회차)
 
 > ### 수학 정의 한 줄이 어떻게 AI 모델 한 줄이 됩니까?
 
-이 한 질문에 32회차에 걸쳐 답합니다.
+이 한 질문에 30회차에 걸쳐 답합니다.
 
 - **오늘의 부분 답**: 가장 단순한 정의(Vector(벡터)의 평균) 한 줄이 **MNIST 숫자 분류**까지 곧장 이어집니다 (G 시그니처).
-- **학기 전체의 답**: $\mathrm{softmax}(QK^\top/\sqrt{d_k})V$ — Transformer Attention(어텐션) 한 줄을 LA 객체로 완전 분해합니다 (Part 3 7회차).
+- **학기 전체의 답**: $\mathrm{softmax}(QK^\top/\sqrt{d_k})V$, Transformer Attention(어텐션) 한 줄을 LA 객체로 완전 분해합니다 (Part 3 7회차).
 
 매 회차 첫 슬라이드에 그날의 핵심 질문이 있습니다. 강의 중 길을 잃으면 이 한 질문으로 돌아옵니다.
 
@@ -69,14 +69,14 @@ SW·AI 융합대학원 · Part 1·2·3 (총 32회차)
 
 | 순서 | 블록 | 내용 |
 |:---:|:---:|---|
-| ① | A | **오프닝** — 핵심 질문 + 강의 소개 · 평가 · 전제 |
-| ② | B | 왜 Linear Algebra인가 — 네 가지 동기 |
+| ① | A | **오프닝**: 핵심 질문, 강의 소개, 전제 |
+| ② | B | 왜 Linear Algebra인가: 네 가지 동기 |
 | ③ | **C** | **수학적 흐름의 큰 그림** |
 | ④ | **D** | **CS·AI 흐름** |
-| ⑤ | E | 교재 운용 — Strang (메인) / MML (보조·확장) / EoLA (시각) |
+| ⑤ | E | 교재 운용: Strang (메인) / MML (보조·확장) / EoLA (시각) |
 | ⑥ | F | 이수 후 능력 점검표 |
-| ⑦ | **G** | **시그니처 시연 — MNIST 평균 이미지** |
-| ⑧ | H | **클로징** — 1회차로 가져갈 마무리 문제 + 사전 reading |
+| ⑦ | **G** | **시그니처 시연: MNIST 평균 이미지** |
+| ⑧ | H | **클로징**: 1회차로 가져갈 마무리 문제, 사전 reading |
 
 > **순서의 의미**: 수학 흐름 → CS 흐름 → 두 흐름이 만나는 한 예제(평균 이미지)로 마무리합니다.
 > 오늘은 첫 회차이므로 Review가 없습니다. 다음 회차부터 표준 사이클(핵심 질문 → Review → 본 강의 → 마무리 문제 → 숙제)을 운영합니다.
@@ -85,25 +85,24 @@ SW·AI 융합대학원 · Part 1·2·3 (총 32회차)
 
 ## A-1. 교과 정보
 
-- **과목명**: Linear Algebra Part 1 (13회차) / Part 2 (10회차) / Part 3 (9회차)
-- **대상**: SW·AI 융합대학원 1학년 · **학부 LA 미이수 학생** 표준
-- **운영**: 총 32회차
+- **과목명**: Linear Algebra Part 1 (12회차) / Part 2 (9회차) / Part 3 (9회차)
+- **대상**: SW·AI 융합대학원 1학년, **학부 LA 미이수 학생** 표준
+- **운영**: 총 30회차
 - **메인 교재**: Gilbert Strang, *Introduction to Linear Algebra* (6th ed.)
-- **보조·확장 교재**: Deisenroth·Faisal·Ong, *Mathematics for Machine Learning* (MML) — Strang 미수록 수학 (Vector Calculus·Probability·Optimization) + ML 응용 (LR·PCA·GMM·SVM)
+- **보조·확장 교재**: Deisenroth·Faisal·Ong, *Mathematics for Machine Learning* (MML), Strang 미수록 수학 (Vector Calculus·Probability·Optimization), ML 응용 (LR·PCA·GMM·SVM)
 - **시각 보조**: 3Blue1Brown *Essence of Linear Algebra* (EoLA)
 
 ---
 
-## A-2. 평가 (Part별)
+## A-2. 운영 방식
 
-| 항목 | 비율 | 비고 |
-|---|---|---|
-| 출석 | 10% | 0회차는 산정 X |
-| 과제 | 20% | 매 회차 수학 + Jupyter |
-| 중간학습확인평가 | 30% | 6회차, 지필 |
-| 종합학습확인평가 | 40% | Part 1: 지필 60% + 실기 40% · Part 2·3: 지필 + Case Study |
+| 항목 | 운영 |
+|---|---|
+| 출석 | 자율 (대학원생 자체 강의) |
+| 과제 | 매 회차 수학 문제, Jupyter 노트북 |
+| 종합 문제 풀기 | Part 1 12회차·Part 2 9회차·Part 3 9회차 마지막에 학습 도구로 운영 |
 
-> 비고: 대학원생 자체 강의이므로 정식 시험이 아닌 학습 확인 목적의 평가다.
+> 대학원생 자체 강의이므로 정식 시험·평가는 없습니다. "종합 문제 풀기"는 각 Part 종료 시 학습 정리를 위한 도구입니다.
 
 학부 LA 이수자는 Part 1 전반부를 빠르게 통과하고 응용 부분에 집중합니다 (별도 안내).
 
@@ -117,11 +116,11 @@ SW·AI 융합대학원 · Part 1·2·3 (총 32회차)
 - Python · NumPy 사용 가능
 - PyTorch는 처음이어도 학습 의지
 
-학부 LA 미이수 학생을 표준으로 한 강의입니다 — Part 1 전반부에서 Definition·Theorem(정리)을 천천히 다지고 Part 2·3에서 응용으로 가속합니다.
+학부 LA 미이수 학생을 표준으로 한 강의입니다. Part 1 전반부에서 Definition·Theorem(정리)을 천천히 다지고 Part 2·3에서 응용으로 가속합니다.
 
 ---
 
-## B-1. 동기 1 — AI 논문 한 줄을 읽으려면
+## B-1. 동기 1: AI 논문 한 줄을 읽으려면
 
 다음은 LLM 표준 논문의 한 문장입니다.
 
@@ -129,20 +128,20 @@ SW·AI 융합대학원 · Part 1·2·3 (총 32회차)
 
 이 한 줄을 이해하려면 알아야 하는 것:
 
-- $\mathbb{R}^{n \times d}$ → **Vector space(벡터공간)·Dimension(차원)** (7·9회차)
+- $\mathbb{R}^{n \times d}$ → **Vector space(벡터공간)·Dimension(차원)** (6·8회차)
 - $QK^\top$ → **모든 쌍의 Inner product(내적)** (2회차)
 - $\sqrt{d_k}$로 나누는 이유 → **Vector Norm(노름)의 정규화** (2회차)
 - softmax 후 $V$ → **Matrix(행렬)·Vector 곱의 두 해석** (3회차)
 
 <div class="analogy">
 
-💡 **파인만식 비유**: 이 한 줄은 **5층 건물의 청사진 한 장**과 같습니다. 오늘 전부 이해할 필요는 없고, 각 층이 뭔지(QK·softmax·V)만 알면 됩니다. **32회차에 걸쳐 한 층씩 들어가 봅니다.**
+💡 **파인만식 비유**: 이 한 줄은 **5층 건물의 청사진 한 장**과 같습니다. 오늘 전부 이해할 필요는 없고, 각 층이 뭔지(QK·softmax·V)만 알면 됩니다. **30회차에 걸쳐 한 층씩 들어가 봅니다.**
 
 </div>
 
 ---
 
-## B-2. 동기 2·3 — 데이터는 Matrix · 선형 근사가 비선형을 다룹니다
+## B-2. 동기 2·3: 데이터는 Matrix, 선형 근사가 비선형을 다룹니다
 
 **동기 2: 데이터는 Matrix입니다**
 
@@ -157,7 +156,7 @@ SW·AI 융합대학원 · Part 1·2·3 (총 32회차)
 
 $f$가 미분가능하면 $\mathbf{x}_0$ 근방에서
 $$f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0) + J(\mathbf{x}_0)\,\mathbf{h}$$
-여기서 $J$는 Jacobian(자코비안) — **한 Matrix**. Backpropagation(역전파)은 이 식의 반복입니다.
+여기서 $J$는 Jacobian(자코비안), **한 Matrix**. Backpropagation(역전파)은 이 식의 반복입니다.
 
 <div class="analogy">
 
@@ -167,20 +166,20 @@ $$f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0) + J(\mathbf{x}_0)\,\mathb
 
 ---
 
-## B-3. 동기 4 — Decomposition(분해)이 본질을 드러냅니다
+## B-3. 동기 4: Decomposition(분해)이 본질을 드러냅니다
 
 <div class="analogy">
 
-💡 **파인만식 비유**: Decomposition은 **카레의 재료 분리**와 같습니다. 완성된 카레만 보면 복잡하지만, 양파·당근·고기·향신료로 분리하면 각 재료의 역할이 보입니다. Matrix도 마찬가지입니다 — 복잡해 보이는 Matrix를 단순한 Matrix의 곱으로 분리하면 본질이 드러납니다.
+💡 **파인만식 비유**: Decomposition은 **카레의 재료 분리**와 같습니다. 완성된 카레만 보면 복잡하지만, 양파·당근·고기·향신료로 분리하면 각 재료의 역할이 보입니다. Matrix도 마찬가지입니다, 복잡해 보이는 Matrix를 단순한 Matrix의 곱으로 분리하면 본질이 드러납니다.
 
 </div>
 
 | Decomposition | 구조 | 회차 |
 |---|---|---|
 | $A = LU$ | 하·상삼각 | 4 |
-| $A = QR$ | 직교 · 상삼각 | 11 |
-| $A = Q\Lambda Q^\top$ | 대칭 → 회전 + 신축 | Part 2 1-4 |
-| $A = U\Sigma V^\top$ (SVD) | **임의 Matrix → 회전+신축+회전** | Part 2 5-6 |
+| $A = QR$ | 직교, 상삼각 | 10 |
+| $A = Q\Lambda Q^\top$ | 대칭 → 회전·신축 | Part 2 1-4 |
+| $A = U\Sigma V^\top$ (SVD) | **임의 Matrix → 회전·신축·회전** | Part 2 4-5 |
 
 ---
 
@@ -213,46 +212,45 @@ $$f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0) + J(\mathbf{x}_0)\,\mathb
 |:---:|---|---|---|
 | 1 | **Vector · Matrix** | 객체의 정의 | 1·3 |
 | 2 | **Linear equation(선형방정식)** $A\mathbf{x}=\mathbf{b}$ | 연산의 의미 | 4·5 |
-| 3 | **Space(공간)** | Subspace · Basis(기저) · Dimension | 7·8·9 |
-| 4 | **Orthogonality(직교성) · Projection(정사영)** | 거리·각도의 분해 | 10·11 |
-| 5 | **Decomposition** | Determinant(행렬식) · Eigenvalue(고윳값) · SVD | 12·Part 2·3 전체 |
+| 3 | **Space(공간)** | Subspace · Basis(기저) · Dimension | 6·7·8 |
+| 4 | **Orthogonality(직교성) · Projection(정사영)** | 거리·각도의 분해 | 9·10 |
+| 5 | **Decomposition** | Determinant(행렬식) · Eigenvalue(고윳값) · SVD | 11·12·Part 2·3 전체 |
 
 **Part 1**: 1~4번 줄기를 단단히 다집니다.
 **Part 2·3**: 5번 줄기 + AI 응용으로 나아갑니다.
 
 ---
 
-## C-3. Part 1 흐름 — 방정식과 공간
+## C-3. Part 1 흐름: 방정식과 공간
 
 | 회차 | 주제 (Strang Ch) | 단계 |
 |:---:|---|:---:|
 | 1-3 | Vector · Dot product · Matrix·Vector 곱 (Ch 1) | ①·② 토대 |
-| 4-5 | Gauss 소거 · Inverse matrix · LU 분해 (Ch 2) | ② 풀이 + ③ 첫 분해 |
-| 6 | **중간학습확인평가** | — |
-| 7-9 | Vector space · Subspace · 4 fundamental subspaces · Basis · Dimension (Ch 3) | ② 구조·골격 |
-| 10 | Orthogonality · Projection (Ch 4.1-4.2) | ②·③ |
-| 11 | Least squares · Gram-Schmidt · QR (Ch 4.3-4.4) | ③·④ 회귀 |
-| 12 | Determinant + **종합학습확인평가** (Ch 5) | ② |
+| 4-5 | Gauss 소거 · Inverse matrix · LU 분해 (Ch 2) | ② 풀이, ③ 첫 분해 |
+| 6-8 | Vector space · Subspace · 4 fundamental subspaces · Basis · Dimension (Ch 3) | ② 구조·골격 |
+| 9 | Orthogonality · Projection (Ch 4.1-4.2) | ②·③ |
+| 10 | Least squares · Gram-Schmidt · QR (Ch 4.3-4.4) | ③·④ 회귀 |
+| 11 | Determinant (Ch 5) | ② |
+| 12 | 행렬식 응용, Part 1 종합 문제 풀기 | ②·종합 |
 
 **핵심 명제**: $A\mathbf{x} = \mathbf{b}$의 해는 **$A$의 4 fundamental subspaces**로 완전히 결정됩니다.
 
 ---
 
-## C-4. Part 2 흐름 — 분해와 수학 도구
+## C-4. Part 2 흐름: 분해와 수학 도구
 
 | 회차 | 주제 | 단계 |
 |:---:|---|:---:|
 | 1-2 | Eigenvalue · Diagonalization · Spectral theorem (Strang Ch 6.1-6.4) | ③ 정사각 분해 |
 | 3 | Positive definite · Cholesky (Strang Ch 6.5) | ③ |
-| 4-5 | SVD · Eckart-Young · PCA · Linear Transformation (Strang Ch 7-8) | ③ 임의 분해 + ④ 압축 |
-| 6 | **중간학습확인평가** | — |
-| 7-8 | Vector Calculus (Jacobian · Hessian · Newton) (MML Ch 5) | ④ 신경망 미분 |
-| 9 | Probability · MLE · KL divergence · Cross entropy (MML Ch 6 + 8.2) | ④ LLM·RLHF·VAE 수학 |
-| 10 | Continuous Optimization (Convex · Lagrange · KKT) (MML Ch 7) | ④ 옵티마이저·정규화 |
+| 4-5 | SVD · Eckart-Young · PCA · Linear Transformation (Strang Ch 7-8) | ③ 임의 분해, ④ 압축 |
+| 6-7 | Vector Calculus (Jacobian · Hessian · Newton) (MML Ch 5) | ④ 신경망 미분 |
+| 8 | Probability · MLE · KL divergence · Cross entropy (MML Ch 6, 8.2) | ④ LLM·RLHF·VAE 수학 |
+| 9 | Continuous Optimization (Convex · Lagrange · KKT) (MML Ch 7), Part 2 종합 문제 풀기 | ④ 옵티마이저·정규화, 종합 |
 
 ---
 
-## C-5. Part 3 흐름 — AI 응용과 모델 분해
+## C-5. Part 3 흐름: AI 응용과 모델 분해
 
 | 회차 | 주제 | 단계 |
 |:---:|---|:---:|
@@ -262,8 +260,8 @@ $$f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0) + J(\mathbf{x}_0)\,\mathb
 | 4-5 | SVM · Kernel methods (MML Ch 12) | ⑤ |
 | 6 | CNN · Conv = Toeplitz 환원 (자체 교안) | ④ 모델 분해 |
 | 7 | Attention 분해 · Multi-head (자체 교안) | ④ 모델 분해 |
-| 8 | Equivariance · Kronecker — 현대 아키텍처 LA 설계 원리 (자체 교안) | ④ 설계 원리 |
-| 9 | **종합학습확인평가** + Case Study 발표 | — |
+| 8 | Equivariance · Kronecker, 현대 아키텍처 LA 설계 원리 (자체 교안) | ④ 설계 원리 |
+| 9 | Case Study 발표, Part 3 종합 문제 풀기 | 종합 |
 
 **핵심 명제**: 어떤 Matrix도 **SVD로 회전·신축·회전으로 분해**됩니다. 그 위에 미분·확률·최적화 도구를 쌓아 **임의 AI 모듈을 선형대수 객체로 환원**할 수 있습니다.
 
@@ -279,9 +277,9 @@ $$f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0) + J(\mathbf{x}_0)\,\mathb
 |---|---|---|
 | 이미지·텍스트·사용자 | $\mathbb{R}^d$ **Vector** | 1 |
 | 데이터셋 ($n$개 샘플) | $\mathbb{R}^{n \times d}$ **Matrix** | 3 |
-| 신경망 한 층 | $\mathbf{x} \mapsto W\mathbf{x} + \mathbf{b}$ | 3·7 |
-| 손실 함수의 미분 | **Jacobian / Hessian** | Part 2 7-8 |
-| 학습 = 최소화 | **Least squares · 정규방정식** | 11 |
+| 신경망 한 층 | $\mathbf{x} \mapsto W\mathbf{x} + \mathbf{b}$ | 3·6 |
+| 손실 함수의 미분 | **Jacobian / Hessian** | Part 2 6-7 |
+| 학습 = 최소화 | **Least squares · 정규방정식** | 10 |
 | 추론 = Matrix 곱 누적 | **BLAS · GPU 병렬화** | 3 |
 | 모델 압축·Quantization(양자화) | **Low-rank Decomposition (SVD·LoRA)** | Part 2 4-5 |
 
@@ -296,8 +294,8 @@ Transformer 한 블록의 입력 → 출력 흐름:
 | **입력** | $\mathbf{x} \in \mathbb{R}^d$ | Vector | 1 |
 | **Embedding(임베딩)** | $E\mathbf{x}$ | Matrix·Vector 곱 | 3 |
 | **Attention** | $\mathrm{softmax}\!\left(\frac{QK^\top}{\sqrt{d}}\right)V$ | 모든 쌍의 Inner product | 2 · Part 3 7 |
-| **FFN** | $W_2\,\mathrm{ReLU}(W_1\mathbf{x}+\mathbf{b}_1)+\mathbf{b}_2$ | affine 변환 | 7 |
-| **출력** | $\mathrm{softmax}(\cdots)$ | 확률 Vector | — |
+| **FFN** | $W_2\,\mathrm{ReLU}(W_1\mathbf{x}+\mathbf{b}_1)+\mathbf{b}_2$ | affine 변환 | 6 |
+| **출력** | $\mathrm{softmax}(\cdots)$ | 확률 Vector | · |
 
 각 작업 단계가 회차별 주제와 일대일로 대응합니다.
 
@@ -314,7 +312,7 @@ Transformer 한 블록의 입력 → 출력 흐름:
 | **이미지 압축·JPEG·MP3** | DCT (직교 분해) | "주파수별 에너지 누적" |
 | **Whitening · BatchNorm** | 공분산 Diagonalization | "축마다 분산 1로" |
 
-Decomposition이 AI의 절반입니다 — 이 강의 후반부가 다 이 표 안에 있습니다.
+Decomposition이 AI의 절반입니다. 이 강의 후반부가 다 이 표 안에 있습니다.
 
 ---
 
@@ -348,11 +346,11 @@ Decomposition이 AI의 절반입니다 — 이 강의 후반부가 다 이 표 �
   ⑥ 과제 (04_과제/Part1/N회차_homework.md) 착수
 ```
 
-**24시간 전·직후의 2회 노출**이 6회차 중간학습확인평가 기억 유지의 결정 변수입니다.
+**24시간 전·직후의 2회 노출**이 누적 학습 정착의 결정 변수입니다.
 
 ---
 
-## F-1. Part 1 종료 시 (13회차 후)
+## F-1. Part 1 종료 시 (12회차 후)
 
 학생은 다음을 할 수 있습니다.
 
@@ -365,7 +363,7 @@ Decomposition이 AI의 절반입니다 — 이 강의 후반부가 다 이 표 �
 
 ---
 
-## F-2. Part 2 종료 시 (10회차 후)
+## F-2. Part 2 종료 시 (9회차 후)
 
 - [ ] Eigenvalue Decomposition · SVD의 Definition·계산법을 자유롭게 사용할 수 있습니다.
 - [ ] PCA·Low-rank 근사를 SVD로 **한 줄에 구현**할 수 있습니다.
@@ -379,7 +377,7 @@ Decomposition이 AI의 절반입니다 — 이 강의 후반부가 다 이 표 �
 
 ---
 
-## F-4. 시그니처 능력 — "수학 → 코드 → 분해 보고"
+## F-4. 시그니처 능력: "수학 → 코드 → 분해 보고"
 
 | 단계 | 내용 |
 |:---:|---|
@@ -389,11 +387,11 @@ Decomposition이 AI의 절반입니다 — 이 강의 후반부가 다 이 표 �
 | 4 | 실제 데이터에서 검증합니다 |
 | 5 | 보고서로 정리합니다 |
 
-LLM 시대에 LA를 **다시 배우는 이유** — 라이브러리 호출 한 줄 안에 무엇이 들어 있는지 **알면서 부르는** 사람이 되기 위해서입니다.
+LLM 시대에 LA를 **다시 배우는 이유**: 라이브러리 호출 한 줄 안에 무엇이 들어 있는지 **알면서 부르는** 사람이 되기 위해서입니다.
 
 ---
 
-# G. 시그니처 시연 — 손글씨 "7"의 평균은 어떻게 생겼을까요
+# G. 시그니처 시연: 손글씨 "7"의 평균은 어떻게 생겼을까요
 
 > 지금까지의 수학·CS 흐름이 **가장 친숙한 한 예제**에 모이는 클라이맥스입니다.
 
@@ -409,7 +407,7 @@ LLM 시대에 LA를 **다시 배우는 이유** — 라이브러리 호출 한 �
 
 <div class="analogy">
 
-💡 **파인만식 비유**: 100명의 얼굴을 평균하면 한 사람 얼굴이 아니라 "**모든 사람의 공통점**"이 보입니다. 손글씨 7도 같습니다 — 한 사람의 7이 아니라 "7의 본질"이 평균에 나타납니다.
+💡 **파인만식 비유**: 100명의 얼굴을 평균하면 한 사람 얼굴이 아니라 "**모든 사람의 공통점**"이 보입니다. 손글씨 7도 같습니다, 한 사람의 7이 아니라 "7의 본질"이 평균에 나타납니다.
 
 </div>
 
@@ -427,13 +425,13 @@ $$\mathbf{m} = \frac{1}{n}\sum_{i=1}^{n}\mathbf{x}_i \;\in\; \mathbb{R}^{784}$$
 
 이 한 식 안에 들어 있는 1회차의 모든 것:
 
-- "이미지를 Vector로 본다" — Vector의 Definition
-- "Vector들을 더한다" — Vector 덧셈
-- "$\frac{1}{n}$을 곱한다" — Scalar(스칼라)곱
+- "이미지를 Vector로 본다": Vector의 Definition
+- "Vector들을 더한다": Vector 덧셈
+- "$\frac{1}{n}$을 곱한다": Scalar(스칼라)곱
 
 ---
 
-## G-3. 코드 — 단 한 줄
+## G-3. 코드: 단 한 줄
 
 ```python
 mean_seven = X[y == 7].mean(axis=0).reshape(28, 28)
@@ -447,69 +445,71 @@ plt.imshow(mean_seven, cmap='gray')
 
 ---
 
-## G-4. 이 한 시연에 들어 있는 32회차의 지점
+## G-4. 이 한 시연에 들어 있는 30회차의 지점
 
 | 시연의 부분 | 회차 |
 |---|:---:|
 | 이미지를 Vector로 보기 ($\mathbb{R}^{784}$) | **1** |
 | Vector 덧셈·Scalar곱 (평균 연산) | **1** |
 | 데이터셋을 Matrix로 ($\mathbb{R}^{n\times 784}$) | **3** |
-| 평균 Vector·중심화 — 데이터의 "원점" | **8 · Part 3 2** |
-| 평균을 빼고 본 분산의 주방향 — **PCA** | **Part 3 2** |
-| 분류기로 확장 — 가장 가까운 평균 ⇒ 클래스 | **2·11** |
+| 평균 Vector·중심화 (데이터의 "원점") | **7 · Part 3 2** |
+| 평균을 빼고 본 분산의 주방향 (**PCA**) | **Part 3 2** |
+| 분류기로 확장 (가장 가까운 평균 ⇒ 클래스) | **2·10** |
 
-가장 단순한 수학(Vector 평균) 한 줄이 **32회차 전체의 입구**입니다.
+가장 단순한 수학(Vector 평균) 한 줄이 **30회차 전체의 입구**입니다.
 
 ---
 
-## G-5. 노트북에서 봅니다 — 실행 흐름
+## G-5. 노트북에서 봅니다: 실행 흐름
 
-1. MNIST 손글씨 로드 — Matrix $X \in \mathbb{R}^{1797 \times 64}$, 레이블 $\mathbf{y}$
-2. 한 장을 Vector로 — `X[0].shape == (64,)` 확인 (1회차)
-3. **0~9 각 숫자의 평균 이미지 계산** — `X[y==k].mean(axis=0)` (1회차)
-4. 시각화 — 10개 평균이 흐릿한 0, 1, ..., 9 모양으로 보입니다.
-5. **응용** — 새 이미지를 가장 가까운 평균으로 분류합니다 (간단한 분류기).
+1. MNIST 손글씨 로드: Matrix $X \in \mathbb{R}^{1797 \times 64}$, 레이블 $\mathbf{y}$
+2. 한 장을 Vector로: `X[0].shape == (64,)` 확인 (1회차)
+3. **0~9 각 숫자의 평균 이미지 계산**: `X[y==k].mean(axis=0)` (1회차)
+4. 시각화: 10개 평균이 흐릿한 0, 1, ..., 9 모양으로 보입니다.
+5. **응용**: 새 이미지를 가장 가까운 평균으로 분류합니다 (간단한 분류기).
 6. 보너스: 평균을 빼면 무엇이 남는가 (PCA 미리보기)
 
 ---
 
 ## H. 1회차 사전 reading 안내
 
-**1회차 주제**: Vector · Linear combination(선형결합) · Span(생성공간) — Strang §1.1
+**1회차 주제**: Vector · Linear combination(선형결합) · Span(생성공간), Strang §1.1
 
-> 오늘 본 평균 이미지 시연의 토대 — **Vector의 Definition·R^n·Linear combination**을 1회차에 정식 수학으로 맞춥니다.
+> 오늘 본 평균 이미지 시연의 토대로 **Vector의 Definition·R^n·Linear combination**을 1회차에 정식 수학으로 맞춥니다.
 > **Norm·Inner product·Cosine similarity는 2회차** (Strang §1.2), Cauchy-Schwarz까지의 논리 사슬은 2회차에서 봅니다.
 
 **1회차 시작 24시간 전까지**
 
-- [ ] **Strang** §1.1 (Vectors and Linear Combinations) — 메인 reading
-- [ ] **3Blue1Brown EoLA** Ch.1 (Vectors), Ch.2 (Linear combinations, span, basis) — 시각 사전 시청
-- [ ] (선택) **MML** §2.1 (Vectors) — 참조·확장
+- [ ] **Strang** §1.1 (Vectors and Linear Combinations): 메인 reading
+- [ ] **3Blue1Brown EoLA** Ch.1 (Vectors), Ch.2 (Linear combinations, span, basis): 시각 사전 시청
+- [ ] (선택) **MML** §2.1 (Vectors): 참조·확장
 
 **0회차 종료 후 권장**
 
 - 오늘 본 평균 이미지 시연을 `00_Introduction_평균이미지.ipynb`에서 **다른 숫자(예: 4·8)로 재실행**해보세요.
 - 어색한 부분을 1회차 강의에서 질문할 수 있도록 준비합니다.
-- MML, Strang 책 PDF·종이본을 확인합니다 — 매 회차 reading의 시작점입니다.
+- MML, Strang 책 PDF·종이본을 확인합니다. 매 회차 reading의 시작점입니다.
 
 ---
 
 <!-- _class: exercise -->
 
-# 🖍 마무리 — 1회차로 가져갈 질문
+# 🖍 마무리: 1회차로 가져갈 질문
 
 **오늘의 핵심 질문**: "수학 정의 한 줄이 어떻게 AI 모델 한 줄이 됩니까?"
 오늘은 **Vector의 평균**이라는 가장 단순한 예로 일부 답을 보았습니다.
 
-### 1회차 시작 전 풀어볼 1문제
+### 1회차 시작 전 풀어볼 3문제
 
-MNIST에서 숫자 "7"인 이미지 1,000장의 평균 Vector를 $\mathbf{m}$이라 합니다.
+오늘 본 객체(평균 Vector·5층 청사진·30회차 구조)만으로 답할 수 있는 문제들입니다.
 
-**(a)** 한 새로운 이미지 $\mathbf{x}$가 들어왔을 때, "이게 7과 얼마나 가까운가"를 **거리로** 어떻게 잴 수 있습니까? 두 가지 방법을 제시하세요.
+**(a) (평균 Vector 표기)** MNIST에서 숫자 "7"인 이미지 $n$장 $\mathbf{x}_1, \ldots, \mathbf{x}_n \in \mathbb{R}^{784}$이 주어졌다고 합시다. 그 평균 이미지 $\mathbf{m}$을 **Vector(벡터)·Linear combination(선형결합)** 두 단어를 모두 사용해 한 줄로 표기하세요. ($\sum$ 기호 사용 가능)
 
-**(b)** 두 방법은 어떤 면에서 다릅니까? — **하나는 길이만 보고, 하나는 방향까지 본다**는 직관까지 답해보세요.
+**(b) (5층 청사진 매핑)** Self-attention 한 줄 $\mathrm{softmax}(QK^\top / \sqrt{d_k})\,V$를 오늘 본 **5층 건물(Vector space · Inner product · Norm · Matrix · Vector 곱)** 의 도움으로 만든다고 할 때, 5개 층 중 **두 개**를 골라 이 식의 어느 부분이 그 층에 대응되는지 한 줄씩 적으세요.
 
-→ 1회차에서는 **Vector·Linear combination**으로 평균이 잘 정의되는지를 먼저 단단히 합니다. 두 도구 **Norm**과 **Inner product**는 2회차에서 정식으로 답합니다.
+**(c) (강좌 구조)** 이 강의는 32회차가 아니라 30회차로 운영됩니다. Part 1·2·3은 각각 몇 회차이고, 1회차당 강의 시간은 몇 시간입니까?
+
+→ 1회차에서는 **Vector·Linear combination**으로 평균 Vector $\mathbf{m}$의 정의를 수학적으로 다지고, $\mathbb{R}^n$의 **두 연산** (덧셈·Scalar곱)을 정식으로 도입합니다. 길이·각도(Norm·Inner product)는 2회차의 주제이며, 오늘은 그 토대(Vector·평균)만 단단히 합니다.
 
 ---
 
@@ -522,9 +522,9 @@ MNIST에서 숫자 "7"인 이미지 1,000장의 평균 Vector를 $\mathbf{m}$이
 | ① 핵심 질문 | 회차 시작 (오프닝) | 그날의 한 질문 |
 | ② Review | 회차 시작 (10분) | 지난 차시 숙제 풀이 |
 | ③ 본 강의 | 회차 중반 | Definition·Theorem·유제 |
-| ④ 마무리 문제 + 숙제 | 회차 끝 (15분) | 즉석 풀이 + 유사 문제 → 다음 회차 Review 재료 |
+| ④ 마무리 문제, 숙제 | 회차 끝 (15분) | 즉석 풀이, 유사 문제 → 다음 회차 Review 재료 |
 
-오늘(0회차)은 ④의 첫 출발입니다 — 위 1문제가 **1회차 시작 시 Review 문제**가 됩니다.
+오늘(0회차)은 ④의 첫 출발입니다. 위 1문제가 **1회차 시작 시 Review 문제**가 됩니다.
 
 ---
 
