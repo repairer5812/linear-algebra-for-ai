@@ -467,7 +467,10 @@ $$X = \begin{pmatrix} 1 & 0 & 1 & 0 \\ 0 & 1 & 0 & 1 \\ 1 & 1 & 0 & 0 \end{pmatr
 
 **Case Study 준비 (다음 회차 발표)**
 - 자신이 선택한 모델 부분에 대한 보고서 (1쪽) + 5분 발표 슬라이드
-- 평가 아님, 학습 도구
+- 자기 점검 활동
+
+**Part 3 종합 문제 사전 풀이**
+- 마지막 회차 전에 사전 공개된 `05_시험/Part3_종합문제풀기.md`를 본인 페이스로 풀어 와서, 8회차에 함께 Review
 
 ---
 
@@ -475,7 +478,7 @@ $$X = \begin{pmatrix} 1 & 0 & 1 & 0 \\ 0 & 1 & 0 & 1 \\ 1 & 1 & 0 & 0 \end{pmatr
 
 **주제**: Case Study 발표 + Part 3 종합 문제 풀기
 
-**연결**: 본 회차까지 7회차 동안 다룬 Part 3 (Linear Regression·PCA·GMM·SVM·Kernel·CNN·Attention) 7개 도구를 모두 동원하여 학생 각자의 Case Study를 발표하고, Part 1·2·3 종합 문제를 푼다. **평가 X, 학습 도구**.
+**연결**: 본 회차까지 7회차 동안 다룬 Part 3 (Linear Regression·PCA·GMM·SVM·Kernel·CNN·Attention) 7개 도구를 모두 동원하여 학생 각자의 Case Study를 발표하고, 사전 공개된 Part 1·2·3 종합 문제를 함께 Review한다.
 
 **준비물**:
 - Case Study 보고서 1쪽 + 5분 발표
