@@ -36,6 +36,8 @@ style: |
 ## Vector Calculus 2: Hessian·Taylor·Newton·Optimizer
 
 MML §5.5-5.8 (메인) · Part 3 (VC + Probability)
+
+> **시각 보조 (EoLA):** [EoLA Ch.14: Eigenvectors and eigenvalues](https://www.youtube.com/watch?v=PFDu9oVAE-g) · 곡률을 고윳값으로 읽습니다.
 **1차 미분에서 2차 미분으로**: 1회차의 Gradient·Jacobian이 함수의 기울기만 잡았다면, 본 회차의 Hessian은 **곡률** (얼마나 휘었는가) 을 잡는다. 그 결과 Newton 방법이 등장하고, SGD·Adam과의 비교가 의미를 갖는다.
 
 > 곡률 정보가 들어가는 순간 "한 걸음" 의 크기와 방향이 함수의 모양에 맞춰 자동 조정된다.

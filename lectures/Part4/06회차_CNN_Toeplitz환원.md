@@ -39,6 +39,8 @@ style: |
 ## CNN · 1D Convolution → Toeplitz 환원 · 1×1 Conv = 행렬곱
 
 자체 교안 (본 강좌 시그니처) · Part 4 (ML 및 AI의 수학적 응용)
+
+> **시각 보조 (EoLA):** [EoLA Ch.3: Linear transformations and matrices](https://www.youtube.com/watch?v=kYB8IZa5AuE)
 **Part 4 6회차** — Conv 연산이 사실은 한 종류의 행렬 곱임을 정식화합니다.
 
 > "Conv는 LA의 어떤 객체인가" 한 질문에 본 회차가 답한다. **Toeplitz 행렬**이 그 답이다.

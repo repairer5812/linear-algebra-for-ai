@@ -43,6 +43,8 @@ style: |
 
 MML §4.5 (메인) · **Strang Ch 7.1-7.2 (시그니처 발췌)** · Part 2 (LA2)
 
+> **시각 보조 (EoLA):** [EoLA Ch.8: Nonsquare matrices as transformations between dimensions](https://www.youtube.com/watch?v=v8VSDg_WQlA) · [EoLA Ch.14: Eigenvectors and eigenvalues](https://www.youtube.com/watch?v=PFDu9oVAE-g)
+
 **Part 2의 절정**, 그리고 **본 강좌 전체의 시그니처 회차**.
 
 > $A = U\Sigma V^\top$: 모든 행렬을 회전·신축·회전 세 단계로 분해합니다.

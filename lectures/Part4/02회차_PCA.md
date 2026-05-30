@@ -36,6 +36,8 @@ style: |
 ## PCA: 분산 최대화 = 재구성 오차 최소화 = SVD
 
 MML Ch 10 (메인) · Part 4 (ML 및 AI의 수학적 응용)
+
+> **시각 보조 (EoLA):** [EoLA Ch.14: Eigenvectors and eigenvalues](https://www.youtube.com/watch?v=PFDu9oVAE-g)
 **차원 축소의 표준**: PCA의 두 동치 정식 (분산 최대화 · 재구성 오차 최소화) 이 모두 데이터 행렬의 SVD로 환원된다. Part 3 4회차 종합 문제 1을 정식으로 풀고 응용 (eigenfaces) 까지 확장한다.
 
 > Probabilistic PCA (PPCA) 는 본 회차 본문에서 다루지 않고 자율 학습으로 둔다.

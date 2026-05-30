@@ -39,6 +39,8 @@ style: |
 ## Attention 분해 · Embedding = 행렬곱 · Multi-head 직관 · Equivariance 직관
 
 자체 교안 (본 강좌 시그니처) · MML 부록 보강 · Part 4 (ML 및 AI의 수학적 응용)
+
+> **시각 보조 (EoLA):** [EoLA Ch.3: Linear transformations and matrices](https://www.youtube.com/watch?v=kYB8IZa5AuE)
 **Part 4 7회차** — Transformer 핵심을 행렬 곱 3-4개의 조합으로 환원합니다.
 
 > "Attention은 LA의 어떤 객체인가" 한 질문에 본 회차가 답한다. **세 행렬 곱과 한 softmax**가 답이다.

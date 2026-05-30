@@ -40,6 +40,8 @@ style: |
 
 MML §4.6·§2.7·§2.8, Ch 10 도입 · **Strang Ch 7.3-7.4 (발췌, 증명 부록)** · Part 2 (LA2)
 
+> **시각 보조 (EoLA):** [Essence of Linear Algebra (전체 플레이리스트)](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab)
+
 **Part 2 (선형대수 2) 마무리**, SVD를 응용·기저변환·PCA로 통합하고 Part 2 1-8회차 종합 문제를 함께 Review합니다.
 
 > 큰 $\sigma_i$ 몇 개만 남기면 가장 가까운 저계수 행렬, 이것이 압축·LoRA·PCA 모두입니다.

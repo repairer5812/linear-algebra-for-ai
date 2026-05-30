@@ -39,6 +39,8 @@ style: |
 ## Support Vector Machine · Hard/Soft margin · Hinge loss · Dual
 
 MML §12.1-§12.3 (메인) · Part 4 (ML 및 AI의 수학적 응용) · (Strang 발췌 없음)
+
+> **시각 보조 (EoLA):** [EoLA Ch.9: Dot products and duality](https://www.youtube.com/watch?v=LyGKycYT2v0) · 결정경계를 내적으로 읽습니다.
 **Part 4 4회차** — 분류기를 "마진 최대화"라는 한 원칙으로 환원합니다.
 
 > 본 회차는 Part 3 4회차 (KKT)와 Part 1의 Inner product·Norm·정사영을 한 자리에 모읍니다.

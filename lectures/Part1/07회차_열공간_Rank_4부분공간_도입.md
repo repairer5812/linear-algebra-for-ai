@@ -43,6 +43,8 @@ style: |
 
 MML §2.6 일부 (메인) · Strang Ch 3.3-3.4 (발췌, **시그니처**) · Part 1 (LA1)
 
+> **시각 보조 (EoLA):** [EoLA Ch.8: Nonsquare matrices as transformations between dimensions](https://www.youtube.com/watch?v=v8VSDg_WQlA)
+
 > 6회차의 $N(A)$에 세 자매 $C(A), C(A^\top), N(A^\top)$를 더해 행렬에 자연스럽게 붙는 **네 부분공간의 큰 그림** 을 본다. 본 회차가 Strang 시그니처 발췌 가장 강한 회차이다.
 
 ---

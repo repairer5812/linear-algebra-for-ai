@@ -39,6 +39,8 @@ style: |
 ## Case Study 발표 · Part 4 (ML 및 AI의 수학적 응용) 종합 문제 Review
 
 자체 교안 · Part 1·2·3·4 종합 · Part 4 (ML 및 AI의 수학적 응용)
+
+> **시각 보조 (EoLA):** [Essence of Linear Algebra (전체 플레이리스트)](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab)
 **Part 4 8회차 (마지막 회차)** — Part 1·2·3·4의 도구를 모두 동원해 학생 각자의 AI 모델 부분을 LA 객체로 환원합니다.
 
 > 본 회차는 본 강좌 전체의 종합 활동이다. 사전 공개된 종합 문제를 본인이 풀어 온 풀이를 함께 Review하고, Case Study 발표로 마무리한다.

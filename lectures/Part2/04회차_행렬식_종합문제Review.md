@@ -43,6 +43,8 @@ style: |
 
 MML §4.1 (메인) · **Strang Ch 5.1-5.3 (signed volume·Leibniz·Cofactor 시그니처 발췌)** · Part 2 (LA2)
 
+> **시각 보조 (EoLA):** [EoLA Ch.6: The determinant](https://www.youtube.com/watch?v=Ip3X9LOh2dk)
+
 본 회차 후반은 **사전 공개된 Part 1·Part 2 전반 종합 문제 풀이를 함께 Review**합니다. 학생은 본 회차 전에 종합 문제 (05_시험/Part1_Part2전반_종합문제Review.md)를 본인 페이스로 풀어 와서, 본 회차에 모두 함께 풀이를 짚어 봅니다. Part 1 1-8회차와 Part 2 1-3회차의 핵심 객체가 한 줄기로 어떻게 엮이는지 한 자리에서 종합합니다.
 
 ---

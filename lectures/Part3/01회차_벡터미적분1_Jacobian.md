@@ -36,6 +36,8 @@ style: |
 ## Vector Calculus 1: Jacobian(자코비안)·Chain rule·Gradient
 
 MML §5.1-5.4 (메인) · Part 3 (VC + Probability)
+
+> **시각 보조 (EoLA):** [EoLA Ch.3: Linear transformations and matrices](https://www.youtube.com/watch?v=kYB8IZa5AuE) · Jacobian은 국소 선형사상입니다.
 **Part 3 (VC + Probability) 시작**: 행렬 분해 (Eigenvalue·SVD)에서 미분 연산으로 전환한다. 신경망 학습의 backward pass가 사실 본 회차 두 도구 (Jacobian·Chain rule)의 반복임을 본다.
 
 > 본 회차의 결과는 "왜 행렬 미분이 자연스러운가"에 답한다. 2회차 (Hessian·Newton) 와 3·4회차 (확률·최적화) 의 전제이다.

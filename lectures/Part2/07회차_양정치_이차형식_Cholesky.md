@@ -40,6 +40,8 @@ style: |
 
 MML §4.3 (메인) · Strang Ch 6.5 (발췌) · Part 2 (LA2)
 
+> **시각 보조 (EoLA):** [EoLA Ch.14: Eigenvectors and eigenvalues](https://www.youtube.com/watch?v=PFDu9oVAE-g)
+
 **모든 Eigenvalue가 양수**인 대칭행렬에서 이차형식·Cholesky·다변량 정규가 한 묶음으로 등장합니다.
 
 > $A \succ 0 \iff$ 모든 $\lambda > 0 \iff \mathbf{x}^\top A \mathbf{x} > 0 \iff A = LL^\top$ ($L$ 대각 양수)

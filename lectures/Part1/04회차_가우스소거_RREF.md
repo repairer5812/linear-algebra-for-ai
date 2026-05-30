@@ -35,7 +35,7 @@ style: |
 
 ## Gaussian elimination · RREF · 해의 구조
 
-MML §2.3.1-§2.3.3 (메인) · Strang Ch 2.1-2.3 (발췌, **Elementary matrix · LU 절차 시그니처**) · EoLA Ch.7 · Part 1 (LA1)
+MML §2.3.1-§2.3.3 (메인) · Strang Ch 2.1-2.3 (발췌, **Elementary matrix · LU 절차 시그니처**) · [EoLA Ch.7: Inverse matrices, column space and null space](https://www.youtube.com/watch?v=uQhTuRlWMxw) · Part 1 (LA1)
 
 ---
 

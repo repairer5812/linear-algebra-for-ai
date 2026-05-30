@@ -38,6 +38,8 @@ style: |
 SW·AI 융합대학원 · Part 1·2·3·4 (총 29회차)
 메인 교재: MML (Deisenroth·Faisal·Ong, *Mathematics for Machine Learning*) · 발췌: Strang, *Introduction to Linear Algebra* · 시각: 3Blue1Brown EoLA
 
+> **시각 보조 (EoLA):** [Essence of Linear Algebra: Preview](https://www.youtube.com/watch?v=kjBOesZCoqc) · 전 과정의 기하적 직관을 한눈에 보여주는 3Blue1Brown 시리즈 개요.
+
 ---
 
 ## 본 회차 학습 목표
@@ -384,11 +386,15 @@ Decomposition이 AI의 절반입니다. 이 강의 후반부가 다 이 표 안�
 - [ ] Eigenvalue Decomposition · SVD의 Definition·계산법을 자유롭게 사용할 수 있습니다.
 - [ ] PCA·Low-rank 근사를 SVD로 **한 줄에 구현**할 수 있습니다.
 
+---
+
 ## F-3. Part 3 (VC + Probability) 종료 시 (4회차 후)
 
 - [ ] Jacobian·Hessian으로 신경망 한 층의 미분을 분해할 수 있습니다.
 - [ ] MLE·KL divergence·Cross entropy·MVN을 자유롭게 다룰 수 있습니다.
 - [ ] Convex·Lagrange·KKT 조건으로 제약 최적화를 풀 수 있습니다.
+
+---
 
 ## F-4. Part 4 (ML·AI 응용) 종료 시 (8회차 후)
 
