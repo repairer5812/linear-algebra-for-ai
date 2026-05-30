@@ -65,7 +65,7 @@ MML §5.5-5.8 (메인) · Part 3 (VC + Probability)
   - $i \neq j$: $\partial f_i / \partial x_j = -f_i f_j$.
   - 한 줄로: $J_{\mathrm{softmax}} = \mathrm{diag}(\mathbf{f}) - \mathbf{f} \mathbf{f}^\top$ (대각에서 outer product 빼기).
 
-- **(c)** $\partial \ell / \partial \mathbf{x} = 2 z_2 \cdot \mathbf{w}_2^\top \cdot \mathrm{diag}(1 - \tanh^2 \mathbf{z}_1) \cdot W_1$. 모든 합성은 Jacobian 곱의 사슬로 해체된다.
+- **(c)** $\partial \ell / \partial \mathbf{x} = 2 z_2 \cdot \mathbf{w}_2^\top \cdot \mathrm{diag}(1 - \tanh^2 \mathbf{z}_1) \cdot W_1$. 모든 합성은 Jacobian 곱의 연쇄로 해체된다.
 
 ---
 
@@ -94,7 +94,7 @@ MML §5.5-5.8 (메인) · Part 3 (VC + Probability)
 
 ---
 
-## 본 회차 개념 사슬
+## 본 회차 학습 흐름
 
 | 질문 | 답 | 도구 |
 |---|---|---|
@@ -110,14 +110,14 @@ MML §5.5-5.8 (메인) · Part 3 (VC + Probability)
 
 | 순서 | 블록 | 내용 |
 |:---:|:---:|---|
-| ① | A | Review + 본 회차 사슬 |
+| ① | A | Review + 본 회차 학습 흐름 |
 | ② | **B** | Hessian Matrix 정의·symmetric 증명 흐름 |
 | ③ | **C** | 다변수 Taylor 2차 전개·임계점 판정 |
 | ④ | **C2** | Newton 방법 유도·GD와 비교 |
 | ⑤ | **D** | 옵티마이저 비교 (SGD·Newton·Adam) |
 | ⑥ | E | 코딩 실습 + 마무리 문제 |
 
-> **B·C·C2가 본 회차의 심장이다.** D는 응용 비교, E는 검증이다.
+> **B·C·C2가 본 회차의 핵심이다.** D는 응용 비교, E는 검증이다.
 
 ---
 
@@ -232,7 +232,7 @@ $$f(\mathbf{x}_0 + \mathbf{h}) \;=\; f(\mathbf{x}_0) \;+\; \nabla f(\mathbf{x}_0
 
 <div class="analogy">
 
-**직관 (지구 한 마을의 입체 지도 비유)**: 1회차 Jacobian이 "한 마을의 평면 지도"였다면, **Hessian은 그 마을의 등고선·언덕·골짜기까지 표시한 입체 지도**입니다. 한 점 $\mathbf{x}_0$ 근처에서는 입체 지도가 함수 자체와 거의 같다는 것이 Taylor 2차의 약속입니다.
+**직관 (1차·2차 근사의 차이)**: 1회차의 Jacobian은 한 점 $\mathbf{x}_0$ 근방의 **일차 (선형) 근사**, 곧 접평면 정보만 담는다. Hessian은 **이차 근사**, 곧 그 점에서의 **곡률** (curvature) 까지 담는다. Taylor 2차 식 $f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0) + \nabla f(\mathbf{x}_0)^\top \mathbf{h} + \tfrac{1}{2} \mathbf{h}^\top H(\mathbf{x}_0) \mathbf{h}$가 본 사실의 정식 진술이다.
 
 </div>
 
@@ -350,7 +350,7 @@ Adam에서 $\hat{m}$은 gradient의 (편향 보정) 평균, $\hat{v}$는 (편향
 
 <div class="analogy">
 
-**직관 (산행 보폭 비유)**: GD는 어느 방향이든 **같은 보폭**으로 걷습니다. Adam은 **자주 가본 방향은 짧은 보폭, 처음 가는 방향은 큰 보폭** (좌표별 조정). Newton은 **각 방향의 경사도와 휘어짐을 다 알아본 뒤 최적 보폭**으로 한 발에 도착합니다. 정보가 많을수록 한 스텝이 비싸지만 적게 걸어도 됩니다.
+**직관 (세 방법의 비교)**: GD는 모든 좌표에 동일한 학습률 $\eta$를 적용한다. Adam은 좌표별 gradient 크기 이력으로 학습률을 조정 ($H$의 대각 성분 근사). Newton은 Hessian 전체의 역행렬 $H^{-1}$을 곱해 한 step에 이차 근사 함수의 최솟값으로 이동한다. 이차 정보를 더 많이 사용할수록 한 step의 비용은 커지지만 필요한 step 수는 적어진다.
 
 </div>
 
@@ -490,7 +490,7 @@ plt.show()
 
 # 본 회차 마무리 문제
 
-본 회차 사슬을 한 문제로 종합한다.
+본 회차 학습 흐름을 한 문제로 종합한다.
 
 함수 $f(\mathbf{x}) = (x_1 - 1)^2 + 2 x_1 x_2 + 3 (x_2 - 2)^2$이 주어졌다.
 
@@ -552,7 +552,7 @@ plt.show()
 
 # Q & A
 
-본 회차 사슬:
+본 회차 학습 흐름:
 **Hessian → Taylor 2차 → 임계점 판정 → Newton → 옵티마이저 비교**
 
 핵심 한 줄: **Gradient는 어디로 갈지를, Hessian은 얼마나 갈지를 알려준다.** Newton은 한 점에서 그 모든 정보를 다 쓰는 방법이고, Adam은 그 핵심만 추려 실용화한 방법이다.

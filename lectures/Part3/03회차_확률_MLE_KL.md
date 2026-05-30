@@ -90,7 +90,7 @@ MML §6 (메인) · §8.3 일부 · Part 3 (VC + Probability)
 
 ---
 
-## 본 회차 개념 사슬
+## 본 회차 학습 흐름
 
 | 질문 | 답 | 도구 |
 |---|---|---|
@@ -107,14 +107,14 @@ MML §6 (메인) · §8.3 일부 · Part 3 (VC + Probability)
 
 | 순서 | 블록 | 내용 |
 |:---:|:---:|---|
-| ① | A | Review + 본 회차 사슬 |
+| ① | A | Review + 본 회차 학습 흐름 |
 | ② | **B** | 확률 분포·기대값·분산·공분산 |
 | ③ | **C** | 베이즈 정리·MLE·MAP |
 | ④ | **C2** | KL divergence·Cross entropy |
 | ⑤ | **D** | Multivariate Gaussian + AI 응용 (LLM·VAE 직관) |
 | ⑥ | E | 코딩 실습 + 마무리 문제 + 자율 학습 박스 |
 
-> **C·C2·D가 본 회차의 심장이다.**
+> **C·C2·D가 본 회차의 핵심이다.**
 
 ---
 
@@ -240,7 +240,7 @@ MLE에 **prior 로그항**이 더해진 형태.
 
 <div class="analogy">
 
-**직관 (의사 진단 비유)**: MLE는 **이번 환자의 증상만 보고 진단**입니다. MAP는 **환자의 증상 + 이 병의 사전 발생률 (prior)**를 함께 봅니다. 증상이 우연히 희귀병처럼 보여도 그 병이 평소 드물면 (낮은 prior) 흔한 병으로 판단을 끌어옵니다 (정규화).
+**직관 (MLE vs MAP)**: MLE는 관측 데이터의 likelihood만을 최대화하는 추정이다. MAP는 prior $p(\theta)$를 곱한 posterior $p(\theta \mid \mathcal{D}) \propto p(\mathcal{D} \mid \theta) p(\theta)$를 최대화한다. 데이터가 우연히 극단적 값을 가리켜도 prior가 그 값에 작은 밀도를 두면 추정이 prior 쪽으로 끌려오며, 이 효과가 곧 정규화 (regularization) 의 확률적 의미이다.
 
 </div>
 
@@ -370,7 +370,7 @@ $$\mathcal{L} = \mathbb{E}_{q_\phi}[\log p_\theta(\mathbf{x} \mid \mathbf{z})] -
 
 <div class="analogy">
 
-**직관 (학생 모범답안 비유)**: ELBO는 학생에게 두 가지를 요구합니다, (1) **정답을 잘 맞춰라 (reconstruction)**, (2) **너무 튀는 답을 내지 마라 (KL이 prior와 가까이)**. 두 항의 균형이 곧 학습의 균형입니다.
+**직관 (ELBO 두 항의 의미)**: ELBO는 두 항의 합으로 분해된다. (1) **Reconstruction**: $\mathbb{E}_{q(\mathbf{z} \mid \mathbf{x})}[\log p(\mathbf{x} \mid \mathbf{z})]$, 잠재 표현으로부터 데이터를 얼마나 잘 복원하는가. (2) **KL 정규화**: $-\mathrm{KL}(q(\mathbf{z} \mid \mathbf{x}) \,\Vert\, p(\mathbf{z}))$, posterior $q$가 prior $p(\mathbf{z})$에서 얼마나 멀어졌는가에 대한 페널티. 두 항의 균형이 VAE 학습의 표준 목표 함수이다.
 
 </div>
 
@@ -477,7 +477,7 @@ plt.axis('equal'); plt.show()
 
 # 본 회차 마무리 문제
 
-본 회차 사슬을 한 문제로 종합한다.
+본 회차 학습 흐름을 한 문제로 종합한다.
 
 이진 분류 데이터 $\{(\mathbf{x}_i, y_i)\}_{i=1}^N$, $y_i \in \{0, 1\}$. 모델은 logistic:
 $$q_\theta(y = 1 \mid \mathbf{x}) = \sigma(\mathbf{w}^\top \mathbf{x} + b), \quad \sigma(t) = \frac{1}{1 + e^{-t}}.$$
@@ -544,7 +544,7 @@ $$q_\theta(y = 1 \mid \mathbf{x}) = \sigma(\mathbf{w}^\top \mathbf{x} + b), \qua
 
 # Q & A
 
-본 회차 사슬:
+본 회차 학습 흐름:
 **확률 분포 → 베이즈·MLE·MAP → KL·Cross entropy → MVN → LLM·VAE 직관**
 
 핵심 한 줄: **분포의 차이는 KL로 재고, 데이터로 모델을 학습하는 일은 결국 cross entropy MLE이다.** LLM의 한 줄 손실이 본 회차에 들어 있다.

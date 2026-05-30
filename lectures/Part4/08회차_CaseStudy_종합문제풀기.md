@@ -75,7 +75,7 @@ style: |
 
 1. 각 학생이 선택한 모델 부분의 **Case Study 발표** (5분 × n명)
 2. **Part 4 통합 문제 풀이** (Regression·PCA·GMM·SVM·CNN·Attention 한 문제)
-3. **Part 1·2·3·4 핵심 통합 풀이** (본 강좌 전체 사슬 한 자리)
+3. **Part 1·2·3·4 핵심 통합 풀이** (본 강좌 전체 학습 흐름 한 자리)
 
 본 회차는 **본 강좌 전체의 마지막 회차**다.
 
@@ -93,7 +93,7 @@ style: |
 
 ---
 
-## 본 회차 개념 사슬
+## 본 회차 학습 흐름
 
 | 질문 | 답 (본 회차의 답) | 도구 |
 |---|---|---|
@@ -244,7 +244,7 @@ $n = 8$ Token, $d = 64$ embedding, $h = 4$ head, head별 $d_k = d_v = 16$.
 
 # D. Part 1·2·3·4 핵심 통합 풀이
 
-## D-1. 본 강좌 전체 사슬 한 자리
+## D-1. 본 강좌 전체 학습 흐름 한 자리
 
 | Part | 핵심 객체 | Part 4에서 어디 등장 |
 |---|---|---|
@@ -390,7 +390,7 @@ $n = 8$ Token, $d = 64$ embedding, $h = 4$ head, head별 $d_k = d_v = 16$.
 
 ## E-4. 자기 점검 질문 (본 강좌 전체)
 
-- Vector → Inner product → 행렬 곱 → 부분공간 → 정사영의 사슬을 한 자리에 적을 수 있는가?
+- Vector → Inner product → 행렬 곱 → 부분공간 → 정사영의 흐름을 한 자리에 적을 수 있는가?
 - SVD가 Regression·PCA·LoRA 세 곳에 어떻게 등장하는지 설명할 수 있는가?
 - Convex 최적화·KKT가 SVM·Lagrange duality에 어떻게 적용되는지 적을 수 있는가?
 - Conv·1×1 Conv·Attention·Embedding의 행렬 곱 환원을 한 자리에 적을 수 있는가?

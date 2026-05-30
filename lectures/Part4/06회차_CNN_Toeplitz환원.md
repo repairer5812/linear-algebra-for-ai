@@ -91,7 +91,7 @@ $$\mathbf{K} = \begin{pmatrix} 25 & 1 & 9 \\ 1 & 1 & 1 \\ 9 & 1 & 25 \end{pmatri
 
 ---
 
-## 본 회차 개념 사슬
+## 본 회차 학습 흐름
 
 | 질문 | 답 (본 회차의 답) | 도구 |
 |---|---|---|
@@ -127,7 +127,7 @@ $$\mathbf{K} = \begin{pmatrix} 25 & 1 & 9 \\ 1 & 1 & 1 \\ 9 & 1 & 25 \end{pmatri
 
 <div class="analogy">
 
-**직관 (창문 비유)**: Convolution은 **작은 창문 (커널)을 긴 신호 위로 한 칸씩 밀며 보는 일**입니다. 창문이 한 위치에 있을 때 보이는 값들을 가중치 (커널 값)와 곱해 한 숫자로 요약합니다. 이를 모든 위치에서 반복해 새 신호를 만듭니다. **창문 자체는 한 종류, 위치만 바뀝니다.**
+**직관 (Convolution의 의미)**: 1D Convolution은 길이 $p$의 커널 $\mathbf{k}$를 신호 위에서 한 칸씩 평행 이동하며 각 위치에서 신호의 해당 구간과 Inner product를 계산하는 연산이다. 즉 모든 위치에서 **같은 커널, 위치만 바뀐 가중합**이 출력 신호의 한 성분이 된다. 본 평행이동 불변성 (translation invariance) 이 곧 출력 행렬을 Toeplitz 형태로 만드는 구조적 이유이다.
 
 </div>
 
@@ -208,7 +208,7 @@ $$\boxed{\;\mathbf{x} \star \mathbf{k} = T_k \mathbf{x} \in \mathbb{R}^{m}, \qua
 $T_k$의 $i$번째 행과 $\mathbf{x}$의 곱을 적으면
 $$(T_k \mathbf{x})_i = \sum_{j=0}^{p-1} k_j \cdot x_{i+j} = (\mathbf{x} \star \mathbf{k})_i.$$
 
-→ 단순 인덱스 일치. 본 회차 사슬의 중심 식.
+→ 단순 인덱스 일치. 본 회차 학습 흐름의 중심 식.
 
 ---
 
@@ -386,7 +386,7 @@ $$\mathbf{X} \xrightarrow{1{\times}1} \mathbf{X}_1 \xrightarrow{3{\times}3} \mat
 
 # 본 회차 마무리 문제 (즉석 풀이)
 
-본 회차 사슬 (1D Conv → Toeplitz → 1×1 Conv = 행렬곱)을 **한 문제**로 종합합니다.
+본 회차 학습 흐름 (1D Conv → Toeplitz → 1×1 Conv = 행렬곱)을 **한 문제**로 종합합니다.
 
 - **(a)** $\mathbf{x} = (1, 3, 5, 7, 9)^\top, \mathbf{k} = (1, 2, 1)^\top$. Cross-correlation $\mathbf{x} \star \mathbf{k}$를 직접 계산.
 - **(b)** Toeplitz 행렬 $T_k \in \mathbb{R}^{3 \times 5}$를 적고 $T_k \mathbf{x}$로 (a) 결과를 다시 얻으시오.
@@ -416,7 +416,7 @@ $$\mathbf{X} \xrightarrow{1{\times}1} \mathbf{X}_1 \xrightarrow{3{\times}3} \mat
 
 ## 다음 회차 (Attention) Review용 숙제
 
-본 회차 사슬의 **확장 문제**입니다.
+본 회차의 **확장 문제**입니다.
 
 - (a) $\mathbf{x} = (4, 1, 2, 3)^\top, \mathbf{k} = (1, 1)^\top$. Cross-correlation을 계산하고 Toeplitz $T_k \in \mathbb{R}^{3 \times 4}$로 검증하시오.
 - (b) 1×1 Conv가 fully connected layer와 본질적으로 같은 연산임을 한 줄로 설명하시오.
@@ -482,7 +482,7 @@ $$\mathbf{X} \xrightarrow{1{\times}1} \mathbf{X}_1 \xrightarrow{3{\times}3} \mat
 
 # Q & A
 
-본 회차 사슬:
+본 회차 학습 흐름:
 **1D Conv (Cross-correlation) → Toeplitz 행렬 $T_k$ → $\mathbf{x} \star \mathbf{k} = T_k \mathbf{x}$ → 1×1 Conv = 채널 행렬곱**
 
 핵심 한 줄: **Conv 연산은 모두 행렬 곱이다. 일반 Conv는 Toeplitz, 1×1 Conv는 채널 행렬. Part 1 3회차 행렬·벡터 곱이 CNN 전체를 지탱한다.**

@@ -91,7 +91,7 @@ MML §12.4-§12.5 (메인) · Part 4 (ML 및 AI의 수학적 응용) · (Strang 
 
 ---
 
-## 본 회차 개념 사슬
+## 본 회차 학습 흐름
 
 | 질문 | 답 (본 회차의 답) | 도구 |
 |---|---|---|
@@ -367,7 +367,7 @@ HOG (Histogram of Oriented Gradients)·SIFT (Scale-Invariant Feature Transform)�
 
 # 본 회차 마무리 문제 (즉석 풀이)
 
-본 회차 사슬 (특징 매핑 → Kernel → Polynomial·RBF → Kernelized Dual)을 **한 문제**로 종합합니다.
+본 회차 학습 흐름 (특징 매핑 → Kernel → Polynomial·RBF → Kernelized Dual)을 **한 문제**로 종합합니다.
 
 XOR 데이터 (4회차 Review와 동일):
 - $\mathbf{x}_1 = (1, 1), y_1 = +1$; $\mathbf{x}_2 = (-1, 1), y_2 = -1$
@@ -469,7 +469,7 @@ XOR 데이터 (4회차 Review와 동일):
 
 # Q & A
 
-본 회차 사슬:
+본 회차 학습 흐름:
 **특징 공간 매핑 → Kernel 함수 → Polynomial·RBF → Kernelized Dual SVM**
 
 핵심 한 줄: **Kernel trick은 $\phi$를 만들지 않고 $\langle \phi, \phi' \rangle$만 계산하여 비선형 분류를 한 번의 함수 호출로 환원한다.**

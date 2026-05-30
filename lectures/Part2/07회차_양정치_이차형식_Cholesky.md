@@ -88,7 +88,7 @@ MML §4.3 (메인) · Strang Ch 6.5 (발췌) · Part 2 (LA2)
 
 ---
 
-## 본 회차 개념 사슬
+## 본 회차 학습 흐름
 
 | 질문 | 답 (본 회차의 답) | 도구 |
 |---|---|---|
@@ -104,7 +104,7 @@ MML §4.3 (메인) · Strang Ch 6.5 (발췌) · Part 2 (LA2)
 
 | 순서 | 블록 | 내용 |
 |:---:|:---:|---|
-| ① | A | **오프닝**: 6회차 Review, 본 회차 사슬 |
+| ① | A | **오프닝**: 6회차 Review, 본 회차 학습 흐름 |
 | ② | **B** | **정의·동기**: 이차형식 → 양정치 |
 | ③ | **C** | **정리·풀이**: 5개 동치, Cholesky 풀이 |
 | ④ | **D** | **응용**: Hessian·MVN·Ridge |
@@ -202,7 +202,7 @@ $\Sigma = \mathbb{E}[(\mathbf{X} - \boldsymbol\mu)(\mathbf{X} - \boldsymbol\mu)^
 
 <div class="analogy">
 
-**직관 (밥그릇 vs 안장 비유)**: 이차형식 $q(\mathbf{x}) = \mathbf{x}^\top A \mathbf{x}$의 그래프는 $A$의 Eigenvalue 부호에 따라 모양이 정해집니다. **모두 양수면 밥그릇** (위로 열린 그릇, 바닥에 유일 최솟값), **하나 양·하나 음이면 안장** (말 안장 모양, 최솟값·최댓값 없음, 임계점은 saddle), **모두 음수면 거꾸로 된 밥그릇**. 손실함수의 Hessian이 밥그릇이면 Newton·뉴턴류 알고리즘이 곧장 최솟값으로 내려간다, 안장이면 멈춘다, 이것이 Part 3 2회차 Hessian 분석의 토대입니다.
+**기하적 해석 (이차형식의 그래프)**: 이차형식 $q(\mathbf{x}) = \mathbf{x}^\top A \mathbf{x}$의 그래프 형태는 $A$의 Eigenvalue 부호로 결정된다. **모든 Eigenvalue 양수 (양정치)**: 위로 열린 포물면, 원점이 유일한 최솟값. **부호 혼합 (indefinite)**: 안장점 (saddle point), 최솟값·최댓값이 모두 없는 임계점. **모든 Eigenvalue 음수 (음정치)**: 아래로 열린 포물면, 원점이 유일한 최댓값. 손실함수의 Hessian이 양정치이면 Newton·준 Newton 알고리즘이 곧장 최솟값으로 수렴하고, 안장점에서는 정체된다. 본 사실이 Part 3 2회차 Hessian 분석의 토대이다.
 
 </div>
 
@@ -521,7 +521,7 @@ print(beta)
 
 # 본 회차 마무리 문제 (즉석 풀이)
 
-본 회차 사슬 (이차형식 → 양정치 → Cholesky → 응용)을 한 문제로 종합합니다.
+본 회차 학습 흐름 (이차형식 → 양정치 → Cholesky → 응용)을 한 문제로 종합합니다.
 
 $A = \begin{pmatrix} 4 & 2 & 0 \\ 2 & 5 & 1 \\ 0 & 1 & 3 \end{pmatrix}$가 주어졌다.
 
@@ -545,7 +545,7 @@ $$L = \begin{pmatrix} 2 & 0 & 0 \\ 1 & 2 & 0 \\ 0 & 0.5 & \sqrt{11}/2 \end{pmatr
 
 - **(d)** `x = L @ z` (단, `z = np.random.randn(3)`). 즉 `x = np.linalg.cholesky(A) @ np.random.randn(3)`.
 
-> **핵심**: 양정치 → Cholesky → MVN 샘플링의 한 줄 사슬이 본 회차 응용의 전부이다. 다음 회차는 **모든 행렬**에 적용 가능한 더 강한 분해, 즉 **SVD**를 다룬다.
+> **핵심**: 양정치 → Cholesky → MVN 샘플링의 한 줄 흐름이 본 회차 응용의 전부이다. 다음 회차는 **모든 행렬**에 적용 가능한 더 강한 분해, 즉 **SVD**를 다룬다.
 
 ---
 
@@ -619,7 +619,7 @@ $n = 1$ 자명. $n \ge 2$ 가정. $A$를 블록으로 $\begin{pmatrix} A_{n-1} &
 
 # Q & A
 
-본 회차 사슬:
+본 회차 학습 흐름:
 **이차형식 → 양정치(positive definite, $\succ 0$) → Cholesky $A = LL^\top$ → Hessian·MVN·Ridge**
 
 핵심 한 줄: **양정치 = 모든 방향에서 양수 = 밥그릇 = Cholesky 가능, 한 정리의 다섯 동치 진술이 본 회차의 전부이다.**

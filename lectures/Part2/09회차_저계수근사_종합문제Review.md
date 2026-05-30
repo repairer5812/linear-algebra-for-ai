@@ -89,7 +89,7 @@ $\|A - \tilde A\|_F^2 = \sigma_2^2$가 우연이 아니라 **Eckart-Young 정리
 
 ---
 
-## 본 회차 개념 사슬
+## 본 회차 학습 흐름
 
 | 질문 | 답 (본 회차의 답) | 도구 |
 |---|---|---|
@@ -106,7 +106,7 @@ $\|A - \tilde A\|_F^2 = \sigma_2^2$가 우연이 아니라 **Eckart-Young 정리
 
 | 순서 | 블록 | 내용 |
 |:---:|:---:|---|
-| ① | A | **오프닝**: 8회차 Review, 본 회차 사슬 |
+| ① | A | **오프닝**: 8회차 Review, 본 회차 학습 흐름 |
 | ② | **B** | **정의·동기**: SVD 외적 표현 → 저계수 근사 |
 | ③ | **C** | **정리·풀이**: Eckart-Young 진술, 직관 풀이, Linear transformation |
 | ④ | **D** | **응용**: PCA 도입·이미지 압축·LoRA |
@@ -162,7 +162,7 @@ $$\|A\|_2 = \max_{\|\mathbf{x}\| = 1}\|A\mathbf{x}\| = \sigma_1$$
 
 <div class="analogy">
 
-**직관 (해상도 조절 비유)**: 4K 사진을 720p로 줄여도 사람 얼굴은 인식됩니다. 줄인 만큼 디스크·전송 비용이 절감됩니다. SVD 저계수 근사는 **데이터의 해상도를 수학적으로 정확히 조절하는 도구**입니다. 큰 $\sigma_i$ = 본질적 정보, 작은 $\sigma_i$ = 자잘한 디테일·잡음. **몇 개만 남길지가 압축률을 결정**합니다.
+**직관 (저계수 근사의 의미)**: SVD $A = \sum_{i=1}^r \sigma_i \mathbf{u}_i \mathbf{v}_i^\top$에서 상위 $k$개 항만 남기면 rank-$k$ 근사 $A_k$가 된다. 큰 $\sigma_i$에 해당하는 항은 데이터의 주된 변동성, 작은 $\sigma_i$에 해당하는 항은 미세한 변동·잡음을 담는다. $k$ 선택이 곧 압축률을 결정하며, 그 압축률에서 Frobenius 오차가 최소인 보장이 Eckart-Young 정리이다. 이미지 압축·LoRA·PCA·LSA가 모두 본 표현을 공유한다.
 
 </div>
 
@@ -203,7 +203,7 @@ $\langle A, B\rangle_F$를 SVD로 풀면 두 분해의 특이벡터가 일치할
 
 <div class="strang">
 
-**📚 Strang Ch 7.3 발췌**: Strang은 Eckart-Young을 "**SVD의 마지막 정리**"라 부릅니다. 모든 행렬의 가장 정확한 저계수 근사가 SVD 절단으로 자동 얻어집니다. 이미지 압축의 JPEG·MP3, 추천 시스템, LoRA, PCA, eigenfaces, LSA 모두 본 정리 한 줄에서 비롯됩니다.
+**Strang Ch 7.3 발췌**: Strang은 Eckart-Young을 "**SVD의 마지막 정리**"라 부릅니다. 모든 행렬의 가장 정확한 저계수 근사가 SVD 절단으로 자동 얻어집니다. 이미지 압축의 JPEG·MP3, 추천 시스템, LoRA, PCA, eigenfaces, LSA 모두 본 정리 한 줄에서 비롯됩니다.
 
 </div>
 
@@ -480,7 +480,7 @@ LoRA: $2 \cdot 4096 \cdot 16 = 131,072$. 원본: $4096^2 \approx 1.68 \times 10^
 
 # 본 회차 마무리 문제 (즉석 풀이)
 
-본 회차 사슬 (외적 표현 → Eckart-Young → PCA)을 한 문제로 종합합니다.
+본 회차 학습 흐름 (외적 표현 → Eckart-Young → PCA)을 한 문제로 종합합니다.
 
 $\tilde X = \begin{pmatrix} 3 & 0 \\ 0 & 2 \\ 0 & 0 \end{pmatrix}$가 주어졌다 ($3 \times 2$, 평균 중심화 완료).
 
@@ -590,7 +590,7 @@ $\|A - B\|_2 \ge \|(A-B)\mathbf{v}\|$ 꼴의 하한을 적당히 잡으면 $\|A 
 
 # Q & A
 
-본 회차 사슬:
+본 회차 학습 흐름:
 **SVD 외적 표현 → Eckart-Young (저계수 근사 최적) → Linear transformation·기저변환 → PCA 도입**
 
 핵심 한 줄: **데이터의 본질적 차원이 적으면 SVD 절단이 곧 그 본질을 추출하는 최적 도구이며, 이것이 PCA·이미지 압축·LoRA·LSA 모두의 토대이다.**

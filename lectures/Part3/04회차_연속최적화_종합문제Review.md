@@ -36,7 +36,7 @@ style: |
 ## Continuous Optimization + Part 3 (VC + Probability) 종합 문제 Review
 
 MML §7.1-7.3 (메인) · Part 3 (VC + Probability)
-**Part 3 (VC + Probability) 의 마지막 회차**: GD·Lagrange·KKT·Convexity의 표준 도구를 정리하고, **Part 3 사슬 (Calculus → Probability → Optimization)** 을 Part 2 (Eigen·SVD) 도구와 함께 한 문제 풀이 세션으로 묶는다.
+**Part 3 (VC + Probability) 의 마지막 회차**: GD·Lagrange·KKT·Convexity의 표준 도구를 정리하고, **Part 3 학습 흐름 (Calculus → Probability → Optimization)** 을 Part 2 (Eigen·SVD) 도구와 함께 한 문제 풀이 세션으로 묶는다.
 
 > Part 4 (Linear Regression·PCA·GMM·SVM·CNN·Attention) 의 모든 학습이 본 회차에서 정리한 최적화 문제로 환원된다.
 
@@ -86,11 +86,11 @@ MML §7.1-7.3 (메인) · Part 3 (VC + Probability)
 2. **Lagrange 승수법**으로 등식 제약 최적화를 풀 수 있다.
 3. **KKT 조건** 네 가지 (stationarity·primal feasibility·dual feasibility·complementary slackness) 를 적고 SVM 형태의 문제에 적용할 수 있다.
 4. **Convex 함수**의 정의와 일계 (gradient) ·이계 (Hessian PSD) 특성화를 설명할 수 있다.
-5. **Part 2 + Part 3 사슬** (Eigenvalue · SVD · Vector calculus · Probability · Optimization) 의 모든 도구를 한 문제 풀이에서 사용할 수 있다.
+5. **Part 2 + Part 3 학습 흐름** (Eigenvalue · SVD · Vector calculus · Probability · Optimization) 의 모든 도구를 한 문제 풀이에서 사용할 수 있다.
 
 ---
 
-## 본 회차 개념 사슬
+## 본 회차 학습 흐름
 
 | 질문 | 답 | 도구 |
 |---|---|---|
@@ -106,7 +106,7 @@ MML §7.1-7.3 (메인) · Part 3 (VC + Probability)
 
 | 순서 | 블록 | 내용 |
 |:---:|:---:|---|
-| ① | A | Review + 본 회차 사슬 |
+| ① | A | Review + 본 회차 학습 흐름 |
 | ② | **B** | GD update·수렴 조건·convex와의 관계 |
 | ③ | **C** | Lagrange 승수법·KKT 조건 |
 | ④ | **D** | Convex 함수·집합·convex 최적화의 보장 |
@@ -142,7 +142,7 @@ $\nabla f$가 **L-Lipschitz** (즉 $\Vert \nabla f(\mathbf{x}) - \nabla f(\mathb
 
 <div class="analogy">
 
-**직관 (좁고 긴 골짜기 비유)**: 손실 함수가 한 방향은 가파르고 다른 방향은 완만하면 (긴 골짜기), GD는 가파른 방향에서 진동하고 완만한 방향에서 거의 안 움직입니다. **이 격차가 condition number $\kappa$입니다.** $\kappa$가 크면 한 방향이 끝날 때까지 다른 방향이 거의 안 가고, 그래서 학습이 느립니다.
+**직관 (Condition number의 영향)**: 이차형식 손실 $f(\mathbf{x}) = \tfrac{1}{2}\mathbf{x}^\top A \mathbf{x}$의 등위면은 $A$의 Eigenvalue로 결정되는 축비를 가지는 타원이다. $\lambda_{\max} \gg \lambda_{\min}$이면 타원이 매우 길쭉해지고 (큰 condition number $\kappa = \lambda_{\max}/\lambda_{\min}$), Gradient descent는 가파른 방향에서 진동하고 완만한 방향에서 느리게 진행한다. $\kappa$가 클수록 수렴이 느려지는 본 효과가 학습 효율의 핵심 제약이다.
 
 </div>
 
@@ -260,7 +260,7 @@ $f$가 convex이고 제약 집합이 convex이면:
 
 <div class="analogy">
 
-**직관 (사발과 두꺼비 비유)**: Convex 함수는 사발입니다. 두꺼비가 어디서 출발해도 GD로 굴러 내려가면 사발 바닥에 도달합니다. **출발 위치에 무관, 일관된 정답.** Non-convex (울퉁불퉁한 지형) 는 출발 위치에 따라 다른 local min에 빠집니다.
+**직관 (Convex의 의미)**: Convex 함수는 위로 열린 사발 모양 (그래프 위에서 두 점을 잇는 선분이 그래프 위쪽에 위치) 이다. **임의의 초기값에서 시작해도 Gradient descent가 같은 한 점에 수렴**하며, 그 점이 곧 유일한 전역 최솟값이다. Non-convex 함수는 여러 local minimum을 가질 수 있어 초기값에 따라 다른 점에 수렴할 수 있다.
 
 </div>
 
@@ -424,7 +424,7 @@ $A^\top A$가 가역 ($A$가 full column rank) → $\mathbf{x}^* = (A^\top A)^{-
 
 ---
 
-## E-1. Part 2 + Part 3 사슬 정리 (한 슬라이드)
+## E-1. Part 2 + Part 3 학습 흐름 정리 (한 슬라이드)
 
 | 회차 | 도구 | Part 3 (VC + Probability) 종합 문제에서의 위치 |
 |---|---|---|
@@ -435,7 +435,7 @@ $A^\top A$가 가역 ($A$가 full column rank) → $\mathbf{x}^* = (A^\top A)^{-
 | Part 3 3 | Probability·MLE·KL·Cross entropy | 문제 2 (Logistic = NLL = cross entropy) |
 | Part 3 4 | Lagrange·KKT·Convexity·GD | 모든 문제의 풀이 도구 |
 
-**Part 2 + Part 3 전체가 한 학습 곡선** 위에 있다. Part 4의 모든 모델이 본 사슬을 도구로 사용한다.
+**Part 2 + Part 3 전체가 한 학습 곡선** 위에 있다. Part 4의 모든 모델이 본 학습 흐름을 도구로 사용한다.
 
 ---
 
@@ -445,7 +445,7 @@ $A^\top A$가 가역 ($A$가 full column rank) → $\mathbf{x}^* = (A^\top A)^{-
 2. **Lagrange 승수법**: 등식 제약 → $\nabla f = \sum \lambda_i \nabla g_i$. Lagrangian의 정류 조건.
 3. **KKT 조건**: 부등식 포함 일반 제약 → 4조건 (stationarity·primal·dual·complementary slackness). Complementary slackness가 SVM의 support vector 정체.
 4. **Convexity**: 함수가 convex ($\nabla^2 f \succeq 0$) 이면 local = global, KKT 충분조건. Strictly convex이면 해 유일.
-5. **Part 2 + Part 3 종합 사슬**: Eigen·SVD·Calculus·Probability·Optimization이 한 풀이에 다 들어가는 문제들을 풀 수 있다.
+5. **Part 2 + Part 3 종합 학습 흐름**: Eigen·SVD·Calculus·Probability·Optimization이 한 풀이에 다 들어가는 문제들을 풀 수 있다.
 
 ---
 
@@ -528,8 +528,8 @@ Part 4 1회차 (Linear Regression) Review에서 다룬다.
 
 # Q & A
 
-본 회차 사슬:
-**GD → Lagrange → KKT → Convexity → Part 2 + Part 3 종합 사슬**
+본 회차 학습 흐름:
+**GD → Lagrange → KKT → Convexity → Part 2 + Part 3 종합 학습 흐름**
 
 핵심 한 줄: **Convex 최적화는 풀린다. Non-convex (신경망) 도 SGD가 잘 동작한다는 경험적 사실 위에 deep learning이 서 있다.**
 

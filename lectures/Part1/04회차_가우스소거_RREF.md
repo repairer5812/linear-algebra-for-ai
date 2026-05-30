@@ -90,7 +90,7 @@ MML §2.3.1-§2.3.3 (메인) · Strang Ch 2.1-2.3 (발췌, **Elementary matrix �
 
 ---
 
-## 본 회차 개념 사슬
+## 본 회차 학습 흐름
 
 | 질문 | 답 | 도구 |
 |---|---|---|
@@ -100,7 +100,7 @@ MML §2.3.1-§2.3.3 (메인) · Strang Ch 2.1-2.3 (발췌, **Elementary matrix �
 | 어떤 변수가 자유인가? | **Free variables** | Pivot 없는 열 |
 | 해의 존재·유일성은? | **Pivot 패턴 판정** | 3가지 경우 |
 
-이 사슬을 한 회차에 완주합니다.
+본 회차는 이 순서를 따라 진행한다.
 
 ---
 
@@ -116,7 +116,7 @@ MML §2.3.1-§2.3.3 (메인) · Strang Ch 2.1-2.3 (발췌, **Elementary matrix �
 | ⑥ | F | CS·AI 적용 + Column space 연결 |
 | ⑦ | G | **클로징**: 코딩 + 마무리 문제 + 숙제 |
 
-> **C·D·E가 본 회차의 심장이다.**
+> **C·D·E가 본 회차의 핵심이다.**
 
 ---
 
@@ -141,7 +141,7 @@ $\begin{cases} 2x + y = 5 \\ x + 3y = 5 \end{cases} \;\Leftrightarrow\; \left[\b
 | **(R2)** | $R_i \leftarrow c\,R_i\;(c \ne 0)$ | 한 행을 0이 아닌 Scalar(스칼라)로 곱하기 |
 | **(R3)** | $R_i \leftarrow R_i + c\,R_j$ | 한 행에 다른 행의 Scalar배를 더하기 |
 
-> 📚 **Strang Ch 2.2-2.3 발췌 (시그니처, Elementary matrix)**: Strang은 세 행 연산 각각이 **Elementary matrix** $E$로 표현됨을 강조한다. $R_i \leftarrow R_i - cR_j$는 단위행렬 $I$의 $(i, j)$ 자리를 $-c$로 바꾼 $E_{ij}(c)$로 좌측에 곱한 것과 같다. 즉 한 행 연산 = 한 번의 $E A$ 좌측 곱. **Forward elimination 전체 과정** = $E_k \cdots E_2 E_1 A = U$ (상삼각). 이것을 거꾸로 정리하면 $A = (E_1^{-1} E_2^{-1} \cdots E_k^{-1}) U = LU$ (5회차 LU 분해의 정확한 출발점). Strang이 LA 책 전반에서 가장 자주 반복하는 시그니처 패턴이다.
+> **Strang Ch 2.2-2.3 발췌 (시그니처, Elementary matrix)**: Strang은 세 행 연산 각각이 **Elementary matrix** $E$로 표현됨을 강조한다. $R_i \leftarrow R_i - cR_j$는 단위행렬 $I$의 $(i, j)$ 자리를 $-c$로 바꾼 $E_{ij}(c)$로 좌측에 곱한 것과 같다. 즉 한 행 연산 = 한 번의 $E A$ 좌측 곱. **Forward elimination 전체 과정** = $E_k \cdots E_2 E_1 A = U$ (상삼각). 이것을 거꾸로 정리하면 $A = (E_1^{-1} E_2^{-1} \cdots E_k^{-1}) U = LU$ (5회차 LU 분해의 정확한 출발점). Strang이 LA 책 전반에서 가장 자주 반복하는 시그니처 패턴이다.
 
 ### 명제 3.1 (해 불변성)
 세 연산은 모두 $A\mathbf{x} = \mathbf{b}$의 **해집합을 보존**한다.
@@ -156,7 +156,7 @@ $\begin{cases} 2x + y = 5 \\ x + 3y = 5 \end{cases} \;\Leftrightarrow\; \left[\b
 
 <div class="analogy">
 
-**직관 (주문서 정리 비유)**: 복잡한 주문서를 **단계별로 정리**하는 작업입니다. 처음엔 메뉴가 마구 섞여 있어 누가 무엇을 주문했는지 보이지 않지만, **한 행씩 차근차근 정리** (소거)하면 끝에는 누가 무엇을 얼마나 시켰는지 한눈에 보입니다.
+**직관 (Gauss 소거의 의미)**: 본래 선형방정식 묶음 $A\mathbf{x} = \mathbf{b}$는 미지수가 모든 행에 뒤섞여 있어 해를 직접 읽기 어렵다. 세 종류의 행 연산 (행 교환·Scalar곱·다른 행 더하기) 을 위에서 아래로 반복해 **상삼각형** (Row Echelon Form) 에 도달하면, 마지막 행이 한 미지수만, 그 위 행이 두 미지수, … 식이 된다. 마지막 행부터 거꾸로 대입 (back-substitution) 해 해를 차례로 읽는다. 본 회차의 절차가 이 흐름을 그대로 구현한다.
 
 </div>
 
@@ -166,7 +166,7 @@ $\begin{cases} 2x + y = 5 \\ x + 3y = 5 \end{cases} \;\Leftrightarrow\; \left[\b
 
 또는 한 번에: **Forward 후 계속 위로도 소거 → RREF**, 답을 직접 읽기 (Gauss-Jordan).
 
-> 📚 **Strang Ch 2.1-2.3 발췌 (시그니처, 절차)**: Strang의 절차 표준은 **"Pivot은 0이 아닌 첫 원소, 그 아래 모두 0으로"**를 위에서 아래로 한 열씩 반복한다. 각 단계가 (R3) Elementary matrix 한 번에 대응된다. 본 회차 C-2 손계산 예제가 이 발췌의 직역이다. Strang은 **부동소수점 안정성을 위해 가장 큰 값을 pivot으로** 선택하는 *partial pivoting*까지 한 흐름으로 다룬다 (본 F-2에서 짧게 안내, 5회차 LU에서 본격).
+> **Strang Ch 2.1-2.3 발췌 (시그니처, 절차)**: Strang의 절차 표준은 **"Pivot은 0이 아닌 첫 원소, 그 아래 모두 0으로"**를 위에서 아래로 한 열씩 반복한다. 각 단계가 (R3) Elementary matrix 한 번에 대응된다. 본 회차 C-2 손계산 예제가 이 발췌의 직역이다. Strang은 **부동소수점 안정성을 위해 가장 큰 값을 pivot으로** 선택하는 *partial pivoting*까지 한 흐름으로 다룬다 (본 F-2에서 짧게 안내, 5회차 LU에서 본격).
 
 ---
 
@@ -550,7 +550,7 @@ $$\begin{cases} x + y + 2z = 4 \\ 2x + 3y + 5z = 9 \\ 3x + 5y + 8z = 14 \end{cas
 
 # Q & A
 
-본 회차 사슬:
+본 회차 학습 흐름:
 **Row operations → Gaussian elimination → REF → RREF → Pivot 패턴 → 해의 세 경우**
 
 핵심 한 줄: **RREF의 Pivot 위치를 보면 $A\mathbf{x}=\mathbf{b}$의 해가 한눈에 보인다.**

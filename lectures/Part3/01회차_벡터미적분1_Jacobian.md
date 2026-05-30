@@ -95,7 +95,7 @@ MML §5.1-5.4 (메인) · Part 3 (VC + Probability)
 
 ---
 
-## 본 회차 개념 사슬
+## 본 회차 학습 흐름
 
 | 질문 | 답 | 도구 |
 |---|---|---|
@@ -105,7 +105,7 @@ MML §5.1-5.4 (메인) · Part 3 (VC + Probability)
 | 합성함수 $\mathbf{g} \circ \mathbf{f}$의 미분? | **Chain rule** | Jacobian 곱 $J_{\mathbf{g}} \, J_{\mathbf{f}}$ |
 | 신경망 backward의 정체? | **Jacobian 곱의 누적** | autograd |
 
-이 사슬을 본 회차에서 완주한다. 2회차에서 Hessian·Newton·Taylor로 이어진다.
+본 회차는 이 순서를 따라 진행한다. 2회차에서 Hessian·Newton·Taylor로 이어진다.
 
 ---
 
@@ -113,14 +113,14 @@ MML §5.1-5.4 (메인) · Part 3 (VC + Probability)
 
 | 순서 | 블록 | 내용 |
 |:---:|:---:|---|
-| ① | A | 오프닝: Review + 본 회차 사슬 |
+| ① | A | 오프닝: Review + 본 회차 학습 흐름 |
 | ② | **B** | Partial derivative·Gradient 정의 |
 | ③ | **C** | Jacobian Matrix 정의·예제 |
 | ④ | **C2** | Chain rule (Jacobian 곱) 정리·증명 흐름 |
 | ⑤ | **D** | 신경망 한 층의 forward·backward |
 | ⑥ | E | 코딩 실습 (autograd 검증) + 마무리 문제 |
 
-> **B·C·C2가 본 회차의 심장이다.** D는 응용, E는 검증이다.
+> **B·C·C2가 본 회차의 핵심이다.** D는 응용, E는 검증이다.
 
 ---
 
@@ -159,7 +159,7 @@ $$\nabla f(\mathbf{x}) = \begin{pmatrix} 2 x_1 x_2 \\ x_1^2 + 3 \end{pmatrix}.$$
 
 <div class="analogy">
 
-**직관 (등고선 위 산행 비유)**: 함수 $f(\mathbf{x})$를 산의 고도로 보면, **Gradient는 그 점에서 가장 가파른 오르막 방향**입니다. 등고선과 수직이며, 크기는 그 방향의 경사도입니다. 산을 가장 빨리 내려가려면 $-\nabla f$ 방향으로 가야 합니다 (4회차 Gradient descent의 출발점).
+**기하적 해석 (Gradient의 의미)**: 점 $\mathbf{x}$에서 $\nabla f(\mathbf{x})$ 방향은 $f$가 가장 빠르게 증가하는 방향 (**steepest ascent**) 이며, $-\nabla f(\mathbf{x})$ 방향은 가장 빠르게 감소하는 방향 (**steepest descent**) 이다. 또한 $\nabla f(\mathbf{x})$는 그 점에서의 등위면 (level set) 과 직교한다. 본 두 사실이 Part 3 4회차 Gradient descent의 출발점이다.
 
 </div>
 
@@ -267,7 +267,7 @@ $$\mathbf{f}(\mathbf{x}_0 + \mathbf{h}) \approx \mathbf{f}(\mathbf{x}_0) + J_{\m
 
 <div class="analogy">
 
-**직관 (지도 위의 한 점 확대 비유)**: 지구는 곡면이지만 한 마을을 확대해서 보면 **평면 지도**로 충분합니다. 한 마을 = 점 $\mathbf{x}_0$ 근처, 평면 지도 = $J_{\mathbf{f}}(\mathbf{x}_0)$. 비선형 함수도 한 점 근처에서는 행렬 한 개로 다 설명된다는 뜻입니다.
+**기하적 해석 (선형 근사)**: 비선형 함수 $\mathbf{f}$도 한 점 $\mathbf{x}_0$ 근방에서는 그 점에서의 Jacobian $J_{\mathbf{f}}(\mathbf{x}_0)$ 한 Matrix의 선형 작용으로 충분히 기술된다. 이것이 일변수 미분 $f(x_0 + h) \approx f(x_0) + f'(x_0) h$의 다변수 일반화이며, 한 점에서의 일차 근사 (first-order approximation) 이다.
 
 </div>
 
@@ -401,7 +401,7 @@ $$\frac{\partial \mathbf{a}_L}{\partial \mathbf{x}} = \prod_{\ell=L}^{1} \left[ 
 
 <div class="analogy">
 
-**직관 (도미노 비유)**: 입력의 작은 변화 $\delta \mathbf{x}$가 1층 Jacobian을 통과하면 $\delta \mathbf{a}_1$이 되고, 그것이 2층 Jacobian을 통과하면 $\delta \mathbf{a}_2$가 되고, 끝까지 가면 $\delta \mathbf{a}_L$이 됩니다. **각 층이 Jacobian 한 개의 도미노**, 전체 backward는 그 도미노 모두를 곱한 것입니다.
+**직관 (Chain rule의 의미)**: 입력의 작은 변화 $\delta \mathbf{x}$가 1층의 Jacobian을 통과하면 $\delta \mathbf{a}_1 = J_1 \delta \mathbf{x}$, 2층을 통과하면 $\delta \mathbf{a}_2 = J_2 J_1 \delta \mathbf{x}$, … 마지막 층 $L$의 출력은 $\delta \mathbf{a}_L = J_L \cdots J_2 J_1 \delta \mathbf{x}$이다. 각 층의 Jacobian이 한 Matrix이고, 전체 $L$층 신경망의 입력에 대한 출력 변화율은 $L$개 Matrix의 곱 한 줄이다.
 
 </div>
 
@@ -508,7 +508,7 @@ print("manual Jacobian:\n", manual_J.detach())
 
 # 본 회차 마무리 문제
 
-본 회차 사슬 (Partial → Gradient → Jacobian → Chain rule → 신경망 한 층) 을 한 문제로 종합한다.
+본 회차 학습 흐름 (Partial → Gradient → Jacobian → Chain rule → 신경망 한 층) 을 한 문제로 종합한다.
 
 2층 신경망의 일부를 다음과 같이 정의한다.
 - 입력 $\mathbf{x} \in \mathbb{R}^2$
@@ -585,7 +585,7 @@ $$\frac{\partial \ell}{\partial \mathbf{x}} = \frac{\partial \ell}{\partial z_2}
 
 # Q & A
 
-본 회차 사슬:
+본 회차 학습 흐름:
 **Partial derivative → Gradient → Jacobian → Chain rule → 신경망 한 층의 Jacobian**
 
 핵심 한 줄: **신경망의 backward는 각 층 Jacobian의 행렬 곱이다.** Chain rule이 본 회차의 정점이다.

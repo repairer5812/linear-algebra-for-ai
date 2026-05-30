@@ -92,7 +92,7 @@ EM은 잠재변수의 사후확률 (책임도)을 가중치로 한 **가중 평�
 
 ---
 
-## 본 회차 개념 사슬
+## 본 회차 학습 흐름
 
 | 질문 | 답 (본 회차의 답) | 도구 |
 |---|---|---|
@@ -175,7 +175,7 @@ $$\mathrm{margin}(\mathbf{w}, b) = \min_{i=1, \ldots, n} \frac{|\mathbf{w}^\top\
 
 <div class="analogy">
 
-**직관 (도로 비유)**: Hyperplane은 두 마을을 가르는 **도로**입니다. Margin은 도로에서 **가장 가까운 집까지의 거리**입니다. 도로 폭을 마진의 2배라 하면, **가장 안전한 도로 = 양쪽 마을의 집과 가장 멀리 떨어진 도로**가 됩니다. SVM은 그 도로를 찾는 알고리즘입니다.
+**기하적 해석 (Maximum margin)**: Hyperplane $\mathbf{w}^\top\mathbf{x} + b = 0$은 두 클래스를 분리하는 결정 경계이고, Margin은 그 경계에서 가장 가까운 데이터 점까지의 수직 거리이다. SVM은 두 클래스 어느 점에 대해서도 이 수직 거리가 최대가 되는 분리 경계 $(\mathbf{w}^*, b^*)$를 찾는 알고리즘이다. 일반화 오차 상한 (VC 차원·Margin 의존) 이 Margin에 반비례하므로 큰 margin이 곧 좋은 일반화로 이어진다.
 
 </div>
 
@@ -387,7 +387,7 @@ Dual 변수 $\alpha_i$는 **데이터 1개당 1개**로 도입된 Lagrange 승�
 
 # 본 회차 마무리 문제 (즉석 풀이)
 
-본 회차 사슬 (Hyperplane → Margin → Hard/Soft → Dual → Support vector)을 **한 문제**로 종합합니다.
+본 회차 학습 흐름 (Hyperplane → Margin → Hard/Soft → Dual → Support vector)을 **한 문제**로 종합합니다.
 
 세 점 데이터:
 - $\mathbf{x}_1 = (1, 0)^\top, y_1 = +1$
@@ -484,7 +484,7 @@ Dual 변수 $\alpha_i$는 **데이터 1개당 1개**로 도입된 Lagrange 승�
 
 # Q & A
 
-본 회차 사슬:
+본 회차 학습 흐름:
 **Hyperplane → Margin → Hard/Soft margin SVM → Hinge loss → Lagrange Dual → Support Vector**
 
 핵심 한 줄: **마진 최대화는 Convex QP로 정식화되고, KKT의 Complementary slackness가 해를 Support vector의 Linear combination으로 만든다.**

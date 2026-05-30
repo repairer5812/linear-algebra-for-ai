@@ -95,7 +95,7 @@ style: |
 
 ---
 
-## 본 회차 개념 사슬
+## 본 회차 학습 흐름
 
 | 질문 | 답 (본 회차의 답) | 도구 |
 |---|---|---|
@@ -173,7 +173,7 @@ $$Q = X W^Q \in \mathbb{R}^{n \times d_k}, \quad K = X W^K \in \mathbb{R}^{n \ti
 
 <div class="analogy">
 
-**직관 (도서관 검색 비유)**: $Q$는 **검색어**, $K$는 **책 제목·태그**, $V$는 **책 내용**입니다. 검색어 $\mathbf{q}_i$와 모든 책 제목 $\mathbf{k}_j$의 유사도를 잰 뒤, 유사도 높은 책의 **내용 $\mathbf{v}_j$를 가중 합**하여 Token $i$의 답을 만듭니다.
+**직관 (Q·K·V의 역할)**: Token $i$의 query $\mathbf{q}_i$와 모든 token $j$의 key $\mathbf{k}_j$의 Inner product $\mathbf{q}_i^\top \mathbf{k}_j$는 두 token의 정합도이다. 이 정합도 점수 $n$개를 softmax로 정규화해 가중치를 얻고, 그 가중치로 value $\mathbf{v}_j$의 가중합을 계산해 token $i$의 출력 표현을 만든다. Attention의 본질은 "Inner product 기반 유사도 → softmax 정규화 → value의 가중합"이라는 행렬 연산 세 단계의 조합이다.
 
 </div>
 
@@ -194,7 +194,7 @@ $$\boxed{\;\mathrm{Attn}(Q, K, V) = \mathrm{softmax}\!\left(\frac{Q K^\top}{\sqr
 3. **softmax**: 각 행을 합 1의 확률 분포로.
 4. **$\cdots V$**: 확률 가중치로 $V$의 행 Vector들의 Linear combination.
 
-→ 본 회차 사슬: 행렬 곱 → softmax → 행렬 곱. **단 두 종류의 연산**이다.
+→ 본 회차 학습 흐름: 행렬 곱 → softmax → 행렬 곱. **단 두 종류의 연산**이다.
 
 ---
 
@@ -407,7 +407,7 @@ GNN의 메시지 패싱은 노드의 **이름·순서에 의존하지 않는다*
 
 # 본 회차 마무리 문제 (즉석 풀이)
 
-본 회차 사슬 (Embedding → Q,K,V → $QK^\top$ → softmax → $\cdots V$ → Multi-head + Equivariance 직관)을 **한 문제**로 종합합니다.
+본 회차 학습 흐름 (Embedding → Q,K,V → $QK^\top$ → softmax → $\cdots V$ → Multi-head + Equivariance 직관)을 **한 문제**로 종합합니다.
 
 $n = 3$ Token, $d = 4$, $d_k = d_v = 2$. 입력
 $$X = \begin{pmatrix} 1 & 0 & 1 & 0 \\ 0 & 1 & 0 & 1 \\ 1 & 1 & 0 & 0 \end{pmatrix}, \quad W^Q = W^K = W^V = \begin{pmatrix} 1 & 0 \\ 0 & 1 \\ 1 & 0 \\ 0 & 1 \end{pmatrix}.$$
@@ -503,7 +503,7 @@ $$X = \begin{pmatrix} 1 & 0 & 1 & 0 \\ 0 & 1 & 0 & 1 \\ 1 & 1 & 0 & 0 \end{pmatr
 
 ---
 
-# 부록: 본 회차 사슬 요약
+# 부록: 본 회차 학습 흐름 요약
 
 | 객체 | 정식 | 본 강좌 어디서 |
 |---|---|---|
@@ -525,7 +525,7 @@ $$X = \begin{pmatrix} 1 & 0 & 1 & 0 \\ 0 & 1 & 0 & 1 \\ 1 & 1 & 0 & 0 \end{pmatr
 
 # Q & A
 
-본 회차 사슬:
+본 회차 학습 흐름:
 **Embedding (one-hot × 행렬) → $Q, K, V$ (3 행렬곱) → $QK^\top$ (유사도) → softmax (가중치) → $PV$ (Linear combination) → Multi-head → Equivariance 직관**
 
 핵심 한 줄: **Attention은 행렬 곱 4번과 softmax 1번. Transformer 한 층의 모든 객체가 Part 1 도구로 분해된다.**

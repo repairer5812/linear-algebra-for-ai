@@ -89,7 +89,7 @@ MML Ch 10 (메인) · Part 4 (ML 및 AI의 수학적 응용)
 
 ---
 
-## 본 회차 개념 사슬
+## 본 회차 학습 흐름
 
 | 질문 | 답 | 도구 |
 |---|---|---|
@@ -105,7 +105,7 @@ MML Ch 10 (메인) · Part 4 (ML 및 AI의 수학적 응용)
 
 | 순서 | 블록 | 내용 |
 |:---:|:---:|---|
-| ① | A | Review + 본 회차 사슬 |
+| ① | A | Review + 본 회차 학습 흐름 |
 | ② | **B** | PCA 정식 1: 분산 최대화 |
 | ③ | **C** | PCA 정식 2: 재구성 오차 |
 | ④ | **C2** | SVD 동치 증명 |
@@ -174,7 +174,7 @@ $\mathrm{EVR}(k) \geq$ 임계값 (예: 90%, 95%, 99%) 이 되는 최소 $k$를 �
 
 <div class="analogy">
 
-**직관 (사진의 주요 색 비유)**: 사진을 색의 분산이 큰 순서로 분해하면 처음 몇 색만으로 사진의 인상을 대부분 잡을 수 있습니다. **나머지 색은 미세한 디테일**입니다. EVR은 "처음 $k$ 색이 사진의 몇 %를 담는가"입니다.
+**직관 (EVR의 의미)**: 데이터의 총 분산은 모든 PC의 Eigenvalue $\lambda_i$의 합 $\sum_i \lambda_i$이다. 상위 $k$개 PC가 가지는 분산 비율 $\mathrm{EVR}(k) = \sum_{i=1}^k \lambda_i / \sum_{i=1}^d \lambda_i$는 본래 데이터의 변동성 중 $k$차원 부분공간에 보존되는 비율을 의미한다. EVR이 임계값 (예: 90%) 에 도달하는 최소 $k$를 차원으로 선택하는 것이 표준이다.
 
 </div>
 
@@ -243,7 +243,7 @@ $$\Vert X - X_k \Vert_F^2 = \sum_{i=k+1}^{r} \sigma_i^2.$$
 
 <div class="analogy">
 
-**직관 (압축 파일 비유)**: PCA는 데이터의 **수학적으로 최적인 손실 압축**입니다. 압축률 ($k$ 선택) 을 정하면 그 압축률에서 **가장 적은 정보 손실**을 보장하는 압축이 PCA입니다. 정식 보장은 Eckart-Young 정리.
+**직관 (PCA의 최적성)**: PCA는 데이터 Matrix의 $k$-rank 근사 중 Frobenius norm 오차가 최소인 근사이다. 즉 임의의 $k$차원 부분공간으로의 정사영 중 PCA가 만들어내는 부분공간 (상위 $k$개 PC의 Span) 이 정보 손실 $\sum_{i > k} \sigma_i^2$을 최소화한다. 본 최적성은 Part 2 9회차 Eckart-Young 정리가 보장한다.
 
 </div>
 
@@ -436,7 +436,7 @@ print("denoise residual:", np.linalg.norm(X_denoise - true_signal))
 
 # 본 회차 마무리 문제
 
-본 회차 사슬을 한 문제로 종합한다.
+본 회차 학습 흐름을 한 문제로 종합한다.
 
 데이터 $X \in \mathbb{R}^{N \times 3}$ (centered) 의 SVD가 $X = U \Sigma V^\top$, $\Sigma = \mathrm{diag}(6, 3, 1)$.
 
@@ -501,7 +501,7 @@ Part 4 3회차 (GMM·EM) Review에서 다룬다.
 
 # Q & A
 
-본 회차 사슬:
+본 회차 학습 흐름:
 **분산 최대화 = 재구성 오차 최소화 = $X$의 SVD → PC score → Eigenfaces·MNIST**
 
 핵심 한 줄: **PCA는 데이터 행렬의 SVD 한 줄로 끝난다.** 두 정식 (분산·재구성) 모두 같은 답이고, Eckart-Young이 최적성을 보장한다.

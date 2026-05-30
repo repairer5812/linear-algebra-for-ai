@@ -75,7 +75,7 @@ SW·AI 융합대학원 · Part 1·2·3·4 (총 29회차)
 | ④ | **D** | **CS·AI 흐름** |
 | ⑤ | E | 교재 운용: MML (메인) / Strang (발췌) / EoLA (시각) |
 | ⑥ | F | 이수 후 능력 점검표 |
-| ⑦ | **G** | **시그니처 시연: MNIST 평균 이미지** |
+| ⑦ | **G** | **시그니처 예제: MNIST 평균 이미지** |
 | ⑧ | H | **클로징**: 1회차로 가져갈 마무리 문제, 사전 reading |
 
 > **순서의 의미**: 수학 흐름 → CS 흐름 → 두 흐름이 만나는 한 예제 (평균 이미지)로 마무리합니다.
@@ -103,10 +103,8 @@ SW·AI 융합대학원 · Part 1·2·3·4 (총 29회차)
 | **코딩 실습 (Google Colab)** | **매 회차 필수 X. 회차별 학습 가치에 따라 1-2개 또는 그 이상으로 운영. 필요 없으면 수학 정리·풀이로 마무리** |
 | 종합 문제 풀기 | Part 1 8회차·Part 2 9회차·Part 3 4회차·Part 4 8회차 마지막에 **사전 공개 → 자율 풀이 → 함께 Review** 형식으로 운영 |
 
-> 대학원생 자체 강의이므로 시험·중간평가·지필고사는 운영하지 않습니다. "종합 문제 풀기"는 각 Part **마지막 회차 전에 사전 공개 → 본인 페이스로 자율 풀이 → 마지막 회차에 함께 Review** 형식의 자기 점검 활동입니다.
+> ("종합 문제 풀기"는 각 Part **마지막 회차 전에 사전 공개 → 본인 페이스로 자율 풀이 → 마지막 회차에 함께 Review** 형식의 자기 점검 활동입니다.)
 >
-> Colab 노트북은 회차별 `11_주피터노트북/`에 모두 준비되어 있되, 강의 시간 중 실행할지 여부는 회차마다 판단합니다. 시간 부족 또는 수학 내용의 깊이가 더 중요한 회차는 코딩 없이 정리·풀이로 마칠 수 있습니다.
-
 학부 LA 이수자는 Part 1·2 전반부를 빠르게 통과하고 Part 3·4 응용 부분에 집중합니다 (별도 안내).
 
 ---
@@ -138,7 +136,7 @@ SW·AI 융합대학원 · Part 1·2·3·4 (총 29회차)
 
 <div class="analogy">
 
-**직관 (5층 건물 비유)**: 이 한 줄은 **5층 건물의 청사진 한 장**과 같습니다. 본 회차에서 전부 이해할 필요는 없고, 각 층이 무엇인지 (QK·softmax·V)만 알면 됩니다. **29회차에 걸쳐 한 층씩 들어가 봅니다.**
+**직관**: 이 한 줄은 **다섯 핵심 객체 (Vector space·Inner product·Norm·Matrix·Vector 곱)** 의 구성도 한 장과 같습니다. 본 회차에서 식 전부를 이해할 필요는 없고, 다섯 객체가 식의 어느 자리에 위치하는지 (QK·softmax·V) 만 확인하면 됩니다. 29회차에 걸쳐 한 객체씩 정식 도입합니다.
 
 </div>
 
@@ -163,7 +161,7 @@ $$f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0) + J(\mathbf{x}_0)\,\mathb
 
 <div class="analogy">
 
-**직관 (지구와 동네 마당)**: **지구는 둥글지만 동네 마당은 평평하게 본다.** 비선형 함수도 한 점 근방에서는 직선처럼 봐도 됩니다. 그 "한 점에서의 평평한 근사"가 곧 **Jacobian**입니다.
+**기하적 해석 (선형 근사의 의미)**: 한 점 $\mathbf{x}_0$ 근방에서 곡선·곡면을 그 점에서의 접선·접평면으로 대체하는 것이 선형 근사입니다. 비선형 함수 $f$도 한 점 근방에서는 $J(\mathbf{x}_0)$ 한 Matrix의 작용으로 충분히 기술됩니다. 이 한 점에서의 일차 근사가 곧 **Jacobian**입니다.
 
 </div>
 
@@ -173,7 +171,7 @@ $$f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0) + J(\mathbf{x}_0)\,\mathb
 
 <div class="analogy">
 
-**직관 (카레의 재료 분리)**: Decomposition은 **카레의 재료 분리**와 같습니다. 완성된 카레만 보면 복잡하지만, 양파·당근·고기·향신료로 분리하면 각 재료의 역할이 보입니다. Matrix도 마찬가지로, 복잡해 보이는 Matrix를 단순한 Matrix의 곱으로 분리하면 본질이 드러납니다.
+**Matrix Decomposition의 의미**: 복잡해 보이는 Matrix $A$를 구조가 단순한 Matrix들의 곱 (예: 삼각·직교·대각) 으로 표현하면, 각 단순 Matrix가 담당하는 작용 (소거·회전·신축) 이 분리되어 드러납니다. 이렇게 분리된 표현이 곧 Decomposition입니다.
 
 </div>
 
@@ -203,7 +201,7 @@ $$f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0) + J(\mathbf{x}_0)\,\mathb
 
 <div class="analogy">
 
-**직관 (요리 단계 비유)**: ① 재료 이름 익히기 → ② 재료의 성질 알기 → ③ 요리(분해) 기법 배우기 → ④ 실제 식당 메뉴 만들기. **이름을 모르면 요리를 못 합니다.**
+**4단 사이클의 의미**: ① 객체에 이름을 부여 (Definition) → ② 이름으로부터 따라오는 성질 진술 (Theorem) → ③ 복잡한 객체를 단순 객체의 합·곱으로 표현 (Decomposition) → ④ 분해된 구조를 AI 모델 안에서 식별 (Application). Definition이 다른 모든 단계의 출발점입니다.
 
 </div>
 
@@ -342,7 +340,7 @@ Decomposition이 AI의 절반입니다. 이 강의 후반부가 다 이 표 안�
 **왜 MML이 메인입니까?**
 - MML은 LA 표준 (Vector·Matrix·Linear equation·Subspace·Determinant) 외에도 Vector Calculus·Probability·Optimization·ML 4대 응용 (LR·PCA·GMM·SVM)을 한 권에 담아 본 강의의 Part 1·2·3·4를 모두 커버합니다.
 - 무료 공식 PDF가 공개되어 있어 학생 모두가 동일 텍스트로 접근할 수 있습니다.
-- Strang은 Row·Column picture, Cauchy-Schwarz 판별식, 4 fundamental subspaces 등 **시그니처 자산 10개**를 본문 발췌 박스로 가져옵니다 (📚 박스).
+- Strang은 Row·Column picture, Cauchy-Schwarz 판별식, 4 fundamental subspaces 등 **시그니처 자산 10개**를 본문 발췌 박스로 가져옵니다 (박스).
 - EoLA는 직관·시각 잡기에 좋습니다.
 
 ---
@@ -415,7 +413,7 @@ LLM 시대에 LA를 **다시 배우는 이유**: 라이브러리 호출 한 줄 
 
 ---
 
-# G. 시그니처 시연: 손글씨 "7"의 평균은 어떻게 생겼을까요
+# G. 시그니처 예제: 손글씨 "7"의 평균은 어떻게 생겼을까요
 
 > 지금까지의 수학·CS 흐름이 **가장 친숙한 한 예제**에 모이는 지점입니다.
 
@@ -431,7 +429,7 @@ LLM 시대에 LA를 **다시 배우는 이유**: 라이브러리 호출 한 줄 
 
 <div class="analogy">
 
-**직관 (평균 얼굴 비유)**: 100명의 얼굴을 평균하면 한 사람의 얼굴이 아니라 "**모든 사람의 공통점**"이 보입니다. 손글씨 7도 마찬가지로, 한 사람의 7이 아니라 "7의 본질"이 평균에 나타납니다.
+**직관 (표본평균의 의미)**: $n$개 표본 Vector의 산술평균은 각 표본의 개별 편차가 상쇄되고 공통 성분만 남는다. 손글씨 7 이미지들의 평균에는 한 사람의 필체가 아니라 모든 표본에 공통된 7의 형태가 남는다.
 
 </div>
 
@@ -469,9 +467,9 @@ plt.imshow(mean_seven, cmap='gray')
 
 ---
 
-## G-4. 본 시연에 들어 있는 29회차의 지점
+## G-4. 본 예제에 들어 있는 29회차의 지점
 
-| 시연의 부분 | 회차 |
+| 예제의 부분 | 회차 |
 |---|:---:|
 | 이미지를 Vector로 보기 ($\mathbb{R}^{784}$) | **1** |
 | Vector 덧셈·Scalar곱 (평균 연산) | **1** |
@@ -499,7 +497,7 @@ plt.imshow(mean_seven, cmap='gray')
 
 **1회차 주제**: Vector · Linear combination(선형결합) · Span(생성공간), MML §2.1 도입
 
-> 본 회차에서 본 평균 이미지 시연의 토대로 **Vector의 Definition·$\mathbb{R}^n$·Linear combination**을 1회차에 정식 수학으로 맞춥니다.
+> 본 회차에서 본 평균 이미지 예제의 토대로 **Vector의 Definition·$\mathbb{R}^n$·Linear combination**을 1회차에 정식 수학으로 맞춥니다.
 > **Norm·Inner product·Cosine similarity는 2회차** (MML §3.1-§3.4), Cauchy-Schwarz까지의 흐름은 2회차에서 다룹니다.
 
 **1회차 시작 24시간 전까지**
@@ -510,7 +508,7 @@ plt.imshow(mean_seven, cmap='gray')
 
 **0회차 종료 후 권장**
 
-- 본 회차에서 본 평균 이미지 시연을 `00_Introduction_평균이미지.ipynb`에서 **다른 숫자 (예: 4·8)로 재실행**해보세요.
+- 본 회차에서 본 평균 이미지 예제을 `00_Introduction_평균이미지.ipynb`에서 **다른 숫자 (예: 4·8)로 재실행**해보세요.
 - 어색한 부분을 1회차 강의에서 질문할 수 있도록 준비합니다.
 - MML (메인) 공식 PDF·Strang (발췌) PDF·종이본을 확인합니다. 매 회차 reading의 시작점입니다.
 
@@ -525,13 +523,13 @@ plt.imshow(mean_seven, cmap='gray')
 
 ### 1회차 시작 전 풀어볼 3문제
 
-본 회차에서 본 객체 (평균 Vector·5층 청사진·29회차 구조)만으로 답할 수 있는 문제들입니다.
+본 회차에서 본 객체 (평균 Vector·다섯 핵심 객체·29회차 구조)만으로 답할 수 있는 문제들입니다.
 
 **(a) (평균 Vector 표기)** MNIST에서 숫자 "7"인 이미지 $n$장 $\mathbf{x}_1, \ldots, \mathbf{x}_n \in \mathbb{R}^{784}$이 주어졌다고 하자. 그 평균 이미지 $\mathbf{m}$을 **Vector(벡터)·Linear combination(선형결합)** 두 단어를 모두 사용해 한 줄로 표기하시오. ($\sum$ 기호 사용 가능)
 
-**(b) (5층 청사진 매핑)** Self-attention 한 줄 $\mathrm{softmax}(QK^\top / \sqrt{d_k})\,V$를 본 회차에서 본 **5층 건물 (Vector space · Inner product · Norm · Matrix · Vector 곱)** 의 도움으로 만든다고 할 때, 5개 층 중 **두 개**를 골라 이 식의 어느 부분이 그 층에 대응되는지 한 줄씩 적으시오.
+**(b) (다섯 핵심 객체 매핑)** Self-attention 한 줄 $\mathrm{softmax}(QK^\top / \sqrt{d_k})\,V$를 본 회차에서 본 **다섯 핵심 객체 (Vector space · Inner product · Norm · Matrix · Vector 곱)** 로 분해한다고 할 때, 다섯 객체 중 **두 개**를 골라 이 식의 어느 부분이 그 객체에 대응되는지 한 줄씩 적으시오.
 
-**(c) (강좌 구조)** 이 강의는 32회차가 아니라 29회차로 운영됩니다. Part 1·2·3·4는 각각 몇 회차이고, 1회차당 강의 시간은 몇 시간입니까? 총 강의 시간은 몇 시간입니까?
+**(c) (평균 이미지의 정체)** 오늘 본 평균 이미지 $\mathbf{m}$이 다시 $\mathbb{R}^{784}$ 안의 Vector가 되는 이유를 한 줄로 적으세요. (힌트: Vector·Linear combination·$\mathbb{R}^{784}$ 세 단어 사용)
 
 → 1회차에서는 **Vector·Linear combination**으로 평균 Vector $\mathbf{m}$의 정의를 수학적으로 다지고, $\mathbb{R}^n$의 두 연산을 정식으로 도입합니다. 길이·각도 (Norm·Inner product)는 2회차의 주제이며, 본 회차에서는 그 토대 (Vector·평균)만 단단히 합니다.
 
