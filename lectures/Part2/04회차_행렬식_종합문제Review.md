@@ -629,7 +629,7 @@ Part 1 1-8회차와 Part 2 1-4회차의 모든 도구가 이 한 줄에 응집�
 
 ## E-4. 코딩 실습 골자
 
-→ `11_주피터노트북/Part2/04_행렬식_종합문제Review.ipynb`
+→ [Colab으로 실행](https://colab.research.google.com/github/repairer5812/linear-algebra-for-ai/blob/main/notebooks/Part2/04_%ED%96%89%EB%A0%AC%EC%8B%9D_%EC%A2%85%ED%95%A9%EB%AC%B8%EC%A0%9CReview.ipynb)
 
 1. **Determinant 세 방법 비교**: Cofactor (재귀) · LU · NumPy `det` (작은 행렬에서)
 2. **계산량 비교**: $n = 2, 3, 4, 5, \ldots, 10$에서 Cofactor vs LU 시간

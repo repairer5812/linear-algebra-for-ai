@@ -318,7 +318,7 @@ $C_\text{in} = 64, C_\text{out} = 256$인 1×1 Conv의 학습 가능한 파라�
 
 ## D-1. nn.Conv1d → Toeplitz 일치 검증 (노트북 안내)
 
-→ `11_주피터노트북/Part3/06_CNN_Toeplitz.ipynb`
+→ [Colab으로 실행](https://colab.research.google.com/github/repairer5812/linear-algebra-for-ai/blob/main/notebooks/Part3/06_CNN_Toeplitz.ipynb)
 
 ### 검증 패턴 (한 단락)
 1. `nn.Conv1d(in_channels=1, out_channels=1, kernel_size=p, bias=False)` 생성, 가중치 $\mathbf{k}$ 수동 설정.

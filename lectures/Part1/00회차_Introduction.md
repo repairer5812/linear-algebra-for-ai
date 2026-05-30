@@ -463,7 +463,7 @@ plt.imshow(mean_seven, cmap='gray')
 - 수학 정의 1줄 → 코드 1줄 → 그림 1장
 - 이것이 **이 강의 모든 회차의 표준 사이클**입니다
 
-→ 노트북 `11_주피터노트북/Part1/00_Introduction_평균이미지.ipynb`를 함께 실행합니다.
+→ 노트북 [Colab으로 실행](https://colab.research.google.com/github/repairer5812/linear-algebra-for-ai/blob/main/notebooks/Part1/00_Introduction_%ED%8F%89%EA%B7%A0%EC%9D%B4%EB%AF%B8%EC%A7%80.ipynb)를 함께 실행합니다.
 
 ---
 
@@ -523,13 +523,11 @@ plt.imshow(mean_seven, cmap='gray')
 
 ### 1회차 시작 전 풀어볼 3문제
 
-본 회차에서 본 객체 (평균 Vector·다섯 핵심 객체·29회차 구조)만으로 답할 수 있는 문제들입니다.
+본 회차에서 본 핵심 객체 (Vector·Linear combination·평균 Vector)만으로 답할 수 있는 두 문제입니다.
 
 **(a) (평균 Vector 표기)** MNIST에서 숫자 "7"인 이미지 $n$장 $\mathbf{x}_1, \ldots, \mathbf{x}_n \in \mathbb{R}^{784}$이 주어졌다고 하자. 그 평균 이미지 $\mathbf{m}$을 **Vector(벡터)·Linear combination(선형결합)** 두 단어를 모두 사용해 한 줄로 표기하시오. ($\sum$ 기호 사용 가능)
 
-**(b) (다섯 핵심 객체 매핑)** Self-attention 한 줄 $\mathrm{softmax}(QK^\top / \sqrt{d_k})\,V$를 본 회차에서 본 **다섯 핵심 객체 (Vector space · Inner product · Norm · Matrix · Vector 곱)** 로 분해한다고 할 때, 다섯 객체 중 **두 개**를 골라 이 식의 어느 부분이 그 객체에 대응되는지 한 줄씩 적으시오.
-
-**(c) (평균 이미지의 정체)** 오늘 본 평균 이미지 $\mathbf{m}$이 다시 $\mathbb{R}^{784}$ 안의 Vector가 되는 이유를 한 줄로 적으세요. (힌트: Vector·Linear combination·$\mathbb{R}^{784}$ 세 단어 사용)
+**(b) (평균 이미지의 정체)** 오늘 본 평균 이미지 $\mathbf{m}$이 다시 $\mathbb{R}^{784}$ 안의 Vector가 되는 이유를 한 줄로 적으세요. (힌트: Vector·Linear combination·$\mathbb{R}^{784}$ 세 단어 사용)
 
 → 1회차에서는 **Vector·Linear combination**으로 평균 Vector $\mathbf{m}$의 정의를 수학적으로 다지고, $\mathbb{R}^n$의 두 연산을 정식으로 도입합니다. 길이·각도 (Norm·Inner product)는 2회차의 주제이며, 본 회차에서는 그 토대 (Vector·평균)만 단단히 합니다.
 

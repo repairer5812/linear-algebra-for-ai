@@ -425,7 +425,7 @@ x = np.linalg.solve(A, b)  # → [2.0, 1.0] (정확)
 
 ### G-1. 코딩 실습 골자
 
-→ `11_주피터노트북/Part1/03_가우스소거_RREF.ipynb`
+→ [Colab으로 실행](https://colab.research.google.com/github/repairer5812/linear-algebra-for-ai/blob/main/notebooks/Part1/03_%EA%B0%80%EC%9A%B0%EC%8A%A4%EC%86%8C%EA%B1%B0_RREF.ipynb)
 
 1. **Gaussian elimination을 직접 구현** (Forward + Backward)
 2. NumPy `np.linalg.solve`와 결과 비교
