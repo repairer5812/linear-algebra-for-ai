@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>진도표 — 인공지능 전공자를 위한 선형대수학</title>
-<meta name="description" content="Part 1 12회차·Part 2 9회차·Part 3 8회차 상세 회차표, 자율 운영, Case Study 안내, 자가진단 체크리스트. 메인 MML, 보조 발췌 Strang.">
+<meta name="description" content="Part 1 12회차·Part 2 9회차·Part 3 8회차 상세 회차표, 4기 운영 단위 (LA1·LA2·VC+Probability·Part 3) 매핑, 자율 운영, Case Study 안내, 자가진단 체크리스트. 메인 MML, 보조 발췌 Strang.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -31,13 +31,13 @@
   <section class="hero">
     <h1 class="hero__title">진도표</h1>
     <p class="hero__subtitle">Part 1 (12 Session(회차)) + Part 2 (9회차) + Part 3 (8회차) = 총 29회차, 1회차 2시간 × 29 = 58시간 운영</p>
-    <p class="hero__meta">메인 MML<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Mathematics for Machine Learning)</small> · 보조 발췌 Strang <em>Introduction to Linear Algebra</em> · 시각 EoLA<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Essence of Linear Algebra)</small> · 실습 Jupyter / NumPy / PyTorch</p>
+    <p class="hero__meta"><strong style="color:var(--text);">4기 운영 단위</strong>: 1기 LA1 (Part 1 1-8, 8회차) · 2기 LA2 (Part 1 9-12 + Part 2 1-5, 9회차) · 3기 VC+Probability (Part 2 6-9, 4회차) · 4기 Part 3 (Part 3 1-8, 8회차)<br>메인 MML<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Mathematics for Machine Learning)</small> · 보조 발췌 Strang <em>Introduction to Linear Algebra</em> · 시각 EoLA<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Essence of Linear Algebra)</small> · 실습 Jupyter / NumPy / PyTorch</p>
   </section>
 
   <!-- Part 1 -->
   <section class="section" id="part1">
     <div class="part-header">
-      <h2>Part 1 (12회차) — MML §2-§4 + Strang Ch 1-5 발췌, 선형대수 기초</h2>
+      <h2>Part 1 (12회차) — <span style="color:var(--accent);">1기 LA1 (1-8) + 2기 LA2 일부 (9-12)</span> · MML §2-§4 + Strang Ch 1-5 발췌, 선형대수 기초</h2>
       <p>Vector(벡터), Matrix(행렬), 선형방정식, 벡터공간, Subspace(부분공간), Orthogonal projection(정사영), Determinant(행렬식)의 정의·정리 + 행렬을 선형사상으로 다루는 관점 체화 + $Ax=b$ 의 해 존재·유일성을 4 기본 부분공간으로 판별 + NumPy로 가우스 소거·LU<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(LU Decomposition, LU 분해)</small>·그람-슈미트·Normal equation(정규방정식)·행렬식 구현. MML §2-§4가 정의·정리의 단일 골격을 제공하고, Strang의 시그니처 자산(행·열 두 해석, 4 기본 부분공간, LU·QR·최소제곱·행렬식의 기하)을 발췌 박스로 결합해 학부 미이수자에게 구체적 직관을 보강합니다.</p>
     </div>
 
@@ -91,7 +91,7 @@
   <!-- Part 2 -->
   <section class="section" id="part2">
     <div class="part-header">
-      <h2>Part 2 (9회차) — 수학 도구</h2>
+      <h2>Part 2 (9회차) — <span style="color:var(--accent);">2기 LA2 (1-5) + 3기 VC+Probability (6-9)</span> · 수학 도구</h2>
       <p>Eigenvalue(고윳값) 분해, SVD, PCA<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Principal Component Analysis, 주성분 분석)</small>의 정리·응용을 자유롭게 사용, Vector Calculus(Jacobian·Hessian·Chain rule)로 Neural Network(신경망) forward·backward 분해, MLE·KL divergence·Cross entropy로 LLM·RLHF·VAE의 수학적 본질, Convex·Lagrange·KKT로 Ridge·Lasso·SVM 정식화 이해. 고윳값·SVD·선형변환에서 미분·확률·최적화까지, Part 3의 ML 응용을 떠받칠 수학 도구를 확장하는 단계입니다(정식 구현은 Part 3).</p>
     </div>
 
@@ -139,7 +139,7 @@
   <!-- Part 3 -->
   <section class="section" id="part3">
     <div class="part-header">
-      <h2>Part 3 (8회차) — ML 방법론·AI 환원</h2>
+      <h2>Part 3 (8회차) — <span style="color:var(--accent);">4기 Part 3 (1-8)</span> · ML 방법론·AI 환원</h2>
       <p>Linear Regression·PCA·GMM·SVM 4개 표준 ML 방법론을 MML 정식으로 진술·구현, CNN<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Convolutional Neural Network, 합성곱 신경망)</small> convolution·attention·embedding이 어떤 선형대수 객체로 환원되는지 식별, 임의 AI 모델 한 부분의 LA 구조를 보고서로 분해(Case Study). Part 1·2에서 쌓은 선형대수·미분·확률·최적화를 ML 방법론과 AI 모듈 분해로 응용하는 마무리 단계입니다.</p>
     </div>
 
@@ -199,7 +199,7 @@
     <h2>학생 자가진단 체크리스트</h2>
     <p>매 회차 강의 직후 또는 과제 제출 전에 다음 질문에 답할 수 있는지 점검하시기 바랍니다. 이 질문들은 그 회차를 이해했는지 스스로 확인하는 <strong>복습 도구</strong>입니다. 답할 수 없는 항목이 있으면 해당 회차 자료(Strang/MML/EoLA)를 다시 보시기 바랍니다.</p>
 
-    <h3>Part 1 (1-12회차)</h3>
+    <h3>Part 1 (1-12회차) — <span style="color:var(--accent);">1기 LA1 (1-8) + 2기 LA2 일부 (9-12)</span></h3>
 
     <h4>1회차 — 벡터·선형결합·$\mathbb{R}^n$</h4>
     <ol>
@@ -291,7 +291,7 @@
       <li>Part 1 (1-11회차)의 정의·정리를 한 문장씩 떠올릴 수 있는가? (통합 복습 점검)</li>
     </ol>
 
-    <h3>Part 2 (1-9회차)</h3>
+    <h3>Part 2 (1-9회차) — <span style="color:var(--accent);">2기 LA2 (1-5) + 3기 VC+Probability (6-9)</span></h3>
 
     <h4>1회차 — 고윳값·고유벡터·특성다항식</h4>
     <ol>
@@ -381,7 +381,7 @@
       <li>Part 2 (1-8회차)의 정의·정리를 한 문장씩 떠올릴 수 있는가? (통합 복습 점검)</li>
     </ol>
 
-    <h3>Part 3 (1-8회차)</h3>
+    <h3>Part 3 (1-8회차) — <span style="color:var(--accent);">4기 Part 3 (1-8)</span></h3>
 
     <h4>1회차 — Linear Regression·조건수·수치 안정성</h4>
     <ol>
