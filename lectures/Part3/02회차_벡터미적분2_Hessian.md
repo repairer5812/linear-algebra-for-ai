@@ -3,7 +3,7 @@ marp: true
 theme: default
 paginate: true
 header: '인공지능 전공자를 위한 선형대수학'
-footer: 'Part 2 7회차 — Vector Calculus 2: Hessian · Taylor · Newton · Optimizer'
+footer: 'Part 3 2회차 — Vector Calculus 2: Hessian · Taylor · Newton · Optimizer'
 math: mathjax
 size: 16:9
 style: |
@@ -31,12 +31,12 @@ style: |
 <!-- _class: lead -->
 <!-- _paginate: false -->
 
-# Part 2 7회차
+# Part 3 2회차
 
 ## Vector Calculus 2: Hessian·Taylor·Newton·Optimizer
 
-MML §5.5-5.8 (메인) · Strang 발췌 없음
-**1차 미분에서 2차 미분으로**: 6회차의 Gradient·Jacobian이 함수의 기울기만 잡았다면, 본 회차의 Hessian은 **곡률** (얼마나 휘었는가) 을 잡는다. 그 결과 Newton 방법이 등장하고, SGD·Adam과의 비교가 의미를 갖는다.
+MML §5.5-5.8 (메인) · Part 3 (VC + Probability)
+**1차 미분에서 2차 미분으로**: 1회차의 Gradient·Jacobian이 함수의 기울기만 잡았다면, 본 회차의 Hessian은 **곡률** (얼마나 휘었는가) 을 잡는다. 그 결과 Newton 방법이 등장하고, SGD·Adam과의 비교가 의미를 갖는다.
 
 > 곡률 정보가 들어가는 순간 "한 걸음" 의 크기와 방향이 함수의 모양에 맞춰 자동 조정된다.
 
@@ -44,7 +44,7 @@ MML §5.5-5.8 (메인) · Strang 발췌 없음
 
 <!-- _class: exercise -->
 
-# Review: 지난 회차 (Part 2 6회차) 마무리 문제
+# Review: 지난 회차 (Part 3 1회차) 마무리 문제
 
 지난 회차 마무리 + 숙제에서 다룬 내용:
 
@@ -100,7 +100,7 @@ MML §5.5-5.8 (메인) · Strang 발췌 없음
 |---|---|---|
 | 함수의 곡률을 객체로? | **Hessian** $H = \nabla^2 f$ | $\mathbb{R}^{n \times n}$ symmetric Matrix |
 | 한 점 근처의 2차 모델은? | **Taylor 2차 전개** | $f + \mathbf{g}^\top \mathbf{h} + \tfrac{1}{2} \mathbf{h}^\top H \mathbf{h}$ |
-| 임계점이 min·max·saddle? | **Hessian의 정부호성** | 고유값 부호 (Part 2 3회차) |
+| 임계점이 min·max·saddle? | **Hessian의 정부호성** | 고유값 부호 (Part 2 7회차) |
 | 2차 모델의 최소점으로 도약? | **Newton step** | $\mathbf{x} \leftarrow \mathbf{x} - H^{-1} \nabla f$ |
 | 실전 옵티마이저는? | **SGD·Adam은 곡률 근사** | 분산·적응 학습률 |
 
@@ -145,7 +145,7 @@ $$\frac{\partial^2 f}{\partial x_i \partial x_j} = \frac{\partial^2 f}{\partial 
 
 본 강의 도메인의 모든 손실 함수 (LLM의 cross entropy, 회귀의 MSE 등) 는 모든 2차 partial이 연속이므로 Hessian은 항상 symmetric이다.
 
-> Symmetric matrix의 spectral theorem (Part 2 2회차) 이 Hessian 분석에 그대로 적용된다.
+> Symmetric matrix의 spectral theorem (Part 2 6회차) 이 Hessian 분석에 그대로 적용된다.
 
 ---
 
@@ -232,7 +232,7 @@ $$f(\mathbf{x}_0 + \mathbf{h}) \;=\; f(\mathbf{x}_0) \;+\; \nabla f(\mathbf{x}_0
 
 <div class="analogy">
 
-**직관 (지구 한 마을의 입체 지도 비유)**: 6회차 Jacobian이 "한 마을의 평면 지도"였다면, **Hessian은 그 마을의 등고선·언덕·골짜기까지 표시한 입체 지도**입니다. 한 점 $\mathbf{x}_0$ 근처에서는 입체 지도가 함수 자체와 거의 같다는 것이 Taylor 2차의 약속입니다.
+**직관 (지구 한 마을의 입체 지도 비유)**: 1회차 Jacobian이 "한 마을의 평면 지도"였다면, **Hessian은 그 마을의 등고선·언덕·골짜기까지 표시한 입체 지도**입니다. 한 점 $\mathbf{x}_0$ 근처에서는 입체 지도가 함수 자체와 거의 같다는 것이 Taylor 2차의 약속입니다.
 
 </div>
 
@@ -255,7 +255,7 @@ $\nabla f(\mathbf{x}^*) = \mathbf{0}$인 점 $\mathbf{x}^*$를 **임계점 (crit
 - $H(\mathbf{x}^*)$의 고유값이 **부호가 섞임** → **saddle point** (안장점)
 - 일부 고유값이 0 → 판정 불능 (더 높은 차수 필요)
 
-**증명 흐름**: 임계점에서 1차 항이 0이므로 Taylor 2차는 $f(\mathbf{x}^* + \mathbf{h}) - f(\mathbf{x}^*) \approx \tfrac{1}{2} \mathbf{h}^\top H \mathbf{h}$. 이차형식의 부호가 곧 함수값 변화의 부호이며, 그 부호는 Part 2 3회차 (Positive definite) 의 정리로 고유값에 의해 결정된다.
+**증명 흐름**: 임계점에서 1차 항이 0이므로 Taylor 2차는 $f(\mathbf{x}^* + \mathbf{h}) - f(\mathbf{x}^*) \approx \tfrac{1}{2} \mathbf{h}^\top H \mathbf{h}$. 이차형식의 부호가 곧 함수값 변화의 부호이며, 그 부호는 Part 2 7회차 (Positive definite) 의 정리로 고유값에 의해 결정된다.
 
 ---
 
@@ -317,7 +317,7 @@ $$\boxed{\;\mathbf{x}_{k+1} = \mathbf{x}_k - H(\mathbf{x}_k)^{-1} \nabla f(\math
 
 ### 실용적 대안 (실제 학습에 쓰이는 것)
 - **Quasi-Newton**: BFGS·L-BFGS, $H^{-1}$을 누적 근사 ($n$이 중간일 때).
-- **Natural gradient**: Fisher information 사용 (확률 모델 최적화, 8회차 연결).
+- **Natural gradient**: Fisher information 사용 (확률 모델 최적화, 3회차 연결).
 - **Adam·RMSprop**: gradient의 2차 모멘트로 곡률을 **대각 근사**.
 
 > Newton은 이론적 깊이의 표준이고, Adam·SGD가 실용의 표준이다. 그 사이에 L-BFGS·natural gradient가 있다.
@@ -533,11 +533,11 @@ plt.show()
 - **(2)** Logistic 손실 $f(\mathbf{x}) = \log(1 + \exp(-\mathbf{w}^\top \mathbf{x}))$의 Hessian이 항상 positive semidefinite임을 보이시오 ($\Rightarrow$ 로지스틱 회귀는 convex).
 - **(3)** $f(\mathbf{x}) = \tfrac{1}{2} \mathbf{x}^\top A \mathbf{x} - \mathbf{b}^\top \mathbf{x}$에서 GD ($\eta < 2 / \lambda_{\max}(A)$) 의 수렴 속도가 condition number $\kappa = \lambda_{\max}/\lambda_{\min}$로 결정됨을 (한 줄 직관) 설명하시오. ($\kappa$가 크면 느리다.)
 
-8회차 (Probability·MLE·KL) Review에서 다룬다.
+3회차 (Probability·MLE·KL) Review에서 다룬다.
 
 ---
 
-## E-5. 다음 회차 (Part 2 8회차) 예고
+## E-5. 다음 회차 (Part 3 3회차) 예고
 
 **주제**: Probability · 기대값 · MLE · MAP · KL divergence · Cross entropy · Multivariate Gaussian
 
@@ -560,4 +560,4 @@ plt.show()
 다음 회차의 출발 문제:
 > 데이터에 노이즈가 있을 때, "가장 그럴듯한" 파라미터는 어떻게 정의하고 그것이 최적화 문제로 어떻게 환원되는가?
 
-`HANDOUT`: 본 PDF + 8회차 사전 reading (MML §6)
+`HANDOUT`: 본 PDF + 3회차 사전 reading (MML §6)

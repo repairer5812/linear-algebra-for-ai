@@ -3,7 +3,7 @@ marp: true
 theme: default
 paginate: true
 header: '인공지능 전공자를 위한 선형대수학'
-footer: 'Part 3 8회차 — Case Study 발표 · Part 3 종합 문제 풀기'
+footer: 'Part 4 8회차 — Case Study 발표 · Part 4 (ML 및 AI의 수학적 응용) 종합 문제 Review'
 math: mathjax
 size: 16:9
 style: |
@@ -34,12 +34,12 @@ style: |
 <!-- _class: lead -->
 <!-- _paginate: false -->
 
-# Part 3 · 8회차
+# Part 4 · 8회차
 
-## Case Study 발표 · Part 3 종합 문제 풀기
+## Case Study 발표 · Part 4 (ML 및 AI의 수학적 응용) 종합 문제 Review
 
-자체 교안 · Part 1·2·3 종합
-**Part 3 8회차 (마지막 회차)** — Part 1·2·3의 도구를 모두 동원해 학생 각자의 AI 모델 부분을 LA 객체로 환원합니다.
+자체 교안 · Part 1·2·3·4 종합 · Part 4 (ML 및 AI의 수학적 응용)
+**Part 4 8회차 (마지막 회차)** — Part 1·2·3·4의 도구를 모두 동원해 학생 각자의 AI 모델 부분을 LA 객체로 환원합니다.
 
 > 본 회차는 본 강좌 전체의 종합 활동이다. 사전 공개된 종합 문제를 본인이 풀어 온 풀이를 함께 Review하고, Case Study 발표로 마무리한다.
 
@@ -74,8 +74,8 @@ style: |
 이 한 질문에 답하려면 세 단계가 필요합니다.
 
 1. 각 학생이 선택한 모델 부분의 **Case Study 발표** (5분 × n명)
-2. **Part 3 통합 문제 풀이** (Regression·PCA·GMM·SVM·CNN·Attention 한 문제)
-3. **Part 1·2·3 핵심 통합 풀이** (본 강좌 전체 사슬 한 자리)
+2. **Part 4 통합 문제 풀이** (Regression·PCA·GMM·SVM·CNN·Attention 한 문제)
+3. **Part 1·2·3·4 핵심 통합 풀이** (본 강좌 전체 사슬 한 자리)
 
 본 회차는 **본 강좌 전체의 마지막 회차**다.
 
@@ -86,10 +86,10 @@ style: |
 이번 회차가 끝나면 학생은 다음을 답할 수 있어야 합니다.
 
 1. 임의 AI 모델의 한 부분을 **본 강좌 도구로 분해**할 수 있습니다.
-2. **Linear Regression·PCA·GMM·SVM·Kernel·CNN·Attention** 7개 Part 3 도구의 공통 객체와 차이를 답할 수 있습니다.
-3. **Part 1 (Vector·Matrix·부분공간·정사영) → Part 2 (Eigenvalue·SVD·미분·확률·최적화) → Part 3 (응용)**의 흐름을 한 자리로 설명할 수 있습니다.
+2. **Linear Regression·PCA·GMM·SVM·Kernel·CNN·Attention** 7개 Part 4 도구의 공통 객체와 차이를 답할 수 있습니다.
+3. **Part 1 (Vector·Matrix·부분공간·정사영) → Part 3 (Eigenvalue·SVD·미분·확률·최적화) → Part 4 (응용)**의 흐름을 한 자리로 설명할 수 있습니다.
 4. **Case Study 발표**를 통해 동료의 분해를 듣고 자신의 분해와 비교할 수 있습니다.
-5. Part 3 종합 문제·Part 1·2·3 핵심 통합 문제를 풀 수 있습니다.
+5. Part 4 (ML 및 AI의 수학적 응용) 종합 문제·Part 1·2·3·4 핵심 통합 문제를 풀 수 있습니다.
 
 ---
 
@@ -98,8 +98,8 @@ style: |
 | 질문 | 답 (본 회차의 답) | 도구 |
 |---|---|---|
 | 임의 모델 한 부분 환원? | **Case Study 발표** | 학생 각자 |
-| Part 3 도구 7개 통합? | **사전 공개된 종합 문제, 함께 Review** | Part 3 1-7회차 |
-| Part 1·2·3 전체 통합? | **핵심 통합 풀이** | 본 강좌 전체 |
+| Part 4 도구 7개 통합? | **사전 공개된 종합 문제, 함께 Review** | Part 4 1-7회차 |
+| Part 1·2·3·4 전체 통합? | **핵심 통합 풀이** | 본 강좌 전체 |
 
 ---
 
@@ -109,8 +109,8 @@ style: |
 |:---:|:---:|---|
 | ① | A | **오프닝**: Case Study 발표 안내 + 7회차 Review |
 | ② | **B** | **Case Study 발표** (학생 각자 5분 × $n$명), 동료 질문 |
-| ③ | **C** | **사전 공개된 Part 3 종합 문제, 함께 Review** (Regression → PCA → GMM → SVM → CNN → Attention) |
-| ④ | D | **Part 1·2·3 핵심 통합 풀이**·본 강좌 전체 회고 |
+| ③ | **C** | **사전 공개된 Part 4 (ML 및 AI의 수학적 응용) 종합 문제, 함께 Review** (Regression → PCA → GMM → SVM → CNN → Attention) |
+| ④ | D | **Part 1·2·3·4 핵심 통합 풀이**·본 강좌 전체 회고 |
 | ⑤ | E | **마무리·후속 학습 안내** |
 
 ---
@@ -120,7 +120,7 @@ style: |
 ## B-1. Case Study 형식
 
 ### 목적
-본 강좌 7개 회차 (Part 3) 동안 쌓은 도구로 **임의의 AI 모델 한 부분**을 LA 객체로 환원해 본다. 본 강좌 전체를 본인 손으로 정리하는 학습 활동이다.
+본 강좌 7개 회차 (Part 4) 동안 쌓은 도구로 **임의의 AI 모델 한 부분**을 LA 객체로 환원해 본다. 본 강좌 전체를 본인 손으로 정리하는 학습 활동이다.
 
 ### 형식
 - **보고서 1쪽** (사전 제출)
@@ -143,15 +143,15 @@ style: |
 
 | 모델·부분 | 본 강좌 환원 | 적용 회차 |
 |---|---|---|
-| **ResNet의 1×1 Conv** | 채널 행렬곱 | Part 3 6회차 |
-| **ViT의 Attention head** | $\mathrm{softmax}(QK^\top/\sqrt{d_k})V$ 분해 | Part 3 7회차 |
-| **LoRA adapter** | 저계수 분해 $W + AB$ ($A \in \mathbb{R}^{d \times r}, B \in \mathbb{R}^{r \times d}$) | Part 2 5회차 (저계수 근사) |
-| **RoPE positional encoding** | 회전 행렬 적용 | Part 1 11회차 (Rotation) |
+| **ResNet의 1×1 Conv** | 채널 행렬곱 | Part 4 6회차 |
+| **ViT의 Attention head** | $\mathrm{softmax}(QK^\top/\sqrt{d_k})V$ 분해 | Part 4 7회차 |
+| **LoRA adapter** | 저계수 분해 $W + AB$ ($A \in \mathbb{R}^{d \times r}, B \in \mathbb{R}^{r \times d}$) | Part 2 9회차 (저계수 근사) |
+| **RoPE positional encoding** | 회전 행렬 적용 | Part 2 3회차 (Rotation) |
 | **LayerNorm** | 행별 표준화 + scale | Part 1 2회차 (Norm) |
-| **GELU/ReLU 활성화** | element-wise 비선형 | (Part 3 외 보조) |
+| **GELU/ReLU 활성화** | element-wise 비선형 | (Part 4 외 보조) |
 | **Word2Vec Skip-gram** | Inner product + softmax | Part 1 2회차 (Inner product) |
-| **PCA whitening** | SVD + scaling | Part 2 4·5회차 |
-| **Diffusion U-Net 한 블록** | Conv + Attention 조합 | Part 3 6·7회차 |
+| **PCA whitening** | SVD + scaling | Part 2 8·9회차 |
+| **Diffusion U-Net 한 블록** | Conv + Attention 조합 | Part 4 6·7회차 |
 | **CLIP의 contrastive loss** | Inner product 행렬 + softmax | Part 1 2회차 + 7회차 |
 
 ---
@@ -172,9 +172,9 @@ style: |
 
 ---
 
-# C. Part 3 종합 문제 풀기
+# C. Part 4 (ML 및 AI의 수학적 응용) 종합 문제 Review
 
-> 본 회차 C 섹션은 Part 3 7개 도구를 모두 동원하는 통합 문제이다.
+> 본 회차 C 섹션은 Part 4 7개 도구를 모두 동원하는 통합 문제이다.
 
 ## C-1. 종합 문제 1: Linear Regression → PCA
 
@@ -190,10 +190,10 @@ style: |
 
 ## C-2. 종합 문제 1 답
 
-- **(a)** $\hat{\boldsymbol\beta}$는 $\mathbf{y}$를 $\mathrm{col}(X)$로 정사영한 결과의 좌표. **정규방정식 = 정사영 조건** $X^\top(\mathbf{y} - X\boldsymbol\beta) = 0$. (Part 1 10회차)
+- **(a)** $\hat{\boldsymbol\beta}$는 $\mathbf{y}$를 $\mathrm{col}(X)$로 정사영한 결과의 좌표. **정규방정식 = 정사영 조건** $X^\top(\mathbf{y} - X\boldsymbol\beta) = 0$. (Part 2 2회차)
 - **(b)** $X = U\Sigma V^\top$ 대입. $X^\top X = V\Sigma^2 V^\top$, $(X^\top X)^{-1} = V\Sigma^{-2}V^\top$. $X^\top \mathbf{y} = V\Sigma U^\top \mathbf{y}$.
   $$\hat{\boldsymbol\beta} = V\Sigma^{-1}U^\top \mathbf{y}.$$
-- **(c)** PCA 첫 주성분 = **$V$의 첫 열** $\mathbf{v}_1$. 가장 큰 특이값 $\sigma_1$에 대응. (Part 2 4·5회차)
+- **(c)** PCA 첫 주성분 = **$V$의 첫 열** $\mathbf{v}_1$. 가장 큰 특이값 $\sigma_1$에 대응. (Part 2 8·9회차)
 - **(d)** Ridge: $\hat{\boldsymbol\beta}_\lambda = V \mathrm{diag}\!\left(\frac{\sigma_i}{\sigma_i^2 + \lambda}\right) U^\top \mathbf{y}$. 작은 $\sigma_i$에서 분모 $\lambda$가 안정화 역할.
 
 ---
@@ -242,22 +242,22 @@ $n = 8$ Token, $d = 64$ embedding, $h = 4$ head, head별 $d_k = d_v = 16$.
 
 ---
 
-# D. Part 1·2·3 핵심 통합 풀이
+# D. Part 1·2·3·4 핵심 통합 풀이
 
 ## D-1. 본 강좌 전체 사슬 한 자리
 
-| Part | 핵심 객체 | Part 3에서 어디 등장 |
+| Part | 핵심 객체 | Part 4에서 어디 등장 |
 |---|---|---|
 | Part 1 1회차 | Vector·Linear combination | Attention $PV$ (7회차) |
 | Part 1 2회차 | Inner product | $QK^\top$ (7회차)·SVM 거리 (4회차) |
 | Part 1 3회차 | 행렬·벡터 곱 | Conv·Attention 전체 (6·7회차) |
 | Part 1 7-8회차 | 4 부분공간·차원정리 | Regression $X$의 column space (1회차) |
-| Part 1 9-10회차 | 정사영·LS | Regression 정규방정식 (1회차) |
-| Part 2 4-5회차 | SVD·저계수 근사 | PCA (2회차)·LoRA |
-| Part 2 8회차 | 확률·MLE·KL | Regression MLE (1회차)·GMM (3회차) |
-| Part 2 9회차 | 최적화·KKT | SVM Dual (4회차) |
+| Part 2 1·2회차 | 정사영·LS | Regression 정규방정식 (1회차) |
+| Part 2 8·9회차 | SVD·저계수 근사 | PCA (2회차)·LoRA |
+| Part 3 3회차 | 확률·MLE·KL | Regression MLE (1회차)·GMM (3회차) |
+| Part 3 4회차 | 최적화·KKT | SVM Dual (4회차) |
 
-→ **Part 3는 Part 1·2 도구의 응용 총집합**. 본 강좌의 메시지가 이 표에 응축된다.
+→ **Part 4는 Part 1·2·3 도구의 응용 총집합**. 본 강좌의 메시지가 이 표에 응축된다.
 
 ---
 
@@ -318,7 +318,7 @@ $n = 8$ Token, $d = 64$ embedding, $h = 4$ head, head별 $d_k = d_v = 16$.
 
 ### 선택: GPT의 한 Attention head
 - **(a)** GPT 한 layer의 한 head: $\mathrm{Attn}(XW^Q, XW^K, XW^V)$ with causal mask.
-- **(b)** Part 3 7회차 정의 7.3 (Scaled Dot-Product Attention) + Part 1 1·2·3회차 (Vector·Inner product·행렬 곱).
+- **(b)** Part 4 7회차 정의 7.3 (Scaled Dot-Product Attention) + Part 1 1·2·3회차 (Vector·Inner product·행렬 곱).
 - **(c)** GPT의 token 간 정보 전달이 **Linear combination + 유사도 가중치**라는 단순한 두 객체임을 드러낸다. 모델의 신비를 LA 언어로 분해 가능.
 - **(d)** Speculative decoding·KV cache·LongRoPE 등 GPT 추론 최적화 기법으로 학습 확장.
 
@@ -329,14 +329,15 @@ $n = 8$ Token, $d = 64$ embedding, $h = 4$ head, head별 $d_k = d_v = 16$.
 ## E-1. 본 강좌 전체 회고
 
 ### 본 강좌가 다룬 것
-- Part 1 (12회차): Vector·행렬·부분공간·정사영·QR·Determinant
-- Part 2 (9회차): Eigenvalue·SVD·확률·최적화·KKT
-- Part 3 (8회차): Regression·PCA·GMM·SVM·Kernel·CNN·Attention + Case Study
+- Part 1 (8회차): Vector·행렬·부분공간 일부
+- Part 2 (9회차): 정사영·QR·Determinant·Eigenvalue·SVD·저계수 근사
+- Part 3 (4회차): 확률·최적화·KKT
+- Part 4 (8회차): Regression·PCA·GMM·SVM·Kernel·CNN·Attention + Case Study
 
 ### 본 강좌의 메시지
 1. **LA는 AI의 언어**: 모든 모델 핵심 층이 LA 객체로 분해됨.
 2. **정의 → 정리 → 분해 → 응용**의 4단 사이클 (수학책 흐름).
-3. **Part 1의 객체가 Part 3까지 끝없이 재등장**: Inner product·Linear combination·행렬 곱·정사영.
+3. **Part 1의 객체가 Part 4까지 끝없이 재등장**: Inner product·Linear combination·행렬 곱·정사영.
 
 ### 후속 학습 (D-3)
 본 강좌가 다루지 못한 자율 학습 박스 (PPCA·Bayesian LR·NTK·2D Toeplitz·Attention Jacobian·Equivariance commute 정식 등)는 각 회차 부록 박스에서 자료를 안내했다.
@@ -370,7 +371,7 @@ $n = 8$ Token, $d = 64$ embedding, $h = 4$ head, head별 $d_k = d_v = 16$.
 - (1) Diffusion 모델의 한 noise prediction 네트워크 ($\epsilon_\theta(\mathbf{x}_t, t)$)를 본 강좌 도구로 분해해 보시오.
 - (2) Mamba·State Space Model의 핵심 연산을 Toeplitz 행렬 관점에서 해석해 보시오.
 - (3) RoPE (Rotary Positional Embedding)가 어떻게 회전 행렬로 정식화되는지 적으시오.
-- (4) Speculative Decoding의 기댓값 분석에 Part 2 확률 도구가 어떻게 들어가는지 1쪽 보고서.
+- (4) Speculative Decoding의 기댓값 분석에 Part 3 확률 도구가 어떻게 들어가는지 1쪽 보고서.
 - (5) FlashAttention의 IO-efficient algorithm이 동일한 수학적 객체를 다른 메모리 패턴으로 계산함을 확인하시오.
 
 → 이 자율 문제는 본 강좌 이후의 자기 학습 trigger다. 제출 의무 없음.
@@ -418,27 +419,27 @@ $n = 8$ Token, $d = 64$ embedding, $h = 4$ head, head별 $d_k = d_v = 16$.
 | 1 | 6 | Vector space·Subspace·Null space |
 | 1 | 7 | Column space·Rank·4 부분공간 |
 | 1 | 8 | Basis·Dim·차원정리 |
-| 1 | 9 | Orthogonality·Projection |
-| 1 | 10 | Least squares·정규방정식 |
-| 1 | 11 | Orthonormal·Gram-Schmidt·QR |
-| 1 | 12 | Determinant + Part 1 종합 |
-| 2 | 1 | Eigenvalue·Eigenvector |
-| 2 | 2 | Diagonalization·Spectral |
-| 2 | 3 | Positive definite·Cholesky |
-| 2 | 4 | SVD 정식 |
-| 2 | 5 | Eckart-Young·Matrix Approx |
-| 2 | 6 | Vector Calculus 1 |
-| 2 | 7 | Vector Calculus 2 |
-| 2 | 8 | Probability·MLE·KL |
-| 2 | 9 | Optimization·KKT + Part 2 종합 |
-| 3 | 1 | Linear Regression |
-| 3 | 2 | PCA·SVD 동치 |
-| 3 | 3 | GMM·EM |
-| 3 | 4 | SVM Hard/Soft·Dual |
-| 3 | 5 | Kernel SVM·RBF·Polynomial |
-| 3 | 6 | CNN·Toeplitz·1×1=행렬곱 |
-| 3 | 7 | Attention 분해·Multi-head·Equivariance 직관 |
-| 3 | 8 | Case Study + 종합 |
+| 2 | 1 | Orthogonality·Projection |
+| 2 | 2 | Least squares·정규방정식 |
+| 2 | 3 | Orthonormal·Gram-Schmidt·QR |
+| 2 | 4 | Determinant |
+| 2 | 5 | Eigenvalue·Eigenvector |
+| 2 | 6 | Diagonalization·Spectral |
+| 2 | 7 | Positive definite·Cholesky |
+| 2 | 8 | SVD 정식 |
+| 2 | 9 | Eckart-Young·Matrix Approx |
+| 3 | 1 | Vector Calculus 1 |
+| 3 | 2 | Vector Calculus 2 |
+| 3 | 3 | Probability·MLE·KL |
+| 3 | 4 | Optimization·KKT + Part 3 종합 |
+| 4 | 1 | Linear Regression |
+| 4 | 2 | PCA·SVD 동치 |
+| 4 | 3 | GMM·EM |
+| 4 | 4 | SVM Hard/Soft·Dual |
+| 4 | 5 | Kernel SVM·RBF·Polynomial |
+| 4 | 6 | CNN·Toeplitz·1×1=행렬곱 |
+| 4 | 7 | Attention 분해·Multi-head·Equivariance 직관 |
+| 4 | 8 | Case Study + 종합 |
 
 → 29회차 × 2시간 = **58시간**의 본 강좌가 본 회차에서 닫힌다.
 

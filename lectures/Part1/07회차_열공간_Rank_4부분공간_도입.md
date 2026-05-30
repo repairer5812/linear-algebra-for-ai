@@ -3,7 +3,7 @@ marp: true
 theme: default
 paginate: true
 header: '인공지능 전공자를 위한 선형대수학'
-footer: '7회차 · Column space · Rank · 4 fundamental subspaces 도입'
+footer: 'Part 1 7회차 · Column space · Rank · 4 fundamental subspaces 도입'
 math: mathjax
 size: 16:9
 style: |
@@ -37,11 +37,11 @@ style: |
 <!-- _class: lead -->
 <!-- _paginate: false -->
 
-# 7회차
+# Part 1 7회차
 
 ## Column space(열공간) · Rank(계수) · 4 fundamental subspaces 도입
 
-MML §2.6 일부 (메인) · Strang Ch 3.3-3.4 (발췌, **시그니처**)
+MML §2.6 일부 (메인) · Strang Ch 3.3-3.4 (발췌, **시그니처**) · Part 1 (LA1)
 
 > 6회차의 $N(A)$에 세 자매 $C(A), C(A^\top), N(A^\top)$를 더해 행렬에 자연스럽게 붙는 **네 부분공간의 큰 그림** 을 본다. 본 회차가 Strang 시그니처 발췌 가장 강한 회차이다.
 
@@ -107,7 +107,7 @@ MML §2.6 일부 (메인) · Strang Ch 3.3-3.4 (발췌, **시그니처**)
 2. **Row space** $C(A^\top)$의 정의와 RREF로의 기저 추출을 진술할 수 있습니다.
 3. **Rank**의 정의(Pivot 수 = $C(A)$ 차원 = $C(A^\top)$ 차원)를 진술할 수 있습니다.
 4. **4 fundamental subspaces**의 이름·소속 공간·차원을 표로 정리할 수 있습니다.
-5. $C(A) \perp N(A^\top)$, $C(A^\top) \perp N(A)$의 직교 관계를 직관적으로 설명할 수 있습니다 (정식 증명은 9회차 Orthogonality).
+5. $C(A) \perp N(A^\top)$, $C(A^\top) \perp N(A)$의 직교 관계를 직관적으로 설명할 수 있습니다 (정식 증명은 Part 2 1회차 Orthogonality).
 
 ---
 
@@ -271,7 +271,7 @@ $$\dim C(A) \;=\; \dim C(A^\top) \;=\; \text{Pivot 수}.$$
 - $\mathrm{rank}(A) = \min(m, n)$일 때 **Full rank**.
   - 정사각이면 가역.
   - 가로형 ($m < n$)이면 onto이지만 유일성 X.
-  - 세로형 ($m > n$)이면 일차독립한 열이지만 onto X (10회차 최소제곱의 무대).
+  - 세로형 ($m > n$)이면 일차독립한 열이지만 onto X (Part 2 2회차 최소제곱의 무대).
 
 ---
 
@@ -373,13 +373,13 @@ $A$의 작용:
 
 ---
 
-## E-5. 직교성의 직관 (정식 증명은 9회차)
+## E-5. 직교성의 직관 (정식 증명은 Part 2 1회차)
 
 **$C(A^\top) \perp N(A)$**: $\mathbf{x} \in N(A)$이면 $A\mathbf{x} = \mathbf{0}$. 이 식의 한 행을 보면 "($A$의 한 행) · $\mathbf{x}$ $= 0$" 이다. 즉 $\mathbf{x}$는 $A$의 **모든 행과 수직**, 따라서 행들의 span $= C(A^\top)$과 수직.
 
 **$C(A) \perp N(A^\top)$**: $A$ 자리에 $A^\top$를 넣으면 위와 똑같은 논리. $\mathbf{y} \in N(A^\top)$이면 $A^\top \mathbf{y} = \mathbf{0}$, 즉 $\mathbf{y}$는 $A^\top$의 모든 행 ($=A$의 모든 열)과 수직.
 
-정식 정의 (Orthogonal complement, $V^\perp$)는 9회차.
+정식 정의 (Orthogonal complement, $V^\perp$)는 Part 2 1회차.
 
 ---
 
@@ -424,7 +424,7 @@ $\begin{pmatrix} 1 & 2 & 0 \\ 0 & 0 & 1 \\ 0 & 0 & 0 \end{pmatrix}$. Pivot 열: 
 | GNN의 message passing | 노드 순서 permutation | permutation-equivariant |
 | 신경망 + Normalization | 스케일 | scale-equivariant |
 
-본 강의 본문에서는 직관 한 줄로만 두고, 정식 정의 (commute의 의미·Kronecker 곱 정식 식)는 부록·심화로 보낸다. Part 3 7회차 (Attention)에서 한 슬라이드 더 다룬다.
+본 강의 본문에서는 직관 한 줄로만 두고, 정식 정의 (commute의 의미·Kronecker 곱 정식 식)는 부록·심화로 보낸다. Part 4 7회차 (Attention)에서 한 슬라이드 더 다룬다.
 
 > **메시지**: 4 부분공간의 큰 그림이 정적인 그림이라면, equivariance는 그 그림이 변환에 대해 어떻게 보존되는지의 동적인 이야기이다.
 
@@ -479,7 +479,7 @@ $A = \begin{pmatrix} 1 & 0 & 2 \\ 1 & 1 & 3 \\ 0 & 1 & 1 \end{pmatrix}$.
 
 ## G-2. PCA·SVD 미리보기
 
-Part 3 PCA의 핵심: 데이터 행렬 $X \in \mathbb{R}^{N \times d}$의 4 부분공간을 분석.
+Part 4 PCA의 핵심: 데이터 행렬 $X \in \mathbb{R}^{N \times d}$의 4 부분공간을 분석.
 
 - $C(X) \subseteq \mathbb{R}^N$: 데이터가 살고 있는 샘플 방향
 - $C(X^\top) \subseteq \mathbb{R}^d$: 데이터가 사용하는 특성 방향
@@ -488,7 +488,7 @@ Part 3 PCA의 핵심: 데이터 행렬 $X \in \mathbb{R}^{N \times d}$의 4 부�
 
 **Rank**가 데이터의 본질적 자유도. PCA의 주성분이 $C(X^\top)$의 직교 기저이고, 신경망 학습이 본질적으로 이 부분공간들을 추정·근사한다.
 
-본 회차의 그림이 Part 3 전체의 직관적 토대이다.
+본 회차의 그림이 Part 4 전체의 직관적 토대이다.
 
 ---
 
@@ -572,7 +572,7 @@ $A = \begin{pmatrix} 1 & 1 & 0 & 2 \\ 2 & 3 & 1 & 5 \\ 1 & 2 & 1 & 3 \end{pmatri
 - (f) (8회차 예고) $N(A)$의 임의 벡터와 $C(A^\top)$의 임의 벡터의 내적이 0임을 한 쌍의 벡터로 확인
 
 ### 자기 점검
-- (f)의 직교성은 어떤 보편적 사실의 한 예인가? 9회차에서 정식 증명.
+- (f)의 직교성은 어떤 보편적 사실의 한 예인가? Part 2 1회차에서 정식 증명.
 - 만약 $A$를 가로로 한 열 더 (Free 열) 늘리면 $N(A)$의 차원은 어떻게 변하나?
 
 ---

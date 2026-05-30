@@ -3,7 +3,7 @@ marp: true
 theme: default
 paginate: true
 header: '인공지능 전공자를 위한 선형대수학'
-footer: '4회차 — Gaussian elimination · RREF · 해의 구조'
+footer: 'Part 1 4회차 · Gaussian elimination · RREF · 해의 구조'
 math: mathjax
 size: 16:9
 style: |
@@ -31,11 +31,11 @@ style: |
 <!-- _class: lead -->
 <!-- _paginate: false -->
 
-# 4회차
+# Part 1 4회차
 
 ## Gaussian elimination · RREF · 해의 구조
 
-MML §2.3.1-§2.3.3 (메인) · Strang Ch 2.1-2.3 (발췌, **Elementary matrix · LU 절차 시그니처**) · EoLA Ch.7
+MML §2.3.1-§2.3.3 (메인) · Strang Ch 2.1-2.3 (발췌, **Elementary matrix · LU 절차 시그니처**) · EoLA Ch.7 · Part 1 (LA1)
 
 ---
 
@@ -394,10 +394,10 @@ $y = s, z = t$로 두면 $x = 2 - s + t$. 해: $(2-s+t,\,s,\,t)$, **2차원 자�
 
 | 응용 | $A\mathbf{x} = \mathbf{b}$의 역할 | 회차 |
 |---|---|---|
-| **선형 회귀** | $A\hat\beta = \mathbf{b}$ (overdetermined → 최소제곱) | 10 · Part 3 1 |
+| **선형 회귀** | $A\hat\beta = \mathbf{b}$ (overdetermined → 최소제곱) | Part 2 2 · Part 4 1 |
 | **신경망 한 층의 역방향** | 입력 복원 (역연산) | Part 2 |
-| **Embedding 정규화** | Linear constraint 적용 | 10 |
-| **Optimization KKT** | 등식 제약 = $A\mathbf{x} = \mathbf{b}$ | Part 2 9 |
+| **Embedding 정규화** | Linear constraint 적용 | Part 2 2 |
+| **Optimization KKT** | 등식 제약 = $A\mathbf{x} = \mathbf{b}$ | Part 3 4 |
 | **Computer Graphics** | 좌표 변환 풀이 | — |
 
 대형 신경망 학습에서도 본질은 거대한 Linear equation system 근사 풀이이다.

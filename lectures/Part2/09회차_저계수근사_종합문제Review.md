@@ -3,7 +3,7 @@ marp: true
 theme: default
 paginate: true
 header: '인공지능 전공자를 위한 선형대수학'
-footer: 'Part 2 5회차 · Eckart-Young·Low-rank·Linear transformation·PCA 도입'
+footer: 'Part 2 9회차 · Eckart-Young·Low-rank·PCA 도입·Part 2 종합 Review'
 math: mathjax
 size: 16:9
 style: |
@@ -34,13 +34,13 @@ style: |
 <!-- _class: lead -->
 <!-- _paginate: false -->
 
-# Part 2 · 5회차
+# Part 2 · 9회차: **Part 2 (선형대수 2) 마무리 회차**
 
-## Eckart-Young·저계수 근사·Linear transformation·PCA 도입
+## Eckart-Young·저계수 근사·Linear transformation·PCA 도입 + Part 2 (선형대수 2) 종합 문제 Review
 
-MML §4.6·§2.7·§2.8, Ch 10 도입 · **Strang Ch 7.3-7.4 (발췌, 증명 부록)**
+MML §4.6·§2.7·§2.8, Ch 10 도입 · **Strang Ch 7.3-7.4 (발췌, 증명 부록)** · Part 2 (LA2)
 
-**Part 2 [A] 단계 마지막**, SVD를 응용·기저변환·PCA로 통합합니다.
+**Part 2 (선형대수 2) 마무리**, SVD를 응용·기저변환·PCA로 통합하고 Part 2 1-8회차 종합 문제를 함께 Review합니다.
 
 > 큰 $\sigma_i$ 몇 개만 남기면 가장 가까운 저계수 행렬, 이것이 압축·LoRA·PCA 모두입니다.
 
@@ -48,7 +48,7 @@ MML §4.6·§2.7·§2.8, Ch 10 도입 · **Strang Ch 7.3-7.4 (발췌, 증명 부
 
 <!-- _class: exercise -->
 
-# Review: 4회차 마무리 숙제
+# Review: 8회차 마무리 숙제
 
 지난 회차 문제:
 > $A = \begin{pmatrix} 2 & 0 \\ 0 & 3 \\ 0 & 0 \end{pmatrix}$의 SVD와 rank-1 근사.
@@ -73,7 +73,7 @@ $\|A - \tilde A\|_F^2 = \sigma_2^2$가 우연이 아니라 **Eckart-Young 정리
 1. **SVD 외적 합 표현** $A = \sum_{i=1}^r \sigma_i \mathbf{u}_i \mathbf{v}_i^\top$
 2. **Eckart-Young 정리**: 진술, 한 줄 풀이 (증명은 부록)
 3. **Linear transformation·기저변환·좌표변환**: 행렬의 추상 해석
-4. **PCA 도입** (Part 3 2회차 본격): 데이터의 SVD = 주성분 분석
+4. **PCA 도입** (Part 4 2회차 본격): 데이터의 SVD = 주성분 분석
 
 ---
 
@@ -98,7 +98,7 @@ $\|A - \tilde A\|_F^2 = \sigma_2^2$가 우연이 아니라 **Eckart-Young 정리
 | 오차의 크기? | $\sum_{i>k} \sigma_i^2$ | Frobenius |
 | 추상 행렬은? | Linear transformation | $T: V \to W$ |
 | 좌표 바꾸기? | 기저변환 행렬 $P$ | 닮음 |
-| PCA의 본질? | 평균 중심화, SVD | Part 3 도입 |
+| PCA의 본질? | 평균 중심화, SVD | Part 4 도입 |
 
 ---
 
@@ -106,11 +106,11 @@ $\|A - \tilde A\|_F^2 = \sigma_2^2$가 우연이 아니라 **Eckart-Young 정리
 
 | 순서 | 블록 | 내용 |
 |:---:|:---:|---|
-| ① | A | **오프닝**: 4회차 Review, 본 회차 사슬 |
+| ① | A | **오프닝**: 8회차 Review, 본 회차 사슬 |
 | ② | **B** | **정의·동기**: SVD 외적 표현 → 저계수 근사 |
 | ③ | **C** | **정리·풀이**: Eckart-Young 진술, 직관 풀이, Linear transformation |
 | ④ | **D** | **응용**: PCA 도입·이미지 압축·LoRA |
-| ⑤ | E | **Part 2 [A] 마무리, 5회차 마무리 문제** |
+| ⑤ | E | **Part 2 (선형대수 2) 마무리, 9회차 마무리 문제·Part 2 종합 Review** |
 
 ---
 
@@ -143,7 +143,7 @@ $$\|A\|_F = \sqrt{\sum_{i,j} A_{ij}^2} = \sqrt{\sum_{i=1}^r \sigma_i^2}$$
 ### 정의 2.5.2 (Spectral 노름)
 $$\|A\|_2 = \max_{\|\mathbf{x}\| = 1}\|A\mathbf{x}\| = \sigma_1$$
 
-(4회차 잠깐 풀어보기 문제 3에서 확인.)
+(8회차 잠깐 풀어보기 문제 3에서 확인.)
 
 ### 의미
 - Frobenius = 모든 원소를 한 벡터로 본 Euclidean 노름.
@@ -236,7 +236,7 @@ $$T(\mathbf{u} + \mathbf{v}) = T(\mathbf{u}) + T(\mathbf{v}), \quad T(\alpha \ma
 $V = \mathbb{R}^n, W = \mathbb{R}^m$이면 $T$는 어떤 행렬 $A \in \mathbb{R}^{m\times n}$에 대해 $T(\mathbf{x}) = A\mathbf{x}$로 표현된다. 즉 **유한차원 vector space의 Linear transformation = 행렬**.
 
 ### 의의
-**행렬과 Linear transformation은 같은 것**의 두 표기. Part 1 1-12회차의 모든 행렬 결과가 Linear transformation의 결과로 재해석된다.
+**행렬과 Linear transformation은 같은 것**의 두 표기. Part 1·Part 2의 모든 행렬 결과가 Linear transformation의 결과로 재해석된다.
 
 ---
 
@@ -251,7 +251,7 @@ $$\tilde A = P^{-1} A P$$
 즉 **새 기저 표현 = 닮음 변환**.
 
 ### Eigenvector 기저
-$A = S\Lambda S^{-1}$에서 $S$를 기저변환 행렬로 보면 $\Lambda$는 **Eigenvector 기저에서의 표현행렬**. 그래서 대각이 된다 (2회차의 좌표 정렬 직관).
+$A = S\Lambda S^{-1}$에서 $S$를 기저변환 행렬로 보면 $\Lambda$는 **Eigenvector 기저에서의 표현행렬**. 그래서 대각이 된다 (6회차의 좌표 정렬 직관).
 
 ### SVD의 기저변환
 $A = U\Sigma V^\top$에서
@@ -315,7 +315,7 @@ $\tilde A = P^{-1}AP = \frac{1}{2}\begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}\
 
 # D. 응용: PCA·이미지 압축·LoRA
 
-## D-1. PCA 도입 (Part 3 2회차 본격)
+## D-1. PCA 도입 (Part 4 2회차 본격)
 
 ### 데이터 모델
 $n$개 $d$차원 표본 $\mathbf{x}_1, \ldots, \mathbf{x}_n$, 데이터 행렬 $X \in \mathbb{R}^{n\times d}$ (행 = 표본).
@@ -388,7 +388,7 @@ $W$는 고정, $A, B$만 학습. 매개변수 수: $2dk$ vs 원본 $d^2$ → $k 
 |---|---|---|
 | **JPEG** (DCT, 양자화) | 암묵 저계수 | 시각 압축 |
 | **MP3** | 주파수 도메인 저계수 | 청각 압축 |
-| **PCA (Part 3)** | 데이터 → 주성분 $k$ | 차원 축소·시각화 |
+| **PCA (Part 4)** | 데이터 → 주성분 $k$ | 차원 축소·시각화 |
 | **LSA (잠재 의미 분석)** | 단어×문서 → 토픽 $k$ | NLP 토픽 모델 |
 | **eigenfaces** | 얼굴 데이터 SVD | 얼굴 인식 표현 |
 | **LoRA** | 가중치 갱신 rank-$k$ | LLM 효율 fine-tuning |
@@ -432,19 +432,27 @@ LoRA: $2 \cdot 4096 \cdot 16 = 131,072$. 원본: $4096^2 \approx 1.68 \times 10^
 
 ---
 
-# E. Part 2 [A] 마무리, 5회차 마무리 문제
+# E. Part 2 (선형대수 2) 마무리, 9회차 마무리 문제·Part 2 종합 Review
 
-## E-1. Part 2 [A] (1-5회차) 핵심 한 표
+## E-1. Part 2 (선형대수 2) 1-9회차 핵심 한 표
 
 | 회차 | 핵심 도구 | 핵심 식 | 응용 |
 |:---:|---|---|---|
-| 1 | Eigenvalue·Eigenvector | $A\mathbf{v} = \lambda\mathbf{v}$ | PageRank·피보나치 |
-| 2 | 대각화·Spectral | $A = S\Lambda S^{-1}$, $A = Q\Lambda Q^\top$ | $A^k$ 한 줄 |
-| 3 | 양정치·Cholesky | $A \succ 0 \iff LL^\top$ | MVN·Ridge |
-| 4 | SVD | $A = U\Sigma V^\top$ | 4 부분공간·회전·신축·회전 |
-| 5 | Eckart-Young | $A_k = \sum_{i\le k}\sigma_i\mathbf{u}_i\mathbf{v}_i^\top$ | PCA·압축·LoRA |
+| 1 | Orthogonality·Projection | $P = A(A^\top A)^{-1}A^\top$ | 4 부분공간 직교 짝 |
+| 2 | Least squares | $A^\top A \hat{\mathbf{x}} = A^\top \mathbf{b}$ | AI 회귀 표준 |
+| 3 | Gram-Schmidt·QR | $A = QR$ | 수치 안정·회전 |
+| 4 | Determinant | $\det A$ | 가역·signed volume |
+| 5 | Eigenvalue·Eigenvector | $A\mathbf{v} = \lambda\mathbf{v}$ | PageRank·피보나치 |
+| 6 | 대각화·Spectral | $A = S\Lambda S^{-1}$, $A = Q\Lambda Q^\top$ | $A^k$ 한 줄 |
+| 7 | 양정치·Cholesky | $A \succ 0 \iff LL^\top$ | MVN·Ridge |
+| 8 | SVD | $A = U\Sigma V^\top$ | 4 부분공간·회전·신축·회전 |
+| 9 | Eckart-Young (본 회차) | $A_k = \sum_{i\le k}\sigma_i\mathbf{u}_i\mathbf{v}_i^\top$ | PCA·압축·LoRA |
 
-5회차가 한 줄로 통합: **고유분해 → SVD → 저계수 근사**, 세 단계의 일반화.
+본 회차가 한 줄로 통합: **정사영 → QR → 행렬식 → 고유분해 → SVD → 저계수 근사**, Part 2 (선형대수 2) 전체의 정점.
+
+### 후반부 종합 풀기 (본 섹션의 일부)
+
+본 9회차는 전반부 (Eckart-Young 정식 도입)에 이어 **사전 공개된 Part 2 (선형대수 2) 종합 문제를 함께 Review**합니다. 학생은 본 회차 전에 종합 문제 (05_시험/Part2_종합문제Review.md)를 본인 페이스로 풀어 와서, 본 회차 후반에 모두 함께 풀이를 짚어 봅니다. Part 2 1-8회차의 도구가 한 흐름으로 어떻게 엮이는지 한 자리에서 종합합니다.
 
 ---
 
@@ -498,34 +506,34 @@ $\tilde X = \begin{pmatrix} 3 & 0 \\ 0 & 2 \\ 0 & 0 \end{pmatrix}$가 주어졌�
 
 - **(e)** Eckart-Young: rank-1 행렬 중 $\tilde X_1$이 $\tilde X$에 가장 가깝다. 오차 = $\sigma_2$ (spectral) 또는 $\sigma_2^2$ (Frobenius). PCA에서 "한 주성분만 남기는" 차원 축소가 곧 이 근사.
 
-> **핵심**: 본 회차는 1-4회차의 분해 도구 (Eigenvalue → 대각화 → 양정치 → SVD)를 응용 한 정리 (Eckart-Young)으로 통합한다. Part 3는 이 토대 위에서 PCA·SVM·GMM·CNN·Attention을 정식으로 다룬다.
+> **핵심**: 본 회차는 5-8회차의 분해 도구 (Eigenvalue → 대각화 → 양정치 → SVD)를 응용 한 정리 (Eckart-Young)으로 통합한다. Part 4는 이 토대 위에서 PCA·SVM·GMM·CNN·Attention을 정식으로 다룬다.
 
 ---
 
 <!-- _class: exercise -->
 
-## 다음 회차 Review용 숙제 (6회차로 가져갈 질문)
+## 다음 회차 Review용 숙제 (Part 3 1회차로 가져갈 질문)
 
-위 마무리 문제의 유사 문제, 그리고 Part 2 [A] 통합 점검.
+위 마무리 문제의 유사 문제, 그리고 Part 2 (선형대수 2) 통합 점검.
 
 ### 통합 문제
 $A = \begin{pmatrix} 2 & 1 \\ 1 & 2 \\ 0 & 1 \end{pmatrix}$가 주어졌다.
 
 - (a) SVD를 구하시오 ($U, \Sigma, V$를 모두 명시).
 - (b) rank-1 근사 $A_1$와 $\|A - A_1\|_F^2$, $\|A - A_1\|_2$.
-- (c) (Part 2 [A] 통합) $A$의 SVD에서 $\sigma_1^2, \sigma_2^2$이 $A^\top A$의 Eigenvalue임을 확인하고, $A^\top A$가 양정치임을 별도로 확인 (모든 $\lambda > 0$).
-- (d) **6회차 도입**: $f(\mathbf{x}) = \|A\mathbf{x} - \mathbf{b}\|^2$ ($\mathbf{b} \in \mathbb{R}^3$ 고정)의 gradient $\nabla f$를 손계산해 보시오. (Part 1 10회차 정규방정식 미리보기, Part 2 6회차 벡터 미적분 도입.)
+- (c) (Part 2 통합) $A$의 SVD에서 $\sigma_1^2, \sigma_2^2$이 $A^\top A$의 Eigenvalue임을 확인하고, $A^\top A$가 양정치임을 별도로 확인 (모든 $\lambda > 0$).
+- (d) **Part 3 1회차 도입**: $f(\mathbf{x}) = \|A\mathbf{x} - \mathbf{b}\|^2$ ($\mathbf{b} \in \mathbb{R}^3$ 고정)의 gradient $\nabla f$를 손계산해 보시오. (Part 2 2회차 정규방정식 미리보기, Part 3 1회차 벡터 미적분 도입.)
 
 ### 자기 점검
 - (a)에서 $V$의 열이 PCA에서는 주성분이 됨을 다시 확인.
 - (c)에서 양정치 ↔ SVD ↔ 고유분해 세 개념이 통합되는 자리.
-- (d)는 다음 회차 (Vector Calculus 1)의 첫 동기.
+- (d)는 다음 Part 3 1회차 (Vector Calculus 1)의 첫 동기.
 
 ---
 
 ## E-4. 과제 안내
 
-`04_과제/Part2/05회차_homework.md`, 마감: 6회차 시작 전
+`04_과제/Part2/09회차_homework.md`, 마감: Part 3 1회차 시작 전
 
 **수학 30점**
 - Eckart-Young Frobenius·spectral 오차 계산, 5문제
@@ -535,17 +543,17 @@ $A = \begin{pmatrix} 2 & 1 \\ 1 & 2 \\ 0 & 1 \end{pmatrix}$가 주어졌다.
 
 **코딩 20점**
 - NumPy SVD로 이미지 압축 (rank-5, 20, 50 비교 시각화)
-- MNIST 2D PCA 시각화 (Part 3 미리보기)
+- MNIST 2D PCA 시각화 (Part 4 미리보기)
 - LoRA $\Delta W = BA$ 매개변수 수 계산·검증
 - **보너스**: 합성 데이터에 PCA, SVD 두 방법 비교 (정확도·시간)
 
 ---
 
-## E-5. 다음 회차 (Part 2 6회차) 예고
+## E-5. 다음 회차 (Part 3 1회차) 예고
 
 **주제**: Vector Calculus 1, Jacobian·Chain rule·Gradient
 
-**연결**: Part 2 [A] (1-5회차)는 행렬 분해 도구의 완성. **[B] (6-9회차)는 미분·확률·최적화** 추가 수학으로, ML 응용을 떠받칠 두 번째 토대. 6회차는 다변수 함수의 미분 (Jacobian, Hessian의 첫 형제)에서 시작, 신경망 backward의 본질을 정식화한다.
+**연결**: Part 2 (선형대수 2, 1-9회차)는 행렬 분해 도구의 완성. **Part 3 (1-4회차)는 미분·확률·최적화** 추가 수학으로, ML 응용을 떠받칠 두 번째 토대. Part 3 1회차는 다변수 함수의 미분 (Jacobian, Hessian의 첫 형제)에서 시작, 신경망 backward의 본질을 정식화한다.
 
 **사전 reading**:
 - MML §5.1-5.4 (Differentiation, Gradients of Vector-Valued Functions, Chain Rule)
@@ -590,6 +598,6 @@ $\|A - B\|_2 \ge \|(A-B)\mathbf{v}\|$ 꼴의 하한을 적당히 잡으면 $\|A 
 다음 회차의 출발 문제:
 > 다변수 함수의 미분은 어떻게 정의하면 자연스러운가? Jacobian·gradient·chain rule이 행렬 곱으로 어떻게 표현되는가?
 
-`HANDOUT`: 본 PDF, `Part2_05_저계수근사_PCA_LoRA.ipynb`
+`HANDOUT`: 본 PDF, `Part2_09_저계수근사_PCA_LoRA.ipynb`
 
-**Part 2 [A] 마무리**: 1-5회차로 행렬 분해의 완성. [B] 단계 (6-9회차)는 미분·확률·최적화로 ML 응용을 떠받칠 두 번째 토대.
+**Part 2 (선형대수 2) 마무리**: 1-9회차로 정사영부터 SVD·저계수 근사까지의 완성. 다음 Part 3 (1-4회차)는 미분·확률·최적화로 ML 응용을 떠받칠 두 번째 토대.

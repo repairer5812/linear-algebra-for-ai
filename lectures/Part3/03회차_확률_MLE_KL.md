@@ -3,7 +3,7 @@ marp: true
 theme: default
 paginate: true
 header: '인공지능 전공자를 위한 선형대수학'
-footer: 'Part 2 8회차 — Probability · MLE · KL · Cross Entropy · MVN'
+footer: 'Part 3 3회차 — Probability · MLE · KL · Cross Entropy · MVN'
 math: mathjax
 size: 16:9
 style: |
@@ -31,11 +31,11 @@ style: |
 <!-- _class: lead -->
 <!-- _paginate: false -->
 
-# Part 2 8회차
+# Part 3 3회차
 
 ## Probability · MLE · KL divergence · Cross Entropy · Multivariate Gaussian
 
-MML §6 (메인) · §8.3 일부
+MML §6 (메인) · §8.3 일부 · Part 3 (VC + Probability)
 **확률을 LA의 언어로**: 분포·기대값·MLE·KL·Cross entropy·다변량 가우시안을 도구로 정리한다. LLM의 토큰 예측 손실이 cross entropy 한 줄임을 본다.
 
 > Conjugacy·Exponential Family는 본 회차 본문에서 다루지 않고 자율 학습으로 둔다 (E 섹션 안내 참조).
@@ -44,7 +44,7 @@ MML §6 (메인) · §8.3 일부
 
 <!-- _class: exercise -->
 
-# Review: 지난 회차 (Part 2 7회차) 마무리 문제
+# Review: 지난 회차 (Part 3 2회차) 마무리 문제
 
 > **(1)** $f(x_1, x_2) = x_1^4 + x_2^4 - 4 x_1 x_2$의 임계점과 성격.
 > **(2)** Logistic 손실 $\log(1 + \exp(-\mathbf{w}^\top \mathbf{x}))$의 Hessian이 PSD임 증명.
@@ -173,10 +173,10 @@ Vector valued 확률변수 $\mathbf{X} = (X_1, \ldots, X_n)^\top$에 대해
 $(i, j)$ 성분 $\Sigma_{ij} = \mathrm{Cov}(X_i, X_j)$. 대각 $\Sigma_{ii} = \mathrm{Var}(X_i)$.
 
 ### 핵심 사실
-- $\Sigma$는 **symmetric, positive semidefinite** (Part 2 3회차 정리 적용).
+- $\Sigma$는 **symmetric, positive semidefinite** (Part 2 7회차 정리 적용).
 - 선형 변환 $\mathbf{Y} = A \mathbf{X} + \mathbf{b}$의 공분산: $\mathrm{Cov}(\mathbf{Y}) = A \Sigma A^\top$.
 
-> Part 2 3회차의 양정치 (positive definite, 양정성·동차성·자기수반) 가 확률에서도 다시 등장한다.
+> Part 2 7회차의 양정치 (positive definite, 양정성·동차성·자기수반) 가 확률에서도 다시 등장한다.
 
 ---
 
@@ -235,7 +235,7 @@ $$\theta_{\text{MAP}} = \arg\max_{\theta} p(\theta \mid \mathcal{D}) = \arg\max_
 
 MLE에 **prior 로그항**이 더해진 형태.
 
-### Ridge 회귀로의 연결 (Part 3 1회차 미리보기)
+### Ridge 회귀로의 연결 (Part 4 1회차 미리보기)
 선형 회귀 + 정규 prior $\theta \sim \mathcal{N}(\mathbf{0}, \sigma_p^2 I)$ → MAP의 추가항 $\propto -\Vert \theta \Vert^2$, 즉 **L2 정규화 = MAP**이다.
 
 <div class="analogy">
@@ -335,13 +335,13 @@ $$p(\mathbf{x}) = \frac{1}{(2\pi)^{n/2} (\det \Sigma)^{1/2}} \exp\!\left( -\tfra
 ### 핵심 성질
 - **닫혀 있다**: 선형 변환·주변·조건부 모두 다시 MVN.
 - **등밀도 등고선이 타원** ($(\mathbf{x} - \boldsymbol{\mu})^\top \Sigma^{-1} (\mathbf{x} - \boldsymbol{\mu}) = $ 상수).
-- $\Sigma$의 고유분해 (Part 2 1·2회차) 가 곧 타원의 주축.
+- $\Sigma$의 고유분해 (Part 2 5·6회차) 가 곧 타원의 주축.
 
 ---
 
 ## D-2. MVN 타원의 기하 (LA 직접 연결)
 
-$\Sigma = Q \Lambda Q^\top$ (spectral theorem, Part 2 2회차).
+$\Sigma = Q \Lambda Q^\top$ (spectral theorem, Part 2 6회차).
 
 - 타원의 **주축 방향** = $\Sigma$의 고유벡터 (열 of $Q$).
 - 주축의 **반지름** = $\sqrt{\lambda_i}$ (고유값의 제곱근).
@@ -350,7 +350,7 @@ $\Sigma = Q \Lambda Q^\top$ (spectral theorem, Part 2 2회차).
 ### 표준화 (whitening)
 $\mathbf{z} = \Sigma^{-1/2} (\mathbf{x} - \boldsymbol{\mu})$로 변환하면 $\mathbf{z} \sim \mathcal{N}(\mathbf{0}, I)$. 모든 MVN은 LA 변환으로 표준 정규로 환원된다.
 
-> $\Sigma^{-1/2}$는 Cholesky 또는 spectral decomposition로 구한다 (Part 2 3회차 연결).
+> $\Sigma^{-1/2}$는 Cholesky 또는 spectral decomposition로 구한다 (Part 2 7회차 연결).
 
 ---
 
@@ -366,7 +366,7 @@ $$\mathcal{L} = \mathbb{E}_{q_\phi}[\log p_\theta(\mathbf{x} \mid \mathbf{z})] -
 - 첫 항: **reconstruction** (MLE, cross entropy).
 - 둘째 항: **KL divergence**, posterior가 prior에서 너무 벗어나지 못하게 함.
 
-두 MVN의 KL은 **닫힌 형태**로 풀린다 (Part 3 영역).
+두 MVN의 KL은 **닫힌 형태**로 풀린다 (Part 4 영역).
 
 <div class="analogy">
 
@@ -484,7 +484,7 @@ $$q_\theta(y = 1 \mid \mathbf{x}) = \sigma(\mathbf{w}^\top \mathbf{x} + b), \qua
 
 - **(a)** 한 데이터 $(\mathbf{x}_i, y_i)$의 likelihood $q_\theta(y_i \mid \mathbf{x}_i)$를 한 식으로 적으시오 (베르누이 형태).
 - **(b)** 전체 데이터 log-likelihood를 적고, 그 음수 (NLL) 가 cross entropy 손실 $\mathcal{L}(\theta)$임을 확인.
-- **(c)** $\nabla_{\mathbf{w}} \mathcal{L}$을 Chain rule로 유도. (힌트: $\sigma'(t) = \sigma(t)(1-\sigma(t))$, Part 2 7회차 Review)
+- **(c)** $\nabla_{\mathbf{w}} \mathcal{L}$을 Chain rule로 유도. (힌트: $\sigma'(t) = \sigma(t)(1-\sigma(t))$, Part 3 2회차 Review)
 - **(d)** MAP로 prior $\mathbf{w} \sim \mathcal{N}(\mathbf{0}, \alpha^{-1} I)$를 더하면 추가되는 항은? 어떤 정규화에 해당하는가?
 
 ---
@@ -503,7 +503,7 @@ $$q_\theta(y = 1 \mid \mathbf{x}) = \sigma(\mathbf{w}^\top \mathbf{x} + b), \qua
 
 - **(d)** $-\log p(\mathbf{w}) = \tfrac{\alpha}{2} \Vert \mathbf{w} \Vert^2 + \text{const}$. **L2 정규화 (ridge)** 가 추가된다. MAP = MLE + L2.
 
-> **핵심**: MLE + Gaussian prior = Ridge 정규화. Part 3 1회차의 정규방정식 + Ridge 가 본 회차로부터 자연스럽게 나온다.
+> **핵심**: MLE + Gaussian prior = Ridge 정규화. Part 4 1회차의 정규방정식 + Ridge 가 본 회차로부터 자연스럽게 나온다.
 
 ---
 
@@ -512,10 +512,10 @@ $$q_\theta(y = 1 \mid \mathbf{x}) = \sigma(\mathbf{w}^\top \mathbf{x} + b), \qua
 ## 다음 회차 Review용 숙제
 
 - **(1)** 정규 분포 평균 MAP을 prior $\mu \sim \mathcal{N}(\mu_0, \tau_0^2)$로 유도하시오. MLE와 어떻게 다른가? ($N \to \infty$일 때 MAP $\to$ MLE인 이유를 한 줄로)
-- **(2)** Cross entropy 손실 $\mathcal{L} = -\log q_y$이고 $q = \mathrm{softmax}(\mathbf{z})$일 때 $\partial \mathcal{L} / \partial \mathbf{z}$를 구하시오. (힌트: Part 2 7회차 Review의 softmax Jacobian)
+- **(2)** Cross entropy 손실 $\mathcal{L} = -\log q_y$이고 $q = \mathrm{softmax}(\mathbf{z})$일 때 $\partial \mathcal{L} / \partial \mathbf{z}$를 구하시오. (힌트: Part 3 2회차 Review의 softmax Jacobian)
 - **(3)** 2D MVN $\Sigma = \begin{pmatrix} 4 & 2 \\ 2 & 3 \end{pmatrix}$의 등밀도 타원의 주축과 반지름을 구하시오.
 
-9회차 (Optimization·Part 2 종합) Review에서 다룬다.
+4회차 (Optimization·Part 3 (VC + Probability) 종합) Review에서 다룬다.
 
 ---
 
@@ -525,15 +525,15 @@ $$q_\theta(y = 1 \mid \mathbf{x}) = \sigma(\mathbf{w}^\top \mathbf{x} + b), \qua
 > - **Conjugate prior (켤레 사전분포)**: prior와 posterior가 같은 분포 family에 속하는 경우 (예: 베르누이 likelihood + Beta prior → Beta posterior). 닫힌 형태 베이즈 추론의 기반. MML §6.6.1 참조.
 > - **Exponential Family (지수족)**: $p(\mathbf{x} \mid \theta) = h(\mathbf{x}) \exp(\eta(\theta)^\top T(\mathbf{x}) - A(\theta))$ 꼴로 통합되는 분포의 일반 family. Gaussian·베르누이·포아송 등이 모두 포함. MML §6.6.2 참조.
 
-본 회차에서는 다루지 않고 흥미 있는 학생의 자율 학습으로 둔다. 본 강의의 후속 (Part 3) 진도엔 영향이 없다.
+본 회차에서는 다루지 않고 흥미 있는 학생의 자율 학습으로 둔다. 본 강의의 후속 (Part 4) 진도엔 영향이 없다.
 
 ---
 
-## E-6. 다음 회차 (Part 2 9회차) 예고
+## E-6. 다음 회차 (Part 3 4회차) 예고
 
-**주제**: Continuous Optimization (Gradient Descent · Lagrange · KKT · Convexity) + **Part 2 종합 문제 풀기**
+**주제**: Continuous Optimization (Gradient Descent · Lagrange · KKT · Convexity) , **Part 3 (VC + Probability) 종합 문제 Review**
 
-**연결**: 본 회차까지 다룬 MLE·MAP는 모두 최적화 문제이다. 9회차에서 그 최적화의 표준 도구 (GD·Lagrange·KKT) 와 convex 조건을 정리하고, **Part 2 (Eigenvalue → SVD → Calculus → Probability → Optimization) 전체를 종합 문제로 묶는다**.
+**연결**: 본 회차까지 다룬 MLE·MAP는 모두 최적화 문제이다. 4회차에서 그 최적화의 표준 도구 (GD·Lagrange·KKT) 와 convex 조건을 정리하고, **Part 3 (VC + Probability) (Calculus → Probability → Optimization) 전체를 Part 2 (Eigen·SVD) 도구와 함께 종합 문제로 묶는다**.
 
 **사전 reading**:
 - MML §7.1-7.3 (Optimization Using Gradient Descent · Constrained Optimization · Convex Optimization)
@@ -552,4 +552,4 @@ $$q_\theta(y = 1 \mid \mathbf{x}) = \sigma(\mathbf{w}^\top \mathbf{x} + b), \qua
 다음 회차의 출발 문제:
 > MLE를 풀기 위한 최적화의 표준 도구 (GD·Lagrange·KKT) 는 무엇이고, **볼록 (convex)** 이라는 조건이 왜 그렇게 중요한가?
 
-`HANDOUT`: 본 PDF + 9회차 사전 reading (MML §7.1-7.3)
+`HANDOUT`: 본 PDF + 4회차 사전 reading (MML §7.1-7.3)

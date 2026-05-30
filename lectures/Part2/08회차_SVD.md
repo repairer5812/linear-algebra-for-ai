@@ -3,7 +3,7 @@ marp: true
 theme: default
 paginate: true
 header: '인공지능 전공자를 위한 선형대수학'
-footer: 'Part 2 4회차 · SVD·회전·신축·회전 기하'
+footer: 'Part 2 8회차 · SVD·회전·신축·회전 기하'
 math: mathjax
 size: 16:9
 style: |
@@ -37,13 +37,13 @@ style: |
 <!-- _class: lead -->
 <!-- _paginate: false -->
 
-# Part 2 · 4회차
+# Part 2 · 8회차
 
 ## SVD(특이값 분해)·회전·신축·회전 기하 해석
 
-MML §4.5 (메인) · **Strang Ch 7.1-7.2 (시그니처 발췌)**
+MML §4.5 (메인) · **Strang Ch 7.1-7.2 (시그니처 발췌)** · Part 2 (LA2)
 
-**Part 2의 절반**, 그리고 **본 강좌 전체의 시그니처 회차**.
+**Part 2의 절정**, 그리고 **본 강좌 전체의 시그니처 회차**.
 
 > $A = U\Sigma V^\top$: 모든 행렬을 회전·신축·회전 세 단계로 분해합니다.
 
@@ -51,7 +51,7 @@ MML §4.5 (메인) · **Strang Ch 7.1-7.2 (시그니처 발췌)**
 
 <!-- _class: exercise -->
 
-# Review: 3회차 마무리 숙제
+# Review: 7회차 마무리 숙제
 
 지난 회차 문제:
 > $A = \begin{pmatrix} 25 & 15 & -5 \\ 15 & 18 & 0 \\ -5 & 0 & 11 \end{pmatrix}$의 양정치 판정·Cholesky.
@@ -101,7 +101,7 @@ $L = \begin{pmatrix} 5 & 0 & 0 \\ 3 & 3 & 0 \\ -1 & 1 & 3 \end{pmatrix}$.
 | 기하 해석? | 회전·신축·회전 | 단위구 → 타원체 |
 | $\sigma_i$의 정체? | $A^\top A$의 Eigenvalue의 양의 제곱근 | 정리 2.4.5 |
 | 4 부분공간 연결? | $V$ ↔ Row·Null, $U$ ↔ Col·Left null | 정리 2.4.7 |
-| 응용? | 저계수 근사·PCA·이미지 압축 | 5회차 |
+| 응용? | 저계수 근사·PCA·이미지 압축 | 9회차 |
 
 ---
 
@@ -109,7 +109,7 @@ $L = \begin{pmatrix} 5 & 0 & 0 \\ 3 & 3 & 0 \\ -1 & 1 & 3 \end{pmatrix}$.
 
 | 순서 | 블록 | 내용 |
 |:---:|:---:|---|
-| ① | A | **오프닝**: 3회차 Review, 본 회차 사슬 |
+| ① | A | **오프닝**: 7회차 Review, 본 회차 사슬 |
 | ② | **B** | **정의·동기**: 모든 행렬에 일반화 → $A = U\Sigma V^\top$ |
 | ③ | **C** | **정리·풀이**: $\sigma_i^2$ = $A^\top A$ Eigenvalue, 4 부분공간 |
 | ④ | **D** | **시그니처 기하**: 회전·신축·회전 (Strang Ch 7) |
@@ -354,7 +354,7 @@ $A = U\Sigma V^\top = (U V^\top)(V\Sigma V^\top) = Q P$, $Q = UV^\top$ 직교, $
 
 ---
 
-## D-6. 응용 미리보기: 4가지 (5회차 정식)
+## D-6. 응용 미리보기: 4가지 (9회차 정식)
 
 | 응용 | SVD의 사용 |
 |---|---|
@@ -363,7 +363,7 @@ $A = U\Sigma V^\top = (U V^\top)(V\Sigma V^\top) = Q P$, $Q = UV^\top$ 직교, $
 | **이미지 압축** | 이미지 행렬 SVD, 큰 $\sigma_i$ 몇 개만 보관 |
 | **LoRA** | 가중치 갱신을 rank-$k$ ($k = 8, 16$)로 강제, $\sigma_i$만 학습 |
 
-→ 5회차에서 정식화. 본 회차에서는 SVD가 이 모든 응용의 토대임을 확인하는 데 그친다.
+→ 9회차에서 정식화. 본 회차에서는 SVD가 이 모든 응용의 토대임을 확인하는 데 그친다.
 
 ---
 
@@ -555,7 +555,7 @@ $A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \\ 1 & 0 \end{pmatrix}$가 주어졌다 ($3 
 
 ## 다음 회차 Review용 숙제
 
-위 마무리 문제의 유사 문제이다. 강의 후 풀어 와서 **5회차 Review 시간**에 비교한다.
+위 마무리 문제의 유사 문제이다. 강의 후 풀어 와서 **9회차 Review 시간**에 비교한다.
 
 $A = \begin{pmatrix} 2 & 0 \\ 0 & 3 \\ 0 & 0 \end{pmatrix}$가 주어졌다.
 
@@ -565,13 +565,13 @@ $A = \begin{pmatrix} 2 & 0 \\ 0 & 3 \\ 0 & 0 \end{pmatrix}$가 주어졌다.
 - (d) **저계수 근사 미리보기**: $A$를 $\sigma_2$를 0으로 절단한 **rank-1 근사** $\tilde A$를 계산하시오. $\|A - \tilde A\|_F^2 = ?$ (Frobenius 노름 제곱.)
 
 ### 자기 점검
-- (d)에서 $\|A - \tilde A\|_F^2 = \sigma_2^2 = 9$가 나와야 한다. 이것이 **Eckart-Young 정리**의 가장 단순한 사례이며 5회차의 주제이다.
+- (d)에서 $\|A - \tilde A\|_F^2 = \sigma_2^2 = 9$가 나와야 한다. 이것이 **Eckart-Young 정리**의 가장 단순한 사례이며 9회차의 주제이다.
 
 ---
 
 ## E-6. 과제 안내
 
-`04_과제/Part2/04회차_homework.md`, 마감: 5회차 시작 전
+`04_과제/Part2/08회차_homework.md`, 마감: 9회차 시작 전
 
 **수학 30점**
 - $2\times 2, 3\times 2, 2\times 3$ SVD 손풀이, 5문제
@@ -587,11 +587,11 @@ $A = \begin{pmatrix} 2 & 0 \\ 0 & 3 \\ 0 & 0 \end{pmatrix}$가 주어졌다.
 
 ---
 
-## E-7. 다음 회차 (5회차) 예고
+## E-7. 다음 회차 (9회차) 예고
 
 **주제**: Eckart-Young 정리·저계수 근사·Linear transformation·PCA 도입
 
-**연결**: 본 회차에서 본 SVD $A = U\Sigma V^\top$의 큰 $\sigma_i$ 몇 개만 남기면 **가장 가까운 rank-$k$ 근사**가 된다 (Eckart-Young 정리, 본문 진술까지·증명 부록). 이미지 압축·LoRA·PCA가 모두 이 한 정리로 통합된다. 5회차는 또한 Part 3 PCA의 직접적 도입 한 슬라이드를 포함한다.
+**연결**: 본 회차에서 본 SVD $A = U\Sigma V^\top$의 큰 $\sigma_i$ 몇 개만 남기면 **가장 가까운 rank-$k$ 근사**가 된다 (Eckart-Young 정리, 본문 진술까지·증명 부록). 이미지 압축·LoRA·PCA가 모두 이 한 정리로 통합된다. 9회차는 또한 Part 4 PCA의 직접적 도입 한 슬라이드를 포함한다.
 
 **사전 reading**:
 - MML §4.6 (Matrix Approximation)
@@ -634,4 +634,4 @@ $A = \begin{pmatrix} 2 & 0 \\ 0 & 3 \\ 0 & 0 \end{pmatrix}$가 주어졌다.
 다음 회차의 출발 문제:
 > 큰 $\sigma_i$ 몇 개만 남기면 가장 가까운 rank-$k$ 행렬이 얻어지는가? (Eckart-Young)
 
-`HANDOUT`: 본 PDF, `Part2_04_SVD_시각화.ipynb`
+`HANDOUT`: 본 PDF, `Part2_08_SVD_시각화.ipynb`

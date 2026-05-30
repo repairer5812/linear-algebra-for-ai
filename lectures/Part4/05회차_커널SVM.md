@@ -3,7 +3,7 @@ marp: true
 theme: default
 paginate: true
 header: '인공지능 전공자를 위한 선형대수학'
-footer: 'Part 3 5회차 — Kernel SVM · Kernel trick · RBF · Polynomial'
+footer: 'Part 4 5회차 — Kernel SVM · Kernel trick · RBF · Polynomial'
 math: mathjax
 size: 16:9
 style: |
@@ -34,12 +34,12 @@ style: |
 <!-- _class: lead -->
 <!-- _paginate: false -->
 
-# Part 3 · 5회차
+# Part 4 · 5회차
 
 ## Kernel SVM · Kernel trick · RBF · Polynomial kernel
 
-MML §12.4-§12.5 (메인) · (Strang 발췌 없음)
-**Part 3 5회차** — 비선형 분류를 한 함수 $K(\mathbf{x}, \mathbf{x}')$로 환원합니다.
+MML §12.4-§12.5 (메인) · Part 4 (ML 및 AI의 수학적 응용) · (Strang 발췌 없음)
+**Part 4 5회차** — 비선형 분류를 한 함수 $K(\mathbf{x}, \mathbf{x}')$로 환원합니다.
 
 > 4회차 Dual SVM의 $\mathbf{x}_i^\top \mathbf{x}_j$ 자리를 다른 함수로 바꾼다는 한 발짝이 본 회차의 핵심.
 
@@ -185,7 +185,7 @@ $K$가 Kernel이 되기 위한 필요충분조건은 **임의의 유한 표본**
 $$\mathbf{K} = \big(K(\mathbf{x}_i, \mathbf{x}_j)\big)_{i,j} \in \mathbb{R}^{n \times n}$$
 가 **대칭 양의 준정정**(PSD)인 것이다. (증명 자율)
 
-> Part 2 3회차 (Positive definite)에서 다룬 객체가 여기 등장한다.
+> Part 2 7회차 (Positive definite)에서 다룬 객체가 여기 등장한다.
 
 ---
 
@@ -245,7 +245,7 @@ $$f(\mathbf{x}) = \mathrm{sign}\!\left(\sum_{i : \alpha_i > 0} \alpha_i y_i K(\m
 
 ### 적용 예
 - **Kernel SVM** (본 회차)
-- **Kernel PCA** (Part 3 2회차 SVD·PCA의 비선형 확장, 자율)
+- **Kernel PCA** (Part 4 2회차 SVD·PCA의 비선형 확장, 자율)
 - **Kernel Ridge regression**
 - **Gaussian Process** (Kernel은 공분산 함수, 자율)
 

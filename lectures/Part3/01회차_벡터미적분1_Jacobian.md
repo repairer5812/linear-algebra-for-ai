@@ -3,7 +3,7 @@ marp: true
 theme: default
 paginate: true
 header: '인공지능 전공자를 위한 선형대수학'
-footer: 'Part 2 6회차 — Vector Calculus 1: Jacobian · Chain rule · Gradient'
+footer: 'Part 3 1회차 — Vector Calculus 1: Jacobian · Chain rule · Gradient'
 math: mathjax
 size: 16:9
 style: |
@@ -31,20 +31,20 @@ style: |
 <!-- _class: lead -->
 <!-- _paginate: false -->
 
-# Part 2 6회차
+# Part 3 1회차
 
 ## Vector Calculus 1: Jacobian(자코비안)·Chain rule·Gradient
 
-MML §5.1-5.4 (메인) · Strang 발췌 없음
-**Part 2 후반부 시작**: 행렬 분해 (Eigenvalue·SVD)에서 미분 연산으로 전환한다. 신경망 학습의 backward pass가 사실 본 회차 두 도구 (Jacobian·Chain rule)의 반복임을 본다.
+MML §5.1-5.4 (메인) · Part 3 (VC + Probability)
+**Part 3 (VC + Probability) 시작**: 행렬 분해 (Eigenvalue·SVD)에서 미분 연산으로 전환한다. 신경망 학습의 backward pass가 사실 본 회차 두 도구 (Jacobian·Chain rule)의 반복임을 본다.
 
-> 본 회차의 결과는 "왜 행렬 미분이 자연스러운가"에 답한다. 7회차 (Hessian·Newton) 와 8·9회차 (확률·최적화) 의 전제이다.
+> 본 회차의 결과는 "왜 행렬 미분이 자연스러운가"에 답한다. 2회차 (Hessian·Newton) 와 3·4회차 (확률·최적화) 의 전제이다.
 
 ---
 
 <!-- _class: exercise -->
 
-# Review: 지난 회차 (Part 2 5회차) 마무리 문제
+# Review: 지난 회차 (Part 2 9회차) 마무리 문제
 
 지난 회차에서 다룬 Eckart-Young 정리와 저계수 근사:
 
@@ -64,7 +64,7 @@ MML §5.1-5.4 (메인) · Strang 발췌 없음
 
 - **(c)** $T$가 Linear (덧셈·Scalar곱 보존) 이면 표준기저 상의 값 $T(\mathbf{e}_1), \ldots, T(\mathbf{e}_n)$이 $T$를 완전히 결정하고, 이 값들을 열로 모은 행렬 $A$가 $T(\mathbf{x}) = A\mathbf{x}$를 만족한다.
 
-> Part 2 1-5회차의 결론: Matrix는 Linear transformation이며, 그 transformation은 Eigenvalue·SVD로 분해된다. 본 회차부터는 **비선형 함수의 국소 선형화**가 주제이다.
+> Part 2 5-9회차의 결론: Matrix는 Linear transformation이며, 그 transformation은 Eigenvalue·SVD로 분해된다. 본 회차부터는 **비선형 함수의 국소 선형화**가 주제이다.
 
 ---
 
@@ -105,7 +105,7 @@ MML §5.1-5.4 (메인) · Strang 발췌 없음
 | 합성함수 $\mathbf{g} \circ \mathbf{f}$의 미분? | **Chain rule** | Jacobian 곱 $J_{\mathbf{g}} \, J_{\mathbf{f}}$ |
 | 신경망 backward의 정체? | **Jacobian 곱의 누적** | autograd |
 
-이 사슬을 본 회차에서 완주한다. 7회차에서 Hessian·Newton·Taylor로 이어진다.
+이 사슬을 본 회차에서 완주한다. 2회차에서 Hessian·Newton·Taylor로 이어진다.
 
 ---
 
@@ -159,7 +159,7 @@ $$\nabla f(\mathbf{x}) = \begin{pmatrix} 2 x_1 x_2 \\ x_1^2 + 3 \end{pmatrix}.$$
 
 <div class="analogy">
 
-**직관 (등고선 위 산행 비유)**: 함수 $f(\mathbf{x})$를 산의 고도로 보면, **Gradient는 그 점에서 가장 가파른 오르막 방향**입니다. 등고선과 수직이며, 크기는 그 방향의 경사도입니다. 산을 가장 빨리 내려가려면 $-\nabla f$ 방향으로 가야 합니다 (9회차 Gradient descent의 출발점).
+**직관 (등고선 위 산행 비유)**: 함수 $f(\mathbf{x})$를 산의 고도로 보면, **Gradient는 그 점에서 가장 가파른 오르막 방향**입니다. 등고선과 수직이며, 크기는 그 방향의 경사도입니다. 산을 가장 빨리 내려가려면 $-\nabla f$ 방향으로 가야 합니다 (4회차 Gradient descent의 출발점).
 
 </div>
 
@@ -182,7 +182,7 @@ $$\nabla f(\mathbf{x}) = \begin{pmatrix} 2 x_1 x_2 \\ x_1^2 + 3 \end{pmatrix}.$$
 | $f(\mathbf{x}) = \mathbf{x}^\top A \mathbf{x}$ ($A$ symmetric) | $\nabla f = 2 A \mathbf{x}$ |
 | $f(\mathbf{x}) = \Vert A\mathbf{x} - \mathbf{b} \Vert^2$ | $\nabla f = 2 A^\top (A\mathbf{x} - \mathbf{b})$ |
 
-**마지막 행은 Part 1 10회차 Least squares의 정규방정식과 직결된다.** $\nabla f = \mathbf{0}$에서 $A^\top A \mathbf{x} = A^\top \mathbf{b}$가 나온다.
+**마지막 행은 Part 2 2회차 Least squares의 정규방정식과 직결된다.** $\nabla f = \mathbf{0}$에서 $A^\top A \mathbf{x} = A^\top \mathbf{b}$가 나온다.
 
 ### 예제 (확인)
 $f(\mathbf{x}) = \mathbf{x}^\top A \mathbf{x}$, $A = \begin{pmatrix} 2 & 1 \\ 1 & 3 \end{pmatrix}$.
@@ -271,7 +271,7 @@ $$\mathbf{f}(\mathbf{x}_0 + \mathbf{h}) \approx \mathbf{f}(\mathbf{x}_0) + J_{\m
 
 </div>
 
-> 2차 항 (Hessian) 은 7회차에서 다룬다.
+> 2차 항 (Hessian) 은 2회차에서 다룬다.
 
 ---
 
@@ -553,15 +553,15 @@ $$\frac{\partial \ell}{\partial \mathbf{x}} = \frac{\partial \ell}{\partial z_2}
 - **(2)** $\mathbf{f}(\mathbf{x}) = \mathrm{softmax}(\mathbf{x})$ ($\mathbb{R}^n \to \mathbb{R}^n$, $f_i(\mathbf{x}) = e^{x_i} / \sum_j e^{x_j}$) 의 Jacobian 성분 $\partial f_i / \partial x_j$를 구하시오. (힌트: 두 경우, $i = j$와 $i \neq j$로 나뉜다.)
 - **(3)** 본 회차 마무리 문제에서 $\mathbf{x} = (1, -1)^\top$일 때 $\partial \ell / \partial \mathbf{x}$의 수치값을 NumPy 또는 PyTorch autograd로 검증하시오.
 
-7회차 (Hessian·Taylor·Newton) 첫 Review에서 다룬다.
+2회차 (Hessian·Taylor·Newton) 첫 Review에서 다룬다.
 
 ---
 
-## E-5. 다음 회차 (Part 2 7회차) 예고
+## E-5. 다음 회차 (Part 3 2회차) 예고
 
 **주제**: Hessian Matrix · 다변수 Taylor 전개 · Newton 방법 · 옵티마이저 비교 (SGD·Newton·Adam) 의 곡률 관점
 
-**연결**: 본 회차에서 다룬 1차 미분 (Gradient·Jacobian) 만으로는 함수의 **곡률** (얼마나 휘어 있는지) 을 모른다. 7회차에서 **2차 미분 (Hessian)** 과 **다변수 Taylor 2차 전개**를 도입하여 곡률을 다룬다. Newton 방법은 그 곡률 정보를 이용한 최적화이다.
+**연결**: 본 회차에서 다룬 1차 미분 (Gradient·Jacobian) 만으로는 함수의 **곡률** (얼마나 휘어 있는지) 을 모른다. 2회차에서 **2차 미분 (Hessian)** 과 **다변수 Taylor 2차 전개**를 도입하여 곡률을 다룬다. Newton 방법은 그 곡률 정보를 이용한 최적화이다.
 
 **사전 reading**:
 - MML §5.5-5.8 (Higher-Order Derivatives·Taylor Series·Optimization)
@@ -575,7 +575,7 @@ $$\frac{\partial \ell}{\partial \mathbf{x}} = \frac{\partial \ell}{\partial z_2}
 | 주제 | 위치 |
 |---|---|
 | 행렬 미분 공식표 (vec·Kronecker 사용) | Matrix Cookbook 또는 MML §5.4 |
-| Hessian과 Taylor 2차 전개 | 7회차 |
+| Hessian과 Taylor 2차 전개 | 2회차 |
 | Backpropagation 알고리즘 정식 | 자율 학습 자료 (외부 강의) |
 | Implicit function theorem 응용 | 자율 학습 자료 |
 
@@ -593,4 +593,4 @@ $$\frac{\partial \ell}{\partial \mathbf{x}} = \frac{\partial \ell}{\partial z_2}
 다음 회차의 출발 문제:
 > 1차 미분으로 잡지 못한 함수의 **곡률**을 어떤 객체로 잡을 것인가?
 
-`HANDOUT`: 본 PDF + 7회차 사전 reading (MML §5.5-5.8)
+`HANDOUT`: 본 PDF + 2회차 사전 reading (MML §5.5-5.8)

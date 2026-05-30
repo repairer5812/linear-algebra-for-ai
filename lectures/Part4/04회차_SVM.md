@@ -3,7 +3,7 @@ marp: true
 theme: default
 paginate: true
 header: '인공지능 전공자를 위한 선형대수학'
-footer: 'Part 3 4회차 — Support Vector Machine · Hard/Soft margin · Hinge · Dual'
+footer: 'Part 4 4회차 — Support Vector Machine · Hard/Soft margin · Hinge · Dual'
 math: mathjax
 size: 16:9
 style: |
@@ -34,14 +34,14 @@ style: |
 <!-- _class: lead -->
 <!-- _paginate: false -->
 
-# Part 3 · 4회차
+# Part 4 · 4회차
 
 ## Support Vector Machine · Hard/Soft margin · Hinge loss · Dual
 
-MML §12.1-§12.3 (메인) · (Strang 발췌 없음)
-**Part 3 4회차** — 분류기를 "마진 최대화"라는 한 원칙으로 환원합니다.
+MML §12.1-§12.3 (메인) · Part 4 (ML 및 AI의 수학적 응용) · (Strang 발췌 없음)
+**Part 4 4회차** — 분류기를 "마진 최대화"라는 한 원칙으로 환원합니다.
 
-> 본 회차는 Part 2 9회차 (KKT)와 Part 1의 Inner product·Norm·정사영을 한 자리에 모읍니다.
+> 본 회차는 Part 3 4회차 (KKT)와 Part 1의 Inner product·Norm·정사영을 한 자리에 모읍니다.
 
 ---
 
@@ -100,10 +100,10 @@ EM은 잠재변수의 사후확률 (책임도)을 가중치로 한 **가중 평�
 | 가장 좋은 평면? | **Margin 최대화** | $\tfrac{2}{\|\mathbf{w}\|}$ |
 | 정식 최적화? | **Hard margin SVM** | $\min \tfrac{1}{2}\|\mathbf{w}\|^2$ |
 | 선형 분리 불가? | **Soft margin·Hinge** | slack $\xi_i \ge 0$ |
-| 풀이 도구? | **Lagrange Dual·KKT** | Part 2 9회차 |
+| 풀이 도구? | **Lagrange Dual·KKT** | Part 3 4회차 |
 | 해의 형태? | $\mathbf{w} = \sum_i \alpha_i y_i \mathbf{x}_i$ | Support vector |
 
-→ 본 회차는 **Inner product·Norm (Part 1)·최적화·KKT (Part 2 9회차)**의 종합 응용이다.
+→ 본 회차는 **Inner product·Norm (Part 1)·최적화·KKT (Part 3 4회차)**의 종합 응용이다.
 
 ---
 
@@ -161,7 +161,7 @@ $$\mathrm{dist}(\mathbf{x}_0, H) = \frac{|\mathbf{w}^\top\mathbf{x}_0 + b|}{\|\m
 $H$ 위의 한 점 $\mathbf{x}_H$를 잡으면 $\mathbf{w}^\top\mathbf{x}_H + b = 0$. 차이 Vector $\mathbf{x}_0 - \mathbf{x}_H$를 법선 방향 $\mathbf{w}/\|\mathbf{w}\|$로 정사영하면
 $$\mathrm{dist} = \left|\frac{\mathbf{w}^\top(\mathbf{x}_0 - \mathbf{x}_H)}{\|\mathbf{w}\|}\right| = \frac{|\mathbf{w}^\top\mathbf{x}_0 + b|}{\|\mathbf{w}\|}.$$
 
-→ **Part 1 9회차 (Projection·정사영)이 본 회차의 거리식을 정당화**한다.
+→ **Part 2 1회차 (Projection·정사영)이 본 회차의 거리식을 정당화**한다.
 
 ---
 
@@ -206,7 +206,7 @@ $$\boxed{\;\min_{\mathbf{w}, b} \tfrac{1}{2}\|\mathbf{w}\|^2 \quad \text{s.t.} \
 - 제약은 **선형 부등식**.
 - **Convex quadratic program** (QP).
 
-> **Part 2 9회차 (Convex 최적화·KKT)에서 다룬 정식 도구가 본 회차에서 작동**한다.
+> **Part 3 4회차 (Convex 최적화·KKT)에서 다룬 정식 도구가 본 회차에서 작동**한다.
 
 ### 한계
 - **선형 분리 가능**이 가정. 현실 데이터는 자주 분리 불가.

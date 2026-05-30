@@ -35,7 +35,7 @@ style: |
 
 ## 0회차 · Introduction
 
-SW·AI 융합대학원 · Part 1·2·3 (총 29회차)
+SW·AI 융합대학원 · Part 1·2·3·4 (총 29회차)
 메인 교재: MML (Deisenroth·Faisal·Ong, *Mathematics for Machine Learning*) · 발췌: Strang, *Introduction to Linear Algebra* · 시각: 3Blue1Brown EoLA
 
 ---
@@ -59,7 +59,7 @@ SW·AI 융합대학원 · Part 1·2·3 (총 29회차)
 이 한 질문에 29회차에 걸쳐 답합니다.
 
 - **본 회차 부분 답**: 가장 단순한 정의 (Vector(벡터)의 평균) 한 줄이 **MNIST 숫자 분류**까지 곧장 이어집니다 (G 시그니처).
-- **학기 전체의 답**: $\mathrm{softmax}(QK^\top/\sqrt{d_k})V$, Transformer Attention(어텐션) 한 줄을 LA 객체로 완전 분해합니다 (Part 3 7회차).
+- **학기 전체의 답**: $\mathrm{softmax}(QK^\top/\sqrt{d_k})V$, Transformer Attention(어텐션) 한 줄을 LA 객체로 완전 분해합니다 (Part 4 7회차).
 
 매 회차 첫 슬라이드에 해당 회차의 핵심 질문이 있습니다. 강의 중 길을 잃으면 이 한 질문으로 돌아옵니다.
 
@@ -85,7 +85,7 @@ SW·AI 융합대학원 · Part 1·2·3 (총 29회차)
 
 ## A-1. 교과 정보
 
-- **과목명**: Linear Algebra Part 1 (12회차) / Part 2 (9회차) / Part 3 (8회차)
+- **과목명**: Linear Algebra Part 1 (LA1, 8회차) / Part 2 (LA2, 9회차) / Part 3 (Vector Calculus·Probability, 4회차) / Part 4 (ML·AI 응용, 8회차)
 - **대상**: SW·AI 융합대학원 1학년, **학부 LA 미이수 학생** 표준
 - **운영**: 총 29회차, 1회차 2시간 × 29 = 58시간
 - **메인 교재**: Deisenroth·Faisal·Ong, *Mathematics for Machine Learning* (MML, 무료 공식 PDF 공개)
@@ -101,13 +101,13 @@ SW·AI 융합대학원 · Part 1·2·3 (총 29회차)
 | 출석 | 자율 (대학원생 자체 강의) |
 | 과제 | 매 회차 수학 문제, Jupyter 노트북 |
 | **코딩 실습 (Google Colab)** | **매 회차 필수 X. 회차별 학습 가치에 따라 1-2개 또는 그 이상으로 운영. 필요 없으면 수학 정리·풀이로 마무리** |
-| 종합 문제 풀기 | Part 1 12회차·Part 2 9회차·Part 3 8회차 마지막에 **사전 공개 → 자율 풀이 → 함께 Review** 형식으로 운영 |
+| 종합 문제 풀기 | Part 1 8회차·Part 2 9회차·Part 3 4회차·Part 4 8회차 마지막에 **사전 공개 → 자율 풀이 → 함께 Review** 형식으로 운영 |
 
 > 대학원생 자체 강의이므로 시험·중간평가·지필고사는 운영하지 않습니다. "종합 문제 풀기"는 각 Part **마지막 회차 전에 사전 공개 → 본인 페이스로 자율 풀이 → 마지막 회차에 함께 Review** 형식의 자기 점검 활동입니다.
 >
 > Colab 노트북은 회차별 `11_주피터노트북/`에 모두 준비되어 있되, 강의 시간 중 실행할지 여부는 회차마다 판단합니다. 시간 부족 또는 수학 내용의 깊이가 더 중요한 회차는 코딩 없이 정리·풀이로 마칠 수 있습니다.
 
-학부 LA 이수자는 Part 1 전반부를 빠르게 통과하고 응용 부분에 집중합니다 (별도 안내).
+학부 LA 이수자는 Part 1·2 전반부를 빠르게 통과하고 Part 3·4 응용 부분에 집중합니다 (별도 안내).
 
 ---
 
@@ -119,7 +119,7 @@ SW·AI 융합대학원 · Part 1·2·3 (총 29회차)
 - Python · NumPy 사용 가능
 - PyTorch는 처음이어도 학습 의지
 
-학부 LA 미이수 학생을 표준으로 한 강의입니다. Part 1 전반부에서 Definition·Theorem(정리)을 천천히 다지고 Part 2·3에서 응용으로 가속합니다.
+학부 LA 미이수 학생을 표준으로 한 강의입니다. Part 1·2에서 Definition·Theorem(정리)을 천천히 다지고 Part 3·4에서 응용으로 가속합니다.
 
 ---
 
@@ -180,9 +180,9 @@ $$f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0) + J(\mathbf{x}_0)\,\mathb
 | Decomposition | 구조 | 회차 |
 |---|---|---|
 | $A = LU$ | 하·상삼각 | 5 |
-| $A = QR$ | 직교, 상삼각 | 11 |
-| $A = Q\Lambda Q^\top$ | 대칭 → 회전·신축 | Part 2 1-2 |
-| $A = U\Sigma V^\top$ (SVD) | **임의 Matrix → 회전·신축·회전** | Part 2 4-5 |
+| $A = QR$ | 직교, 상삼각 | Part 2 3 |
+| $A = Q\Lambda Q^\top$ | 대칭 → 회전·신축 | Part 2 5-6 |
+| $A = U\Sigma V^\top$ (SVD) | **임의 Matrix → 회전·신축·회전** | Part 2 8-9 |
 
 ---
 
@@ -216,45 +216,55 @@ $$f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0) + J(\mathbf{x}_0)\,\mathb
 | 1 | **Vector · Matrix** | 객체의 정의 | 1·3 |
 | 2 | **Linear equation** (선형방정식) $A\mathbf{x}=\mathbf{b}$ | 연산의 의미 | 4·5 |
 | 3 | **Space** (공간) | Subspace · Basis(기저) · Dimension | 6·7·8 |
-| 4 | **Orthogonality(직교성) · Projection(정사영)** | 거리·각도의 분해 | 9·10·11 |
-| 5 | **Decomposition** | Determinant(행렬식) · Eigenvalue(고윳값) · SVD | 12 · Part 2·3 전체 |
+| 4 | **Orthogonality(직교성) · Projection(정사영)** | 거리·각도의 분해 | Part 2 1·2·3 |
+| 5 | **Decomposition** | Determinant(행렬식) · Eigenvalue(고윳값) · SVD | Part 2 4-9 · Part 3·4 전체 |
 
-**Part 1**: 1~4번 줄기를 단단히 다집니다.
-**Part 2·3**: 5번 줄기 + AI 응용으로 나아갑니다.
+**Part 1**: 1~3번 줄기를 단단히 다집니다 (LA1).
+**Part 2**: 4번 줄기와 5번 줄기 전반부 (LA2, 직교성·정사영·분해).
+**Part 3·4**: 미적분·확률·최적화 도구와 AI 응용으로 나아갑니다.
 
 ---
 
-## C-3. Part 1 흐름: 방정식과 공간
+## C-3. Part 1 (LA1) 흐름: 방정식과 공간
 
 | 회차 | 주제 (MML §·Strang Ch 발췌) | 단계 |
 |:---:|---|:---:|
 | 1-3 | Vector · Norm · Inner product · Matrix·Vector 곱 (MML §2.1-§2.2·§3.1-§3.4 / Strang Ch 1) | ①·② 토대 |
 | 4-5 | Gauss 소거 · 행렬곱 · 역행렬 · LU (MML §2.3 / Strang Ch 2) | ② 풀이, ③ 첫 분해 |
-| 6-8 | Vector space · Subspace · 4 fundamental subspaces · Basis · Dimension (MML §2.4-§2.6 / Strang Ch 3) | ② 구조·골격 |
-| 9 | Orthogonality · Projection (MML §3.6·§3.8 / Strang Ch 4.1-4.2) | ②·③ |
-| 10 | Least squares · 정규방정식 · 다중공선성 (MML §3.8 / Strang Ch 4.3) | ③·④ 회귀 |
-| 11 | Orthonormal basis · Gram-Schmidt · QR · Rotation (MML §3.5·§3.9 / Strang Ch 4.4) | ③·④ |
-| 12 | Determinant + Part 1 종합 문제 풀기 (MML §4.1 / Strang Ch 5) | ②·종합 |
+| 6-7 | Vector space · Subspace · Column space · Rank · 4 fundamental subspaces 도입 (MML §2.4-§2.6 일부 / Strang Ch 3.1-3.4) | ② 구조·골격 |
+| 8 | Linear independence · Basis · Dimension · 4 fundamental subspaces 정식, Part 1 종합 문제 풀기 (MML §2.5-§2.6 / Strang Ch 3.4-3.5) | ② 정점·종합 |
 
-**핵심 명제**: $A\mathbf{x} = \mathbf{b}$의 해는 **$A$의 4 fundamental subspaces**로 완전히 결정됩니다.
+**핵심 명제**: $A\mathbf{x} = \mathbf{b}$의 해는 **$A$의 4 fundamental subspaces**로 완전히 결정됩니다. Part 1 8회차에서 이 정리가 완성됩니다.
 
 ---
 
-## C-4. Part 2 흐름: 분해와 수학 도구
+## C-4. Part 2 (LA2) 흐름: 직교성과 분해
 
 | 회차 | 주제 (MML §·Strang Ch 발췌) | 단계 |
 |:---:|---|:---:|
-| 1-2 | Eigenvalue · Diagonalization · Spectral theorem (MML §4.2·§4.4 / Strang Ch 6.1-6.4) | ③ 정사각 분해 |
-| 3 | Positive definite · 이차형식 · Cholesky (MML §4.3 / Strang Ch 6.5) | ③ |
-| 4 | SVD 정식·기하 해석 (MML §4.5 / Strang Ch 7.1-7.2) | ③ 임의 분해 |
-| 5 | Eckart-Young · Matrix Approx · Linear Transformation (MML §4.6·§2.7·§2.8 / Strang Ch 7.3-7.4) | ③·④ 압축 |
-| 6-7 | Vector Calculus (Jacobian · Hessian · Newton) (MML §5.1-§5.8) | ④ 신경망 미분 |
-| 8 | Probability · MLE · KL divergence · Cross entropy · MVN (MML §6·§8.3) | ④ LLM·VAE 수학 |
-| 9 | Continuous Optimization (Convex · Lagrange · KKT) (MML §7.1-§7.3), Part 2 종합 문제 풀기 | ④ 옵티마이저·정규화, 종합 |
+| 1 | Orthogonality · Projection (MML §3.6·§3.8 / Strang Ch 4.1-4.2) | ②·③ |
+| 2 | Least squares · 정규방정식 · 다중공선성 (MML §3.8 / Strang Ch 4.3) | ③·④ 회귀 |
+| 3 | Orthonormal basis · Gram-Schmidt · QR · Rotation (MML §3.5·§3.9 / Strang Ch 4.4) | ③·④ |
+| 4 | Determinant (MML §4.1 / Strang Ch 5) | ② 종합 도구 |
+| 5-6 | Eigenvalue · Diagonalization · Spectral theorem (MML §4.2·§4.4 / Strang Ch 6.1-6.4) | ③ 정사각 분해 |
+| 7 | Positive definite · 이차형식 · Cholesky (MML §4.3 / Strang Ch 6.5) | ③ |
+| 8 | SVD 정식·기하 해석 (MML §4.5 / Strang Ch 7.1-7.2) | ③ 임의 분해 |
+| 9 | Eckart-Young · Matrix Approx · Linear Transformation (MML §4.6·§2.7·§2.8 / Strang Ch 7.3-7.4), Part 2 종합 문제 풀기 | ③·④ 압축, 종합 |
 
 ---
 
-## C-5. Part 3 흐름: AI 응용과 모델 분해
+## C-5. Part 3 흐름: 벡터 미적분과 확률 (VC + Probability)
+
+| 회차 | 주제 (MML §) | 단계 |
+|:---:|---|:---:|
+| 1 | Vector Calculus 1 (Jacobian · Hessian · Chain rule) (MML §5.1-§5.5) | ④ 신경망 미분 |
+| 2 | Vector Calculus 2 (Newton · Backprop 수학) (MML §5.6-§5.8) | ④ |
+| 3 | Probability · MLE · KL divergence · Cross entropy · MVN (MML §6·§8.3) | ④ LLM·VAE 수학 |
+| 4 | Continuous Optimization (Convex · Lagrange · KKT) (MML §7.1-§7.3), Part 3 종합 문제 풀기 | ④ 옵티마이저·정규화, 종합 |
+
+---
+
+## C-6. Part 4 흐름: ML 및 AI의 수학적 응용
 
 | 회차 | 주제 | 단계 |
 |:---:|---|:---:|
@@ -265,7 +275,7 @@ $$f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0) + J(\mathbf{x}_0)\,\mathb
 | 5 | Kernel SVM · Kernel trick · RBF · Poly (MML §12.4-§12.5) | ⑤ |
 | 6 | CNN · 1D Conv → Toeplitz · 1×1=행렬곱 (자체 교안) | ④ 모델 분해 |
 | 7 | Attention 분해 · Embedding=행렬곱 · Multi-head 직관 + Equivariance 직관 한 슬라이드 (자체 교안) | ④ 모델 분해 |
-| 8 | Case Study 발표, Part 3 종합 문제 풀기 (자체 교안) | 종합 |
+| 8 | Case Study 발표, Part 4 종합 문제 풀기 (자체 교안) | 종합 |
 
 **핵심 명제**: 어떤 Matrix도 **SVD로 회전·신축·회전으로 분해**됩니다. 그 위에 미분·확률·최적화 도구를 쌓아 **임의 AI 모듈을 선형대수 객체로 환원**할 수 있습니다.
 
@@ -282,10 +292,10 @@ $$f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0) + J(\mathbf{x}_0)\,\mathb
 | 이미지·텍스트·사용자 | $\mathbb{R}^d$ **Vector** | 1 |
 | 데이터셋 ($n$개 샘플) | $\mathbb{R}^{n \times d}$ **Matrix** | 3 |
 | 신경망 한 층 | $\mathbf{x} \mapsto W\mathbf{x} + \mathbf{b}$ | 3·6 |
-| 손실 함수의 미분 | **Jacobian / Hessian** | Part 2 6-7 |
-| 학습 = 최소화 | **Least squares · 정규방정식** | 10 |
+| 손실 함수의 미분 | **Jacobian / Hessian** | Part 3 1-2 |
+| 학습 = 최소화 | **Least squares · 정규방정식** | Part 2 2 |
 | 추론 = Matrix 곱 누적 | **BLAS · GPU 병렬화** | 3 |
-| 모델 압축·Quantization(양자화) | **Low-rank Decomposition (SVD·LoRA)** | Part 2 4-5 |
+| 모델 압축·Quantization(양자화) | **Low-rank Decomposition (SVD·LoRA)** | Part 2 8-9 |
 
 ---
 
@@ -297,7 +307,7 @@ Transformer 한 블록의 입력 → 출력 흐름:
 |---|---|---|:---:|
 | **입력** | $\mathbf{x} \in \mathbb{R}^d$ | Vector | 1 |
 | **Embedding** (임베딩) | $E\mathbf{x}$ | Matrix·Vector 곱 | 3 |
-| **Attention** | $\mathrm{softmax}\!\left(\frac{QK^\top}{\sqrt{d}}\right)V$ | 모든 쌍의 Inner product | 2 · Part 3 7 |
+| **Attention** | $\mathrm{softmax}\!\left(\frac{QK^\top}{\sqrt{d}}\right)V$ | 모든 쌍의 Inner product | 2 · Part 4 7 |
 | **FFN** | $W_2\,\mathrm{ReLU}(W_1\mathbf{x}+\mathbf{b}_1)+\mathbf{b}_2$ | affine 변환 | 6 |
 | **출력** | $\mathrm{softmax}(\cdots)$ | 확률 Vector | · |
 
@@ -330,7 +340,7 @@ Decomposition이 AI의 절반입니다. 이 강의 후반부가 다 이 표 안�
 | **NumPy / PyTorch** | 실습 | 매 회차 ipynb | 탐사 장비 |
 
 **왜 MML이 메인입니까?**
-- MML은 LA 표준 (Vector·Matrix·Linear equation·Subspace·Determinant) 외에도 Vector Calculus·Probability·Optimization·ML 4대 응용 (LR·PCA·GMM·SVM)을 한 권에 담아 본 강의의 Part 1·2·3을 모두 커버합니다.
+- MML은 LA 표준 (Vector·Matrix·Linear equation·Subspace·Determinant) 외에도 Vector Calculus·Probability·Optimization·ML 4대 응용 (LR·PCA·GMM·SVM)을 한 권에 담아 본 강의의 Part 1·2·3·4를 모두 커버합니다.
 - 무료 공식 PDF가 공개되어 있어 학생 모두가 동일 텍스트로 접근할 수 있습니다.
 - Strang은 Row·Column picture, Cauchy-Schwarz 판별식, 4 fundamental subspaces 등 **시그니처 자산 10개**를 본문 발췌 박스로 가져옵니다 (📚 박스).
 - EoLA는 직관·시각 잡기에 좋습니다.
@@ -355,34 +365,43 @@ Decomposition이 AI의 절반입니다. 이 강의 후반부가 다 이 표 안�
 
 ---
 
-## F-1. Part 1 종료 시 (12회차 후)
+## F-1. Part 1 (LA1) 종료 시 (8회차 후)
 
 학생은 다음을 할 수 있습니다.
 
 - [ ] Vector·Matrix·Linear equation Definition을 정확히 진술하고 손계산할 수 있습니다.
 - [ ] $A\mathbf{x} = \mathbf{b}$의 해 존재·유일성을 **4 기본 Subspace**로 판별할 수 있습니다.
-- [ ] LU·QR Decomposition을 정의대로 직접 구현할 수 있습니다.
-- [ ] 정규방정식 $A^\top A \hat\beta = A^\top \mathbf{b}$로 회귀를 풀 수 있습니다.
-- [ ] Gram-Schmidt를 직접 구현할 수 있습니다.
-- [ ] Subspace · Projection · 직교 여공간의 Definition·Theorem을 진술할 수 있습니다.
+- [ ] LU Decomposition을 정의대로 직접 구현할 수 있습니다.
+- [ ] Subspace · Column space · Null space · Rank의 Definition·Theorem을 진술할 수 있습니다.
+- [ ] Linear independence · Basis · Dimension · Rank-nullity 정리를 직접 적용할 수 있습니다.
 
 ---
 
-## F-2. Part 2 종료 시 (9회차 후)
+## F-2. Part 2 (LA2) 종료 시 (9회차 후)
 
+- [ ] Orthogonality · Projection · 직교 여공간의 Definition·Theorem을 진술할 수 있습니다.
+- [ ] 정규방정식 $A^\top A \hat\beta = A^\top \mathbf{b}$로 회귀를 풀 수 있습니다.
+- [ ] Gram-Schmidt·QR Decomposition을 직접 구현할 수 있습니다.
+- [ ] Determinant의 정의·계산법을 자유롭게 사용할 수 있습니다.
 - [ ] Eigenvalue Decomposition · SVD의 Definition·계산법을 자유롭게 사용할 수 있습니다.
 - [ ] PCA·Low-rank 근사를 SVD로 **한 줄에 구현**할 수 있습니다.
+
+## F-3. Part 3 (VC + Probability) 종료 시 (4회차 후)
+
 - [ ] Jacobian·Hessian으로 신경망 한 층의 미분을 분해할 수 있습니다.
+- [ ] MLE·KL divergence·Cross entropy·MVN을 자유롭게 다룰 수 있습니다.
+- [ ] Convex·Lagrange·KKT 조건으로 제약 최적화를 풀 수 있습니다.
 
-## F-3. Part 3 종료 시 (8회차 후)
+## F-4. Part 4 (ML·AI 응용) 종료 시 (8회차 후)
 
+- [ ] Linear Regression·PCA·GMM·SVM (Kernel 포함)을 LA·미분·확률 도구로 환원해 설명할 수 있습니다.
 - [ ] CNN convolution을 1D Toeplitz matrix로 환원하고 1×1 convolution이 일반 행렬곱임을 설명할 수 있습니다.
 - [ ] **Attention $\mathrm{softmax}(QK^\top/\sqrt{d_k})V$를 LA 객체로 분해**하고 Embedding이 행렬곱임을 설명할 수 있습니다. Equivariance(등변성)·Multi-head의 직관도 한 줄로 정리할 수 있습니다.
 - [ ] 임의의 AI 모델 한 부분을 골라 LA 분해 보고서를 작성할 수 있습니다 (Case Study).
 
 ---
 
-## F-4. 시그니처 능력: "수학 → 코드 → 분해 보고"
+## F-5. 시그니처 능력: "수학 → 코드 → 분해 보고"
 
 | 단계 | 내용 |
 |:---:|---|
@@ -457,9 +476,9 @@ plt.imshow(mean_seven, cmap='gray')
 | 이미지를 Vector로 보기 ($\mathbb{R}^{784}$) | **1** |
 | Vector 덧셈·Scalar곱 (평균 연산) | **1** |
 | 데이터셋을 Matrix로 ($\mathbb{R}^{n\times 784}$) | **3** |
-| 평균 Vector·중심화 (데이터의 "원점") | **7 · Part 3 2** |
-| 평균을 빼고 본 분산의 주방향 (**PCA**) | **Part 3 2** |
-| 분류기로 확장 (가장 가까운 평균 ⇒ 클래스) | **2·10** |
+| 평균 Vector·중심화 (데이터의 "원점") | **7 · Part 4 2** |
+| 평균을 빼고 본 분산의 주방향 (**PCA**) | **Part 4 2** |
+| 분류기로 확장 (가장 가까운 평균 ⇒ 클래스) | **2 · Part 2 2** |
 
 가장 단순한 수학(Vector 평균) 한 줄이 **29회차 전체의 입구**입니다.
 
@@ -512,7 +531,7 @@ plt.imshow(mean_seven, cmap='gray')
 
 **(b) (5층 청사진 매핑)** Self-attention 한 줄 $\mathrm{softmax}(QK^\top / \sqrt{d_k})\,V$를 본 회차에서 본 **5층 건물 (Vector space · Inner product · Norm · Matrix · Vector 곱)** 의 도움으로 만든다고 할 때, 5개 층 중 **두 개**를 골라 이 식의 어느 부분이 그 층에 대응되는지 한 줄씩 적으시오.
 
-**(c) (강좌 구조)** 이 강의는 32회차가 아니라 29회차로 운영됩니다. Part 1·2·3은 각각 몇 회차이고, 1회차당 강의 시간은 몇 시간입니까? 총 강의 시간은 몇 시간입니까?
+**(c) (강좌 구조)** 이 강의는 32회차가 아니라 29회차로 운영됩니다. Part 1·2·3·4는 각각 몇 회차이고, 1회차당 강의 시간은 몇 시간입니까? 총 강의 시간은 몇 시간입니까?
 
 → 1회차에서는 **Vector·Linear combination**으로 평균 Vector $\mathbf{m}$의 정의를 수학적으로 다지고, $\mathbb{R}^n$의 두 연산을 정식으로 도입합니다. 길이·각도 (Norm·Inner product)는 2회차의 주제이며, 본 회차에서는 그 토대 (Vector·평균)만 단단히 합니다.
 

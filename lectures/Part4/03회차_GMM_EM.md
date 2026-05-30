@@ -3,7 +3,7 @@ marp: true
 theme: default
 paginate: true
 header: '인공지능 전공자를 위한 선형대수학'
-footer: 'Part 3 3회차 — Gaussian Mixture Models · EM Algorithm'
+footer: 'Part 4 3회차 — Gaussian Mixture Models · EM Algorithm'
 math: mathjax
 size: 16:9
 style: |
@@ -31,20 +31,20 @@ style: |
 <!-- _class: lead -->
 <!-- _paginate: false -->
 
-# Part 3 3회차
+# Part 4 3회차
 
 ## Gaussian Mixture Models (GMM) · EM Algorithm
 
-MML Ch 11 (메인)
+MML Ch 11 (메인) · Part 4 (ML 및 AI의 수학적 응용)
 **여러 가우시안의 혼합**: 데이터가 한 mode가 아니라 여러 군집을 형성할 때의 표준 확률 모델. **EM 알고리즘**으로 학습하며, K-means가 그 특수 극한임을 본다.
 
-> Part 3 1·2회차의 단일 모델 (회귀·PCA) 을 다중 mode로 일반화하는 첫 단계이다.
+> Part 4 1·2회차의 단일 모델 (회귀·PCA) 을 다중 mode로 일반화하는 첫 단계이다.
 
 ---
 
 <!-- _class: exercise -->
 
-# Review: 지난 회차 (Part 3 2회차) 마무리 문제
+# Review: 지난 회차 (Part 4 2회차) 마무리 문제
 
 > **(1)** PCA 결과 두 군집의 중심을 어떻게 알아낼 수 있는가?
 > **(2)** 여러 가우시안의 혼합 데이터엔 어떤 모델이 필요한가?
@@ -334,7 +334,7 @@ $\mathbf{x} \sim 0.6 \cdot \mathcal{N}((-2, 0)^\top, I) + 0.4 \cdot \mathcal{N}(
 
 ### 학습 결과
 - 추정 $\boldsymbol{\mu}_1 \approx (-2, 0)^\top$, $\boldsymbol{\mu}_2 \approx (3, 1)^\top$.
-- 추정 $\Sigma_1 \approx I$ (등방), $\Sigma_2 \approx$ 상관 있는 타원 (Part 2 8회차 MVN 타원).
+- 추정 $\Sigma_1 \approx I$ (등방), $\Sigma_2 \approx$ 상관 있는 타원 (Part 3 3회차 MVN 타원).
 - $\pi \approx (0.6, 0.4)$.
 
 각 데이터의 responsibility로 soft cluster 라벨 부여. 두 mode가 겹치는 경계에서 $\gamma_{i1}, \gamma_{i2}$가 비슷.
@@ -492,21 +492,21 @@ print("pi:", pi); print("mu:", mu); print("sigma2:", sigma2)
 
 <!-- _class: exercise -->
 
-## 다음 회차 (Part 3 4회차) Review용 숙제
+## 다음 회차 (Part 4 4회차) Review용 숙제
 
 - **(1)** 본 회차 문제의 EM 반복 5번 후 모수를 (수기 또는 코드로) 계산하시오. 수렴하는가?
 - **(2)** GMM의 모드 수 $K$를 어떻게 선택하는지 BIC·AIC 정의를 자율 학습으로 찾아 정리. (책무 X)
 - **(3)** 본 회차 GMM이 "분류 (supervised) 가 아닌 클러스터링 (unsupervised)" 인 이유. 다음 회차 (SVM) 와 어떤 점에서 다른가? (Hint: 라벨 사용 여부)
 
-Part 3 4회차 (SVM) Review에서 다룬다.
+Part 4 4회차 (SVM) Review에서 다룬다.
 
 ---
 
-## E-5. 다음 회차 (Part 3 4회차) 예고
+## E-5. 다음 회차 (Part 4 4회차) 예고
 
 **주제**: Support Vector Machine (SVM) Hard / Soft Margin · Hinge Loss · Dual
 
-**연결**: 본 회차의 GMM은 unsupervised (라벨 X). Part 3 4회차의 SVM은 supervised 분류의 표준이며, Part 2 9회차에서 미리 본 KKT 조건이 SVM dual의 핵심이다. **support vector** 의 정확한 정의가 등장한다.
+**연결**: 본 회차의 GMM은 unsupervised (라벨 X). Part 4 4회차의 SVM은 supervised 분류의 표준이며, Part 3 4회차에서 미리 본 KKT 조건이 SVM dual의 핵심이다. **support vector** 의 정확한 정의가 등장한다.
 
 **사전 reading**:
 - MML §12.1-12.3 (Separating Hyperplanes·Primal SVM)
@@ -525,4 +525,4 @@ Part 3 4회차 (SVM) Review에서 다룬다.
 다음 회차의 출발 문제:
 > 라벨이 주어진 분류 문제에서 두 클래스를 가장 안정적으로 분리하는 hyperplane은 무엇이고, 그 풀이가 왜 KKT 조건의 모범 사례인가?
 
-`HANDOUT`: 본 PDF + Part 3 4회차 사전 reading (MML §12.1-12.3)
+`HANDOUT`: 본 PDF + Part 4 4회차 사전 reading (MML §12.1-12.3)

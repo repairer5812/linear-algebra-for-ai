@@ -3,7 +3,7 @@ marp: true
 theme: default
 paginate: true
 header: '인공지능 전공자를 위한 선형대수학'
-footer: 'Part 3 2회차 — PCA · SVD 동치 · 분산 최대화 · 재구성 오차'
+footer: 'Part 4 2회차 — PCA · SVD 동치 · 분산 최대화 · 재구성 오차'
 math: mathjax
 size: 16:9
 style: |
@@ -31,12 +31,12 @@ style: |
 <!-- _class: lead -->
 <!-- _paginate: false -->
 
-# Part 3 2회차
+# Part 4 2회차
 
 ## PCA: 분산 최대화 = 재구성 오차 최소화 = SVD
 
-MML Ch 10 (메인)
-**차원 축소의 표준**: PCA의 두 동치 정식 (분산 최대화 · 재구성 오차 최소화) 이 모두 데이터 행렬의 SVD로 환원된다. Part 2 9회차 종합 문제 1을 정식으로 풀고 응용 (eigenfaces) 까지 확장한다.
+MML Ch 10 (메인) · Part 4 (ML 및 AI의 수학적 응용)
+**차원 축소의 표준**: PCA의 두 동치 정식 (분산 최대화 · 재구성 오차 최소화) 이 모두 데이터 행렬의 SVD로 환원된다. Part 3 4회차 종합 문제 1을 정식으로 풀고 응용 (eigenfaces) 까지 확장한다.
 
 > Probabilistic PCA (PPCA) 는 본 회차 본문에서 다루지 않고 자율 학습으로 둔다.
 
@@ -44,7 +44,7 @@ MML Ch 10 (메인)
 
 <!-- _class: exercise -->
 
-# Review: 지난 회차 (Part 3 1회차) 마무리 문제
+# Review: 지난 회차 (Part 4 1회차) 마무리 문제
 
 > **(1)** $\mathbf{w}^*_{\text{ridge}}$에서 $\sigma_i \to 0$ 좌표가 자동 무시됨을 SVD 식으로.
 > **(2)** 다중공선성에 Ridge가 효과적인 SVD 정당화.
@@ -94,8 +94,8 @@ MML Ch 10 (메인)
 | 질문 | 답 | 도구 |
 |---|---|---|
 | 차원축소의 정식 1? | **분산 최대화** | Lagrange + 고유분해 |
-| 차원축소의 정식 2? | **재구성 오차 최소화** | Eckart-Young (Part 2 5) |
-| 둘이 동치인 이유? | **공분산의 고유분해 = $X$의 SVD** | Part 2 4-5회차 |
+| 차원축소의 정식 2? | **재구성 오차 최소화** | Eckart-Young (Part 2 9) |
+| 둘이 동치인 이유? | **공분산의 고유분해 = $X$의 SVD** | Part 2 8·9회차 |
 | 몇 차원을 남길까? | **Explained variance ratio** | $\sigma_i^2$의 누적 비율 |
 | 응용? | **Eigenfaces·MNIST 시각화** | 얼굴·숫자의 주성분 |
 
@@ -120,7 +120,7 @@ MML Ch 10 (메인)
 
 데이터 $X \in \mathbb{R}^{N \times d}$, 행 $\mathbf{x}_i^\top$. **평균을 빼서 centered** 라 가정 ($\bar{\mathbf{x}} = \mathbf{0}$).
 
-**공분산 행렬** (Part 2 8회차):
+**공분산 행렬** (Part 3 3회차):
 $$S = \frac{1}{N} X^\top X \in \mathbb{R}^{d \times d}, \quad S \text{ symmetric PSD}.$$
 
 ### 1차원 투영
@@ -140,7 +140,7 @@ $$\mathbf{w}_1 = \arg\max_{\mathbf{w}} \mathbf{w}^\top S \mathbf{w} \quad \text{
 Lagrangian $\mathcal{L} = \mathbf{w}^\top S \mathbf{w} - \lambda (\mathbf{w}^\top \mathbf{w} - 1)$.
 $\nabla_{\mathbf{w}} \mathcal{L} = 2 S\mathbf{w} - 2\lambda \mathbf{w} = \mathbf{0}$ → **$S\mathbf{w} = \lambda \mathbf{w}$**, 즉 $\mathbf{w}$는 $S$의 고유벡터.
 
-목적값 $\mathbf{w}^\top S \mathbf{w} = \lambda$이므로 **가장 큰 고유값 $\lambda_1$에 대응하는 고유벡터 $\mathbf{w}_1$**이 1st PC. (Part 2 9회차 종합 문제 1과 동일)
+목적값 $\mathbf{w}^\top S \mathbf{w} = \lambda$이므로 **가장 큰 고유값 $\lambda_1$에 대응하는 고유벡터 $\mathbf{w}_1$**이 1st PC. (Part 3 4회차 종합 문제 1과 동일)
 
 ---
 
@@ -149,7 +149,7 @@ $\nabla_{\mathbf{w}} \mathcal{L} = 2 S\mathbf{w} - 2\lambda \mathbf{w} = \mathbf
 ### 정리 2.2 (2nd PC: 1st와 직교 + 분산 최대)
 $$\mathbf{w}_2 = \arg\max_{\mathbf{w}} \mathbf{w}^\top S \mathbf{w} \quad \text{s.t.} \quad \Vert \mathbf{w}\Vert^2 = 1, \;\; \mathbf{w}^\top \mathbf{w}_1 = 0.$$
 
-같은 Lagrange 풀이 + symmetric matrix의 고유벡터 직교성 (Part 2 2회차 Spectral theorem) 으로 **$\mathbf{w}_2 = $ 두 번째 큰 고유값 고유벡터**.
+같은 Lagrange 풀이 + symmetric matrix의 고유벡터 직교성 (Part 2 6회차 Spectral theorem) 으로 **$\mathbf{w}_2 = $ 두 번째 큰 고유값 고유벡터**.
 
 ### 일반화
 $k$개 PC = $S$의 top-$k$ 고유값 고유벡터 (큰 순서).
@@ -219,7 +219,7 @@ $$\sum_i \Vert \mathbf{x}_i \Vert^2 = \mathrm{tr}(W^\top X^\top X W) + \mathcal{
 ## C2-1. 데이터 행렬의 SVD
 
 ### 정리 2.3 (PCA = SVD)
-$X = U \Sigma V^\top$ (SVD, Part 2 4회차). 이때:
+$X = U \Sigma V^\top$ (SVD, Part 2 8회차). 이때:
 - $S = X^\top X / N = V \Sigma^\top \Sigma V^\top / N = V \cdot \mathrm{diag}(\sigma_i^2 / N) \cdot V^\top$.
 - $S$의 **고유벡터** = $V$의 열, **고유값** = $\sigma_i^2 / N$.
 
@@ -232,14 +232,14 @@ $Z = X W_k = U \Sigma V^\top V_k = U_k \Sigma_k$.
 
 ---
 
-## C2-2. Eckart-Young 관점 (Part 2 5회차)
+## C2-2. Eckart-Young 관점 (Part 2 9회차)
 
 ### 정리 2.4 (PCA = 최적 rank-$k$ 근사)
 $X_k = U_k \Sigma_k V_k^\top = X W_k W_k^\top$는 **rank $k$ 이하의 모든 행렬 중 Frobenius norm 오차 최소**.
 
 $$\Vert X - X_k \Vert_F^2 = \sum_{i=k+1}^{r} \sigma_i^2.$$
 
-→ **PCA = 데이터 행렬의 최적 저계수 근사**. Part 2 5회차의 Eckart-Young 정리가 PCA의 정식 보장.
+→ **PCA = 데이터 행렬의 최적 저계수 근사**. Part 2 9회차의 Eckart-Young 정리가 PCA의 정식 보장.
 
 <div class="analogy">
 
@@ -467,13 +467,13 @@ print("denoise residual:", np.linalg.norm(X_denoise - true_signal))
 
 <!-- _class: exercise -->
 
-## 다음 회차 (Part 3 3회차) Review용 숙제
+## 다음 회차 (Part 4 3회차) Review용 숙제
 
 - **(1)** PCA 결과 첫 두 PC로 데이터가 두 군집을 형성한다면, 그 군집의 중심을 어떻게 알아낼 수 있는가? (3회차 GMM의 출발점)
-- **(2)** PCA는 한 가우시안 (단일 mode) 의 주축을 찾는 도구이다. 데이터가 **여러 가우시안의 혼합**이면 어떤 모델이 필요한가? (Hint: Part 3 3회차 GMM)
+- **(2)** PCA는 한 가우시안 (단일 mode) 의 주축을 찾는 도구이다. 데이터가 **여러 가우시안의 혼합**이면 어떤 모델이 필요한가? (Hint: Part 4 3회차 GMM)
 - **(3)** 노이즈 제거에 사용한 top-$k$ 절단의 한계 (신호·노이즈가 같은 방향에 있을 때) 를 한 줄로.
 
-Part 3 3회차 (GMM·EM) Review에서 다룬다.
+Part 4 3회차 (GMM·EM) Review에서 다룬다.
 
 ---
 
@@ -486,7 +486,7 @@ Part 3 3회차 (GMM·EM) Review에서 다룬다.
 
 ---
 
-## E-6. 다음 회차 (Part 3 3회차) 예고
+## E-6. 다음 회차 (Part 4 3회차) 예고
 
 **주제**: Gaussian Mixture Models · EM Algorithm
 
@@ -509,4 +509,4 @@ Part 3 3회차 (GMM·EM) Review에서 다룬다.
 다음 회차의 출발 문제:
 > 데이터가 한 가우시안이 아니라 **여러 가우시안의 혼합**일 때, 그 mode를 어떻게 자동으로 분리하는가?
 
-`HANDOUT`: 본 PDF + Part 3 3회차 사전 reading (MML Ch 11)
+`HANDOUT`: 본 PDF + Part 4 3회차 사전 reading (MML Ch 11)

@@ -3,7 +3,7 @@ marp: true
 theme: default
 paginate: true
 header: '인공지능 전공자를 위한 선형대수학'
-footer: 'Part 2 9회차 — Continuous Optimization · Part 2 종합 문제 풀기'
+footer: 'Part 3 4회차 — Continuous Optimization · Part 3 (VC + Probability) 종합 문제 Review'
 math: mathjax
 size: 16:9
 style: |
@@ -31,20 +31,20 @@ style: |
 <!-- _class: lead -->
 <!-- _paginate: false -->
 
-# Part 2 9회차
+# Part 3 4회차
 
-## Continuous Optimization + Part 2 종합 문제 풀기
+## Continuous Optimization + Part 3 (VC + Probability) 종합 문제 Review
 
-MML §7.1-7.3 (메인)
-**Part 2의 마지막 회차**: GD·Lagrange·KKT·Convexity의 표준 도구를 정리하고, **Part 2 전체 (Eigen → SVD → Calculus → Probability → Optimization)** 를 한 문제 풀이 세션으로 묶는다.
+MML §7.1-7.3 (메인) · Part 3 (VC + Probability)
+**Part 3 (VC + Probability) 의 마지막 회차**: GD·Lagrange·KKT·Convexity의 표준 도구를 정리하고, **Part 3 사슬 (Calculus → Probability → Optimization)** 을 Part 2 (Eigen·SVD) 도구와 함께 한 문제 풀이 세션으로 묶는다.
 
-> Part 3 (Linear Regression·PCA·GMM·SVM·CNN·Attention) 의 모든 학습이 본 회차에서 정리한 최적화 문제로 환원된다.
+> Part 4 (Linear Regression·PCA·GMM·SVM·CNN·Attention) 의 모든 학습이 본 회차에서 정리한 최적화 문제로 환원된다.
 
 ---
 
 <!-- _class: exercise -->
 
-# Review: 지난 회차 (Part 2 8회차) 마무리 문제
+# Review: 지난 회차 (Part 3 3회차) 마무리 문제
 
 > **(1)** 정규 평균 MAP 유도 ($\mu \sim \mathcal{N}(\mu_0, \tau_0^2)$).
 > **(2)** Cross entropy + softmax의 $\partial \mathcal{L} / \partial \mathbf{z}$.
@@ -86,7 +86,7 @@ MML §7.1-7.3 (메인)
 2. **Lagrange 승수법**으로 등식 제약 최적화를 풀 수 있다.
 3. **KKT 조건** 네 가지 (stationarity·primal feasibility·dual feasibility·complementary slackness) 를 적고 SVM 형태의 문제에 적용할 수 있다.
 4. **Convex 함수**의 정의와 일계 (gradient) ·이계 (Hessian PSD) 특성화를 설명할 수 있다.
-5. **Part 2 사슬** (Eigenvalue · SVD · Vector calculus · Probability · Optimization) 의 모든 도구를 한 문제 풀이에서 사용할 수 있다.
+5. **Part 2 + Part 3 사슬** (Eigenvalue · SVD · Vector calculus · Probability · Optimization) 의 모든 도구를 한 문제 풀이에서 사용할 수 있다.
 
 ---
 
@@ -98,7 +98,7 @@ MML §7.1-7.3 (메인)
 | 등식 제약의 풀이? | **Lagrange 승수법** | $\nabla f = \lambda \nabla g$ |
 | 부등식 제약을 포함하면? | **KKT 조건** | 4 조건 |
 | 풀이가 global인 조건? | **Convexity** | $f''$ PSD or epigraph convex |
-| 본 강의 LA 도구의 정점? | **Part 2 종합 문제** | 모든 도구 동원 |
+| 본 강의 LA 도구의 정점? | **Part 3 (VC + Probability) 종합 문제** | 모든 도구 동원 |
 
 ---
 
@@ -110,9 +110,9 @@ MML §7.1-7.3 (메인)
 | ② | **B** | GD update·수렴 조건·convex와의 관계 |
 | ③ | **C** | Lagrange 승수법·KKT 조건 |
 | ④ | **D** | Convex 함수·집합·convex 최적화의 보장 |
-| ⑤ | **E** | **사전 공개된 Part 2 종합 문제, 함께 Review** (60분 세션, 3-4 문제) |
+| ⑤ | **E** | **사전 공개된 Part 3 (VC + Probability) 종합 문제, 함께 Review** (60분 세션, 3-4 문제) |
 
-> **본 회차의 정점은 E의 함께 Review 세션이다.** 학생은 9회차 전에 사전 공개된 종합 문제를 본인 페이스로 풀어 와서, 9회차에 모두 함께 풀이를 짚는다. B·C·D는 그 풀이에 필요한 도구 정리이다.
+> **본 회차의 정점은 E의 함께 Review 세션이다.** 학생은 4회차 전에 사전 공개된 종합 문제를 본인 페이스로 풀어 와서, 4회차에 모두 함께 풀이를 짚는다. B·C·D는 그 풀이에 필요한 도구 정리이다.
 
 ---
 
@@ -129,12 +129,12 @@ $\eta > 0$: 학습률 (step size).
 $\nabla f$가 **L-Lipschitz** (즉 $\Vert \nabla f(\mathbf{x}) - \nabla f(\mathbf{y}) \Vert \leq L \Vert \mathbf{x} - \mathbf{y} \Vert$) 이고 $f$가 convex이면 $\eta \leq 1/L$에서 수렴.
 
 - **이차형식** $f = \tfrac{1}{2}\mathbf{x}^\top A \mathbf{x} - \mathbf{b}^\top \mathbf{x}$: $L = \lambda_{\max}(A)$. $\eta < 2 / \lambda_{\max}$.
-- 수렴 속도는 **condition number $\kappa = \lambda_{\max}/\lambda_{\min}$** 에 의존 (Part 2 7회차 Review).
+- 수렴 속도는 **condition number $\kappa = \lambda_{\max}/\lambda_{\min}$** 에 의존 (Part 3 2회차 Review).
 
 ### 변형
 - **SGD**: 한 batch 미분으로 근사 ($\mathbb{E}[\hat{\nabla}] = \nabla f$).
 - **Momentum**: $\mathbf{v}_{k+1} = \beta \mathbf{v}_k + \nabla f$, $\mathbf{x}_{k+1} = \mathbf{x}_k - \eta \mathbf{v}_{k+1}$.
-- **Adam**: 모멘트 + 좌표별 학습률 (Part 2 7회차).
+- **Adam**: 모멘트 + 좌표별 학습률 (Part 3 2회차).
 
 ---
 
@@ -151,7 +151,7 @@ $\nabla f$가 **L-Lipschitz** (즉 $\Vert \nabla f(\mathbf{x}) - \nabla f(\mathb
 - **Adam·RMSprop**: 좌표별 학습률로 $\kappa$의 영향을 완화.
 - **Newton**: $\kappa$ 영향 없음 (한 스텝 quadratic).
 
-> Part 3 1회차 (Linear Regression) 의 condition number $\kappa(A)$ 와 수치 안정성 논의가 직접 이어진다.
+> Part 4 1회차 (Linear Regression) 의 condition number $\kappa(A)$ 와 수치 안정성 논의가 직접 이어진다.
 
 ---
 
@@ -206,7 +206,7 @@ $$\min_{\mathbf{x}} f(\mathbf{x}) \quad \text{s.t.} \quad g_i(\mathbf{x}) \leq 0
 
 ---
 
-## C-4. KKT 직관: SVM 미리보기 (Part 3 4회차)
+## C-4. KKT 직관: SVM 미리보기 (Part 4 4회차)
 
 Hard margin SVM:
 $$\min_{\mathbf{w}, b} \tfrac{1}{2} \Vert \mathbf{w} \Vert^2 \quad \text{s.t.} \quad y_i(\mathbf{w}^\top \mathbf{x}_i + b) \geq 1.$$
@@ -215,7 +215,7 @@ KKT의 complementary slackness: $\mu_i > 0 \Leftrightarrow y_i(\mathbf{w}^\top \
 
 → **support vector만 $\mathbf{w}$ 형성에 기여** (다른 점은 $\mu_i = 0$이라 영향 없음). KKT가 SVM의 "support vector" 명칭의 정확한 근거이다.
 
-> 정식 SVM 분해는 Part 3 4·5회차.
+> 정식 SVM 분해는 Part 4 4·5회차.
 
 ---
 
@@ -276,7 +276,7 @@ $f$가 convex이고 제약 집합이 convex이면:
 | SVM (hinge) | $\sum \max(0, 1 - y_i \cdot \mathrm{score})$ | **Convex** (convex 함수의 max) |
 | **신경망** | Cross entropy | **Non-convex** |
 
-→ 본 강의 Part 3 1·4회차 (회귀·SVM) 까지는 convex, CNN·Attention (Part 3 6·7) 부터 non-convex. **non-convex라도 SGD가 잘 동작하는 경험적 사실**이 deep learning의 핵심 발견.
+→ 본 강의 Part 4 1·4회차 (회귀·SVM) 까지는 convex, CNN·Attention (Part 4 6·7) 부터 non-convex. **non-convex라도 SGD가 잘 동작하는 경험적 사실**이 deep learning의 핵심 발견.
 
 ---
 
@@ -309,9 +309,9 @@ $\mathcal{L} = x_1^2 + 4 x_2^2 + \lambda(x_1 + x_2 - 1)$. $2 x_1 + \lambda = 0$,
 
 ---
 
-# E. Part 2 종합 문제 풀기, 함께 Review (60분 세션)
+# E. Part 3 (VC + Probability) 종합 문제 Review (60분 세션)
 
-> Part 2의 모든 도구 (Eigenvalue·SVD·Vector calculus·Probability·Optimization) 를 동원하는 문제다. **종합 문제는 9회차 전에 사전 공개되었으며**, 학생은 본인 페이스로 미리 풀어 와서 본 세션에 모두 함께 풀이를 짚는다. 본인 풀이에서 막혔던 단계를 강사·동료와 함께 검토한다.
+> Part 2 + Part 3의 모든 도구 (Eigenvalue·SVD·Vector calculus·Probability·Optimization) 를 동원하는 문제다. **종합 문제는 4회차 전에 사전 공개되었으며**, 학생은 본인 페이스로 미리 풀어 와서 본 세션에 모두 함께 풀이를 짚는다. 본인 풀이에서 막혔던 단계를 강사·동료와 함께 검토한다.
 
 ---
 
@@ -325,7 +325,7 @@ $\mathcal{L} = x_1^2 + 4 x_2^2 + \lambda(x_1 + x_2 - 1)$. $2 x_1 + \lambda = 0$,
 $$\max_{\mathbf{w}} \mathbf{w}^\top S \mathbf{w} \quad \text{s.t.} \quad \Vert \mathbf{w} \Vert^2 = 1, \;\; S = \tfrac{1}{N} X^\top X.$$
 이 문제의 해가 **$S$의 최대 고유값에 대응하는 고유벡터** 임을 보이시오.
 
-- **(b)** 같은 1st PC가 **$X$의 SVD $X = U \Sigma V^\top$의 첫 번째 right singular vector $V_1$** 임을 확인. (Part 2 4-5회차 + 본 회차 KKT)
+- **(b)** 같은 1st PC가 **$X$의 SVD $X = U \Sigma V^\top$의 첫 번째 right singular vector $V_1$** 임을 확인. (Part 2 8-9회차 + 본 회차 KKT)
 
 - **(c)** 두 방법 (분산 최대화 + SVD) 이 같은 답을 주는 LA 이유를 한 줄로.
 
@@ -347,7 +347,7 @@ $S = \tfrac{1}{N} X^\top X = \tfrac{1}{N} V \Sigma^\top \Sigma V^\top = V \cdot 
 $S$의 가장 큰 고유값 = $\sigma_1^2 / N$, 대응 고유벡터 = $V_1$ (1st right singular vector).
 
 ### (c) 한 줄
-**Symmetric PSD $S = X^\top X / N$의 고유분해와 $X$의 SVD가 동치**이기 때문 (Part 2 4·5회차 정리).
+**Symmetric PSD $S = X^\top X / N$의 고유분해와 $X$의 SVD가 동치**이기 때문 (Part 2 8·9회차 정리).
 
 ---
 
@@ -420,22 +420,22 @@ $\lambda \gg \mu_1$이면 $\kappa(H) \to 1$ (잘 조건화).
 ### (d) $\lambda = 0$일 때 유일성
 $A^\top A$가 가역 ($A$가 full column rank) → $\mathbf{x}^* = (A^\top A)^{-1} A^\top \mathbf{b}$ 유일.
 
-> Part 3 1회차 (Linear Regression·Ridge·조건수·수치 안정성) 의 핵심이 본 문제에 들어 있다.
+> Part 4 1회차 (Linear Regression·Ridge·조건수·수치 안정성) 의 핵심이 본 문제에 들어 있다.
 
 ---
 
-## E-1. Part 2 사슬 정리 (한 슬라이드)
+## E-1. Part 2 + Part 3 사슬 정리 (한 슬라이드)
 
-| 회차 | 도구 | Part 2 종합 문제에서의 위치 |
+| 회차 | 도구 | Part 3 (VC + Probability) 종합 문제에서의 위치 |
 |---|---|---|
-| 1-2 | Eigenvalue·Diagonalization·Spectral | 문제 1 (PCA·$S$의 고유분해) |
-| 3 | Positive definite | 문제 2·3 (Hessian PSD) |
-| 4-5 | SVD·Eckart-Young | 문제 1 (PCA와 SVD 동치) |
-| 6-7 | Vector calculus (Gradient·Jacobian·Hessian·Newton) | 문제 2·3 (Gradient·Hessian 유도) |
-| 8 | Probability·MLE·KL·Cross entropy | 문제 2 (Logistic = NLL = cross entropy) |
-| 9 | Lagrange·KKT·Convexity·GD | 모든 문제의 풀이 도구 |
+| Part 2 5-6 | Eigenvalue·Diagonalization·Spectral | 문제 1 (PCA·$S$의 고유분해) |
+| Part 2 7 | Positive definite | 문제 2·3 (Hessian PSD) |
+| Part 2 8-9 | SVD·Eckart-Young | 문제 1 (PCA와 SVD 동치) |
+| Part 3 1-2 | Vector calculus (Gradient·Jacobian·Hessian·Newton) | 문제 2·3 (Gradient·Hessian 유도) |
+| Part 3 3 | Probability·MLE·KL·Cross entropy | 문제 2 (Logistic = NLL = cross entropy) |
+| Part 3 4 | Lagrange·KKT·Convexity·GD | 모든 문제의 풀이 도구 |
 
-**Part 2 9회차 전체가 한 학습 곡선** 위에 있다. Part 3의 모든 모델이 본 사슬을 도구로 사용한다.
+**Part 2 + Part 3 전체가 한 학습 곡선** 위에 있다. Part 4의 모든 모델이 본 사슬을 도구로 사용한다.
 
 ---
 
@@ -445,7 +445,7 @@ $A^\top A$가 가역 ($A$가 full column rank) → $\mathbf{x}^* = (A^\top A)^{-
 2. **Lagrange 승수법**: 등식 제약 → $\nabla f = \sum \lambda_i \nabla g_i$. Lagrangian의 정류 조건.
 3. **KKT 조건**: 부등식 포함 일반 제약 → 4조건 (stationarity·primal·dual·complementary slackness). Complementary slackness가 SVM의 support vector 정체.
 4. **Convexity**: 함수가 convex ($\nabla^2 f \succeq 0$) 이면 local = global, KKT 충분조건. Strictly convex이면 해 유일.
-5. **Part 2 종합 사슬**: Eigen·SVD·Calculus·Probability·Optimization이 한 풀이에 다 들어가는 문제들을 풀 수 있다.
+5. **Part 2 + Part 3 종합 사슬**: Eigen·SVD·Calculus·Probability·Optimization이 한 풀이에 다 들어가는 문제들을 풀 수 있다.
 
 ---
 
@@ -461,9 +461,9 @@ $A^\top A$가 가역 ($A$가 full column rank) → $\mathbf{x}^* = (A^\top A)^{-
 
 <!-- _class: exercise -->
 
-# 본 회차 마무리 문제 (Part 2 종합)
+# 본 회차 마무리 문제 (Part 3 (VC + Probability) 종합)
 
-본 회차와 Part 2 전체를 한 문제로 종합한다.
+본 회차와 Part 2 + Part 3 전체를 한 문제로 종합한다.
 
 데이터 $X \in \mathbb{R}^{N \times d}$ (centered), $\mathbf{y} \in \mathbb{R}^N$. Ridge 회귀 + 차원축소를 결합한 모델:
 $$\min_{\mathbf{w} \in \mathbb{R}^k} \Vert X V_k \mathbf{w} - \mathbf{y} \Vert^2 + \alpha \Vert \mathbf{w} \Vert^2,$$
@@ -493,13 +493,13 @@ $$\min_{\mathbf{w} \in \mathbb{R}^k} \Vert X V_k \mathbf{w} - \mathbf{y} \Vert^2
   - (i) $H = 2(Z^\top Z + \alpha I) \succeq 2\alpha I \succ 0$ (strictly convex).
   - (ii) $\kappa(Z^\top Z + \alpha I) = \dfrac{\sigma_1^2 + \alpha}{\sigma_k^2 + \alpha}$. $X$의 condition number $\kappa(X) = \sigma_1 / \sigma_d$이고 $\sigma_k \leq \sigma_d^{-1}$ 가 아니라 $\sigma_k \geq \sigma_d$ (top $k$이므로). 따라서 $\kappa$가 원본 $X$의 condition number보다 **항상 작거나 같다** (top-$k$만 사용 + 정규화).
 
-> **핵심**: 본 문제 한 개에 SVD (Part 2 4-5) + Gradient·Hessian (Part 2 6-7) + MLE 직관 (Part 2 8) + Lagrange·KKT·Convexity·Condition number (Part 2 9) 가 모두 들어 있다.
+> **핵심**: 본 문제 한 개에 SVD (Part 2 8-9) + Gradient·Hessian (Part 3 1-2) + MLE 직관 (Part 3 3) + Lagrange·KKT·Convexity·Condition number (Part 3 4) 가 모두 들어 있다.
 
 ---
 
 <!-- _class: exercise -->
 
-## 다음 회차 (Part 3 1회차) Review용 숙제
+## 다음 회차 (Part 4 1회차) Review용 숙제
 
 본 회차의 도구를 직접 사용한다.
 
@@ -507,17 +507,17 @@ $$\min_{\mathbf{w} \in \mathbb{R}^k} \Vert X V_k \mathbf{w} - \mathbf{y} \Vert^2
 - **(2)** Ridge 회귀의 닫힌 해 $\mathbf{x}^* = (A^\top A + \lambda I)^{-1} A^\top \mathbf{b}$를 $A$의 SVD를 사용해 좌표별로 적으시오 (본 회차 마무리 문제 (c) 와 유사).
 - **(3)** Condition number $\kappa(A^\top A) = \kappa(A)^2$임을 SVD로 보이시오. (FP16 환경에서 수치 안정성 문제의 출발점)
 
-Part 3 1회차 (Linear Regression) Review에서 다룬다.
+Part 4 1회차 (Linear Regression) Review에서 다룬다.
 
 ---
 
-## E-4. 다음 회차 (Part 3 1회차) 예고
+## E-4. 다음 회차 (Part 4 1회차) 예고
 
 **주제**: Linear Regression (정규방정식 · MLE 해석 · Ridge · Condition number · 수치 안정성)
 
-**연결**: 본 회차의 GD·Lagrange·Convexity가 그대로 Linear Regression의 최적화 풀이로 이어진다. Part 3는 **본 강의 LA 도구를 AI 모델 학습에 직접 적용**하는 영역이다.
+**연결**: 본 회차의 GD·Lagrange·Convexity가 그대로 Linear Regression의 최적화 풀이로 이어진다. Part 4는 **본 강의 LA 도구를 AI 모델 학습에 직접 적용**하는 영역이다.
 
-> Bayesian Linear Regression은 본 강의 본문에서 다루지 않고 자율 학습으로 둔다 (Part 3 1회차 안내 참조).
+> Bayesian Linear Regression은 본 강의 본문에서 다루지 않고 자율 학습으로 둔다 (Part 4 1회차 안내 참조).
 
 **사전 reading**:
 - MML §9.1-9.2 (Problem Formulation · Parameter Estimation)
@@ -529,11 +529,11 @@ Part 3 1회차 (Linear Regression) Review에서 다룬다.
 # Q & A
 
 본 회차 사슬:
-**GD → Lagrange → KKT → Convexity → Part 2 종합 사슬**
+**GD → Lagrange → KKT → Convexity → Part 2 + Part 3 종합 사슬**
 
 핵심 한 줄: **Convex 최적화는 풀린다. Non-convex (신경망) 도 SGD가 잘 동작한다는 경험적 사실 위에 deep learning이 서 있다.**
 
-Part 3의 출발 문제:
+Part 4의 출발 문제:
 > Linear Regression의 정규방정식을 정확히, 그리고 수치적으로 안정하게 푸는 방법은 무엇인가? 데이터가 collinear이면 어떤 문제가 생기는가?
 
-`HANDOUT`: 본 PDF + Part 3 1회차 사전 reading (MML §9.1-9.2)
+`HANDOUT`: 본 PDF + Part 4 1회차 사전 reading (MML §9.1-9.2)

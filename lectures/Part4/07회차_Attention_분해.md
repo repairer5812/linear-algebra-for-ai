@@ -3,7 +3,7 @@ marp: true
 theme: default
 paginate: true
 header: '인공지능 전공자를 위한 선형대수학'
-footer: 'Part 3 7회차 — Attention 분해 · Embedding=행렬곱 · Multi-head · Equivariance 직관'
+footer: 'Part 4 7회차 — Attention 분해 · Embedding=행렬곱 · Multi-head · Equivariance 직관'
 math: mathjax
 size: 16:9
 style: |
@@ -34,12 +34,12 @@ style: |
 <!-- _class: lead -->
 <!-- _paginate: false -->
 
-# Part 3 · 7회차
+# Part 4 · 7회차
 
 ## Attention 분해 · Embedding = 행렬곱 · Multi-head 직관 · Equivariance 직관
 
-자체 교안 (본 강좌 시그니처) · MML 부록 보강
-**Part 3 7회차** — Transformer 핵심을 행렬 곱 3-4개의 조합으로 환원합니다.
+자체 교안 (본 강좌 시그니처) · MML 부록 보강 · Part 4 (ML 및 AI의 수학적 응용)
+**Part 4 7회차** — Transformer 핵심을 행렬 곱 3-4개의 조합으로 환원합니다.
 
 > "Attention은 LA의 어떤 객체인가" 한 질문에 본 회차가 답한다. **세 행렬 곱과 한 softmax**가 답이다.
 
@@ -469,20 +469,20 @@ $$X = \begin{pmatrix} 1 & 0 & 1 & 0 \\ 0 & 1 & 0 & 1 \\ 1 & 1 & 0 & 0 \end{pmatr
 - 자신이 선택한 모델 부분에 대한 보고서 (1쪽) + 5분 발표 슬라이드
 - 자기 점검 활동
 
-**Part 3 종합 문제 사전 풀이**
+**Part 4 (ML 및 AI의 수학적 응용) 종합 문제 사전 풀이**
 - 마지막 회차 전에 사전 공개된 `05_시험/Part3_종합문제풀기.md`를 본인 페이스로 풀어 와서, 8회차에 함께 Review
 
 ---
 
 ## E-4. 다음 회차 (8회차) 예고
 
-**주제**: Case Study 발표 + Part 3 종합 문제 풀기
+**주제**: Case Study 발표 + Part 4 (ML 및 AI의 수학적 응용) 종합 문제 Review
 
-**연결**: 본 회차까지 7회차 동안 다룬 Part 3 (Linear Regression·PCA·GMM·SVM·Kernel·CNN·Attention) 7개 도구를 모두 동원하여 학생 각자의 Case Study를 발표하고, 사전 공개된 Part 1·2·3 종합 문제를 함께 Review한다.
+**연결**: 본 회차까지 7회차 동안 다룬 Part 4 (Linear Regression·PCA·GMM·SVM·Kernel·CNN·Attention) 7개 도구를 모두 동원하여 학생 각자의 Case Study를 발표하고, 사전 공개된 Part 1·2·3·4 종합 문제를 함께 Review한다.
 
 **준비물**:
 - Case Study 보고서 1쪽 + 5분 발표
-- 본 강좌 노트 (Part 1·2·3 전체)
+- 본 강좌 노트 (Part 1·2·3·4 전체)
 
 ---
 

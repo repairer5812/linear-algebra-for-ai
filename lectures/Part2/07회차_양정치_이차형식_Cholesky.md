@@ -3,7 +3,7 @@ marp: true
 theme: default
 paginate: true
 header: '인공지능 전공자를 위한 선형대수학'
-footer: 'Part 2 3회차 · Positive definite·Quadratic form·Cholesky'
+footer: 'Part 2 7회차 · Positive definite·Quadratic form·Cholesky'
 math: mathjax
 size: 16:9
 style: |
@@ -34,11 +34,11 @@ style: |
 <!-- _class: lead -->
 <!-- _paginate: false -->
 
-# Part 2 · 3회차
+# Part 2 · 7회차
 
 ## Positive definite(양정치)·이차형식·Cholesky 분해
 
-MML §4.3 (메인) · Strang Ch 6.5 (발췌)
+MML §4.3 (메인) · Strang Ch 6.5 (발췌) · Part 2 (LA2)
 
 **모든 Eigenvalue가 양수**인 대칭행렬에서 이차형식·Cholesky·다변량 정규가 한 묶음으로 등장합니다.
 
@@ -48,7 +48,7 @@ MML §4.3 (메인) · Strang Ch 6.5 (발췌)
 
 <!-- _class: exercise -->
 
-# Review: 2회차 마무리 숙제
+# Review: 6회차 마무리 숙제
 
 지난 회차 문제:
 > $A = \begin{pmatrix} 4 & 1 \\ 1 & 4 \end{pmatrix}$의 직교 대각화와 $\mathbf{x}^\top A \mathbf{x} > 0$ 증명.
@@ -104,7 +104,7 @@ MML §4.3 (메인) · Strang Ch 6.5 (발췌)
 
 | 순서 | 블록 | 내용 |
 |:---:|:---:|---|
-| ① | A | **오프닝**: 2회차 Review, 본 회차 사슬 |
+| ① | A | **오프닝**: 6회차 Review, 본 회차 사슬 |
 | ② | **B** | **정의·동기**: 이차형식 → 양정치 |
 | ③ | **C** | **정리·풀이**: 5개 동치, Cholesky 풀이 |
 | ④ | **D** | **응용**: Hessian·MVN·Ridge |
@@ -162,7 +162,7 @@ $$\mathbf{x}^\top A \mathbf{x} > 0$$
 
 ### 양정치의 필요조건 (즉시 결과)
 - 모든 대각 원소 $A_{ii} > 0$ (이유: $\mathbf{x} = \mathbf{e}_i$ 대입).
-- $\det(A) > 0$ (이유: 모든 $\lambda > 0$, 곱이 양수, 3회차 정리에서 정식 진술).
+- $\det(A) > 0$ (이유: 모든 $\lambda > 0$, 곱이 양수, 7회차 정리에서 정식 진술).
 
 > **음정치(negative definite)**·**부정부호(indefinite)**: $\mathbf{x}^\top A \mathbf{x} < 0$ 또는 부호가 둘 다 나타나는 경우. 같은 분류 체계.
 
@@ -196,13 +196,13 @@ $X \in \mathbb{R}^{m\times n}$ (열이 일차독립)에 대해 $A = X^\top X$는
 $\Sigma = \mathbb{E}[(\mathbf{X} - \boldsymbol\mu)(\mathbf{X} - \boldsymbol\mu)^\top]$는 항상 양반정치. 데이터가 한 부분공간에 갇히지 않으면 양정치.
 
 ### 예제 3 ($A = I + B^\top B$)
-임의의 $B$에 대해 $I + B^\top B$는 양정치. Ridge 정규화 $X^\top X + \lambda I$도 $\lambda > 0$이면 양정치 (Part 1 10회차 다중공선성 해소의 정식 이유).
+임의의 $B$에 대해 $I + B^\top B$는 양정치. Ridge 정규화 $X^\top X + \lambda I$도 $\lambda > 0$이면 양정치 (Part 2 2회차 다중공선성 해소의 정식 이유).
 
 ---
 
 <div class="analogy">
 
-**직관 (밥그릇 vs 안장 비유)**: 이차형식 $q(\mathbf{x}) = \mathbf{x}^\top A \mathbf{x}$의 그래프는 $A$의 Eigenvalue 부호에 따라 모양이 정해집니다. **모두 양수면 밥그릇** (위로 열린 그릇, 바닥에 유일 최솟값), **하나 양·하나 음이면 안장** (말 안장 모양, 최솟값·최댓값 없음, 임계점은 saddle), **모두 음수면 거꾸로 된 밥그릇**. 손실함수의 Hessian이 밥그릇이면 Newton·뉴턴류 알고리즘이 곧장 최솟값으로 내려간다, 안장이면 멈춘다, 이것이 7회차 Hessian 분석의 토대입니다.
+**직관 (밥그릇 vs 안장 비유)**: 이차형식 $q(\mathbf{x}) = \mathbf{x}^\top A \mathbf{x}$의 그래프는 $A$의 Eigenvalue 부호에 따라 모양이 정해집니다. **모두 양수면 밥그릇** (위로 열린 그릇, 바닥에 유일 최솟값), **하나 양·하나 음이면 안장** (말 안장 모양, 최솟값·최댓값 없음, 임계점은 saddle), **모두 음수면 거꾸로 된 밥그릇**. 손실함수의 Hessian이 밥그릇이면 Newton·뉴턴류 알고리즘이 곧장 최솟값으로 내려간다, 안장이면 멈춘다, 이것이 Part 3 2회차 Hessian 분석의 토대입니다.
 
 </div>
 
@@ -342,7 +342,7 @@ $A = \begin{pmatrix} 9 & 3 \\ 3 & 5 \end{pmatrix}$의 Cholesky 분해 $A = LL^\t
 
 ## D-1. 손실함수의 Hessian 양정치 = 강한 볼록
 
-### 정의 (7회차 미리보기)
+### 정의 (Part 3 2회차 미리보기)
 $f: \mathbb{R}^n \to \mathbb{R}$의 **Hessian** $\nabla^2 f(\mathbf{x})$는 $n \times n$ 대칭행렬, $(i, j)$ 원소 = $\partial^2 f / \partial x_i \partial x_j$ (혼합편미분).
 
 ### 2차 Taylor 전개
@@ -354,7 +354,7 @@ $$f(\mathbf{x} + \mathbf{h}) \approx f(\mathbf{x}) + \nabla f(\mathbf{x})^\top \
 - 부정부호: 안장점
 
 ### Newton 방향
-Newton 갱신 $\mathbf{x}_{k+1} = \mathbf{x}_k - (\nabla^2 f)^{-1} \nabla f$가 **감소 방향**임은 $\nabla^2 f \succ 0$일 때 보장. 7회차 정식.
+Newton 갱신 $\mathbf{x}_{k+1} = \mathbf{x}_k - (\nabla^2 f)^{-1} \nabla f$가 **감소 방향**임은 $\nabla^2 f \succ 0$일 때 보장. Part 3 2회차 정식.
 
 ---
 
@@ -378,7 +378,7 @@ $\mathbf{X}$의 평균 $= \boldsymbol\mu$, 공분산 $= L \cdot \mathbb{E}[\math
 
 ## D-3. Ridge 정규화: 양정치 보장
 
-### Part 1 10회차 미해결 문제
+### Part 2 2회차 미해결 문제
 최소제곱 $\min \|X\boldsymbol\beta - \mathbf{y}\|^2$의 정규방정식 $X^\top X \boldsymbol\beta = X^\top \mathbf{y}$. 다중공선성·$\mathrm{rank}(X) < n$이면 $X^\top X$가 양반정치 (특이), 해 비유일.
 
 ### Ridge 해결
@@ -402,7 +402,7 @@ $X^\top X + \lambda I$는 항상 **양정치** ($\lambda > 0$, 모든 Eigenvalue
 | **Ridge·MAP** | $X^\top X + \lambda I$ |
 | **Fisher 정보** | $I(\theta)$, 정보 행렬 |
 | **Laplace 근사** | 사후분포 mode 근방의 공분산 = $(-\nabla^2 \log p)^{-1}$ |
-| **PSD kernel** (RBF·Polynomial) | Mercer 정리, Part 3 5회차 |
+| **PSD kernel** (RBF·Polynomial) | Mercer 정리, Part 4 5회차 |
 
 → 양정치는 **분산·곡률·정보**라는 세 직관이 만나는 자리이다.
 
@@ -513,7 +513,7 @@ print(beta)
 - $A, B$가 양정치이면 $A + B$도 양정치인가? $AB$는?
 - $X^\top X$가 양정치가 되는 조건은? (열 일차독립.)
 - Cholesky 분해의 유일성을 보장하는 조건은? ($L_{ii} > 0$, 양정치, 대칭.)
-- 부정부호(indefinite) Hessian을 가지는 임계점의 이름은? (안장점, saddle point. Part 2 7회차에서 정식.)
+- 부정부호(indefinite) Hessian을 가지는 임계점의 이름은? (안장점, saddle point. Part 3 2회차에서 정식.)
 
 ---
 
@@ -553,7 +553,7 @@ $$L = \begin{pmatrix} 2 & 0 & 0 \\ 1 & 2 & 0 \\ 0 & 0.5 & \sqrt{11}/2 \end{pmatr
 
 ## 다음 회차 Review용 숙제
 
-위 마무리 문제의 유사 문제이다. 강의 후 풀어 와서 **4회차 Review 시간**에 비교한다.
+위 마무리 문제의 유사 문제이다. 강의 후 풀어 와서 **8회차 Review 시간**에 비교한다.
 
 $A = \begin{pmatrix} 25 & 15 & -5 \\ 15 & 18 & 0 \\ -5 & 0 & 11 \end{pmatrix}$가 주어졌다.
 
@@ -562,13 +562,13 @@ $A = \begin{pmatrix} 25 & 15 & -5 \\ 15 & 18 & 0 \\ -5 & 0 & 11 \end{pmatrix}$�
 - (c) **새 예고**: SVD의 핵심 사실 $A^\top A$의 Eigenvalue가 $\sigma_i^2$. 본 회차 행렬 $A$가 대칭 양정치라면 $A^\top A = A^2$의 Eigenvalue는 $A$의 Eigenvalue의 제곱이다. (a)의 행렬에 대해 $\lambda^2$들이 양수임을 확인하고 (대각화 없이 trace·det 활용 가능), SVD의 $\sigma_i$ 후보를 추정해보시오.
 
 ### 자기 점검
-- (c)는 4회차 SVD 준비 운동이다. $\sigma_i$ = $A^\top A$의 Eigenvalue의 양의 제곱근, 대칭 양정치의 경우 $\sigma_i = \lambda_i$로 일치.
+- (c)는 8회차 SVD 준비 운동이다. $\sigma_i$ = $A^\top A$의 Eigenvalue의 양의 제곱근, 대칭 양정치의 경우 $\sigma_i = \lambda_i$로 일치.
 
 ---
 
 ## E-6. 과제 안내
 
-`04_과제/Part2/03회차_homework.md`, 마감: 4회차 시작 전
+`04_과제/Part2/07회차_homework.md`, 마감: 8회차 시작 전
 
 **수학 30점**
 - 양정치 판정 (Sylvester·Eigenvalue·이차형식 직접), 5문제
@@ -584,7 +584,7 @@ $A = \begin{pmatrix} 25 & 15 & -5 \\ 15 & 18 & 0 \\ -5 & 0 & 11 \end{pmatrix}$�
 
 ---
 
-## E-7. 다음 회차 (4회차) 예고
+## E-7. 다음 회차 (8회차) 예고
 
 **주제**: SVD (Singular Value Decomposition, 특이값 분해)·기하 해석
 
@@ -627,4 +627,4 @@ $n = 1$ 자명. $n \ge 2$ 가정. $A$를 블록으로 $\begin{pmatrix} A_{n-1} &
 다음 회차의 출발 문제:
 > 비정방·비대칭 행렬에도 일반화되는 **모든 행렬의 분해**는 무엇입니까?
 
-`HANDOUT`: 본 PDF, `Part2_03_양정치_Cholesky_MVN.ipynb`
+`HANDOUT`: 본 PDF, `Part2_07_양정치_Cholesky_MVN.ipynb`
