@@ -96,8 +96,8 @@ async function handleSubmit(request, env) {
     return jsonResponse({ error: 'invalid json' }, 400);
   }
 
-  if (!Array.isArray(body.answers) || body.answers.length !== 20) {
-    return jsonResponse({ error: 'answers must be array of 20' }, 400);
+  if (!Array.isArray(body.answers) || body.answers.length !== 10) {
+    return jsonResponse({ error: 'answers must be array of 10' }, 400);
   }
   if (!Array.isArray(body.axisScores) || body.axisScores.length !== 6) {
     return jsonResponse({ error: 'axisScores must be array of 6' }, 400);
@@ -158,7 +158,7 @@ async function handleStats(url, env) {
 
   // 문항별 정답률 + 보기별 분포
   const questionStats = [];
-  for (let q = 0; q < 20; q++) {
+  for (let q = 0; q < 10; q++) {
     const choices = { a: 0, b: 0, c: 0, d: 0 };
     let correctCount = 0;
     for (const r of responses) {
@@ -249,7 +249,7 @@ async function handleAnalyze(url, env) {
 
   // 문항별 정답률 + 보기 분포
   const qLines = [];
-  for (let q = 0; q < 20; q++) {
+  for (let q = 0; q < 10; q++) {
     const choices = { a: 0, b: 0, c: 0, d: 0 };
     let correct = 0;
     for (const r of responses) {
@@ -276,7 +276,7 @@ async function handleAnalyze(url, env) {
 [6 핵심역량 축별 점수]
 ${axisLines}
 
-[20개 문항별 정답률·보기 분포]
+[10개 문항별 정답률·보기 분포]
 ${qLines.join('\n')}
 
 위 결과를 바탕으로 강사에게 다음 4가지를 한국어로 분석해주세요:
