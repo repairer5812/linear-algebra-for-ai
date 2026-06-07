@@ -10,6 +10,15 @@
 // Env vars (wrangler secret):
 //   ADMIN_TOKEN       — 관리자 인증 토큰
 //   UPSTAGE_API_KEY   — Upstage Solar API 키
+//
+// 무료 한도 보호 설계 (2026-06-08):
+//   - Rate limit 마커를 KV가 아니라 Cache API(edge)에 저장한다. 그래서 /submit 1건당
+//     KV 작업은 응답 저장 put 1회뿐(이전엔 rl get 1 + rl put 1이 더 붙어 reads·writes를
+//     2배로 잡아먹었다). KV writes 1,000/일 한도를 가장 아끼는 변경.
+//   - /admin·/stats·/analyze가 매번 list()+키별 get()으로 전체를 훑던 것을 loadResponses()
+//     하나로 합치고 결과를 Cache API에 60초 캐싱한다. 관리자가 새로고침을 반복해도 KV
+//     list/get이 콜로당 60초에 1회로 묶여 reads 100k·lists 1,000/일 한도를 보호한다.
+//   - list()를 cursor로 페이지네이션해 응답이 1,000건을 넘어도 누락 없이 집계한다(잠재 버그 수정).
 
 const CORS_HEADERS = {
   'Access-Control-Allow-Origin': '*',
@@ -33,16 +42,16 @@ export default {
     const url = new URL(request.url);
 
     if (request.method === 'POST' && url.pathname === '/submit') {
-      return await handleSubmit(request, env);
+      return await handleSubmit(request, env, ctx);
     }
     if (request.method === 'GET' && url.pathname === '/admin') {
-      return await handleAdmin(url, env);
+      return await handleAdmin(url, env, ctx);
     }
     if (request.method === 'GET' && url.pathname === '/stats') {
-      return await handleStats(url, env);
+      return await handleStats(url, env, ctx);
     }
     if (request.method === 'GET' && url.pathname === '/analyze') {
-      return await handleAnalyze(url, env);
+      return await handleAnalyze(url, env, ctx);
     }
     if (request.method === 'GET' && url.pathname === '/') {
       return new Response('linear-algebra-for-ai diagnostic API\n', {
@@ -53,39 +62,69 @@ export default {
   },
 };
 
-// Rate limit 설정: 한 IP 당 5분 1회
-const RATE_LIMIT_WINDOW_MS = 5 * 60 * 1000;   // 5분
-const RATE_LIMIT_TTL_SEC = 600;               // KV 자동 만료 10분
+// === 한도 보호 설정 ===
+const CACHE_BASE = 'https://linalg.cache';     // Cache API 합성 키 베이스(외부로 안 나감)
+const RATE_LIMIT_WINDOW_MS = 5 * 60 * 1000;    // 한 IP 당 5분 1회
+const RATE_LIMIT_WINDOW_SEC = 300;
+const RESP_CACHE_TTL_SEC = 60;                 // 관리자 집계용 응답 스냅샷 캐시 수명
 
-async function handleSubmit(request, env) {
-  // === Rate limit 체크 (IP 기반) ===
+// Rate limit: Cache API 기반(KV 작업 0). IP는 보통 한 콜로에 고정되므로 교실 단위 진단엔 충분.
+async function rateLimitRemainingSec(ip) {
+  const hit = await caches.default.match(new Request(`${CACHE_BASE}/rl/${encodeURIComponent(ip)}`));
+  if (!hit) return 0;
+  const until = parseInt(await hit.text(), 10) || 0;
+  const remaining = Math.ceil((until - Date.now()) / 1000);
+  return remaining > 0 ? remaining : 0;
+}
+function markRateLimit(ip, ctx) {
+  const until = Date.now() + RATE_LIMIT_WINDOW_MS;
+  ctx.waitUntil(caches.default.put(
+    new Request(`${CACHE_BASE}/rl/${encodeURIComponent(ip)}`),
+    new Response(String(until), { headers: { 'Cache-Control': `max-age=${RATE_LIMIT_WINDOW_SEC}` } }),
+  ));
+}
+
+// 전체 응답을 한 번만 모아서 Cache API에 60초 캐싱. list는 cursor로 끝까지 페이지네이션.
+async function loadResponses(env, ctx) {
+  const key = new Request(`${CACHE_BASE}/responses`);
+  const hit = await caches.default.match(key);
+  if (hit) return await hit.json();
+
+  const responses = [];
+  let cursor;
+  do {
+    const page = await env.DIAGNOSTICS.list({ prefix: 'resp:', cursor });
+    for (const k of page.keys) {
+      const v = await env.DIAGNOSTICS.get(k.name);
+      if (v) responses.push(JSON.parse(v));
+    }
+    cursor = page.list_complete ? undefined : page.cursor;
+  } while (cursor);
+
+  ctx.waitUntil(caches.default.put(key, new Response(JSON.stringify(responses), {
+    headers: { 'Content-Type': 'application/json', 'Cache-Control': `max-age=${RESP_CACHE_TTL_SEC}` },
+  })));
+  return responses;
+}
+
+async function handleSubmit(request, env, ctx) {
+  // === Rate limit 체크 (IP 기반, Cache API) ===
   const ip = request.headers.get('CF-Connecting-IP')
           || request.headers.get('X-Forwarded-For')
           || 'unknown';
-  const rlKey = `rl:${ip}`;
-  const lastSubmitStr = await env.DIAGNOSTICS.get(rlKey);
-  const now = Date.now();
-
-  if (lastSubmitStr) {
-    const elapsed = now - parseInt(lastSubmitStr, 10);
-    if (elapsed < RATE_LIMIT_WINDOW_MS) {
-      const retryAfter = Math.ceil((RATE_LIMIT_WINDOW_MS - elapsed) / 1000);
-      return new Response(
-        JSON.stringify({
-          error: 'rate_limited',
-          message: '한 IP 당 5분에 1회 제출만 가능합니다. 잠시 후 다시 시도해주세요.',
-          retry_after_sec: retryAfter,
-        }),
-        {
-          status: 429,
-          headers: {
-            'Content-Type': 'application/json',
-            'Retry-After': String(retryAfter),
-            ...CORS_HEADERS,
-          },
-        },
-      );
-    }
+  const retryAfter = await rateLimitRemainingSec(ip);
+  if (retryAfter > 0) {
+    return new Response(
+      JSON.stringify({
+        error: 'rate_limited',
+        message: '한 IP 당 5분에 1회 제출만 가능합니다. 잠시 후 다시 시도해주세요.',
+        retry_after_sec: retryAfter,
+      }),
+      {
+        status: 429,
+        headers: { 'Content-Type': 'application/json', 'Retry-After': String(retryAfter), ...CORS_HEADERS },
+      },
+    );
   }
 
   // === 본문 검증 ===
@@ -103,11 +142,11 @@ async function handleSubmit(request, env) {
     return jsonResponse({ error: 'axisScores must be array of 6' }, 400);
   }
 
-  // === 응답 저장 + Rate limit 마커 갱신 ===
+  // === 응답 저장 (KV write 1회만) + Rate limit 마커(Cache API) ===
   const id = crypto.randomUUID();
   const record = {
     id,
-    timestamp: now,
+    timestamp: Date.now(),
     ip,                              // 익명 통계용 (외부 노출 X, /admin 토큰으로만 조회)
     answers: body.answers,
     correct: body.correct,
@@ -116,41 +155,29 @@ async function handleSubmit(request, env) {
     userAgent: request.headers.get('User-Agent') || '',
   };
 
-  await Promise.all([
-    env.DIAGNOSTICS.put(`resp:${id}`, JSON.stringify(record)),
-    env.DIAGNOSTICS.put(rlKey, String(now), { expirationTtl: RATE_LIMIT_TTL_SEC }),
-  ]);
+  await env.DIAGNOSTICS.put(`resp:${id}`, JSON.stringify(record));
+  markRateLimit(ip, ctx);
 
   return jsonResponse({ ok: true, id });
 }
 
-async function handleAdmin(url, env) {
+async function handleAdmin(url, env, ctx) {
   const token = url.searchParams.get('token');
   if (!token || token !== env.ADMIN_TOKEN) {
     return jsonResponse({ error: 'unauthorized' }, 401);
   }
 
-  const list = await env.DIAGNOSTICS.list({ prefix: 'resp:' });
-  const responses = [];
-  for (const k of list.keys) {
-    const v = await env.DIAGNOSTICS.get(k.name);
-    if (v) responses.push(JSON.parse(v));
-  }
+  const responses = await loadResponses(env, ctx);
   return jsonResponse({ count: responses.length, responses });
 }
 
-async function handleStats(url, env) {
+async function handleStats(url, env, ctx) {
   const token = url.searchParams.get('token');
   if (!token || token !== env.ADMIN_TOKEN) {
     return jsonResponse({ error: 'unauthorized' }, 401);
   }
 
-  const list = await env.DIAGNOSTICS.list({ prefix: 'resp:' });
-  const responses = [];
-  for (const k of list.keys) {
-    const v = await env.DIAGNOSTICS.get(k.name);
-    if (v) responses.push(JSON.parse(v));
-  }
+  const responses = await loadResponses(env, ctx);
 
   if (responses.length === 0) {
     return jsonResponse({ count: 0, message: '응답 없음' });
@@ -209,7 +236,7 @@ async function handleStats(url, env) {
 }
 
 // AI 분석: Upstage Solar API로 진단 결과 해석
-async function handleAnalyze(url, env) {
+async function handleAnalyze(url, env, ctx) {
   const token = url.searchParams.get('token');
   if (!token || token !== env.ADMIN_TOKEN) {
     return jsonResponse({ error: 'unauthorized' }, 401);
@@ -218,13 +245,8 @@ async function handleAnalyze(url, env) {
     return jsonResponse({ error: 'UPSTAGE_API_KEY not configured' }, 500);
   }
 
-  // 응답 수집 + 집계 (handleStats 와 동일 로직)
-  const list = await env.DIAGNOSTICS.list({ prefix: 'resp:' });
-  const responses = [];
-  for (const k of list.keys) {
-    const v = await env.DIAGNOSTICS.get(k.name);
-    if (v) responses.push(JSON.parse(v));
-  }
+  // 응답 수집 + 집계 (loadResponses 로 캐시 공유)
+  const responses = await loadResponses(env, ctx);
   if (responses.length === 0) {
     return jsonResponse({ error: '응답 없음 — 분석할 데이터 부족' }, 400);
   }
