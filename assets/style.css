@@ -16,12 +16,12 @@ button { font: inherit; cursor: pointer; }
 /* Variables */
 :root {
   --bg: #ffffff;
-  --bg-alt: #f8f9fb;
-  --text: #1f2937;
-  --text-muted: #6b7280;
-  --accent: #dc143c;
-  --accent-hover: #a91229;
-  --accent-soft: #fce8ec;
+  --bg-alt: oklch(0.975 0.004 250);
+  --text: oklch(0.23 0.022 265);
+  --text-muted: oklch(0.45 0.018 265);
+  --accent: #8b1538;
+  --accent-hover: #6f1029;
+  --accent-soft: #f8e7ec;
   --border: #e5e7eb;
   --border-strong: #d1d5db;
   --code-bg: #f3f4f6;
