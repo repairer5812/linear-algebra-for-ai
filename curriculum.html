@@ -31,14 +31,14 @@
   <section class="hero">
     <h1 class="hero__title">진도표</h1>
     <p class="hero__subtitle">Part 1 (8 Session(회차)) + Part 2 (9회차) + Part 3 (4회차) + Part 4 (8회차) = 총 29회차, 1회차 2시간 × 29 = 58시간 운영</p>
-    <p class="hero__meta"><strong style="color:var(--text);">4 Part = 4기 1:1 매칭</strong>: Part 1 (LA1, 8회차, 1기) · Part 2 (LA2, 9회차, 2기) · Part 3 (VC+Probability, 4회차, 3기) · Part 4 (ML 및 AI의 수학적 응용, 8회차, 4기)<br>메인 MML<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Mathematics for Machine Learning)</small> · 보조 발췌 Strang <em>Introduction to Linear Algebra</em> · 시각 EoLA<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Essence of Linear Algebra)</small> · 실습 Jupyter / NumPy / PyTorch</p>
+    <p class="hero__meta"><strong style="color:var(--text);">4 Part = 4기 1:1 매칭</strong>: Part 1 (LA1, 8회차, 1기) · Part 2 (LA2, 9회차, 2기) · Part 3 (VC+Probability, 4회차, 3기) · Part 4 (ML 및 AI의 수학적 응용, 8회차, 4기)<br>메인 MML(Mathematics for Machine Learning) · 보조 발췌 Strang <em>Introduction to Linear Algebra</em> · 시각 EoLA(Essence of Linear Algebra) · 실습 Jupyter / NumPy / PyTorch</p>
   </section>
 
   <!-- Part 1 -->
   <section class="section" id="part1">
     <div class="part-header">
       <h2>Part 1 (8회차) — <span style="color:var(--accent);">1기 LA1 (선형대수 1)</span> · MML §2-§3 일부 + Strang Ch 1-3 발췌, 선형대수 기초 1</h2>
-      <p>Vector(벡터), Matrix(행렬), 선형방정식, 벡터공간, Subspace(부분공간), 4 기본 부분공간의 정의·정리 + 행렬을 선형사상으로 다루는 관점 체화 + $Ax=b$ 의 해 존재·유일성을 4 기본 부분공간으로 판별 + NumPy로 가우스 소거·LU<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(LU Decomposition, LU 분해)</small> 구현. MML §2-§3 일부가 정의·정리의 단일 골격을 제공하고, Strang의 시그니처 자산(행·열 두 해석, 4 기본 부분공간, LU)을 발췌 박스로 결합해 학부 미이수자에게 구체적 직관을 보강합니다.</p>
+      <p>Vector(벡터), Matrix(행렬), 선형방정식, 벡터공간, Subspace(부분공간), 4 기본 부분공간의 정의·정리를 다룹니다. 행렬을 선형사상으로 보는 관점을 체화하고, $Ax=b$의 해 존재·유일성을 4 기본 부분공간으로 판별하며, NumPy로 가우스 소거·LU 분해를 구현합니다. MML §2-§3 일부가 정의·정리의 단일 골격을 제공하고, Strang의 시그니처 자산(행·열 두 해석, 4 기본 부분공간, LU)을 발췌 박스로 결합해 학부 미이수자에게 구체적 직관을 보강합니다.</p>
     </div>
 
     <h3>Part 흐름</h3>
@@ -68,7 +68,7 @@
         <tr><td><strong>1회차</strong></td><td>§2.1 도입</td><td>Ch 1.1 직관</td><td>▓▓▓</td><td>Vector, $\mathbb{R}^n$, 덧셈·Scalar 곱, Linear combination(선형결합)</td><td>데이터의 벡터 표현 (이미지·문서)</td><td>MNIST 이미지를 784차원 벡터로 변환, 두 벡터 덧셈·scalar 곱</td></tr>
         <tr><td><strong>2회차</strong></td><td>§3.1-3.4</td><td>Ch 1.2 Cauchy-Schwarz 판별식 풀이</td><td>▓▓▓</td><td>Length(노름), Dot product(내적), 각도, Cauchy-Schwarz, Cosine similarity(코사인 유사도)</td><td>코사인 유사도 검색, 임베딩 정렬</td><td>두 이미지 코사인 유사도, 단어 임베딩 정렬</td></tr>
         <tr><td><strong>3회차</strong></td><td>§2.2·§2.7 일부</td><td><strong>Ch 1.3·2.1 행·열 두 해석</strong></td><td>▓▓▓▓</td><td>Matrix, 행렬·벡터 곱(행 방식·<strong>열 방식 중심</strong>), 행렬 곱 합성</td><td>신경망 한 층 $=Ax$, 그래프 인접행렬</td><td>$Ax$ 를 행 내적·열 결합 두 방식으로 구현해 일치 확인</td></tr>
-        <tr><td><strong>4회차</strong></td><td>§2.3.1-3</td><td><strong>Ch 2.1-2.3 elementary matrix·절차</strong></td><td>▓▓▓▓</td><td>선형방정식, 가우스 소거, RREF<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Reduced Row Echelon Form, 기약 행 사다리꼴)</small>, $Ax=b$ 해의 존재·유일성</td><td>회로·물리·최적화에서 선형 시스템 등장</td><td>NumPy로 가우스 소거 직접 구현, <code>np.linalg.solve</code>와 정확도·시간 비교</td></tr>
+        <tr><td><strong>4회차</strong></td><td>§2.3.1-3</td><td><strong>Ch 2.1-2.3 elementary matrix·절차</strong></td><td>▓▓▓▓</td><td>선형방정식, 가우스 소거, RREF(기약 행 사다리꼴), $Ax=b$ 해의 존재·유일성</td><td>회로·물리·최적화에서 선형 시스템 등장</td><td>NumPy로 가우스 소거 직접 구현, <code>np.linalg.solve</code>와 정확도·시간 비교</td></tr>
         <tr><td><strong>5회차</strong></td><td>§2.3.4·§2.2</td><td><strong>Ch 2.4-2.7 LU·BLAS</strong></td><td>▓▓▓▓</td><td>행렬 곱 정의·결합법칙·비가환성, 역행렬, $LU$ 분해, 전치, 순열행렬</td><td>그래픽스 변환의 가역성, BLAS·LAPACK 내부, 딥러닝에서 역행렬을 거의 안 쓰는 이유</td><td>역행렬 직접 구현·<code>np.linalg.inv</code> 비교, <code>scipy.linalg.lu</code> 분해 후 전·후방 대입</td></tr>
         <tr><td><strong>6회차</strong></td><td>§2.4·§2.5 도입·§2.8 Affine</td><td>Ch 3.1-3.2 직관</td><td>▓▓</td><td>Vector space(8 axioms), Subspace 정식 정의, Nullspace $N(A)$, $Ax=0$ 해집합, Affine space(아핀 공간) $A=p+V$ (단원 끝, 신경망 bias 동기)</td><td>죽은 뉴런, 압축 손실, 오토인코더 잠재공간 차원, $y=Wx+b$ 의 affine 해석</td><td><code>scipy.linalg.null_space</code>로 nullspace 기저, $Ax=0$ 검증</td></tr>
         <tr><td><strong>7회차</strong></td><td>§2.6 일부</td><td><strong>Ch 3.3-3.4 4 fundamental subspaces</strong></td><td>▓▓▓▓▓</td><td>$Ax=b$ 완전해 ($x_p + x_n$), Column space $C(A)$, Rank(계수), 4 부분공간 도입</td><td>데이터 행렬의 유효 차원, 임베딩 내재 차원 추정</td><td>잡음 섞인 저차원 데이터 <code>matrix_rank</code>와 특잇값 분포 비교</td></tr>
@@ -174,7 +174,7 @@
   <section class="section" id="part4">
     <div class="part-header">
       <h2>Part 4 (8회차) — <span style="color:var(--accent);">4기 ML 및 AI의 수학적 응용</span> · MML Ch 9-12 + AI 모듈 환원</h2>
-      <p>Linear Regression·PCA·GMM·SVM 4개 표준 ML 방법론을 MML 정식으로 진술·구현, CNN<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Convolutional Neural Network, 합성곱 신경망)</small> convolution·attention·embedding이 어떤 선형대수 객체로 환원되는지 식별, 임의 AI 모델 한 부분의 LA 구조를 보고서로 분해(Case Study). Part 1·2·3에서 쌓은 선형대수·미분·확률·최적화를 ML 방법론과 AI 모듈 분해로 응용하는 마무리 단계입니다.</p>
+      <p>Linear Regression·PCA·GMM·SVM 4개 표준 ML 방법론을 MML 정식으로 진술·구현합니다. 이어 CNN(합성곱 신경망)의 convolution·attention·embedding이 어떤 선형대수 객체로 환원되는지 식별하고, 임의 AI 모델 한 부분의 LA 구조를 보고서로 분해합니다(Case Study). Part 1·2·3에서 쌓은 선형대수·미분·확률·최적화를 ML 방법론과 AI 모듈 분해로 응용하는 마무리 단계입니다.</p>
     </div>
 
     <h3>Part 흐름</h3>
@@ -318,7 +318,7 @@
     <ol>
       <li>그람-슈미트의 한 단계 $\mathbf{q}_k = \mathbf{a}_k - \sum \langle\mathbf{a}_k, \mathbf{q}_j\rangle \mathbf{q}_j$를 식으로 쓸 수 있는가? CGS와 MGS의 수치 안정성 차이는?</li>
       <li>$A = QR$ 분해에서 $Q, R$의 차원과 성질?</li>
-      <li>2D Rotation matrix(회전 행렬)의 핵심 성질 3가지 ($R^\top R = I$, $\det R = 1$, 노름 보존)와 합성 $R(\alpha)R(\beta)=R(\alpha+\beta)$, RoPE<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Rotary Position Embedding, LLaMA·Mistral)</small> 응용 인지?</li>
+      <li>2D Rotation matrix(회전 행렬)의 핵심 성질 3가지 ($R^\top R = I$, $\det R = 1$, 노름 보존)와 합성 $R(\alpha)R(\beta)=R(\alpha+\beta)$, RoPE(Rotary Position Embedding) 응용 인지?</li>
     </ol>
 
     <h4>4회차 — 행렬식 + 전반 종합 Review</h4>

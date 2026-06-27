@@ -11,7 +11,7 @@
 ## 주요 페이지
 
 - `index.html` — 메인 페이지 (강좌 개요, 6 핵심역량, 평가·수료, 신청, FAQ)
-- `diagnostic.html` — 진단 테스트 20문제 + 6축 육각형 결과 분석
+- `diagnostic.html` — 진단 테스트 10문제 + 6축 육각형 결과 분석
 - `curriculum.html` — Part 1 (LA1, 8회차) + Part 2 (LA2, 9회차) + Part 3 (VC + Probability, 4회차) + Part 4 (ML 및 AI 응용, 8회차) 상세 회차표 + 자가진단 체크리스트
 - `admin.html` — 강사용 익명 응답 통계 (토큰 인증)
 

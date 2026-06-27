@@ -274,7 +274,7 @@ const CASE_TEXT = {
         <li><strong>더 심화된 주제</strong>: 텐서대수, 미분기하, 정보이론, 무한차원 함수해석, 작용소이론 등 후속 주제가 본인 연구와 더 직접적으로 연결될 수 있습니다.</li>
         <li><strong>본 강좌 청강은 환영합니다</strong>: 다만 과제 부담을 새로 지시기보다, 다음 두 부분만 선별 청강하시는 방식이 효율적입니다.
           <ul>
-            <li>Part 3 1-2회차 (행렬미분) + Part 4 6-7회차 (AI<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Artificial Intelligence, 인공지능)</small> 모듈 환원) — attention의 row-stochastic·convex combination 분해, conv1d의 토플리츠 환원 등 표준 LA<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Linear Algebra, 선형대수)</small> 교과서에 잘 정리되지 않은 응용</li>
+            <li>Part 3 1-2회차 (행렬미분), Part 4 6-7회차 (AI 모듈 환원) — attention의 row-stochastic·convex combination 분해, conv1d의 토플리츠 환원 등 표준 LA 교과서에 잘 정리되지 않은 응용</li>
             <li>Part 4 Case Study (1회차 주제 결정, 8회차 발표) — 임의 AI 모델 한 모듈을 표준 LA 객체로 분해·재구현. 본인 연구 코드의 LA 검토를 동시에 수행 가능</li>
           </ul>
         </li>
@@ -288,7 +288,7 @@ const CASE_TEXT = {
       <p>진단 결과 일부 축은 견고하나 다른 축에서 50-70% 범위로 떨어집니다. 본 강좌는 6축을 모두 다루도록 설계되어 있어 약점 축 보완에 직접적인 도움이 됩니다.</p>
       <ul>
         <li><strong>강점 축</strong>: 해당 회차는 빠르게 통과하며 응용에 집중하시면 됩니다.</li>
-        <li><strong>약점 축</strong>: 해당 회차의 사전 reading(Strang<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Introduction to Linear Algebra, 메인 교재)</small> 본문 + EoLA<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Essence of Linear Algebra, 3Blue1Brown 시각 자료)</small> 시각 자료)을 1-2회차 먼저 읽어두시면 강의가 훨씬 수월합니다.</li>
+        <li><strong>약점 축</strong>: 해당 회차의 사전 reading(Strang 본문, EoLA 시각 자료)을 1-2회차 먼저 읽어두시면 강의가 훨씬 수월합니다.</li>
       </ul>
       <p><strong>축별 사전 reading 가이드</strong> (약점 축에 해당하는 행만 우선 학습하시기 바랍니다):</p>
       <div class="table-wrap"><table>
@@ -313,8 +313,8 @@ const CASE_TEXT = {
       <ul>
         <li>Part 종료 시 Vector(벡터)·Matrix(행렬)·선형방정식·Subspace(부분공간)·Orthogonal projection(정사영)·Determinant(행렬식)의 정의·정리를 직관과 함께 자기 것으로 소화</li>
         <li>$Ax = b$의 해 존재·유일성을 네 가지 기본 부분공간으로 즉석 판별</li>
-        <li>NumPy로 가우스 소거·LU<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(LU Decomposition, LU 분해)</small>·그람-슈미트·Normal equation(정규방정식)·행렬식을 직접 구현</li>
-        <li>Part 2·3·4까지 이수 시 SVD<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Singular Value Decomposition, 특이값 분해)</small>·PCA<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Principal Component Analysis, 주성분 분석)</small>·행렬미분으로 Neural Network(신경망) forward·backward를 분해, 임의 AI 모델 한 부분의 LA 구조를 보고서로 작성 가능</li>
+        <li>NumPy로 가우스 소거·LU 분해·그람-슈미트·Normal equation(정규방정식)·행렬식을 직접 구현</li>
+        <li>Part 2·3·4까지 이수 시 SVD(특이값 분해)·PCA(주성분 분석)·행렬미분으로 Neural Network(신경망) forward·backward를 분해, 임의 AI 모델 한 부분의 LA 구조를 보고서로 작성 가능</li>
       </ul>
       <p>처음에 어렵게 느껴지시더라도 매 회차 자가진단 체크리스트로 진도를 점검하시면 막힘 없이 따라오실 수 있도록 설계되어 있습니다.</p>
     `
@@ -325,9 +325,9 @@ const CASE_TEXT = {
       <p>진단 결과 가장 높은 축과 가장 낮은 축의 점수 차가 40점을 넘습니다. 한 영역에서는 깊이 있는 학습이 되어 있으나, 인접 영역과의 연결이 비어 있을 가능성이 높습니다. 본 강좌는 6축이 어떻게 서로 연결되는지 매 회차 명시적으로 보여주는 구조로 설계되어 있습니다.</p>
       <p>전형적인 편차 패턴은 다음과 같습니다.</p>
       <ul>
-        <li><strong>(Eigenvalue(고윳값)·SVD<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Singular Value Decomposition, 특이값 분해)</small>는 알지만 부분공간·정사영이 약함)</strong> — 분해의 결과는 알지만 그것이 "어느 부분공간으로의 사영"인지 해석이 안 되는 경우. Part 2 1-2회차가 이 빈틈을 채웁니다.</li>
+        <li><strong>(Eigenvalue(고윳값)·SVD(특이값 분해)는 알지만 부분공간·정사영이 약함)</strong> — 분해의 결과는 알지만 그것이 "어느 부분공간으로의 사영"인지 해석이 안 되는 경우. Part 2 1-2회차가 이 빈틈을 채웁니다.</li>
         <li><strong>(코드는 작성하지만 정의가 약함)</strong> — <code>np.linalg.svd</code>는 호출하지만 SVD의 존재 정리·기하학적 의미를 진술하지 못하는 경우. 매 회차 정의·증명 부분이 도움이 됩니다.</li>
-        <li><strong>(정의는 알지만 AI<small style="display:inline-block;font-size:0.78em;color:#6b7280;margin-left:0.3em;">(Artificial Intelligence, 인공지능)</small> 응용 매핑이 안 됨)</strong> — 행렬곱 정의는 정확하지만 attention의 $QK^\\top$이 내적·정사영 구조임을 즉석에서 보지 못하는 경우. Part 3 1-2·Part 4 6-7회차가 이 매핑을 명시화합니다.</li>
+        <li><strong>(정의는 알지만 AI 응용 매핑이 안 됨)</strong> — 행렬곱 정의는 정확하지만 attention의 $QK^\\top$이 내적·정사영 구조임을 즉석에서 보지 못하는 경우. Part 3 1-2·Part 4 6-7회차가 이 매핑을 명시화합니다.</li>
       </ul>
       <p><strong>이 강좌에서 얻으실 수 있는 것</strong>: 6축이 별개 영역이 아니라 하나의 큰 그림 — "$Ax=b$의 해 → 부분공간 분류 → 직교 분해 → 고유 분해 → SVD → AI 모듈 환원"이라는 단일 흐름 — 임을 Part 내내 반복적으로 보시게 됩니다. 강점 축은 더 깊어지고, 약점 축은 강점 축과의 연결 속에서 빠르게 채워집니다.</p>
     `
