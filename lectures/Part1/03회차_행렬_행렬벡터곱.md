@@ -9,23 +9,24 @@ size: 16:9
 style: |
   @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css');
   section { font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-            font-size: 22px; padding: 50px 60px 70px 60px; color: #111827; letter-spacing: -0.011em; }
+            font-size: 22px; padding: 50px 60px 70px 60px; color: #1F2937; letter-spacing: -0.011em; }
   section.lead { padding: 100px 60px; }
-  h1 { color: #1E40AF; margin-top: 0; font-weight: 700; letter-spacing: -0.02em; }
-  h2 { color: #111827; border-bottom: 2px solid #E5E7EB; padding-bottom: 4px; margin-top: 0; font-weight: 700; }
+  h1 { color: #862633; margin-top: 0; font-weight: 700; letter-spacing: -0.02em; }
+  h2 { color: #1A1A1A; border-bottom: 2px solid #862633; padding-bottom: 4px; margin-top: 0; font-weight: 700; }
   table { font-size: 17px; border-collapse: collapse; }
-  th { background: #F9FAFB; border: 1px solid #E5E7EB; }
-  td { border: 1px solid #E5E7EB; }
-  code { font-size: 17px; background: #F3F4F6; color: #BE185D; padding: 2px 6px; border-radius: 6px;
+  th { background: #F6E9EC; color: #4F141E; border: 1px solid #EAEAE5; }
+  td { border: 1px solid #EAEAE5; }
+  code { font-size: 17px; background: #F8F8F5; color: #862633; padding: 2px 6px; border-radius: 6px;
          font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace; }
-  blockquote { font-size: 19px; border-left: 4px solid #3B82F6; color: #1E40AF;
-               background: #DBEAFE; padding: 8px 14px; border-radius: 0 8px 8px 0; }
-  section.exercise { background: #FFFBEB; }
-  section.exercise h1 { color: #B45309; }
-  section.exercise h2 { color: #92400E; border-bottom-color: #FDE68A; }
-  .analogy { background: #D1FAE5; border-left: 4px solid #10B981; padding: 10px 16px; margin: 12px 0;
-             font-size: 19px; color: #065F46; border-radius: 0 8px 8px 0; }
-  .analogy strong { color: #047857; }
+  blockquote { font-size: 19px; border-left: 4px solid #862633; color: #4F141E;
+               background: #F6E9EC; padding: 8px 14px; border-radius: 0 8px 8px 0; }
+  section.exercise { background: #FBF4F5; }
+  section.exercise h1 { color: #862633; }
+  section.exercise h2 { color: #4F141E; border-bottom-color: #E9C9D0; }
+  .analogy { background: #F8F8F5; border-left: 3px solid #862633; padding: 10px 16px; margin: 12px 0;
+             font-size: 19px; color: #1F2937; border-radius: 0 8px 8px 0; }
+  .analogy strong { color: #862633; }
+  header, footer { color: #8A8E99; }
 ---
 
 <!-- _class: lead -->
