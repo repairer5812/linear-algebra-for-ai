@@ -272,25 +272,21 @@ function computeScores() {
 }
 
 function classifyCase(axisScores) {
-  const above70 = axisScores.filter((s) => s >= 70).length;
-  const below50 = axisScores.filter((s) => s < 50).length;
-  const range = Math.max(...axisScores) - Math.min(...axisScores);
+  // 축당 2문항이라 각 축 점수는 0·50·100 중 하나. 측정된 6축 점수만으로 분류한다.
+  const strong = axisScores.filter((s) => s >= 70).length;  // 거의 만점인 축
+  const weak   = axisScores.filter((s) => s < 50).length;   // 거의 0점인 축
 
-  if (above70 >= 5) return "A";
-  if (below50 >= 3) return "C";
-  // B 조건: 70%이상 3-4개 + 50-70% 다수
-  const between5070 = axisScores.filter((s) => s >= 50 && s < 70).length;
-  if (above70 >= 3 && above70 <= 4 && between5070 >= 1) return "B";
-  if (range > 40) return "D";
-  // fallback: closest case (use B as default for moderate ranges)
-  return "B";
+  if (strong >= 5) return "A";                // 대부분 강함 → 복습용
+  if (strong >= 2 && weak >= 2) return "D";   // 강한 축과 빈 축이 함께 뚜렷 → 편중(통합 흐름)
+  if (weak >= 3) return "C";                  // 약한 축 다수 → 처음부터
+  return "B";                                 // 그 외 → 적합(약점 축 위주 보완)
 }
 
 const CASE_TEXT = {
   A: {
     headline: "본 강좌는 복습용으로 활용하시는 것이 좋겠습니다.",
     body: `
-      <p>진단 결과 6축 중 대부분에서 70% 이상을 기록하셨습니다. 본 강좌는 학부 Linear Algebra(선형대수)의 표준 분량을 차분히 다루는 흐름으로 설계되어 있어, 현재 수준에서는 Part 1·2 전반이 복습에 가깝습니다.</p>
+      <p>진단 결과 6축 중 대부분에서 70% 이상을 기록하셨습니다. 위 레이더에서 약한 축이 있다면 그 회차만 골라 들으시면 됩니다. 본 강좌는 학부 Linear Algebra(선형대수)의 표준 분량을 차분히 다루는 흐름이라, 현재 수준에서는 Part 1·2 전반이 복습에 가깝습니다.</p>
       <p>다음을 권해드립니다.</p>
       <ul>
         <li><strong>더 심화된 주제</strong>: 텐서대수, 미분기하, 정보이론, 무한차원 함수해석, 작용소이론 등 후속 주제가 본인 연구와 더 직접적으로 연결될 수 있습니다.</li>
@@ -342,16 +338,12 @@ const CASE_TEXT = {
     `
   },
   D: {
-    headline: "특정 영역 깊이는 좋으나 다른 영역이 부족하십니다. 본 강좌의 통합 흐름이 도움이 될 수 있습니다.",
+    headline: "축별 점수 편차가 큽니다. 6축을 잇는 통합 흐름이 도움이 됩니다.",
     body: `
-      <p>진단 결과 가장 높은 축과 가장 낮은 축의 점수 차가 40점을 넘습니다. 한 영역에서는 깊이 있는 학습이 되어 있으나, 인접 영역과의 연결이 비어 있을 가능성이 높습니다. 본 강좌는 6축이 어떻게 서로 연결되는지 매 회차 명시적으로 보여주는 구조로 설계되어 있습니다.</p>
-      <p>전형적인 편차 패턴은 다음과 같습니다.</p>
-      <ul>
-        <li><strong>(Eigenvalue(고윳값)·SVD(특이값 분해)는 알지만 부분공간·정사영이 약함)</strong> — 분해의 결과는 알지만 그것이 "어느 부분공간으로의 사영"인지 해석이 안 되는 경우. Part 2 1-2회차가 이 빈틈을 채웁니다.</li>
-        <li><strong>(코드는 작성하지만 정의가 약함)</strong> — <code>np.linalg.svd</code>는 호출하지만 SVD의 존재 정리·기하학적 의미를 진술하지 못하는 경우. 매 회차 정의·증명 부분이 도움이 됩니다.</li>
-        <li><strong>(정의는 알지만 AI 응용 매핑이 안 됨)</strong> — 행렬곱 정의는 정확하지만 attention의 $QK^\\top$이 내적·정사영 구조임을 즉석에서 보지 못하는 경우. Part 3 1-2·Part 4 6-7회차가 이 매핑을 명시화합니다.</li>
-      </ul>
-      <p><strong>이 강좌에서 얻으실 수 있는 것</strong>: 6축이 별개 영역이 아니라 하나의 큰 그림 — "$Ax=b$의 해 → 부분공간 분류 → 직교 분해 → 고유 분해 → SVD → AI 모듈 환원"이라는 단일 흐름 — 임을 Part 내내 반복적으로 보시게 됩니다. 강점 축은 더 깊어지고, 약점 축은 강점 축과의 연결 속에서 빠르게 채워집니다.</p>
+      <p>6축 점수의 편차가 큽니다. 강하게 나온 축이 있는 반면, 거의 비어 있는 축도 있습니다. 위 레이더에서 <strong>강한 축과 약한 축</strong>을 먼저 확인하세요.</p>
+      <p>본 강좌는 6축을 별개로 두지 않고 <strong>하나의 흐름</strong>으로 매 회차 연결해 보여줍니다.</p>
+      <p style="color:#6b7280;font-size:0.93em;margin:0.4rem 0;">$Ax=b$의 해 → 부분공간 분류 → 직교 분해 → 고유 분해 → SVD → AI 모듈 환원</p>
+      <p>그래서 강한 축은 더 깊어지고, 비어 있는 축은 인접한 강한 축과의 연결 속에서 빠르게 채워집니다. <strong>약한 축에 해당하는 회차부터</strong> 우선 보시길 권합니다(축별 회차는 진도표를 참고하세요).</p>
     `
   }
 };
