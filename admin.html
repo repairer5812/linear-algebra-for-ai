@@ -181,11 +181,20 @@ function hideError() {
   $("authError").hidden = true;
 }
 
+// 토큰을 Authorization 헤더로 전송해 URL 쿼리 노출을 막는다.
+// 구버전 Worker(쿼리만 지원)에서는 헤더 요청이 CORS/401로 실패할 수 있어 1회 쿼리 폴백한다.
+// Worker가 헤더 방식으로 배포되면 폴백은 발동하지 않아 토큰이 URL에 남지 않는다.
+async function authFetch(path, token) {
+  try {
+    const resp = await fetch(`${WORKER_URL}${path}`, { headers: { "Authorization": `Bearer ${token}` } });
+    if (resp.status !== 401) return resp;
+  } catch (_) { /* CORS 프리플라이트/네트워크 실패 → 폴백 */ }
+  return fetch(`${WORKER_URL}${path}?token=${encodeURIComponent(token)}`);
+}
+
 async function fetchStatsAndAdmin(token) {
-  const headers = { "Content-Type": "application/json" };
-  // Try stats endpoint first (server-side aggregation)
-  const statsResp = await fetch(`${WORKER_URL}/stats?token=${encodeURIComponent(token)}`, { headers });
-  const adminResp = await fetch(`${WORKER_URL}/admin?token=${encodeURIComponent(token)}`, { headers });
+  const statsResp = await authFetch('/stats', token);
+  const adminResp = await authFetch('/admin', token);
   if (statsResp.status === 401 || adminResp.status === 401) {
     throw new Error("Unauthorized — 토큰이 잘못되었습니다.");
   }
@@ -456,7 +465,7 @@ async function runAnalysis(token) {
   $("btnAnalyze").disabled = true;
   $("btnAnalyzeRefresh").disabled = true;
   try {
-    const resp = await fetch(`${WORKER_URL}/analyze?token=${encodeURIComponent(token)}`);
+    const resp = await authFetch('/analyze', token);
     if (resp.status === 401) throw new Error("토큰이 잘못되었습니다.");
     if (resp.status === 400) {
       const data = await resp.json().catch(() => ({}));

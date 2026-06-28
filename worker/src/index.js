@@ -23,7 +23,7 @@
 const CORS_HEADERS = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type',
+  'Access-Control-Allow-Headers': 'Content-Type, Authorization',
 };
 
 function jsonResponse(obj, status = 200) {
@@ -31,6 +31,15 @@ function jsonResponse(obj, status = 200) {
     status,
     headers: { 'Content-Type': 'application/json', ...CORS_HEADERS },
   });
+}
+
+// 관리자 토큰 추출: Authorization: Bearer <token> 우선, 구버전 클라이언트 호환으로 ?token= 폴백.
+// 토큰을 URL 쿼리스트링에 노출하지 않기 위해 헤더 방식을 권장한다.
+function getToken(request, url) {
+  const auth = request.headers.get('Authorization') || '';
+  const m = /^Bearer\s+(.+)$/i.exec(auth);
+  if (m) return m[1].trim();
+  return url.searchParams.get('token');
 }
 
 export default {
@@ -45,13 +54,13 @@ export default {
       return await handleSubmit(request, env, ctx);
     }
     if (request.method === 'GET' && url.pathname === '/admin') {
-      return await handleAdmin(url, env, ctx);
+      return await handleAdmin(request, url, env, ctx);
     }
     if (request.method === 'GET' && url.pathname === '/stats') {
-      return await handleStats(url, env, ctx);
+      return await handleStats(request, url, env, ctx);
     }
     if (request.method === 'GET' && url.pathname === '/analyze') {
-      return await handleAnalyze(url, env, ctx);
+      return await handleAnalyze(request, url, env, ctx);
     }
     if (request.method === 'GET' && url.pathname === '/') {
       return new Response('linear-algebra-for-ai diagnostic API\n', {
@@ -144,15 +153,15 @@ async function handleSubmit(request, env, ctx) {
 
   // === 응답 저장 (KV write 1회만) + Rate limit 마커(Cache API) ===
   const id = crypto.randomUUID();
+  // 개인 식별 가능 정보(IP·User-Agent)는 저장하지 않는다. IP는 위 rate limit 판정에만
+  // 일시적으로(Cache API) 쓰이고 KV 레코드에는 남기지 않아 "식별 정보 미저장" 고지와 일치시킨다.
   const record = {
     id,
     timestamp: Date.now(),
-    ip,                              // 익명 통계용 (외부 노출 X, /admin 토큰으로만 조회)
     answers: body.answers,
     correct: body.correct,
     axisScores: body.axisScores,
     totalScore: body.totalScore,
-    userAgent: request.headers.get('User-Agent') || '',
   };
 
   await env.DIAGNOSTICS.put(`resp:${id}`, JSON.stringify(record));
@@ -161,8 +170,8 @@ async function handleSubmit(request, env, ctx) {
   return jsonResponse({ ok: true, id });
 }
 
-async function handleAdmin(url, env, ctx) {
-  const token = url.searchParams.get('token');
+async function handleAdmin(request, url, env, ctx) {
+  const token = getToken(request, url);
   if (!token || token !== env.ADMIN_TOKEN) {
     return jsonResponse({ error: 'unauthorized' }, 401);
   }
@@ -171,8 +180,8 @@ async function handleAdmin(url, env, ctx) {
   return jsonResponse({ count: responses.length, responses });
 }
 
-async function handleStats(url, env, ctx) {
-  const token = url.searchParams.get('token');
+async function handleStats(request, url, env, ctx) {
+  const token = getToken(request, url);
   if (!token || token !== env.ADMIN_TOKEN) {
     return jsonResponse({ error: 'unauthorized' }, 401);
   }
@@ -236,8 +245,8 @@ async function handleStats(url, env, ctx) {
 }
 
 // AI 분석: Upstage Solar API로 진단 결과 해석
-async function handleAnalyze(url, env, ctx) {
-  const token = url.searchParams.get('token');
+async function handleAnalyze(request, url, env, ctx) {
+  const token = getToken(request, url);
   if (!token || token !== env.ADMIN_TOKEN) {
     return jsonResponse({ error: 'unauthorized' }, 401);
   }
