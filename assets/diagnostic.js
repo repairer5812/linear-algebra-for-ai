@@ -371,10 +371,10 @@ function drawRadar(axisScores) {
         {
           label: "내 점수 (%)",
           data: axisScores,
-          backgroundColor: "rgba(220, 20, 60, 0.18)",
-          borderColor: "#dc143c",
+          backgroundColor: "rgba(134, 38, 51, 0.18)",
+          borderColor: "#862633",
           borderWidth: 2,
-          pointBackgroundColor: "#dc143c",
+          pointBackgroundColor: "#862633",
           pointRadius: 4
         }
       ]

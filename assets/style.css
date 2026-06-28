@@ -23,9 +23,9 @@ button { font: inherit; cursor: pointer; }
   --text: oklch(0.23 0.022 265);          /* 본문·제목 잉크 */
   --text-soft: oklch(0.40 0.02 265);      /* 보조 본문 */
   --text-muted: oklch(0.50 0.018 265);    /* 라벨·메타 */
-  --accent: #8b1538;                      /* 크림슨 키컬러 */
-  --accent-hover: #6f1029;                /* 링크·호버·강조 */
-  --accent-soft: #f8e7ec;                 /* 연한 강조 배경 */
+  --accent: #862633;                      /* 크림슨 키컬러 (고려대 공식 교색, Pantone 202 C) */
+  --accent-hover: #6e1f2a;                /* 링크·호버·강조 */
+  --accent-soft: #f6e9ec;                 /* 연한 강조 배경 */
   --border: oklch(0.91 0.008 255);
   --border-strong: oklch(0.84 0.01 255);
   --code-bg: oklch(0.96 0.005 255);
