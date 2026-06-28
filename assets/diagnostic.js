@@ -1,5 +1,5 @@
 /* ==========================================================================
-   진단 테스트 — 10문제 SPA 로직
+   진단 테스트 — 12문제 SPA 로직
    - 6축 매핑, 채점, radar chart, PNG/PDF 다운로드, 익명 통계 전송, localStorage
    ========================================================================== */
 
@@ -15,7 +15,7 @@ const AXIS_NAMES = [
   "SVD·선형변환"
 ];
 
-// 10 questions (pure LA). axis: 1-6. answer: 'a'|'b'|'c'|'d'.
+// 12 questions (pure LA, 6 axes × 2). axis: 1-6. answer: 'a'|'b'|'c'|'d'.
 const QUESTIONS = [
   // 축 1: 벡터·내적공간
   {
@@ -98,6 +98,17 @@ const QUESTIONS = [
     },
     answer: "b"
   },
+  {
+    n: 8, axis: 4, level: "학부",
+    text: "열이 일차독립인 $A$에 대해 $A\\mathbf{x} = \\mathbf{b}$가 정확한 해를 갖지 않을 때, 잔차 $\\|\\mathbf{b} - A\\mathbf{x}\\|$를 최소로 하는 <strong>최소제곱(least squares)</strong> 해 $\\hat{\\mathbf{x}}$가 만족하는 <strong>정규방정식(normal equation)</strong>은?",
+    options: {
+      a: "$A\\hat{\\mathbf{x}} = \\mathbf{b}$",
+      b: "$A^\\top A\\,\\hat{\\mathbf{x}} = A^\\top \\mathbf{b}$",
+      c: "$A A^\\top \\hat{\\mathbf{x}} = \\mathbf{b}$",
+      d: "$A^\\top \\hat{\\mathbf{x}} = \\mathbf{b}$"
+    },
+    answer: "b"
+  },
   // 축 5: 행렬식·고윳값
   {
     n: 8, axis: 5, level: "입문",
@@ -132,6 +143,17 @@ const QUESTIONS = [
       d: "$A$의 고윳값 중 가장 작은 $k$개로 만든 행렬"
     },
     answer: "a"
+  },
+  {
+    n: 12, axis: 6, level: "학부",
+    text: "임의의 행렬 $A \\in \\mathbb{R}^{m \\times n}$의 특이값 분해 $A = U\\Sigma V^\\top$에서 <strong>특잇값(singular value)</strong> $\\sigma_i$에 대해 옳은 것은?",
+    options: {
+      a: "$\\sigma_i$는 $A^\\top A$의 고윳값과 같다",
+      b: "$\\sigma_i$는 $A^\\top A$ 고윳값의 음이 아닌 제곱근이다",
+      c: "$\\sigma_i$는 음수가 될 수 있다",
+      d: "SVD는 정방행렬에만 존재한다"
+    },
+    answer: "b"
   }
 ];
 
@@ -164,7 +186,7 @@ function renderQuestion() {
   const optionsHtml = ["a", "b", "c", "d"].map((letter) => `
     <li class="diag-option">
       <label>
-        <input type="radio" name="q${q.n}" value="${letter}"
+        <input type="radio" name="q${currentIdx}" value="${letter}"
           ${answers[currentIdx] === letter ? "checked" : ""}>
         <span class="diag-option__text">
           <span class="diag-option__letter">(${letter})</span>${q.options[letter]}
@@ -175,7 +197,7 @@ function renderQuestion() {
 
   container.innerHTML = `
     <div class="diag-question">
-      <div class="diag-question__num">문항 ${q.n} / ${TOTAL_Q} · 난이도 ${q.level}</div>
+      <div class="diag-question__num">문항 ${currentIdx + 1} / ${TOTAL_Q} · 난이도 ${q.level}</div>
       <div class="diag-question__axis">축 ${q.axis}: ${AXIS_NAMES[q.axis - 1]}</div>
       <div class="diag-question__text">${q.text}</div>
       <ul class="diag-options">${optionsHtml}</ul>
