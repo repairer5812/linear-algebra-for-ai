@@ -121,7 +121,7 @@ style: |
 | ② | **B** | **Embedding = 행렬곱** + $Q, K, V$ 정식 정의 |
 | ③ | **C** | **$\mathrm{softmax}(QK^\top/\sqrt{d_k})V$ 분해** + Multi-head 직관 |
 | ④ | D | **AI 연결** (Transformer 한 층의 완전 분해) |
-| ⑤ | E | **Equivariance 직관 한 슬라이드·마무리·다음 회차 (Case Study)·자율 학습 박스** |
+| ⑤ | E | **Equivariance 직관 한 슬라이드·마무리·Part 4 종합문제 Review·자율 학습 박스** |
 
 ---
 
@@ -375,7 +375,7 @@ $$\text{Input} \to \text{LayerNorm} \to \text{MHA} \to \text{Residual} \to \text
 
 ## E-1. Equivariance 직관 한 슬라이드 (본 회차 흡수)
 
-본 강좌의 원래 8회차에서 다루던 Equivariance·Kronecker를 **직관 한 슬라이드**로 본 회차에 흡수한다.
+Equivariance·Kronecker를 **직관 한 슬라이드**로 본 회차(Part 4 마지막 7회차)에 흡수한다.
 
 ### Translation Equivariance (CNN)
 > **"이미지를 한 칸 옆으로 밀고 Conv를 적용한 결과 = Conv를 적용한 뒤 한 칸 옆으로 민 결과"**
@@ -441,20 +441,20 @@ $$X = \begin{pmatrix} 1 & 0 & 1 & 0 \\ 0 & 1 & 0 & 1 \\ 1 & 1 & 0 & 0 \end{pmatr
 
 <!-- _class: exercise -->
 
-## 다음 회차 (Case Study) Review용 숙제
+## 본 회차 마무리 숙제 (Part 4 종합문제 Review 대비)
 
-본 회차 마무리 문제의 **확장 + Case Study 준비**입니다.
+본 회차 마무리 문제의 **확장 + Part 4 종합문제 Review 대비**입니다.
 
 - (a) 본 문제 (c)의 결과에 row-wise softmax를 적용하여 $P \in \mathbb{R}^{3 \times 3}$를 계산하시오. (소수 둘째 자리)
 - (b) $V = Q$ (같은 행렬)일 때 $PV$를 계산하시오.
 - (c) 본 회차 정리 7.3에 따르면 (b)의 각 행은 무엇의 Linear combination인가?
-- (d) **다음 회차 Case Study 준비**: 자신이 분해해 보고 싶은 AI 모델의 한 부분 (예: ResNet 1×1 Conv, ViT Attention head, LoRA adapter, RoPE positional encoding 등)을 한 개 선택하고 어떤 LA 객체로 환원할 수 있을지 1-2줄로 적어 오시오.
+- (d) **종합문제 Review 대비**: 임의 AI 모델의 한 부분 (예: ResNet 1×1 Conv, ViT Attention head, LoRA adapter, RoPE positional encoding 등)을 한 개 골라 어떤 LA 객체로 환원·분해할 수 있을지 1-2줄로 적어 오시오.
 
 ---
 
 ## E-3. 과제 안내
 
-`04_과제/Part3/07회차_homework.md` — 마감: 8회차 시작 전 (Case Study 자료 포함)
+`04_과제/Part4/07회차_homework.md` — 마감: 다음 회차 강의 시작 전
 
 **수학 30점**
 - Embedding을 one-hot × 행렬로 적기, 2문제
@@ -467,23 +467,19 @@ $$X = \begin{pmatrix} 1 & 0 & 1 & 0 \\ 0 & 1 & 0 & 1 \\ 1 & 1 & 0 & 0 \end{pmatr
 - 같은 입력에 대해 `nn.Embedding`과 one-hot × 행렬이 일치함 검증
 - (보너스) 작은 Transformer 한 층 직접 구현 (행렬 곱만 사용)
 
-**Case Study 준비 (다음 회차 발표)**
-- 자신이 선택한 모델 부분에 대한 보고서 (1쪽) + 5분 발표 슬라이드
-- 자기 점검 활동
-
 **Part 4 (ML 및 AI의 수학적 응용) 종합 문제 사전 풀이**
-- 마지막 회차 전에 사전 공개된 `05_시험/Part3_종합문제풀기.md`를 본인 페이스로 풀어 와서, 8회차에 함께 Review
+- 본 회차 마지막에 함께 Review하므로, 사전 공개된 `05_시험/Part4_종합문제풀기.md`를 본인 페이스로 미리 풀어 둔다.
 
 ---
 
-## E-4. 다음 회차 (8회차) 예고
+## E-4. Part 4 종합문제 Review (본 회차 말미)
 
-**주제**: Case Study 발표 + Part 4 (ML 및 AI의 수학적 응용) 종합 문제 Review
+**주제**: Part 4 (ML 및 AI의 수학적 응용) 종합 문제 Review
 
-**연결**: 본 회차까지 7회차 동안 다룬 Part 4 (Linear Regression·PCA·GMM·SVM·Kernel·CNN·Attention) 7개 도구를 모두 동원하여 학생 각자의 Case Study를 발표하고, 사전 공개된 Part 1·2·3·4 종합 문제를 함께 Review한다.
+**연결**: 본 회차까지 7회차 동안 다룬 Part 4 (Linear Regression·PCA·GMM·SVM·Kernel·CNN·Attention) 7개 도구를 모두 동원하여, 사전 공개된 Part 1·2·3·4 종합 문제를 함께 Review한다.
 
 **준비물**:
-- Case Study 보고서 1쪽 + 5분 발표
+- 사전 풀이한 `05_시험/Part4_종합문제풀기.md`
 - 본 강좌 노트 (Part 1·2·3·4 전체)
 
 ---
@@ -532,7 +528,7 @@ $$X = \begin{pmatrix} 1 & 0 & 1 & 0 \\ 0 & 1 & 0 & 1 \\ 1 & 1 & 0 & 0 \end{pmatr
 
 핵심 한 줄: **Attention은 행렬 곱 4번과 softmax 1번. Transformer 한 층의 모든 객체가 Part 1 도구로 분해된다.**
 
-다음 회차의 출발 문제:
-> 학생 각자가 선택한 AI 모델 부분을 LA 객체로 환원해 봅시다.
+본 회차는 Part 4의 마지막 회차이며, 말미에 사전 공개된 Part 4 종합문제를 함께 Review한다.
+> 임의 AI 모델의 한 부분을 LA 객체로 환원해 봅시다.
 
 `HANDOUT`: 본 PDF

@@ -35,7 +35,7 @@ style: |
 
 ## 0회차 · Introduction
 
-SW·AI 융합대학원 · Part 1·2·3·4 (총 29회차)
+SW·AI 융합대학원 · Part 1·2·3·4 (총 28회차)
 메인 교재: MML (Deisenroth·Faisal·Ong, *Mathematics for Machine Learning*) · 발췌: Strang, *Introduction to Linear Algebra* · 시각: 3Blue1Brown EoLA
 
 > **시각 보조 (EoLA):** [Essence of Linear Algebra: Preview](https://www.youtube.com/watch?v=kjBOesZCoqc) · 전 과정의 기하적 직관을 한눈에 보여주는 3Blue1Brown 시리즈 개요.
@@ -47,7 +47,7 @@ SW·AI 융합대학원 · Part 1·2·3·4 (총 29회차)
 이번 회차가 끝나면 학생은 다음을 답할 수 있어야 합니다.
 
 1. **왜** AI 대학원에서 Linear Algebra(선형대수)를 한 학기 다시 배우는지
-2. **무엇을** 29회차 동안 배우는지: 수학적 흐름과 CS/AI 흐름의 큰 그림
+2. **무엇을** 28회차 동안 배우는지: 수학적 흐름과 CS/AI 흐름의 큰 그림
 3. **어떻게** 배우는지: MML(메인) / Strang(발췌) / EoLA / NumPy의 4단 운영
 4. **결과**: 이 강의를 마치면 어떤 능력이 생기는지
 5. 한 Definition(정의)이 코드 한 줄과 그림 한 장으로 어떻게 이어지는지 (시그니처 예제)
@@ -58,7 +58,7 @@ SW·AI 융합대학원 · Part 1·2·3·4 (총 29회차)
 
 > ### 수학 정의 한 줄이 어떻게 AI 모델 한 줄이 됩니까?
 
-이 한 질문에 29회차에 걸쳐 답합니다.
+이 한 질문에 28회차에 걸쳐 답합니다.
 
 - **본 회차 부분 답**: 가장 단순한 정의 (Vector(벡터)의 평균) 한 줄이 **MNIST 숫자 분류**까지 곧장 이어집니다 (G 시그니처).
 - **학기 전체의 답**: $\mathrm{softmax}(QK^\top/\sqrt{d_k})V$, Transformer Attention(어텐션) 한 줄을 LA 객체로 완전 분해합니다 (Part 4 7회차).
@@ -87,9 +87,9 @@ SW·AI 융합대학원 · Part 1·2·3·4 (총 29회차)
 
 ## A-1. 교과 정보
 
-- **과목명**: Linear Algebra Part 1 (LA1, 8회차) / Part 2 (LA2, 9회차) / Part 3 (Vector Calculus·Probability, 4회차) / Part 4 (ML·AI 응용, 8회차)
+- **과목명**: Linear Algebra Part 1 (LA1, 8회차) / Part 2 (LA2, 9회차) / Part 3 (Vector Calculus·Probability, 4회차) / Part 4 (ML·AI 응용, 7회차)
 - **대상**: SW·AI 융합대학원 1학년, **학부 LA 미이수 학생** 표준
-- **운영**: 총 29회차, 1회차 2시간 × 29 = 58시간
+- **운영**: 총 28회차, 1회차 2시간 × 28 = 56시간
 - **메인 교재**: Deisenroth·Faisal·Ong, *Mathematics for Machine Learning* (MML, 무료 공식 PDF 공개)
 - **발췌 교재**: Gilbert Strang, *Introduction to Linear Algebra* (6th ed.), 시그니처 10개 자산을 본문 발췌 박스로 사용 (Row·Column picture·Cauchy-Schwarz 판별식·Elementary matrix·LU·4 fundamental subspaces·Least squares·Gram-Schmidt·Determinant 기하·Eigenvalue 응용·SVD 기하·Eckart-Young)
 - **시각 보조**: 3Blue1Brown *Essence of Linear Algebra* (EoLA)
@@ -103,7 +103,7 @@ SW·AI 융합대학원 · Part 1·2·3·4 (총 29회차)
 | 출석 | 자율 (대학원생 자체 강의) |
 | 과제 | 매 회차 수학 문제, Jupyter 노트북 |
 | **코딩 실습 (Google Colab)** | **매 회차 필수 X. 회차별 학습 가치에 따라 1-2개 또는 그 이상으로 운영. 필요 없으면 수학 정리·풀이로 마무리** |
-| 종합 문제 풀기 | Part 1 8회차·Part 2 9회차·Part 3 4회차·Part 4 8회차 마지막에 **사전 공개 → 자율 풀이 → 함께 Review** 형식으로 운영 |
+| 종합 문제 풀기 | Part 1 8회차·Part 2 9회차·Part 3 4회차·Part 4 7회차 마지막에 **사전 공개 → 자율 풀이 → 함께 Review** 형식으로 운영 |
 
 > ("종합 문제 풀기"는 각 Part **마지막 회차 전에 사전 공개 → 본인 페이스로 자율 풀이 → 마지막 회차에 함께 Review** 형식의 자기 점검 활동입니다.)
 >
@@ -138,7 +138,7 @@ SW·AI 융합대학원 · Part 1·2·3·4 (총 29회차)
 
 <div class="analogy">
 
-**직관**: 이 한 줄은 **다섯 핵심 객체 (Vector space·Inner product·Norm·Matrix·Vector 곱)** 의 구성도 한 장과 같습니다. 본 회차에서 식 전부를 이해할 필요는 없고, 다섯 객체가 식의 어느 자리에 위치하는지 (QK·softmax·V) 만 확인하면 됩니다. 29회차에 걸쳐 한 객체씩 정식 도입합니다.
+**직관**: 이 한 줄은 **다섯 핵심 객체 (Vector space·Inner product·Norm·Matrix·Vector 곱)** 의 구성도 한 장과 같습니다. 본 회차에서 식 전부를 이해할 필요는 없고, 다섯 객체가 식의 어느 자리에 위치하는지 (QK·softmax·V) 만 확인하면 됩니다. 28회차에 걸쳐 한 객체씩 정식 도입합니다.
 
 </div>
 
@@ -274,8 +274,7 @@ $$f(\mathbf{x}_0 + \mathbf{h}) \approx f(\mathbf{x}_0) + J(\mathbf{x}_0)\,\mathb
 | 4 | SVM Hard/Soft margin · Hinge · Dual (MML §12.1-§12.3) | ⑤ |
 | 5 | Kernel SVM · Kernel trick · RBF · Poly (MML §12.4-§12.5) | ⑤ |
 | 6 | CNN · 1D Conv → Toeplitz · 1×1=행렬곱 (자체 교안) | ④ 모델 분해 |
-| 7 | Attention 분해 · Embedding=행렬곱 · Multi-head 직관 + Equivariance 직관 한 슬라이드 (자체 교안) | ④ 모델 분해 |
-| 8 | Case Study 발표, Part 4 종합 문제 풀기 (자체 교안) | 종합 |
+| 7 | Attention 분해 · Embedding=행렬곱 · Multi-head 직관 + Equivariance 직관 한 슬라이드, Part 4 종합 문제 Review (자체 교안) | ④ 모델 분해, 종합 |
 
 **핵심 명제**: 어떤 Matrix도 **SVD로 회전·신축·회전으로 분해**됩니다. 그 위에 미분·확률·최적화 도구를 쌓아 **임의 AI 모듈을 선형대수 객체로 환원**할 수 있습니다.
 
@@ -396,12 +395,12 @@ Decomposition이 AI의 절반입니다. 이 강의 후반부가 다 이 표 안�
 
 ---
 
-## F-4. Part 4 (ML·AI 응용) 종료 시 (8회차 후)
+## F-4. Part 4 (ML·AI 응용) 종료 시 (7회차 후)
 
 - [ ] Linear Regression·PCA·GMM·SVM (Kernel 포함)을 LA·미분·확률 도구로 환원해 설명할 수 있습니다.
 - [ ] CNN convolution을 1D Toeplitz matrix로 환원하고 1×1 convolution이 일반 행렬곱임을 설명할 수 있습니다.
 - [ ] **Attention $\mathrm{softmax}(QK^\top/\sqrt{d_k})V$를 LA 객체로 분해**하고 Embedding이 행렬곱임을 설명할 수 있습니다. Equivariance(등변성)·Multi-head의 직관도 한 줄로 정리할 수 있습니다.
-- [ ] 임의의 AI 모델 한 부분을 골라 LA 분해 보고서를 작성할 수 있습니다 (Case Study).
+- [ ] 임의의 AI 모델 한 부분을 골라 LA 객체로 환원·분해해 설명할 수 있습니다.
 
 ---
 
@@ -473,7 +472,7 @@ plt.imshow(mean_seven, cmap='gray')
 
 ---
 
-## G-4. 본 예제에 들어 있는 29회차의 지점
+## G-4. 본 예제에 들어 있는 28회차의 지점
 
 | 예제의 부분 | 회차 |
 |---|:---:|
@@ -484,7 +483,7 @@ plt.imshow(mean_seven, cmap='gray')
 | 평균을 빼고 본 분산의 주방향 (**PCA**) | **Part 4 2** |
 | 분류기로 확장 (가장 가까운 평균 ⇒ 클래스) | **2 · Part 2 2** |
 
-가장 단순한 수학(Vector 평균) 한 줄이 **29회차 전체의 입구**입니다.
+가장 단순한 수학(Vector 평균) 한 줄이 **28회차 전체의 입구**입니다.
 
 ---
 

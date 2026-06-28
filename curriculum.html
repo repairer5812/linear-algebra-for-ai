@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>진도표 — 인공지능 전공자를 위한 선형대수학</title>
-<meta name="description" content="Part 1 8회차·Part 2 9회차·Part 3 4회차·Part 4 8회차 상세 회차표, 4 Part = 4기 1:1 매칭 (LA1·LA2·VC+Probability·ML·AI 응용), 자율 운영, Case Study 안내, 자가진단 체크리스트. 메인 MML, 보조 발췌 Strang.">
+<meta name="description" content="Part 1 8회차·Part 2 9회차·Part 3 4회차·Part 4 7회차 상세 회차표, 4 Part = 4기 1:1 매칭 (LA1·LA2·VC+Probability·ML·AI 응용), 자율 운영, 자가진단 체크리스트. 메인 MML, 보조 발췌 Strang.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -30,8 +30,8 @@
 <main>
   <section class="hero">
     <h1 class="hero__title">진도표</h1>
-    <p class="hero__subtitle">Part 1 (8 Session(회차)) + Part 2 (9회차) + Part 3 (4회차) + Part 4 (8회차) = 총 29회차, 1회차 2시간 × 29 = 58시간 운영</p>
-    <p class="hero__meta"><strong style="color:var(--text);">4 Part = 4기 1:1 매칭</strong>: Part 1 (LA1, 8회차, 1기) · Part 2 (LA2, 9회차, 2기) · Part 3 (VC+Probability, 4회차, 3기) · Part 4 (ML 및 AI의 수학적 응용, 8회차, 4기)<br>메인 MML(Mathematics for Machine Learning) · 보조 발췌 Strang <em>Introduction to Linear Algebra</em> · 시각 EoLA(Essence of Linear Algebra) · 실습 Jupyter / NumPy / PyTorch</p>
+    <p class="hero__subtitle">Part 1 (8 Session(회차)) + Part 2 (9회차) + Part 3 (4회차) + Part 4 (7회차) = 총 28회차, 1회차 2시간 × 28 = 56시간 운영</p>
+    <p class="hero__meta"><strong style="color:var(--text);">4 Part = 4기 1:1 매칭</strong>: Part 1 (LA1, 8회차, 1기) · Part 2 (LA2, 9회차, 2기) · Part 3 (VC+Probability, 4회차, 3기) · Part 4 (ML 및 AI의 수학적 응용, 7회차, 4기)<br>메인 MML(Mathematics for Machine Learning) · 보조 발췌 Strang <em>Introduction to Linear Algebra</em> · 시각 EoLA(Essence of Linear Algebra) · 실습 Jupyter / NumPy / PyTorch</p>
   </section>
 
   <!-- Part 1 -->
@@ -173,15 +173,15 @@
   <!-- Part 4 -->
   <section class="section" id="part4">
     <div class="part-header">
-      <h2>Part 4 (8회차) — <span style="color:var(--accent);">4기 ML 및 AI의 수학적 응용</span> · MML Ch 9-12 + AI 모듈 환원</h2>
-      <p>Linear Regression·PCA·GMM·SVM 4개 표준 ML 방법론을 MML 정식으로 진술·구현합니다. 이어 CNN(합성곱 신경망)의 convolution·attention·embedding이 어떤 선형대수 객체로 환원되는지 식별하고, 임의 AI 모델 한 부분의 LA 구조를 보고서로 분해합니다(Case Study). Part 1·2·3에서 쌓은 선형대수·미분·확률·최적화를 ML 방법론과 AI 모듈 분해로 응용하는 마무리 단계입니다.</p>
+      <h2>Part 4 (7회차) — <span style="color:var(--accent);">4기 ML 및 AI의 수학적 응용</span> · MML Ch 9-12 + AI 모듈 환원</h2>
+      <p>Linear Regression·PCA·GMM·SVM 4개 표준 ML 방법론을 MML 정식으로 진술·구현합니다. 이어 CNN(합성곱 신경망)의 convolution·attention·embedding이 어떤 선형대수 객체로 환원되는지 식별합니다. Part 1·2·3에서 쌓은 선형대수·미분·확률·최적화를 ML 방법론과 AI 모듈 분해로 응용하는 마무리 단계이며, 마지막 7회차 뒷 블록에서 Part 4 종합 Review로 정리합니다.</p>
     </div>
 
     <h3>Part 흐름</h3>
     <ul class="flow-list">
       <li><strong>[A] MML Ch 9-12 ML 응용 (1-5회차)</strong> — Linear Regression → PCA·SVD 동치 → GMM·EM → SVM(Hard/Soft) → Kernel SVM</li>
       <li><strong>[B] AI 모듈 환원 (6-7회차)</strong> — Conv = Toeplitz / Attention 분해·Embedding·Multi-head 직관 (등변성 직관 한 슬라이드 흡수)</li>
-      <li><strong>8회차</strong> Case Study 발표 + Part 4 종합 Review</li>
+      <li><strong>7회차 뒷 블록</strong> Part 4 종합 Review (1-7회차 핵심 통합 풀이)</li>
     </ul>
 
     <h3>회차표</h3>
@@ -205,27 +205,22 @@
         <tr><td><strong>5회차</strong></td><td>MML §12.4-12.5</td><td><strong>Kernel SVM</strong>, Kernel trick, RBF·Polynomial kernel</td><td>비선형 분류, 커널 trick의 일반성</td><td>RBF kernel SVM, scikit-learn 검증, 결정 경계 시각화</td></tr>
         <tr><td colspan="5" style="background:#f3f4f6;font-weight:600;">[B] AI 모듈 환원 — 6-7회차 (본 강좌 자체 교안)</td></tr>
         <tr><td><strong>6회차</strong></td><td>자체 교안</td><td><strong>CNN·1D Conv → Toeplitz 환원</strong>, 1×1 Conv = 행렬곱</td><td>GPU 텐서코어와 행렬곱, CUDA 컨볼루션 구현</td><td><code>nn.Conv1d</code> 한 층을 Toeplitz 행렬 곱으로 재구성, 출력 일치 검증</td></tr>
-        <tr><td><strong>7회차</strong></td><td>자체 교안</td><td><strong>Attention</strong> $\mathrm{softmax}(QK^\top/\sqrt d)V$ 분해, Embedding lookup = 행렬곱, Multi-head 직관 + Translation 등변성 직관 한 슬라이드(weight sharing의 LA 의미)</td><td>Transformer의 LA 분해, FlashAttention의 블록 사고, KV cache</td><td>NumPy ↔ PyTorch Attention forward 일치 검증, $\mathrm{softmax}(QK^\top/\sqrt d)V$ 단계별 출력 비교</td></tr>
-        <tr><td colspan="5" style="background:#f3f4f6;font-weight:600;">[마무리] — 8회차</td></tr>
-        <tr><td><strong>8회차</strong></td><td>—</td><td><strong>Case Study 발표</strong> — 임의 AI 모델 한 부분의 LA 분해 보고서 + <strong>Part 4 종합 Review</strong> (Part 1·2·3·4 통합 점검)</td><td>—</td><td>모델 분해 보고서·코드 제출 + 통합 연습 문제</td></tr>
+        <tr><td><strong>7회차</strong></td><td>자체 교안</td><td><strong>Attention</strong> $\mathrm{softmax}(QK^\top/\sqrt d)V$ 분해, Embedding lookup = 행렬곱, Multi-head 직관 + Translation 등변성 직관 한 슬라이드(weight sharing의 LA 의미) <strong>+ Part 4 종합 Review</strong>(1-7회차 핵심 통합 풀이)</td><td>Transformer의 LA 분해, FlashAttention의 블록 사고, KV cache</td><td>NumPy ↔ PyTorch Attention forward 일치 검증, $\mathrm{softmax}(QK^\top/\sqrt d)V$ 단계별 출력 비교 + 종합 문제 풀이 노트북</td></tr>
       </tbody>
     </table>
     </div>
     <p class="info-msg" style="margin-top:0.4rem;">자율 학습·부록 항목: Probabilistic PCA(PPCA, 2회차), Bayesian Linear Regression(1회차), NTK 슬라이드(5회차), 2D 블록 Toeplitz·padding/stride 형식화(6회차), Attention backward Jacobian·Multi-head reshape 디테일(7회차), Equivariance commute 정식 정의·Kronecker $I_H\otimes W$ 정식 식(7회차). 본문에서는 제외하고 자율 학습·부록으로 안내합니다.</p>
 
     <h3>운영 방식 (Part 4)</h3>
-    <p class="info-msg" style="margin-top:0.4rem;">대학원생 자체 강의로 시험·중간평가·지필고사·수료 게이트는 두지 않습니다. 매 회차 MML 연습문제와 Jupyter 노트북은 본인이 풀어 보는 자기 점검 도구입니다. <strong>Case Study</strong>는 1회차 시점에 주제 결정, 강의와 병행, 8회차 발표로 진행하며, 8회차의 <strong>Part 4 종합 Review</strong>는 Part 1·2·3·4를 통합 점검하는 자율 세션입니다. <strong>마지막 회차 전 사전 공개 → 본인 페이스로 자율 풀이 → 8회차에 함께 Review</strong> 형식으로 운영합니다 (점수 기록·합격 기준 아님).</p>
+    <p class="info-msg" style="margin-top:0.4rem;">대학원생 자체 강의로 시험·중간평가·지필고사·수료 게이트는 두지 않습니다. 매 회차 MML 연습문제와 Jupyter 노트북은 본인이 풀어 보는 자기 점검 도구입니다. 마지막 <strong>7회차</strong> 뒷 블록의 <strong>Part 4 종합 Review</strong>는 Part 1·2·3·4를 통합 점검하는 자율 세션입니다. <strong>마지막 회차 전 사전 공개 → 본인 페이스로 자율 풀이 → 7회차에 함께 Review</strong> 형식으로 운영합니다 (점수 기록·합격 기준 아님).</p>
 
-    <h3>Case Study — 모델 한 모듈 분해</h3>
-    <p>1회차 시점에 주제 결정, 8회차 발표. <strong>스코프는 한 모듈</strong>로 한정하여 구현 부담을 낮춥니다. 학생은 임의 AI 모델 한 부분(예: ResNet의 1×1 Conv block, ViT의 Attention head, LoRA adapter, RoPE positional embedding 등)을 선택해 선형대수 객체로 환원합니다.</p>
+    <h3>자율 심화 — 모델 한 모듈 분해 (선택)</h3>
+    <p>강좌 전체를 관통하는 목표는 <strong>임의 AI 모델 한 부분을 표준 선형대수 객체로 분해·환원</strong>하는 것입니다. 원하는 학생은 7회차 종합 Review와 병행해, 모델 한 모듈(예: ResNet의 1×1 Conv block, ViT의 Attention head, LoRA adapter, RoPE positional embedding 등)을 골라 다음 흐름으로 직접 분해해 볼 수 있습니다. 점수·제출·발표 의무가 없는 자율 연습입니다.</p>
     <ol>
       <li>분해할 한 모듈 선택 (GPT-Neo 125M의 attention head/MLP, nanoGPT 한 transformer block, LeNet-5 한 conv 레이어 등)</li>
       <li>모듈 내 텐서 연산을 표준 LA 객체(행렬곱, 정사영, 고유분해, SVD)로 환원</li>
-      <li>환원 구조를 다이어그램과 수식으로 표현</li>
       <li>NumPy로 모듈 재구현 → PyTorch 원본과 출력 일치 검증 (atol=1e-5)</li>
-      <li>정의·정리 인용을 포함한 학술 형식 보고서 8-12쪽 + 5분 발표</li>
     </ol>
-    <p class="info-msg" style="margin-top:0.8rem;">자기 점검 관점 (자율 활용): 정확한 LA 환원, AI 맥락 설명, 코드 재현성, 발표 명료성. 다른 모듈을 다루고 싶다면 1회차 사전 협의로 결정합니다.</p>
   </section>
 
   <!-- Self-check -->
@@ -418,7 +413,7 @@
       <li>Part 3 (1-3회차)의 정의·정리를 한 문장씩 떠올릴 수 있는가? (통합 복습 점검)</li>
     </ol>
 
-    <h3>Part 4 (1-8회차) — <span style="color:var(--accent);">4기 ML 및 AI의 수학적 응용</span></h3>
+    <h3>Part 4 (1-7회차) — <span style="color:var(--accent);">4기 ML 및 AI의 수학적 응용</span></h3>
 
     <h4>1회차 — Linear Regression·조건수·수치 안정성</h4>
     <ol>
@@ -462,18 +457,14 @@
       <li>1×1 Conv가 왜 단순 행렬곱인가?</li>
     </ol>
 
-    <h4>7회차 — Attention 분해·Embedding·Multi-head 직관</h4>
+    <h4>7회차 — Attention 분해·Embedding·Multi-head 직관 + Part 4 종합 Review</h4>
     <ol>
       <li>Self-attention $\mathrm{softmax}(QK^\top/\sqrt d)V$의 row-stochastic·볼록조합 해석 + output이 V 행들의 convex hull 안에 있음을 설명?</li>
       <li>Multi-head attention의 batched matmul 처리 직관 (reshape + batched GEMM)?</li>
       <li>Embedding lookup이 왜 one-hot 행렬곱과 동치인가?</li>
       <li>CNN의 translation equivariance 직관(weight sharing이 왜 위치 이동에 무관한 특징을 만드는가)을 한 문장으로?</li>
-    </ol>
-
-    <h4>8회차 — Case Study 발표 + Part 4 종합 Review</h4>
-    <ol>
-      <li>Part 1·2·3·4의 정의·정리를 한 문장씩 떠올릴 수 있는가? (통합 복습 점검)</li>
-      <li>선택한 AI 모델 한 모듈의 LA 환원을 NumPy 재구현으로 PyTorch 원본과 일치(atol=1e-5)시킬 수 있는가?</li>
+      <li>(종합 Review) Part 1·2·3·4의 정의·정리를 한 문장씩 떠올릴 수 있는가? (통합 복습 점검)</li>
+      <li>(종합 Review) 임의 AI 모델 한 모듈의 LA 환원을 NumPy 재구현으로 PyTorch 원본과 일치(atol=1e-5)시킬 수 있는가?</li>
     </ol>
 
     <h3 style="margin-top:2rem;">부록: Matrix phylogeny (행렬 분해 정리표)</h3>
