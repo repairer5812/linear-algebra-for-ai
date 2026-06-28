@@ -303,24 +303,7 @@ const CASE_TEXT = {
   B: {
     headline: "본 강좌가 적합합니다. 약점 축 위주로 학습하시면 효율적입니다.",
     body: `
-      <p>진단 결과 일부 축은 견고하나 다른 축에서 50-70% 범위로 떨어집니다. 본 강좌는 6축을 모두 다루도록 설계되어 있어 약점 축 보완에 직접적인 도움이 됩니다.</p>
-      <ul>
-        <li><strong>강점 축</strong>: 해당 회차는 빠르게 통과하며 응용에 집중하시면 됩니다.</li>
-        <li><strong>약점 축</strong>: 해당 회차의 사전 reading(Strang 본문, EoLA 시각 자료)을 1-2회차 먼저 읽어두시면 강의가 훨씬 수월합니다.</li>
-      </ul>
-      <p><strong>축별 사전 reading 가이드</strong> (약점 축에 해당하는 행만 우선 학습하시기 바랍니다):</p>
-      <div class="table-wrap"><table>
-        <thead><tr><th>축</th><th>우선 학습 회차</th><th>사전 reading</th></tr></thead>
-        <tbody>
-          <tr><td>1. 벡터·내적</td><td>Part 1 1-2회차</td><td>Strang Ch.1 / EoLA Ch.1-2, 9</td></tr>
-          <tr><td>2. 행렬연산</td><td>Part 1 3-5회차</td><td>Strang Ch.2 / EoLA Ch.3-4</td></tr>
-          <tr><td>3. 부분공간·계수</td><td>Part 1 6-8회차</td><td>Strang Ch.3 / MML §2.4-§2.7</td></tr>
-          <tr><td>4. 직교성·정사영</td><td>Part 2 1-2회차</td><td>Strang Ch.4 / MML §3.6-§3.8</td></tr>
-          <tr><td>5. 분해·고윳값</td><td>Part 2 5-9회차</td><td>Strang Ch.6-7 / MML §4.2, §4.5</td></tr>
-          <tr><td>6. AI 응용·코딩</td><td>Part 3 1-2 · Part 4 6-8회차</td><td>(강의 진행 중 보충, 사전 reading은 NumPy 튜토리얼)</td></tr>
-        </tbody>
-      </table></div>
-      <p><strong>이 강좌에서 얻으실 수 있는 것</strong>: 약점 축의 정의·정리를 정확히 진술 가능한 수준까지 끌어올리고, 강점 축은 AI 응용 맥락에서 재해석되어 본인의 연구·코드 작성 시 LA 객체 식별 속도가 빨라집니다.</p>
+      <p>축마다 강약이 갈립니다. 위 레이더에서 <strong>약한 축</strong>을 확인하고, 그 회차를 중심으로 따라오시면 됩니다. 본 강좌는 6축을 모두 다뤄 약점 축 보완에 직접 도움이 됩니다.</p>
     `
   },
   C: {
