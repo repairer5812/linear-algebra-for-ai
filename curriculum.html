@@ -214,13 +214,6 @@
     <h3>운영 방식 (Part 4)</h3>
     <p class="info-msg" style="margin-top:0.4rem;">대학원생 자체 강의로 시험·중간평가·지필고사·수료 게이트는 두지 않습니다. 매 회차 MML 연습문제와 Jupyter 노트북은 본인이 풀어 보는 자기 점검 도구입니다. 마지막 <strong>7회차</strong> 뒷 블록의 <strong>Part 4 종합 Review</strong>는 Part 1·2·3·4를 통합 점검하는 자율 세션입니다. <strong>마지막 회차 전 사전 공개 → 본인 페이스로 자율 풀이 → 7회차에 함께 Review</strong> 형식으로 운영합니다 (점수 기록·합격 기준 아님).</p>
 
-    <h3>자율 심화 — 모델 한 모듈 분해 (선택)</h3>
-    <p>강좌 전체를 관통하는 목표는 <strong>임의 AI 모델 한 부분을 표준 선형대수 객체로 분해·환원</strong>하는 것입니다. 원하는 학생은 7회차 종합 Review와 병행해, 모델 한 모듈(예: ResNet의 1×1 Conv block, ViT의 Attention head, LoRA adapter, RoPE positional embedding 등)을 골라 다음 흐름으로 직접 분해해 볼 수 있습니다. 점수·제출·발표 의무가 없는 자율 연습입니다.</p>
-    <ol>
-      <li>분해할 한 모듈 선택 (GPT-Neo 125M의 attention head/MLP, nanoGPT 한 transformer block, LeNet-5 한 conv 레이어 등)</li>
-      <li>모듈 내 텐서 연산을 표준 LA 객체(행렬곱, 정사영, 고유분해, SVD)로 환원</li>
-      <li>NumPy로 모듈 재구현 → PyTorch 원본과 출력 일치 검증 (atol=1e-5)</li>
-    </ol>
   </section>
 
   <!-- Self-check -->
