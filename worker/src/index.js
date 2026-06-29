@@ -335,7 +335,8 @@ ${qLines.join('\n')}
         },
         body: JSON.stringify({
           contents: [{ role: 'user', parts: [{ text: prompt }] }],
-          generationConfig: { temperature: 0.4, maxOutputTokens: 4096 },
+          // thinking 비활성화: 요약 작업엔 불필요, 무료 한도·속도 효율(테스트 1750→518토큰)
+          generationConfig: { temperature: 0.4, maxOutputTokens: 2048, thinkingConfig: { thinkingBudget: 0 } },
         }),
       }
     );
