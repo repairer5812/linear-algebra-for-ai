@@ -4,12 +4,12 @@
 //   POST /submit             — 익명 진단 응답 제출 (CORS open)
 //   GET  /admin?token=XXX    — 모든 응답 raw 반환 (관리자 토큰 필요)
 //   GET  /stats?token=XXX    — 집계 통계 (문항별·축별·점수 분포)
-//   GET  /analyze?token=XXX  — Upstage Solar로 AI 분석 (관리자 토큰 필요)
+//   GET  /analyze?token=XXX  — Google Gemini로 AI 분석 (관리자 토큰 필요)
 //
 // KV: DIAGNOSTICS namespace
 // Env vars (wrangler secret):
 //   ADMIN_TOKEN       — 관리자 인증 토큰
-//   UPSTAGE_API_KEY   — Upstage Solar API 키
+//   GEMINI_API_KEY    — Google Gemini API 키 (AI Studio 무료 키)
 //
 // 무료 한도 보호 설계 (2026-06-08):
 //   - Rate limit 마커를 KV가 아니라 Cache API(edge)에 저장한다. 그래서 /submit 1건당
@@ -244,14 +244,14 @@ async function handleStats(request, url, env, ctx) {
   });
 }
 
-// AI 분석: Upstage Solar API로 진단 결과 해석
+// AI 분석: Google Gemini API로 진단 결과 해석
 async function handleAnalyze(request, url, env, ctx) {
   const token = getToken(request, url);
   if (!token || token !== env.ADMIN_TOKEN) {
     return jsonResponse({ error: 'unauthorized' }, 401);
   }
-  if (!env.UPSTAGE_API_KEY) {
-    return jsonResponse({ error: 'UPSTAGE_API_KEY not configured' }, 500);
+  if (!env.GEMINI_API_KEY) {
+    return jsonResponse({ error: 'GEMINI_API_KEY not configured' }, 500);
   }
 
   // 응답 수집 + 집계 (loadResponses 로 캐시 공유)
@@ -323,40 +323,47 @@ ${qLines.join('\n')}
 - 추측은 "~로 추정됩니다" 식으로 표시
 - 이모지·과장 표현 금지`;
 
+  const MODEL = 'gemini-2.5-flash';
   try {
-    const upstageRes = await fetch('https://api.upstage.ai/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${env.UPSTAGE_API_KEY}`,
-      },
-      body: JSON.stringify({
-        model: 'solar-pro',
-        messages: [{ role: 'user', content: prompt }],
-        stream: false,
-      }),
-    });
+    const geminiRes = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-goog-api-key': env.GEMINI_API_KEY,
+        },
+        body: JSON.stringify({
+          contents: [{ role: 'user', parts: [{ text: prompt }] }],
+          generationConfig: { temperature: 0.4, maxOutputTokens: 4096 },
+        }),
+      }
+    );
 
-    if (!upstageRes.ok) {
-      const errText = await upstageRes.text();
+    if (!geminiRes.ok) {
+      const errText = await geminiRes.text();
       return jsonResponse({
-        error: `Upstage API error ${upstageRes.status}`,
+        error: `Gemini API error ${geminiRes.status}`,
         detail: errText.slice(0, 500),
       }, 502);
     }
 
-    const data = await upstageRes.json();
-    const analysis = data.choices?.[0]?.message?.content || '분석 결과 없음';
+    const data = await geminiRes.json();
+    const cand = data.candidates?.[0];
+    const analysis = cand?.content?.parts?.map(p => p.text || '').join('').trim()
+      || (data.promptFeedback?.blockReason
+            ? `분석이 차단되었습니다 (사유: ${data.promptFeedback.blockReason})`
+            : '분석 결과 없음');
 
     return jsonResponse({
       count: responses.length,
       analysis,
-      model: data.model || 'solar-pro',
+      model: MODEL,
       timestamp: Date.now(),
     });
   } catch (err) {
     return jsonResponse({
-      error: 'Upstage API 호출 실패',
+      error: 'Gemini API 호출 실패',
       detail: String(err).slice(0, 500),
     }, 502);
   }

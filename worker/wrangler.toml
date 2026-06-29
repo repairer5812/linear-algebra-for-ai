@@ -7,5 +7,7 @@ compatibility_date = "2024-12-01"
 binding = "DIAGNOSTICS"
 id = "e638333c7b1a4bb99d260d9ad62cfaed"
 
-# ADMIN_TOKEN은 wrangler secret으로 별도 등록:
+# 시크릿은 wrangler secret으로 별도 등록(코드/repo에 키 저장 금지):
 #   npx wrangler secret put ADMIN_TOKEN
+#   npx wrangler secret put GEMINI_API_KEY   # Google AI Studio 무료 키
+# (구 UPSTAGE_API_KEY는 미사용 — 원하면 삭제: npx wrangler secret delete UPSTAGE_API_KEY)
