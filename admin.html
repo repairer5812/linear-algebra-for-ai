@@ -27,11 +27,18 @@
     border-radius: 8px;
   }
   .ai-result__text {
-    white-space: pre-wrap; word-break: break-word;
+    word-break: break-word;
     font-family: "Noto Sans KR", system-ui, sans-serif;
     font-size: 0.98rem; line-height: 1.65; color: #1f2937;
     margin: 0; padding: 0; background: transparent;
   }
+  .ai-result__text h4 { font-size: 1.02rem; color: #862633; font-weight: 700; margin: 1.1rem 0 0.45rem; }
+  .ai-result__text h4:first-child { margin-top: 0; }
+  .ai-result__text p { margin: 0.5rem 0; }
+  .ai-result__text ul, .ai-result__text ol { margin: 0.4rem 0 0.7rem; padding-left: 1.4rem; }
+  .ai-result__text li { margin: 0.28rem 0; }
+  .ai-result__text strong { color: #4f141e; font-weight: 700; }
+  .ai-result__text code { background: #f3f4f6; color: #862633; padding: 0.05rem 0.32rem; border-radius: 4px; font-size: 0.9em; }
   .ai-result__meta {
     margin-top: 1rem; padding-top: 0.8rem; border-top: 1px dashed #e5e7eb;
     font-size: 0.82rem; color: #6b7280;
@@ -129,7 +136,7 @@
   <section class="section" id="aiSection" hidden>
     <h2>AI 분석 (Google Gemini)</h2>
     <p style="color:var(--text-muted);margin-bottom:1rem;">
-      집계 통계를 Gemini 2.5 Flash 모델에 보내 강점·약점·오개념·보강 회차를 분석합니다. 약 10-20초 소요됩니다.
+      집계 통계를 Gemini 2.5 Flash 모델에 보내 강점·약점·오개념·보강 회차를 분석합니다. 보통 5-10초 소요됩니다.
     </p>
     <div class="result-actions">
       <button class="btn" id="btnAnalyze" type="button">AI 분석 받기</button>
@@ -141,7 +148,7 @@
     </div>
     <div id="aiError" class="error-msg" hidden></div>
     <article id="aiResultCard" class="ai-result" hidden>
-      <pre id="aiResultText" class="ai-result__text"></pre>
+      <div id="aiResultText" class="ai-result__text"></div>
       <footer id="aiResultMeta" class="ai-result__meta"></footer>
     </article>
   </section>
@@ -443,8 +450,31 @@ function clearCachedAnalysis() {
   try { localStorage.removeItem(AI_CACHE_KEY); } catch {}
 }
 
+// 간단 마크다운 → HTML (제목·굵게·기울임·코드·불릿·번호목록). 내용은 먼저 이스케이프.
+function mdToHtml(md) {
+  const esc = s => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  const inlineFmt = s => s
+    .replace(/\*\*([^*]+?)\*\*/g, "<strong>$1</strong>")
+    .replace(/\*([^*\n]+?)\*/g, "<em>$1</em>")
+    .replace(/`([^`]+?)`/g, "<code>$1</code>");
+  const out = [];
+  let list = null;
+  const closeList = () => { if (list) { out.push("</" + list + ">"); list = null; } };
+  for (const raw of String(md).split(/\r?\n/)) {
+    const line = esc(raw.trim());
+    if (!line) { closeList(); continue; }
+    let m;
+    if ((m = line.match(/^#{1,6}\s+(.*)$/))) { closeList(); out.push("<h4>" + inlineFmt(m[1]) + "</h4>"); continue; }
+    if ((m = line.match(/^[-*]\s+(.*)$/))) { if (list !== "ul") { closeList(); out.push("<ul>"); list = "ul"; } out.push("<li>" + inlineFmt(m[1]) + "</li>"); continue; }
+    if ((m = line.match(/^\d+\.\s+(.*)$/))) { if (list !== "ol") { closeList(); out.push("<ol>"); list = "ol"; } out.push("<li>" + inlineFmt(m[1]) + "</li>"); continue; }
+    closeList(); out.push("<p>" + inlineFmt(line) + "</p>");
+  }
+  closeList();
+  return out.join("");
+}
+
 function renderAnalysis(obj) {
-  $("aiResultText").textContent = obj.analysis || "(분석 결과 없음)";
+  $("aiResultText").innerHTML = mdToHtml(obj.analysis || "(분석 결과 없음)");
   const ts = obj.timestamp ? new Date(obj.timestamp) : null;
   const tsStr = ts ? `${ts.getFullYear()}-${String(ts.getMonth()+1).padStart(2,"0")}-${String(ts.getDate()).padStart(2,"0")} ${String(ts.getHours()).padStart(2,"0")}:${String(ts.getMinutes()).padStart(2,"0")}` : "";
   const parts = [];
@@ -465,7 +495,10 @@ async function runAnalysis(token) {
   $("btnAnalyze").disabled = true;
   $("btnAnalyzeRefresh").disabled = true;
   try {
-    const resp = await authFetch('/analyze', token);
+    const resp = await Promise.race([
+      authFetch('/analyze', token),
+      new Promise((_, rej) => setTimeout(() => rej(new Error("시간 초과 — 분석이 너무 오래 걸립니다. 잠시 후 다시 시도해 주세요.")), 60000)),
+    ]);
     if (resp.status === 401) throw new Error("토큰이 잘못되었습니다.");
     if (resp.status === 400) {
       const data = await resp.json().catch(() => ({}));
