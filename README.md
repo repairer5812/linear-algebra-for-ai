@@ -12,7 +12,7 @@
 
 - `index.html` — 메인 페이지 (강좌 개요, 6 핵심역량, 평가·수료, 신청, FAQ)
 - `diagnostic.html` — 진단 테스트 12문제 + 6축 육각형 결과 분석
-- `curriculum.html` — Part 1 (LA1, 7회차) + Part 2 (LA2, 8회차) + Part 3 (ML·AI의 수학, 9회차) 상세 회차표 + 자가진단 체크리스트
+- `curriculum.html` — Part 1 (선형대수 1, 7회차) + Part 2 (선형대수 2, 8회차) + Part 3 (ML·AI의 수학, 9회차) 상세 회차표 + 자가진단 체크리스트
 - `admin.html` — 강사용 익명 응답 통계 (토큰 인증)
 
 ## 핵심역량 6축

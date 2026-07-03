@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>인공지능 전공자를 위한 선형대수학</title>
-<meta name="description" content="MML 선형대수를 메인 골격으로, 정의·정리에서 출발해 NumPy·PyTorch로 직접 구현하고, 임의 AI 모델 한 모듈을 표준 선형대수 객체로 분해할 수 있는 수준까지 끌어올리는 24회차 강좌. 3 Part 구조 = 3기 운영 단위 1:1 매칭 (LA1·LA2·ML·AI의 수학).">
+<meta name="description" content="MML 선형대수를 메인 골격으로, 정의·정리에서 출발해 NumPy·PyTorch로 직접 구현하고, 임의 AI 모델 한 모듈을 표준 선형대수 객체로 분해할 수 있는 수준까지 끌어올리는 24회차 강좌. 3 Part 구조 = 3기 운영 단위 1:1 매칭 (선형대수 1·선형대수 2·ML·AI의 수학).">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -32,25 +32,25 @@
 <main>
   <section class="hero">
     <h1 class="hero__title">Artificial Intelligence(인공지능) 전공자를 위한 Linear Algebra(선형대수학)</h1>
-    <p class="hero__subtitle">정의·정리에서 출발해 NumPy·PyTorch로 직접 구현하고, AI 모델을 표준 선형대수(LA) 객체로 분해합니다.</p>
+    <p class="hero__subtitle">정의·정리에서 출발해 NumPy·PyTorch로 직접 구현하고, AI 모델을 표준 선형대수(선형대수) 객체로 분해합니다.</p>
     <ul class="hero__facts">
       <li><span class="hero__fact-k">전체 분량</span><span class="hero__fact-v">24회차 · 48시간</span></li>
       <li><span class="hero__fact-k">구성</span><span class="hero__fact-v">3 Part = 3기</span></li>
       <li><span class="hero__fact-k">회차 구성</span><span class="hero__fact-v">7 + 8 + 9</span></li>
       <li><span class="hero__fact-k">참여</span><span class="hero__fact-v">자율 · 인원 제한 없음</span></li>
     </ul>
-    <p class="hero__note"><strong>3 Part = 3기 1:1 매칭</strong>: Part 1 (LA1 선형대수 1, 7회차) · Part 2 (LA2 선형대수 2, 8회차) · Part 3 (ML·AI의 수학 Mathematics for ML·AI, 9회차). 메인 교재 Deisenroth·Faisal·Ong <em>Mathematics for Machine Learning</em> (MML), 보조 발췌 Strang, 실습 Google Colab.</p>
+    <p class="hero__note"><strong>3 Part = 3기 1:1 매칭</strong>: Part 1 (선형대수 1, 7회차) · Part 2 (선형대수 2, 8회차) · Part 3 (ML·AI의 수학 Mathematics for ML·AI, 9회차). 메인 교재 Deisenroth·Faisal·Ong <em>Mathematics for Machine Learning</em> (MML), 보조 발췌 Strang, 실습 Google Colab.</p>
   </section>
 
   <section class="section" id="purpose">
     <h2>수업의 목적</h2>
-    <p>본 강좌의 목적은 두 가지입니다. 인공지능 전공 대학원생이 ① 선형대수학의 정의와 정리를 직관과 함께 자기 것으로 만들고, ② 임의의 AI 모델 한 부분을 표준 LA 객체로 분해할 수 있게 하는 것입니다.</p>
-    <p>AI 모델의 거의 모든 연산은 Matrix(행렬) 곱, Orthogonal projection(정사영), Eigendecomposition(고유분해), SVD(특이값 분해), Kronecker 곱 같은 LA 객체로 환원됩니다. 이 객체들을 모르면 모델의 forward·backward 흐름과 수치적 거동을 읽어 낼 수 없습니다.</p>
-    <p>수업은 응용을 직접 보여주는 데 그치지 않습니다. 정의에서 출발해 정리를 이해하고, 그 정리를 NumPy·PyTorch로 구현하는 흐름을 매 회차 반복합니다. 손으로 증명을 처음부터 만들어 내기보다, <strong>논문·손실곡선·코드 속의 선형대수를 눈으로 읽어 내는 능력</strong>에 무게를 둡니다. 학생이 강좌를 마칠 때 "이 모델의 이 부분이 어떤 LA 객체인가"라는 질문에 망설임 없이 답하는 것이 목표입니다.</p>
+    <p>본 강좌의 목적은 두 가지입니다. 인공지능 전공 대학원생이 ① 선형대수학의 정의와 정리를 직관과 함께 자기 것으로 만들고, ② 임의의 AI 모델 한 부분을 표준 선형대수 객체로 분해할 수 있게 하는 것입니다.</p>
+    <p>AI 모델의 거의 모든 연산은 Matrix(행렬) 곱, Orthogonal projection(정사영), Eigendecomposition(고유분해), SVD(특이값 분해), Kronecker 곱 같은 선형대수 객체로 환원됩니다. 이 객체들을 모르면 모델의 forward·backward 흐름과 수치적 거동을 읽어 낼 수 없습니다.</p>
+    <p>수업은 응용을 직접 보여주는 데 그치지 않습니다. 정의에서 출발해 정리를 이해하고, 그 정리를 NumPy·PyTorch로 구현하는 흐름을 매 회차 반복합니다. 손으로 증명을 처음부터 만들어 내기보다, <strong>논문·손실곡선·코드 속의 선형대수를 눈으로 읽어 내는 능력</strong>에 무게를 둡니다. 학생이 강좌를 마칠 때 "이 모델의 이 부분이 어떤 선형대수 객체인가"라는 질문에 망설임 없이 답하는 것이 목표입니다.</p>
     <p>본 강좌는 총 24 Session(회차) (1회차 2시간 × 24회차 = 48시간)로 운영하며, 강의 3 Part 구조와 모집·운영 3기 단위가 1:1로 매칭됩니다.</p>
     <ul>
-      <li><strong>Part 1 (7회차)</strong> · <strong>1기 LA1 (선형대수 1)</strong> — 선형대수 기초 1: 벡터·행렬·선형방정식·벡터공간·4 기본 부분공간 (MML §2-§3 일부 + Strang Ch 1-3 발췌).</li>
-      <li><strong>Part 2 (8회차)</strong> · <strong>2기 LA2 (선형대수 2)</strong> — 선형대수 기초 2: 직교성·정사영·최소제곱·QR·행렬식·고윳값·대각화·SVD·Eckart-Young·선형변환 (MML §3-§4 + Strang Ch 4-7 발췌).</li>
+      <li><strong>Part 1 (7회차)</strong> · <strong>1기 선형대수 1</strong> — 선형대수 기초 1: 벡터·행렬·선형방정식·벡터공간·4 기본 부분공간 (MML §2-§3 일부 + Strang Ch 1-3 발췌).</li>
+      <li><strong>Part 2 (8회차)</strong> · <strong>2기 선형대수 2</strong> — 선형대수 기초 2: 직교성·정사영·최소제곱·QR·행렬식·고윳값·대각화·SVD·Eckart-Young·선형변환 (MML §3-§4 + Strang Ch 4-7 발췌).</li>
       <li><strong>Part 3 (9회차)</strong> · <strong>3기 ML·AI의 수학 (Mathematics for ML·AI)</strong> — 수학 도구 확장(미분·확률·최적화)과 ML 방법론·AI 환원: Linear Regression·PCA·GMM·SVM, CNN·Attention 분해 (MML §5-§12 + 자체 교안).</li>
     </ul>
     <p class="info-msg" style="margin-top:0.6rem;">학부에서 선형대수를 미이수했거나 보습·보완이 필요한 분을 표준 대상으로 합니다. 정의에서 차근차근 출발하므로 수식이 약해도 따라올 수 있도록 설계했고, 학부에서 한 번 들은 분은 Part 1 전반부를 빠르게 통과하고 응용에 집중하면 됩니다.</p>
@@ -85,8 +85,8 @@
   </section>
 
   <section class="section" id="competencies">
-    <h2>핵심역량 6가지 (순수 수학 LA, Strang 기준)</h2>
-    <p>본 강좌의 진단 테스트는 Gilbert Strang의 <em>Introduction to Linear Algebra</em> 기준 학부 수준 LA 개념 이해를 다음 6축으로 진단합니다. 각 축은 <strong>기초 개념 → 학부 표준 → 응용·심화</strong> 단계로 구성되며, 진단은 <strong>순수 수학 개념</strong>에만 집중합니다.</p>
+    <h2>핵심역량 6가지 (순수 수학 선형대수, Strang 기준)</h2>
+    <p>본 강좌의 진단 테스트는 Gilbert Strang의 <em>Introduction to Linear Algebra</em> 기준 학부 수준 선형대수 개념 이해를 다음 6축으로 진단합니다. 각 축은 <strong>기초 개념 → 학부 표준 → 응용·심화</strong> 단계로 구성되며, 진단은 <strong>순수 수학 개념</strong>에만 집중합니다.</p>
     <div class="hex-grid">
       <div class="card">
         <span class="card__num">1</span>
@@ -124,7 +124,7 @@
   <section class="section" id="curriculum">
     <h2>교육과정 총괄 + 진도표 요약</h2>
 
-    <h3>Part 1 (7회차) — <span style="color:var(--accent);">1기 LA1 (선형대수 1)</span> · MML §2-§3 일부 + Strang Ch 1-3 발췌, 선형대수 기초 1</h3>
+    <h3>Part 1 (7회차) — <span style="color:var(--accent);">1기 선형대수 1</span> · MML §2-§3 일부 + Strang Ch 1-3 발췌, 선형대수 기초 1</h3>
     <ul class="flow-list">
       <li><strong>1-3회차</strong> 벡터·내적·행렬-벡터 곱 (MML §2.1·§3.1-3.4·§2.2 + Strang Ch 1) — "AI의 모든 것은 <code>Ax</code>의 열 결합에서 시작한다"</li>
       <li><strong>4-5회차</strong> 선형방정식·가우스 소거·역행렬·LU 분해·전치 (MML §2.3 + Strang Ch 2 발췌)</li>
@@ -132,7 +132,7 @@
       <li><strong>7회차</strong> 열공간·rank·4 기본 부분공간·차원 정리 (MML §2.5-§2.6 + Strang Ch 3.3-3.5 발췌) — Part 1 피날레. Part 1 종합 Review는 2기 Part 2 4회차(행렬식 회차)에서 운영</li>
     </ul>
 
-    <h3>Part 2 (8회차) — <span style="color:var(--accent);">2기 LA2 (선형대수 2)</span> · MML §3-§4 + Strang Ch 4-7 발췌, 선형대수 기초 2</h3>
+    <h3>Part 2 (8회차) — <span style="color:var(--accent);">2기 선형대수 2</span> · MML §3-§4 + Strang Ch 4-7 발췌, 선형대수 기초 2</h3>
     <ul class="flow-list">
       <li><strong>1회차</strong> 직교성·정사영 — $P=A(A^\top A)^{-1}A^\top$ 중심 (MML §3.6·§3.8 + Strang Ch 4.1-4.2 발췌)</li>
       <li><strong>2회차</strong> 최소제곱·정규방정식 (MML §3.8 + Strang Ch 4.3 발췌)</li>
@@ -261,8 +261,8 @@
       <div class="faq-item__answer">
         <p>강의 3 Part 구조와 모집·운영 3기 단위가 <strong>1:1 매칭</strong>됩니다. 전체 24회차는 다음과 같이 매핑됩니다.</p>
         <ul>
-          <li><strong>1기 = Part 1 (LA1, 선형대수 1)</strong>: 1-7회차 (7회차). 2026.6.29(월) ~ 7.20(월) · 월·목 21:00.</li>
-          <li><strong>2기 = Part 2 (LA2, 선형대수 2)</strong>: 1-8회차 (8회차). 2026.7.27(월) ~ 8.24(월) · 월·목 (8/17 휴강).</li>
+          <li><strong>1기 = Part 1 (선형대수 1)</strong>: 1-7회차 (7회차). 2026.6.29(월) ~ 7.20(월) · 월·목 21:00.</li>
+          <li><strong>2기 = Part 2 (선형대수 2)</strong>: 1-8회차 (8회차). 2026.7.27(월) ~ 8.24(월) · 월·목 (8/17 휴강).</li>
           <li><strong>3기 = Part 3 (ML·AI의 수학, Mathematics for ML·AI)</strong>: 1-9회차 (9회차). 2026.9.5(토) ~ 10.31(토) · 토 오전.</li>
         </ul>
         <p>합계 7 + 8 + 9 = 24회차. 기수별로 별도 모집하므로 본인의 출발 수준에 맞춰 일부 기수만 참여하는 것도 가능합니다.</p>
