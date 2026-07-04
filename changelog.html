@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>업데이트 내역 — 인공지능 전공자를 위한 선형대수학</title>
+<meta name="description" content="커리큘럼·강의자료·사이트의 변경 이력을 날짜순으로 기록합니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .changelog { display: flex; flex-direction: column; gap: 0; margin-top: 1.5rem; }
+  .changelog__entry {
+    display: grid; grid-template-columns: 120px 1fr; gap: 1.4rem;
+    padding: 1.4rem 0; border-bottom: 1px solid #e5e7eb;
+  }
+  .changelog__entry:first-child { padding-top: 0; }
+  .changelog__date {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; font-weight: 600;
+    color: var(--accent); white-space: nowrap; padding-top: 0.15rem;
+  }
+  .changelog__tag {
+    display: inline-block; font-size: 0.72rem; font-weight: 700;
+    padding: 0.12rem 0.5rem; border-radius: 999px; margin-right: 0.4rem;
+    vertical-align: middle;
+  }
+  .changelog__tag--structure { background: rgba(134,38,51,0.1); color: var(--accent); }
+  .changelog__tag--content   { background: #e0e7ff; color: #4338ca; }
+  .changelog__tag--design    { background: #d1fae5; color: #047857; }
+  .changelog__tag--fix       { background: #f3f4f6; color: #4b5563; }
+  .changelog__title { font-size: 1.02rem; font-weight: 700; margin: 0 0 0.35rem; color: var(--text); }
+  .changelog__body { color: #4b5563; font-size: 0.92rem; line-height: 1.6; margin: 0; }
+  .changelog__body ul { margin: 0.4rem 0 0; padding-left: 1.1rem; }
+  .changelog__body li { margin: 0.15rem 0; }
+  @media (max-width: 640px) {
+    .changelog__entry { grid-template-columns: 1fr; gap: 0.3rem; }
+  }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__brand" href="index.html">선형대수학 · AI 전공자용</a>
+    <nav class="site-header__nav" aria-label="주 메뉴">
+      <a href="index.html">소개</a>
+      <a href="curriculum.html">진도표</a>
+      <a href="lectures.html">강의자료</a>
+      <a href="diagnostic.html">진단</a>
+      <a href="changelog.html" class="is-active">업데이트</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <h1 class="hero__title">업데이트 내역</h1>
+    <p class="hero__subtitle">커리큘럼·강의자료·사이트가 바뀔 때마다 이 페이지에 날짜순으로 기록합니다. 최신순으로 정렬되어 있습니다.</p>
+    <p class="hero__meta">강좌는 실제 운영 중 계속 다듬어집니다 — 진도가 느리거나 내용이 겹치면 즉시 개편하는 방식으로 운영합니다. 현재 진도표·회차 수는 <a href="curriculum.html">진도표 페이지</a>가 항상 최신 기준입니다.</p>
+  </section>
+
+  <section class="section">
+    <div class="changelog">
+
+      <div class="changelog__entry">
+        <div class="changelog__date">2026-07-04</div>
+        <div>
+          <span class="changelog__tag changelog__tag--fix">용어</span>
+          <p class="changelog__title">약어 "LA1·LA2" → "선형대수 1·선형대수 2"로 표기 통일</p>
+          <p class="changelog__body">사이트 전반에서 쓰던 영문 약어를 한글 표기로 통일했습니다. 내용 변경은 없습니다.</p>
+        </div>
+      </div>
+
+      <div class="changelog__entry">
+        <div class="changelog__date">2026-07-03</div>
+        <div>
+          <span class="changelog__tag changelog__tag--structure">구조</span>
+          <p class="changelog__title">교육과정 개편: 4 Part·28회차 → 3 Part·24회차</p>
+          <p class="changelog__body">
+            1기 운영 중 "진도가 느리고 같은 내용이 반복된다"는 점을 반영해 회차 구성을 다시 짰습니다. 전체 학습 내용은 그대로 유지하면서 회차 배치만 압축했습니다.
+            <ul>
+              <li><strong>Part 1 (선형대수 1)</strong>: 8 → 7회차 (벡터공간·기저·차원 관련 두 회차를 하나로 통합)</li>
+              <li><strong>Part 2 (선형대수 2)</strong>: 9 → 8회차 (고윳값·대각화 관련 두 회차를 하나로 통합)</li>
+              <li><strong>Part 3</strong>: 옛 "벡터미적분·확률" Part와 "ML·AI 응용" Part를 <strong>「ML·AI의 수학」 9회차 단일 Part</strong>로 통합</li>
+              <li>기수 일정 재계산: 1기 ~7/20 종료(기존 7/23에서 단축), 2기 7/27~8/24, 3기 9/5~10/31</li>
+              <li>회차별 과제(숙제) 제출 트랙은 폐지하고, Part별 자가평가 시험으로 대체할 예정입니다</li>
+            </ul>
+          </p>
+        </div>
+      </div>
+
+      <div class="changelog__entry">
+        <div class="changelog__date">2026-07-01 ~ 07-02</div>
+        <div>
+          <span class="changelog__tag changelog__tag--content">자료</span>
+          <p class="changelog__title">2회차(노름·내적·코사인 유사도) 강의자료 공개</p>
+          <p class="changelog__body">강의 PDF·Jupyter 노트북·Colab 링크를 공개했습니다. 1회차 자료도 반복 설명을 정리해 개선했습니다.</p>
+        </div>
+      </div>
+
+      <div class="changelog__entry">
+        <div class="changelog__date">2026-06-29 ~ 06-30</div>
+        <div>
+          <span class="changelog__tag changelog__tag--content">자료</span>
+          <p class="changelog__title">0·1회차 강의자료(PDF·노트북) 정식 공개</p>
+          <p class="changelog__body">Introduction·벡터/선형결합 회차의 강의 PDF와 Jupyter 노트북을 공개했습니다. 진단평가 해설집도 함께 추가했습니다.</p>
+        </div>
+      </div>
+
+      <div class="changelog__entry">
+        <div class="changelog__date">2026-06-28</div>
+        <div>
+          <span class="changelog__tag changelog__tag--structure">구조</span>
+          <p class="changelog__title">Part 4 캡스톤 발표 제거, 28회차로 정리</p>
+          <p class="changelog__body">Part 4 마지막 회차의 "Case Study 발표"를 제거하고 종합 Review로 대체했습니다(29 → 28회차). 사이트 디자인도 고려대학교 공식 교색(크림슨 #862633)으로 통일했습니다.</p>
+        </div>
+      </div>
+
+      <div class="changelog__entry">
+        <div class="changelog__date">2026-06-24 ~ 06-27</div>
+        <div>
+          <span class="changelog__tag changelog__tag--design">디자인</span>
+          <p class="changelog__title">사이트 가독성 개선</p>
+          <p class="changelog__body">본문 폰트·색상·여백을 조정해 화면·인쇄 가독성을 높였습니다.</p>
+        </div>
+      </div>
+
+      <div class="changelog__entry">
+        <div class="changelog__date">2026-05-27 ~ 05-31</div>
+        <div>
+          <span class="changelog__tag changelog__tag--structure">구조</span>
+          <p class="changelog__title">4 Part·29회차 구조 확정, Part 1 첫 3회차 공개</p>
+          <p class="changelog__body">여러 시안을 검토한 끝에 Part 1(선형대수 1)·Part 2(선형대수 2)·Part 3(벡터미적분·확률)·Part 4(ML·AI 응용)의 4 Part 구조로 확정했습니다. Part 1의 1~3회차 강의자료를 처음 공개했습니다.</p>
+        </div>
+      </div>
+
+      <div class="changelog__entry">
+        <div class="changelog__date">2026-05-19</div>
+        <div>
+          <span class="changelog__tag changelog__tag--content">자료</span>
+          <p class="changelog__title">강의자료 페이지 최초 공개</p>
+          <p class="changelog__body">회차별 강의 PDF·노트북·Colab 링크를 모아 보는 강의자료 페이지를 처음 열었습니다.</p>
+        </div>
+      </div>
+
+      <div class="changelog__entry">
+        <div class="changelog__date">2026-05-10</div>
+        <div>
+          <span class="changelog__tag changelog__tag--structure">시작</span>
+          <p class="changelog__title">선형대수 강좌 웹사이트 최초 공개</p>
+          <p class="changelog__body">소개 페이지와 사전 진단 테스트로 강좌 사이트를 처음 열었습니다.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>© SW AI 융합정보대학원 61기 최경찬 · MIT License</span>
+    <span class="info-msg" style="margin:0;">궁금한 변경 사항이 있으면 언제든 문의해 주세요.</span>
+  </div>
+</footer>
+</body>
+</html>
