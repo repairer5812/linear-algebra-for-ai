@@ -17,3 +17,6 @@ pages/.keep
 
 # Logs
 *.log
+
+# 본인 검토용 페이지는 저장소 밖(../_검토/review.html)에 둔다. 공개 금지
+dev/
