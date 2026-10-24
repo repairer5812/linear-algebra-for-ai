@@ -20,6 +20,11 @@
 //     list/get이 콜로당 60초에 1회로 묶여 reads 100k·lists 1,000/일 한도를 보호한다.
 //   - list()를 cursor로 페이지네이션해 응답이 1,000건을 넘어도 누락 없이 집계한다(잠재 버그 수정).
 
+// 문항 수와 축 이름은 진단 화면, 강사 통계와 같은 파일에서 읽는다(wrangler가 번들에 넣는다).
+import '../../assets/diagnostic-config.js';
+const { QUESTION_COUNT, AXES } = globalThis.LINALG_DIAG;
+const AXIS_COUNT = AXES.length;
+
 const CORS_HEADERS = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
@@ -144,11 +149,11 @@ async function handleSubmit(request, env, ctx) {
     return jsonResponse({ error: 'invalid json' }, 400);
   }
 
-  if (!Array.isArray(body.answers) || body.answers.length !== 12) {
-    return jsonResponse({ error: 'answers must be array of 12' }, 400);
+  if (!Array.isArray(body.answers) || body.answers.length !== QUESTION_COUNT) {
+    return jsonResponse({ error: `answers must be array of ${QUESTION_COUNT}` }, 400);
   }
-  if (!Array.isArray(body.axisScores) || body.axisScores.length !== 6) {
-    return jsonResponse({ error: 'axisScores must be array of 6' }, 400);
+  if (!Array.isArray(body.axisScores) || body.axisScores.length !== AXIS_COUNT) {
+    return jsonResponse({ error: `axisScores must be array of ${AXIS_COUNT}` }, 400);
   }
 
   // === 응답 저장 (KV write 1회만) + Rate limit 마커(Cache API) ===
@@ -194,7 +199,7 @@ async function handleStats(request, url, env, ctx) {
 
   // 문항별 정답률 + 보기별 분포
   const questionStats = [];
-  for (let q = 0; q < 12; q++) {
+  for (let q = 0; q < QUESTION_COUNT; q++) {
     const choices = { a: 0, b: 0, c: 0, d: 0 };
     let correctCount = 0;
     for (const r of responses) {
@@ -211,7 +216,7 @@ async function handleStats(request, url, env, ctx) {
 
   // 축별 평균·분포
   const axisStats = [];
-  for (let a = 0; a < 6; a++) {
+  for (let a = 0; a < AXIS_COUNT; a++) {
     const scores = responses.map(r => r.axisScores[a]);
     const mean = scores.reduce((s, v) => s + v, 0) / scores.length;
     const sorted = [...scores].sort((x, y) => x - y);
@@ -260,14 +265,7 @@ async function handleAnalyze(request, url, env, ctx) {
     return jsonResponse({ error: '응답 없음 — 분석할 데이터 부족' }, 400);
   }
 
-  const axisNames = [
-    '벡터·내적공간 (노름·내적·span·직교)',
-    '선형방정식·행렬 (LU·역행렬·가역 동치·Ax=b 해 조건)',
-    '벡터공간·부분공간 (영공간·열공간·rank·4 기본 부분공간)',
-    '직교성·정사영 (잔차 직교·정규방정식·QR·정규직교 기저)',
-    '행렬식·고윳값 (고유분해·대각화·스펙트럼 정리)',
-    'SVD·선형변환 (SVD·Eckart-Young·닮음·기저 변환)',
-  ];
+  const axisNames = AXES.map((a) => `${a.name} (${a.detail})`);
 
   // 축별 평균
   const axisLines = axisNames.map((name, a) => {
@@ -280,7 +278,7 @@ async function handleAnalyze(request, url, env, ctx) {
 
   // 문항별 정답률 + 보기 분포
   const qLines = [];
-  for (let q = 0; q < 12; q++) {
+  for (let q = 0; q < QUESTION_COUNT; q++) {
     const choices = { a: 0, b: 0, c: 0, d: 0 };
     let correct = 0;
     for (const r of responses) {
@@ -304,17 +302,17 @@ async function handleAnalyze(request, url, env, ctx) {
 [응답 수] ${responses.length}명
 [총점] 평균 ${totalMean.toFixed(1)}점, 최저 ${totalMin}점, 최고 ${totalMax}점
 
-[6 핵심역량 축별 점수]
+[${AXIS_COUNT} 핵심역량 축별 점수]
 ${axisLines}
 
-[10개 문항별 정답률·보기 분포]
+[${QUESTION_COUNT}개 문항별 정답률·보기 분포]
 ${qLines.join('\n')}
 
 위 결과를 바탕으로 강사에게 다음 4가지를 한국어로 분석해주세요:
 
 1. 학생 그룹의 강점 영역과 약점 영역 (구체적 축 이름과 점수 인용)
 2. 가장 어려워한 문항 3개와 학생들이 어떤 오개념을 가지고 있을 가능성 (보기 분포 패턴 활용)
-3. 강의에서 보강해야 할 주차 영역 — Part 1 (벡터·행렬·부분공간·정사영·QR·행렬식) 또는 Part 2 (고윳값·SVD·선형변환) 중 어디?
+3. 강의에서 보강해야 할 주차 영역: Part 1 (축 1-3: 벡터, 내적, 선형방정식, 역행렬, LU, 부분공간, rank) 또는 Part 2 (축 4-6: 직교성, 정사영, 최소제곱, QR, 행렬식, 고윳값, SVD, 선형변환) 중 어디?
 4. 흥미로운 패턴이나 outlier (있는 경우만)
 
 답변 형식:

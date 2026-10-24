@@ -6,14 +6,10 @@
 const WORKER_URL = "https://linalg-diagnostic.repairer5812.workers.dev";
 const STORAGE_KEY = "linalg_diag_state_v1";
 
-const AXIS_NAMES = [
-  "벡터·내적공간",
-  "선형방정식·행렬",
-  "벡터공간·부분공간",
-  "직교성·정사영",
-  "행렬식·고윳값",
-  "SVD·선형변환"
-];
+// 문항 수와 축 이름은 assets/diagnostic-config.js 한 곳에 있다(워커, 강사 통계와 공유).
+const DIAG = globalThis.LINALG_DIAG;
+const AXIS_NAMES = DIAG.AXES.map((a) => a.name);
+const AXIS_COUNT = AXIS_NAMES.length;
 
 // 12 questions (pure LA, 6 axes × 2). axis: 1-6. answer: 'a'|'b'|'c'|'d'.
 const QUESTIONS = [
@@ -111,7 +107,7 @@ const QUESTIONS = [
   },
   // 축 5: 행렬식·고윳값
   {
-    n: 8, axis: 5, level: "입문",
+    n: 9, axis: 5, level: "입문",
     text: "$A = \\begin{pmatrix}3 & 1 \\\\ 2 & 4\\end{pmatrix}$의 행렬식 $\\det(A)$는?",
     options: {
       a: "$7$",
@@ -122,7 +118,7 @@ const QUESTIONS = [
     answer: "c"
   },
   {
-    n: 9, axis: 5, level: "학부",
+    n: 10, axis: 5, level: "학부",
     text: "정방행렬 $A \\in \\mathbb{R}^{n \\times n}$의 고윳값을 $\\lambda_1, \\dots, \\lambda_n$이라 할 때 항상 옳은 것은?",
     options: {
       a: "$\\sum_i \\lambda_i = \\det(A)$ 이고 $\\prod_i \\lambda_i = \\mathrm{trace}(A)$",
@@ -134,7 +130,7 @@ const QUESTIONS = [
   },
   // 축 6: SVD·선형변환
   {
-    n: 10, axis: 6, level: "학부",
+    n: 11, axis: 6, level: "학부",
     text: "<strong>Eckart-Young 정리</strong>: 행렬 $A$를 rank $k$로 근사할 때 Frobenius(또는 스펙트럼) 노름 의미에서 오차를 최소로 하는 근사 $A_k$는?",
     options: {
       a: "SVD에서 큰 특잇값 상위 $k$개만 남긴 $A_k = \\sum_{i=1}^{k} \\sigma_i \\mathbf{u}_i \\mathbf{v}_i^\\top$",
@@ -158,6 +154,10 @@ const QUESTIONS = [
 ];
 
 const TOTAL_Q = QUESTIONS.length;
+if (TOTAL_Q !== DIAG.QUESTION_COUNT) {
+  // 워커가 answers 길이를 QUESTION_COUNT 로 검사하므로, 어긋나면 익명 제출이 모두 거절된다.
+  console.error(`진단 문항 수(${TOTAL_Q})가 diagnostic-config.js 의 QUESTION_COUNT(${DIAG.QUESTION_COUNT})와 다르다.`);
+}
 
 // State
 let answers = new Array(TOTAL_Q).fill(null);
@@ -250,8 +250,8 @@ function go(delta) {
 
 function computeScores() {
   // axis 1..6, count correct & total per axis
-  const correctByAxis = [0, 0, 0, 0, 0, 0];
-  const totalByAxis = [0, 0, 0, 0, 0, 0];
+  const correctByAxis = new Array(AXIS_COUNT).fill(0);
+  const totalByAxis = new Array(AXIS_COUNT).fill(0);
   const correctArr = [];
 
   QUESTIONS.forEach((q, i) => {
@@ -287,7 +287,7 @@ const CASE_TEXT = {
     headline: "본 강좌는 복습용으로 활용하시는 것이 좋겠습니다.",
     body: `
       <p>6축 대부분에서 70% 이상을 기록하셨습니다. 위 레이더에서 약한 축이 있으면 그 회차만 골라 들으시면 되고, 그 외 Part 1·2는 복습에 가깝습니다.</p>
-      <p>표준 교과서에 잘 없는 응용 위주로 보시길 권합니다: Part 3 1-2회차(행렬미분), Part 4 6-7회차(AI 모듈 환원: 임의 AI 모델 한 모듈을 표준 LA 객체로 분해).</p>
+      <p>표준 교과서에 잘 없는 응용 위주로 보시길 권합니다: Part 3 1회차(벡터 미적분: 자코비안, 체인룰, 헤시안), Part 3 8-9회차(AI 모듈 환원: 임의 AI 모델 한 모듈을 표준 선형대수 객체로 분해).</p>
     `
   },
   B: {
