@@ -20,9 +20,11 @@
 //     list/get이 콜로당 60초에 1회로 묶여 reads 100k·lists 1,000/일 한도를 보호한다.
 //   - list()를 cursor로 페이지네이션해 응답이 1,000건을 넘어도 누락 없이 집계한다(잠재 버그 수정).
 
-// 문항 수와 축 이름은 진단 화면, 강사 통계와 같은 파일에서 읽는다(wrangler가 번들에 넣는다).
+// 문항 수·축 이름·집계 함수는 강사 화면과 같은 파일에서 읽는다(wrangler가 번들에 넣는다).
 import '../../assets/diagnostic-config.js';
+import '../../assets/diagnostic-stats.js';
 const { QUESTION_COUNT, AXES } = globalThis.LINALG_DIAG;
+const { aggregateDiagnostics, formatAnalysisPrompt } = globalThis.LINALG_STATS;
 const AXIS_COUNT = AXES.length;
 
 const CORS_HEADERS = {
@@ -192,61 +194,14 @@ async function handleStats(request, url, env, ctx) {
   }
 
   const responses = await loadResponses(env, ctx);
-
-  if (responses.length === 0) {
+  const agg = aggregateDiagnostics(responses, {
+    questionCount: QUESTION_COUNT,
+    axes: AXES,
+  });
+  if (!agg) {
     return jsonResponse({ count: 0, message: '응답 없음' });
   }
-
-  // 문항별 정답률 + 보기별 분포
-  const questionStats = [];
-  for (let q = 0; q < QUESTION_COUNT; q++) {
-    const choices = { a: 0, b: 0, c: 0, d: 0 };
-    let correctCount = 0;
-    for (const r of responses) {
-      const ans = r.answers[q];
-      if (ans && choices[ans] !== undefined) choices[ans]++;
-      if (r.correct && r.correct[q]) correctCount++;
-    }
-    questionStats.push({
-      question: q + 1,
-      correctRate: correctCount / responses.length,
-      choiceDistribution: choices,
-    });
-  }
-
-  // 축별 평균·분포
-  const axisStats = [];
-  for (let a = 0; a < AXIS_COUNT; a++) {
-    const scores = responses.map(r => r.axisScores[a]);
-    const mean = scores.reduce((s, v) => s + v, 0) / scores.length;
-    const sorted = [...scores].sort((x, y) => x - y);
-    const median = sorted[Math.floor(scores.length / 2)];
-    axisStats.push({
-      axis: a + 1,
-      mean: Number(mean.toFixed(1)),
-      median: Number(median.toFixed(1)),
-      min: Math.min(...scores),
-      max: Math.max(...scores),
-    });
-  }
-
-  // 총점 분포 (10점 단위 bin)
-  const totalBins = new Array(11).fill(0);
-  for (const r of responses) {
-    const bin = Math.min(10, Math.floor(r.totalScore / 10));
-    totalBins[bin]++;
-  }
-
-  const totalScores = responses.map(r => r.totalScore);
-  const totalMean = totalScores.reduce((s, v) => s + v, 0) / totalScores.length;
-
-  return jsonResponse({
-    count: responses.length,
-    questionStats,
-    axisStats,
-    totalScoreDistribution: totalBins,
-    totalScoreMean: Number(totalMean.toFixed(1)),
-  });
+  return jsonResponse(agg);
 }
 
 // AI 분석: Google Gemini API로 진단 결과 해석
@@ -259,67 +214,17 @@ async function handleAnalyze(request, url, env, ctx) {
     return jsonResponse({ error: 'GEMINI_API_KEY not configured' }, 500);
   }
 
-  // 응답 수집 + 집계 (loadResponses 로 캐시 공유)
+  // 응답 수집은 loadResponses 한 곳. 숫자는 강사 화면과 같은 aggregateDiagnostics.
   const responses = await loadResponses(env, ctx);
-  if (responses.length === 0) {
+  const agg = aggregateDiagnostics(responses, {
+    questionCount: QUESTION_COUNT,
+    axes: AXES,
+  });
+  if (!agg) {
     return jsonResponse({ error: '응답 없음 — 분석할 데이터 부족' }, 400);
   }
 
-  const axisNames = AXES.map((a) => `${a.name} (${a.detail})`);
-
-  // 축별 평균
-  const axisLines = axisNames.map((name, a) => {
-    const scores = responses.map(r => r.axisScores[a]);
-    const mean = scores.reduce((s, v) => s + v, 0) / scores.length;
-    const min = Math.min(...scores);
-    const max = Math.max(...scores);
-    return `  축${a + 1} ${name}: 평균 ${mean.toFixed(1)}, 최저 ${min}, 최고 ${max}`;
-  }).join('\n');
-
-  // 문항별 정답률 + 보기 분포
-  const qLines = [];
-  for (let q = 0; q < QUESTION_COUNT; q++) {
-    const choices = { a: 0, b: 0, c: 0, d: 0 };
-    let correct = 0;
-    for (const r of responses) {
-      const ans = r.answers[q];
-      if (ans && choices[ans] !== undefined) choices[ans]++;
-      if (r.correct && r.correct[q]) correct++;
-    }
-    const rate = (correct / responses.length * 100).toFixed(0);
-    qLines.push(`  Q${q + 1}: 정답률 ${rate}% | a:${choices.a} b:${choices.b} c:${choices.c} d:${choices.d}`);
-  }
-
-  // 총점
-  const totalScores = responses.map(r => r.totalScore);
-  const totalMean = totalScores.reduce((s, v) => s + v, 0) / totalScores.length;
-  const totalMin = Math.min(...totalScores);
-  const totalMax = Math.max(...totalScores);
-
-  const prompt = `당신은 선형대수 강좌의 강사를 돕는 데이터 분석 어시스턴트입니다.
-다음은 선형대수 진단 테스트의 익명 응답 집계입니다.
-
-[응답 수] ${responses.length}명
-[총점] 평균 ${totalMean.toFixed(1)}점, 최저 ${totalMin}점, 최고 ${totalMax}점
-
-[${AXIS_COUNT} 핵심역량 축별 점수]
-${axisLines}
-
-[${QUESTION_COUNT}개 문항별 정답률·보기 분포]
-${qLines.join('\n')}
-
-위 결과를 바탕으로 강사에게 다음 4가지를 한국어로 분석해주세요:
-
-1. 학생 그룹의 강점 영역과 약점 영역 (구체적 축 이름과 점수 인용)
-2. 가장 어려워한 문항 3개와 학생들이 어떤 오개념을 가지고 있을 가능성 (보기 분포 패턴 활용)
-3. 강의에서 보강해야 할 주차 영역: Part 1 (축 1-3: 벡터, 내적, 선형방정식, 역행렬, LU, 부분공간, rank) 또는 Part 2 (축 4-6: 직교성, 정사영, 최소제곱, QR, 행렬식, 고윳값, SVD, 선형변환) 중 어디?
-4. 흥미로운 패턴이나 outlier (있는 경우만)
-
-답변 형식:
-- 각 항목 3-5문장 이내로 간결하게
-- 응답 수가 ${responses.length}명임을 고려하여 일반화 한계를 명시
-- 추측은 "~로 추정됩니다" 식으로 표시
-- 이모지·과장 표현 금지`;
+  const prompt = formatAnalysisPrompt(agg, { axes: AXES });
 
   const MODEL = 'gemini-2.5-flash';
   try {
