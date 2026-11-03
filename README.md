@@ -24,7 +24,7 @@
 5. 행렬식·고윳값
 6. SVD·선형변환
 
-진단 테스트의 문항 수와 축 이름은 `assets/diagnostic-config.js` 한 곳에서 고친다. 진단 화면(`assets/diagnostic.js`), 강사 통계(`admin.html`), 워커(`worker/src/index.js`)가 이 파일을 함께 읽는다. 문항 수를 바꾸면 워커를 다시 배포하고, 화면 문구에 적힌 "12문제" 같은 숫자도 손으로 고친다.
+진단 테스트의 문항 수와 축 이름은 `assets/diagnostic-config.js` 한 곳에서 고친다. 진단 화면(`assets/diagnostic.js`), 강사 통계(`admin.html`), 워커(`worker/src/index.js`)가 이 파일을 함께 읽는다. 응답 집계의 모양(총점·축·문항·히스토그램)과 계산은 `assets/diagnostic-stats.js`의 `aggregateDiagnostics` 하나다. 강사 화면과 워커(`/stats`, `/analyze`)가 이 함수를 함께 쓴다. 문항 수를 바꾸면 워커를 다시 배포하고, 화면 문구에 적힌 "12문제" 같은 숫자도 손으로 고친다.
 
 ## 학습 환경
 

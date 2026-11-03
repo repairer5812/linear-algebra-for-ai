@@ -162,14 +162,14 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
 <script src="assets/diagnostic-config.js"></script>
+<script src="assets/diagnostic-stats.js"></script>
 <script>
 const WORKER_URL = "https://linalg-diagnostic.repairer5812.workers.dev";
 const TOKEN_KEY = "linalg_admin_token_v1";
 const AI_CACHE_KEY = "linalg_admin_ai_analysis_v1";
-// 문항 수와 축 이름은 assets/diagnostic-config.js 한 곳에 있다(진단 화면, 워커와 공유).
-const AXIS_NAMES = globalThis.LINALG_DIAG.AXES.map((a) => a.name);
-const AXIS_COUNT = AXIS_NAMES.length;
-const TOTAL_Q = globalThis.LINALG_DIAG.QUESTION_COUNT;
+// 문항 수·축 이름은 diagnostic-config.js, 집계는 diagnostic-stats.js. 워커와 같은 함수다.
+const DIAG = globalThis.LINALG_DIAG;
+const { aggregateDiagnostics } = globalThis.LINALG_STATS;
 
 let chartAxisRadar = null;
 let chartCorrectRate = null;
@@ -199,89 +199,38 @@ async function authFetch(path, token) {
   return fetch(`${WORKER_URL}${path}?token=${encodeURIComponent(token)}`);
 }
 
-async function fetchStatsAndAdmin(token) {
-  const statsResp = await authFetch('/stats', token);
+async function fetchAdmin(token) {
   const adminResp = await authFetch('/admin', token);
-  if (statsResp.status === 401 || adminResp.status === 401) {
+  if (adminResp.status === 401) {
     throw new Error("Unauthorized — 토큰이 잘못되었습니다.");
   }
-  if (!statsResp.ok) throw new Error(`stats 응답 오류 (${statsResp.status})`);
   if (!adminResp.ok) throw new Error(`admin 응답 오류 (${adminResp.status})`);
-  const stats = await statsResp.json();
-  const admin = await adminResp.json();
-  return { stats, admin };
+  return await adminResp.json();
 }
 
-function median(arr) {
-  if (!arr.length) return 0;
-  const sorted = [...arr].sort((a, b) => a - b);
-  const mid = sorted.length >> 1;
-  return sorted.length % 2 ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2;
-}
-
-function computeFromAdmin(records) {
-  // records: array of submissions with answers/correct/axisScores/totalScore
-  const n = records.length;
-  if (!n) return null;
-
-  const scores = records.map((r) => Number(r.totalScore) || 0);
-  const avg = scores.reduce((a, b) => a + b, 0) / n;
-  const med = median(scores);
-  const max = Math.max(...scores);
-
-  // axis avg
-  const axisAvg = new Array(AXIS_COUNT).fill(0);
-  records.forEach((r) => {
-    const a = Array.isArray(r.axisScores) ? r.axisScores : [];
-    for (let i = 0; i < AXIS_COUNT; i++) axisAvg[i] += Number(a[i]) || 0;
-  });
-  for (let i = 0; i < AXIS_COUNT; i++) axisAvg[i] /= n;
-
-  // correct rate per question
-  const correctCount = new Array(TOTAL_Q).fill(0);
-  records.forEach((r) => {
-    const c = Array.isArray(r.correct) ? r.correct : [];
-    for (let i = 0; i < TOTAL_Q; i++) if (c[i]) correctCount[i] += 1;
-  });
-  const correctRate = correctCount.map((c) => (c / n) * 100);
-
-  // option distribution per question
-  const optionDist = Array.from({ length: TOTAL_Q }, () => ({ a: 0, b: 0, c: 0, d: 0 }));
-  records.forEach((r) => {
-    const ans = Array.isArray(r.answers) ? r.answers : [];
-    for (let i = 0; i < TOTAL_Q; i++) {
-      const v = ans[i];
-      if (v === "a" || v === "b" || v === "c" || v === "d") optionDist[i][v] += 1;
-    }
-  });
-
-  // score histogram (11 bins: 0-10, 10-20, ..., 90-100, 100)
-  const histBins = new Array(11).fill(0);
-  scores.forEach((s) => {
-    let bin = Math.floor(s / 10);
-    if (bin < 0) bin = 0;
-    if (bin > 10) bin = 10;
-    histBins[bin] += 1;
-  });
-
-  return { n, avg, med, max, axisAvg, correctRate, optionDist, histBins };
+function recordsFromAdmin(admin) {
+  if (admin && Array.isArray(admin.responses)) return admin.responses;
+  if (admin && Array.isArray(admin.records)) return admin.records;
+  if (Array.isArray(admin)) return admin;
+  if (admin && Array.isArray(admin.data)) return admin.data;
+  return [];
 }
 
 function drawAll(agg) {
-  $("statTotal").textContent = agg.n;
-  $("statAvg").textContent = agg.avg.toFixed(1);
-  $("statMedian").textContent = agg.med.toFixed(1);
-  $("statMax").textContent = agg.max.toFixed(1);
+  $("statTotal").textContent = agg.count;
+  $("statAvg").textContent = agg.total.mean.toFixed(1);
+  $("statMedian").textContent = agg.total.median.toFixed(1);
+  $("statMax").textContent = agg.total.max.toFixed(1);
 
   // 1. axis radar
   if (chartAxisRadar) chartAxisRadar.destroy();
   chartAxisRadar = new Chart($("axisRadar").getContext("2d"), {
     type: "radar",
     data: {
-      labels: AXIS_NAMES.map((n, i) => `${i + 1}. ${n}`),
+      labels: agg.axes.map((a, i) => `${i + 1}. ${a.name}`),
       datasets: [{
         label: "축별 평균(%)",
-        data: agg.axisAvg,
+        data: agg.axes.map((a) => a.mean),
         backgroundColor: "rgba(134, 38, 51, 0.18)",
         borderColor: "#862633",
         borderWidth: 2,
@@ -304,8 +253,8 @@ function drawAll(agg) {
     }
   });
 
-  // 2. correct rate bar
-  const qLabels = Array.from({ length: TOTAL_Q }, (_, i) => `Q${i + 1}`);
+  // 2. correct rate bar. correctRate는 0–1 비율이라 차트에서만 퍼센트로 본다.
+  const qLabels = agg.questions.map((q) => `Q${q.question}`);
   if (chartCorrectRate) chartCorrectRate.destroy();
   chartCorrectRate = new Chart($("correctRateBar").getContext("2d"), {
     type: "bar",
@@ -313,7 +262,7 @@ function drawAll(agg) {
       labels: qLabels,
       datasets: [{
         label: "정답률(%)",
-        data: agg.correctRate,
+        data: agg.questions.map((q) => q.correctRate * 100),
         backgroundColor: "#862633",
         borderRadius: 4
       }]
@@ -338,7 +287,7 @@ function drawAll(agg) {
       labels: qLabels,
       datasets: ["a", "b", "c", "d"].map((letter) => ({
         label: `(${letter})`,
-        data: agg.optionDist.map((d) => d[letter]),
+        data: agg.questions.map((q) => q.choices[letter]),
         backgroundColor: optColors[letter],
         stack: "opt"
       }))
@@ -354,16 +303,15 @@ function drawAll(agg) {
     }
   });
 
-  // 4. score histogram
-  const histLabels = ["0-10","10-20","20-30","30-40","40-50","50-60","60-70","70-80","80-90","90-100","100"];
+  // 4. score histogram. 라벨은 집계가 준 경계([0, 10), …, 100)를 그대로 쓴다.
   if (chartScoreHist) chartScoreHist.destroy();
   chartScoreHist = new Chart($("scoreHist").getContext("2d"), {
     type: "bar",
     data: {
-      labels: histLabels,
+      labels: agg.histogram.labels,
       datasets: [{
         label: "응답 수",
-        data: agg.histBins,
+        data: agg.histogram.counts,
         backgroundColor: "#862633",
         borderRadius: 4
       }]
@@ -385,38 +333,14 @@ let lastAdmin = null;
 async function loadStats(token) {
   hideError();
   try {
-    const { stats, admin } = await fetchStatsAndAdmin(token);
-    // prefer admin records to compute from raw (more flexible)
-    let records = [];
-    if (admin && Array.isArray(admin.responses)) records = admin.responses;
-    else if (admin && Array.isArray(admin.records)) records = admin.records;
-    else if (Array.isArray(admin)) records = admin;
-    else if (admin && Array.isArray(admin.data)) records = admin.data;
-
-    if (!records.length && stats) {
-      // fallback: use stats payload if it already aggregates
-      $("statsSection").hidden = false;
-      $("statTotal").textContent = stats.total ?? "?";
-      $("statAvg").textContent = stats.avgScore != null ? Number(stats.avgScore).toFixed(1) : "?";
-      $("statMedian").textContent = stats.medianScore != null ? Number(stats.medianScore).toFixed(1) : "?";
-      $("statMax").textContent = stats.maxScore != null ? Number(stats.maxScore).toFixed(1) : "?";
-      if (Array.isArray(stats.axisAvg)) {
-        drawAll({
-          n: stats.total || 0,
-          avg: stats.avgScore || 0,
-          med: stats.medianScore || 0,
-          max: stats.maxScore || 0,
-          axisAvg: stats.axisAvg,
-          correctRate: stats.correctRate || new Array(TOTAL_Q).fill(0),
-          optionDist: stats.optionDist || Array.from({length: TOTAL_Q}, () => ({a:0,b:0,c:0,d:0})),
-          histBins: stats.histBins || new Array(11).fill(0)
-        });
-      }
-      lastAdmin = admin;
-      return;
-    }
-
-    const agg = computeFromAdmin(records);
+    const admin = await fetchAdmin(token);
+    const records = recordsFromAdmin(admin);
+    const agg = records.length
+      ? aggregateDiagnostics(records, {
+          questionCount: DIAG.QUESTION_COUNT,
+          axes: DIAG.AXES,
+        })
+      : null;
     if (!agg) {
       showError("응답 데이터가 비어 있습니다.");
       return;
