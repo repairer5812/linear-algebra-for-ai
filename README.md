@@ -48,6 +48,22 @@
 - html2canvas + jsPDF — 결과 PNG/PDF 다운로드
 - Cloudflare Worker (`worker/` 디렉터리) — 익명 응답 수집·집계
 
+## 강의 PDF
+
+Part 1 교안 PDF의 원본은 Marp 마크다운이다. `00`, `01`, `03`부터 `07`은 `90dc8d3` 직전 커밋의 소스이고, `02`는 그 뒤에 다시 올린 `lectures/Part1/02회차_노름_내적_코사인유사도.md`다. 슬라이드 그림은 `lectures/Part1/assets/`에 있다.
+
+저장소에 들어 있는 PDF는 PptxGenJS 슬라이드를 LibreOffice 또는 PowerPoint로 내보낸 파일이다. 그 pptx는 git에 없다. 아래 Marp 명령은 이 마크다운으로 PDF를 만들며, 커밋된 PDF와 바이트가 같지 않다. 명령은 커밋된 PDF를 덮어쓰지 않도록 `/tmp`에 쓴다.
+
+```bash
+npx --yes @marp-team/marp-cli --pdf --allow-local-files \
+  --output /tmp/00회차_Introduction.pdf \
+  lectures/Part1/00회차_Introduction.md
+```
+
+Chrome(또는 Chromium)이 필요하다. 각 파일 앞머리의 `math: mathjax`로 수식을 그린다. `02`가 참조하는 `assets/02_d4_attention_banner.jpg`, `02_d4_transformer_full.png`, `02_d4_softmax.png`, `02_d4_attention.png`는 git 히스토리에 없다.
+
+`06`, `07` 소스 파일 이름은 공개 PDF와 다르다. 소스는 `06회차_벡터공간_부분공간.md`, `07회차_열공간_Rank_4부분공간_도입.md`이고, PDF는 `06회차_벡터공간_부분공간_기저_차원.pdf`, `07회차_열공간_Rank_4부분공간_차원정리.pdf`다.
+
 ## 라이선스
 
 본 저장소의 페이지·문서·이미지 자료는 MIT License 하에 공개한다. 외부 인용 자료(MML, Strang, EoLA 등)는 각 원저작자의 라이선스를 따른다.
