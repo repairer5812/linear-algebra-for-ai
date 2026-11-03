@@ -13,7 +13,7 @@
 - `index.html` — 메인 페이지 (강좌 개요, 6 핵심역량, 평가·수료, 신청, FAQ)
 - `diagnostic.html` — 진단 테스트 12문제 + 6축 레이더 차트 결과
 - `curriculum.html` — Part 1 (선형대수 1, 7회차) + Part 2 (선형대수 2, 8회차) + Part 3 (ML·AI의 수학, 9회차) 상세 회차표 + 자가진단 체크리스트
-- `lectures.html` — 강의자료 (Part 1 PDF·노트북·Colab. Part 2·3는 순차 공개 자리)
+- `lectures.html` — 강의자료 (Part 1 PDF, 노트북, Colab. Part 2, Part 3는 순차 공개 자리)
 - `changelog.html` — 변경 이력
 - `admin.html` — 강사용 익명 응답 통계 (토큰 인증)
 
